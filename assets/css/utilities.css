@@ -1,0 +1,12 @@
+.container{
+    width: 100%;
+}
+.flex{
+    display: flex;
+}
+.flex-row{
+    flex-direction: row;
+}
+.flex-1{
+    flex:1
+}

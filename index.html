@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - URS Booking</title>
-</head>
-<body>
-    <section class="container">
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/utilities.css" />
+    <link rel="stylesheet" href="./assets/css/queries.css" />
+
+    <script src="./assets//js/script.js"></script>
+  </head>
+  <body>
+    <section class="container flex">
         <div class="features">features</div>
-        <div class="login">login</div>
+        <div class="login flex-1">
+            <form id="form-account-login">
+                <input type="email" name="email" id="email" class="form-input">
+                <input type="password" name="password" id="password" class="form-input">
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </section>
-    <!-- Features -->
-    <!-- Login -->
-</body>
+  </body>
 </html>
