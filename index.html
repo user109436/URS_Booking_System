@@ -4,37 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin - URS Login</title>
+    <title>Home - Request</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
-
-    <script src="./assets//js/script.js"></script>
   </head>
   <body>
-    <section class="container-80 flex">
-      <div
-        class="features h-full flex flex-align-center flex-justify-center flex-col"
-      >
-        <h1 class="font-bold font-lg color-primary">
-          Request Management System
-        </h1>
-        <h1 class="u-m-y-sm font-light color-primary">
-          <a href="http://ridgetech.com.ph/" target="_blank">
-            Project under RidgeTech Simplified Solutions, Inc.</a
-          >
-        </h1>
-        <img
-          src="./assets/img/undraw_hiring_re_yk5n.svg"
-          alt="request documents"
-          class="features-img-lg"
-        />
-      </div>
-      <div
-        class="login flex flex-justify-center flex-align-center flex-1 h-full"
-      >
-        <div class="card flex flex-align-center flex-1 h-50 border-rounded">
-          <form id="form-account-login" class="flex flex-col u-p-lg w-full">
+    <section class="request-form">
+      <div class="container-80">
+        <div class="card flex flex-align-center flex-1 border-rounded">
+          <form id="form-account-request" class="flex flex-col u-p-lg w-full">
             <div class="container-80 text-center">
               <img
                 src="./assets/img/urs-logo.jpeg"
@@ -42,34 +21,45 @@
                 class="img-logo"
               />
             </div>
-            <h1 class="text-center color-primary">URS Admin & Offices Login</h1>
+            <h1 class="text-center color-primary">Request Form</h1>
             <div class="u-mt-lg">
-              <label for="email" class="w-full">Email</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                class="form-input"
-                required
-                placeholder="admin@urs.com.ph"
-              />
+              <label for="office">Office</label>
+              <select name="office" id="office" class="form-input" required>
+                <option value="office_id">Registrar's Office</option>
+                <option value="office_id">OSDS Office</option>
+              </select>
             </div>
             <div class="u-mt-lg">
-              <label for="email">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
+              <label for="service">Service</label>
+              <select name="service" id="service" class="form-input" required>
+                <option value="service_id">
+                  Transcript of Records (Php 50/page) - Php 50
+                </option>
+                <option value="service_id">
+                  Scholastic Records (Php 20/page) - Php 20
+                </option>
+              </select>
+            </div>
+            <div class="u-mt-lg">
+              <label for="user_note"
+                >Important Notes of Documents (optional):</label
+              >
+              <textarea
                 class="form-input"
-                required
-                placeholder="**********"
-              />
+                name="user_note"
+                id="user_note"
+                rows="5"
+                placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
+              ></textarea>
+            </div>
+            <div class="u-mt-lg">
+              <input class="" type="file" name="files" accept=".pdf" multiple />
             </div>
             <button
               type="submit"
               class="btn btn-primary u-mt-lg transition-normal"
             >
-              Login
+              Submit Request
             </button>
           </form>
         </div>
