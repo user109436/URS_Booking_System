@@ -2,6 +2,11 @@
     width: 100%;
 }
 
+.container-90 {
+    width: 90%;
+    margin: 0 auto;
+}
+
 .container-80 {
     width: 80%;
     margin: 0 auto;
@@ -94,6 +99,22 @@
 
 .bg-grey-light-2 {
     background-color: var(--color-grey-light-2);
+}
+
+.bg-error {
+    background-color: var(--color-error);
+}
+
+.bg-success {
+    background-color: var(--color-success);
+}
+
+.bg-pending {
+    background-color: var(--color-pending);
+}
+
+.bg-processing {
+    background: var(--color-processing);
 }
 
 /* COLORS */
@@ -227,4 +248,9 @@
 /* POINTER */
 .cursor-pointer {
     cursor: pointer;
+}
+
+/* OVERFLOW */
+.overflow-auto {
+    overflow: auto;
 }
