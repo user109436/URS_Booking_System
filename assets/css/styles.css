@@ -166,12 +166,23 @@ th {
 }
 
 tr:hover {
+    background-color: var(--color-secondary) !important;
+    color: var(--color-grey-light-2);
+    cursor: pointer;
+}
+
+tr:hover a {
+    color: var(--color-grey-light-1);
+}
+
+tr:nth-child(even) {
     background-color: var(--color-grey-light-2);
-    /* background-color: var(--color-primary); */
 }
 
 /* BADGE */
 .badge {
     padding: .3rem 1rem;
     color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+    display: inline-block;
 }
