@@ -1,0 +1,7 @@
+@media only screen and (max-width:800px) {
+
+    /*TODO:REMOVE FEATURES SIDE ON LOGIN WHEN SCREEN GETS SMALLER */
+    .features {
+        display: none;
+    }
+}

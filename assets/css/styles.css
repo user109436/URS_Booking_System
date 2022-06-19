@@ -32,7 +32,7 @@ html {
 
 .features {
     /* background-color: blue; */
-    width: 60%;
+    width: 55%;
 }
 
 .login {
@@ -103,4 +103,22 @@ html {
     background-color: transparent;
     color: var(--color-secondary);
     border: 1px solid var(--color-secondary);
+}
+
+/* IMAGES */
+.img-logo {
+    width: 6rem;
+}
+
+.features-img-lg {
+    width: 30rem;
+}
+
+a:visited {
+    color: var(--color-primary);
+}
+
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-grey-light-1);
 }

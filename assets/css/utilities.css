@@ -119,6 +119,10 @@
     margin-top: 5.5rem;
 }
 
+.u-m-y-sm {
+    margin: 1rem 0;
+}
+
 .u-m-y-m {
     margin: 2rem 0;
 }
@@ -142,4 +146,30 @@
 
 .u-px-lg {
     padding: 0 var(--lg);
+}
+
+/* TEXT ALIGNMENT */
+.text-center {
+    text-align: center;
+}
+
+/* FONTS */
+.font-lg {
+    font-size: 2rem;
+}
+
+.font-md {
+    font-size: 1rem;
+}
+
+.font-light {
+    font-weight: 100;
+}
+
+.font-semi-bold {
+    font-weight: 400;
+}
+
+.font-bold {
+    font-weight: bold;
 }
