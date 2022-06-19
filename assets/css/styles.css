@@ -28,6 +28,7 @@ html {
     box-sizing: border-box;
     font-size: 75%;
     background-color: #f5f5f5;
+    scroll-behavior: smooth;
 }
 
 .features {
@@ -122,6 +123,10 @@ html {
     width: 30rem;
 }
 
+.img-sm {
+    width: 10rem;
+}
+
 a:visited {
     color: var(--color-primary);
 }
@@ -129,4 +134,12 @@ a:visited {
 ::selection {
     background-color: var(--color-primary);
     color: var(--color-grey-light-1);
+}
+
+/* BOX */
+.box {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
 }
