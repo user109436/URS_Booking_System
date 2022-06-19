@@ -59,6 +59,7 @@ html {
     border-width: .2px;
     border-color: var(--color-primary);
     font-size: var(--font-size-medium);
+    color: var(--color-primary);
 }
 
 .form-input:focus-visible {
