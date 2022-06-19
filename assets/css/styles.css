@@ -1,31 +1,106 @@
-*,
-*::before,
-*:after{
-margin: 0;
-padding: 0;
-box-sizing:inherit;
-font-family: "Open Sans", sans-serif;
+/* variables */
+:root {
+    --color-primary: #6868eb;
+    --color-secondary: #3689dc;
+    --color-grey-light-1: #faf9f9;
+    --color-grey-light-2: #f4f2f2;
+    --color-primary-dark: #5a5abb;
+    --color-error: #eb6868;
+    --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+    --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+    --font-size-medium: medium;
+    --sm: .5rem;
+    --md: 1rem;
+    --lg: 1.3rem;
+    --line: 1px solid var(--color-grey-light-2);
 }
 
-html{
-    box-sizing:border-box;
+*,
+*::before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: "Open Sans", sans-serif;
+}
+
+html {
+    box-sizing: border-box;
     font-size: 75%;
     background-color: #f5f5f5;
 }
-.features{
+
+.features {
     /* background-color: blue; */
-    width:60%;
+    width: 60%;
 }
-.login{
+
+.login {
     /* background-color: green; */
     /* width: 50%; */
 }
-.card{
-    padding:1rem;
-    margin:1rem;
-    background-color: white;
-    box-shadow: 1px .3px 4px;
-}
-.form-account-login{
 
+.card {
+    padding: 1rem;
+    margin: 1rem;
+    background-color: white;
+    box-shadow: var(--shadow-light);
+}
+
+/* FORMS */
+
+#form-account-login {}
+
+.form-input {
+    width: 100%;
+    margin: var(--sm) 0;
+    padding: var(--md);
+    border-width: .2px;
+    border-color: var(--color-primary);
+    font-size: var(--font-size-medium);
+}
+
+.form-input:focus-visible {
+    outline-color: var(--color-primary);
+    background-color: var(--color-grey-light-1)
+}
+
+/* FOR ERROR VALIDATION OF USER */
+.form-input-error {
+    border-color: var(--color-error);
+}
+
+/* BUTTONS */
+
+.btn {
+    padding: 0.8rem 2.5rem;
+    border: none;
+    color: #ffff;
+    font-size: var(--font-size-medium);
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.btn-rounded {
+    border-radius: 100px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary);
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
 }

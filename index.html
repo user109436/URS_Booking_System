@@ -12,17 +12,39 @@
     <script src="./assets//js/script.js"></script>
   </head>
   <body>
-    <section class="container flex">
-        <div class="features h-full">features</div>
-        <div class="login flex-1 h-full">
-          <div class="card">
-            <form id="form-account-login">
-              <input type="email" name="email" id="email" class="form-input">
-              <input type="password" name="password" id="password" class="form-input">
-              <button type="submit">Login</button>
+    <section class="container-80 flex">
+      <div class="features h-full">features</div>
+      <div
+        class="login flex flex-justify-center flex-align-center flex-1 h-full"
+      >
+        <div class="card flex flex-align-center flex-1 h-50 border-rounded">
+          <form id="form-account-login" class="flex flex-col u-p-lg w-full">
+            <div class="u-mt-lg">
+              <label for="email" class="w-full">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-input"
+                required
+                placeholder="admin@urs.com.ph"
+              />
+            </div>
+            <div class="u-mt-lg">
+              <label for="email">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="form-input"
+                required
+                placeholder="**********"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary u-mt-lg">Login</button>
           </form>
-          </div>
         </div>
+      </div>
     </section>
   </body>
 </html>
