@@ -173,3 +173,8 @@
 .font-bold {
     font-weight: bold;
 }
+
+/* TRANSITIONS */
+.transition-normal {
+    transition: all ease-in .2s;
+}
