@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Request</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/utilities.css" />
+    <link rel="stylesheet" href="./assets/css/queries.css" /> 
+    <link rel="stylesheet" href="./assets/css/request_data.css" />
+  </head>
+  <body>
+    <section class="landing-page h-full  ">
+      <div class="container-80 flex flex-col">
+        <h1 class="text-center color-primary font-lg font-light u-m-y-m">
+          URS Request Management System
+        </h1>
+      </div>
+         
+      <!-- Tab Section for: New request, Processing , Finished -->
+      <div class="tab-section"> 
+      
+            <input type="radio" class="tabs_radio" name="tabs" id="NR-tab" checked>
+            <label for="NR-tab" class="tabs_label">New Request</label>
+            <div class="tab_content NR">
+              <!-- New request Content -->
+              <div class="container overflow-auto">
+                <table class="container-90 card">
+                  <div class="search-table flex flex-justify-center container-90">
+                    <input
+                      class="form-input"
+                      type="text"
+                      name="search-table"
+                      value=""
+                      placeholder="Search Items"
+                    />
+                  </div>
+                  <tr class="bg-primary">
+                    <th>Date Created</th>
+                    <th>Request/Service</th>
+                    <th>File Name</th>
+                    <th>User Note</th>
+                    <th>Status</th>
+                  </tr>
+                  <tr>
+                    <td>June 18, 2022 8:05 AM</td>
+                    <td>Transcript of Records (Php 50/page) - Php 50</td>
+                    <td><a href="#download-link">John Doe - Request.pdf</a></td>
+                    <td>
+                      Can I get the documents by Monday ? it's really urgent. Thanks!
+                    </td>
+                    <td>
+                      <span class="badge border-rounded bg-success">Pendding</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>June 17, 2022 8:04 AM</td>
+                    <td>Transcript of Records (Php 50/page) - Php 50</td>
+                    <td><a href="#download-link">Jane Doe - Request.pdf</a></td>
+                    <td>
+                      Can I get the documents by Monday ? it's really urgent. Thanks!
+                    </td>
+                    <td>
+                      <span class="badge border-rounded bg-success"
+                        >Pendding</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>June 17, 2022 8:03 AM</td>
+                    <td>Transcript of Records (Php 50/page) - Php 50</td>
+                    <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+                    <td>
+                      Can I get the documents by Monday ? it's really urgent. Thanks!
+                    </td>
+                    <td>
+                      <span class="badge border-rounded bg-success">Pendding</span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+
+            <input type="radio" class="tabs_radio" name="tabs" id="PROC-tab" >
+            <label for="PROC-tab" class="tabs_label">Processing</label>
+            <div class="tab_content PROC">
+               <!-- Processing Content -->
+              <div class="container overflow-auto">
+                <table class="container-90 card">
+                  <div class="search-table flex flex-justify-center container-90">
+                    <input
+                      class="form-input"
+                      type="text"
+                      name="search-table"
+                      value=""
+                      placeholder="Search Items"
+                    />
+                  </div>
+                  <tr class="bg-primary">
+                    <th>Date Created</th>
+                    <th>Request/Service</th>
+                    <th>File Name</th>
+                    <th>User Note</th>
+                    <th>Status</th>
+                  </tr>
+                  <tr>
+                    <td>June 18, 2022 8:05 AM</td>
+                    <td>Transcript of Records (Php 50/page) - Php 50</td>
+                    <td><a href="#download-link">John Doe - Request.pdf</a></td>
+                    <td>
+                      Can I get the documents by Monday ? it's really urgent. Thanks!
+                    </td>
+                    <td>
+                      <span class="badge border-rounded bg-processing">Processing</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>June 17, 2022 8:04 AM</td>
+                    <td>Transcript of Records (Php 50/page) - Php 50</td>
+                    <td><a href="#download-link">Jane Doe - Request.pdf</a></td>
+                    <td>
+                      Can I get the documents by Monday ? it's really urgent. Thanks!
+                    </td>
+                    <td>
+                      <span class="badge border-rounded bg-processing"
+                        >Processing</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>June 17, 2022 8:03 AM</td>
+                    <td>Transcript of Records (Php 50/page) - Php 50</td>
+                    <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+                    <td>
+                      Can I get the documents by Monday ? it's really urgent. Thanks!
+                    </td>
+                    <td>
+                      <span class="badge border-rounded bg-processing">Processing</span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+
+            <input type="radio" class="tabs_radio" name="tabs" id="FIN-tab" >
+            <label for="FIN-tab" class="tabs_label">Finished</label>
+            <div class="tab_content FIN">
+               <!-- Finished Content -->
+              <div class="container overflow-auto">
+                <table class="container-90 card">
+                  <div class="search-table flex flex-justify-center container-90">
+                    <input
+                      class="form-input"
+                      type="text"
+                      name="search-table"
+                      value=""
+                      placeholder="Search Items"
+                    />
+                  </div>
+                  <tr class="bg-primary">
+                    <th>Date Created</th>
+                    <th>Request/Service</th>
+                    <th>File Name</th>
+                    <th>User Note</th>
+                    <th>Status</th>
+                  </tr>
+                  <tr>
+                    <td>June 18, 2022 8:05 AM</td>
+                    <td>Transcript of Records (Php 50/page) - Php 50</td>
+                    <td><a href="#download-link">John Doe - Request.pdf</a></td>
+                    <td>
+                      Can I get the documents by Monday ? it's really urgent. Thanks!
+                    </td>
+                    <td>
+                      <span class="badge border-rounded bg-success">Paid</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>June 17, 2022 8:04 AM</td>
+                    <td>Transcript of Records (Php 50/page) - Php 50</td>
+                    <td><a href="#download-link">Jane Doe - Request.pdf</a></td>
+                    <td>
+                      Can I get the documents by Monday ? it's really urgent. Thanks!
+                    </td>
+                    <td>
+                      <span class="badge border-rounded bg-pending"
+                        >Payment Required</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>June 17, 2022 8:03 AM</td>
+                    <td>Transcript of Records (Php 50/page) - Php 50</td>
+                    <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+                    <td>
+                      Can I get the documents by Monday ? it's really urgent. Thanks!
+                    </td>
+                    <td>
+                      <span class="badge border-rounded bg-processing">Processing</span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+      </div>
+      
+    </section>
+    <section class="contributors">
+      <!-- TODO: Images, LinkedIn and Repo of the Project -->
+    </section>
+  </body>
+</html>
