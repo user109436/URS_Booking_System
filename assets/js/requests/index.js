@@ -6,12 +6,12 @@ var office = document.getElementById("office")
 var service = document.getElementById("service")
 var userNote = document.getElementById("user_note")
 var file = document.getElementById("obj_file")
-var port = 44310
+var proxy = "https://localhost:44310"
 
 //OnStart
 getOffice()
 getService()
-// getRequest()
+getRequest()
 
 // Form Submit
 requestForm.addEventListener("submit", (e) => {
@@ -36,28 +36,66 @@ requestForm.addEventListener("submit", (e) => {
 	};
 })
 
-
 // API Request
 async function getOffice() {
-	const response = await fetch(`https://localhost:${port}/api/request/get-all-offices`);
-	var data = await response.json();
-	appendOfficeOption(office, data)
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/request/get-all-offices`
+	var httpMethod = 'GET'
+
+	xhr.open(httpMethod, url, true);
+
+	xhr.onload = function(){
+	  if(this.status == 200){
+		var data = JSON.parse(this.responseText);
+		appendOfficeOption(office, data)
+	  } else if(this.status = 404){
+		console.log("error")
+	  }
+	}
+	
+	xhr.send();
 }
 
 async function getService() {
-	const response = await fetch(`https://localhost:${port}/api/request/get-all-services`);
-	var data = await response.json();
-	appendServiceOption(service, data)
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/request/get-all-services`
+	var httpMethod = 'GET'
+
+	xhr.open(httpMethod, url, true);
+
+	xhr.onload = function(){
+	  if(this.status == 200){
+		var data = JSON.parse(this.responseText);
+		appendServiceOption(service, data)
+	  } else if(this.status = 404){
+		console.log("error")
+	  }
+	}
+	
+	xhr.send();
 }
 
 async function getRequest() {
-	const response = await fetch(`https://localhost:${port}/api/request/get-all-requests`);
-	var data = await response.json();
-	console.log(data)
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/request/get-all-requests`
+	var httpMethod = 'GET'
+
+	xhr.open(httpMethod, url, true);
+
+	xhr.onload = function(){
+	  if(this.status == 200){
+		var data = JSON.parse(this.responseText);
+		console.log(data)
+	  } else if(this.status = 404){
+		console.log("error")
+	  }
+	}
+	
+	xhr.send();
 }
 
 async function sendRequest(values) {
-	var url = `https://localhost:${port}/api/request/create-request`
+	var url = `${proxy}/api/request/create-request`
 
 	const response = await fetch(url, {
 		method: "POST",
