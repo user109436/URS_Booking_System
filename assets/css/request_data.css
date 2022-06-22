@@ -1,23 +1,25 @@
 
- /* Tab Section for: New request, Proscessing , Finished  */
+ /* Tab Section for: New request, Paid, Proscessing , Finished  */
 .tab-section {
     border-radius: 15px;
-    width: 100%;
+    width: 90%;
     max-height: 400px;
-    margin: 2% 0 2% 0;
     display: flex;
     flex-wrap: wrap;
     font-size: 13px;
 }
 
 .tabs_label {
+    width: 15rem;
+    text-align: center;
     cursor: pointer;
     padding: 10px;
-    margin: auto;
+    margin:  auto;
     justify-content: center; 
     font-size: 15px;
-  /* border: solid black 1px; */
-
+    border: 1px solid var(--color-primary-dark);
+    border-bottom:none;
+    border-radius: 20px 20px 0 0 ;
 }
 
 .tabs_radio {
@@ -30,12 +32,14 @@
     font-size: 0.9em;
     display: none;
     padding:  10px 0 10px 0;
+    background-color: #fff;
+  
 }
 
 .tabs_radio:checked + .tabs_label {
     font-weight: bold;
     color: var(--color-primary);
-    border-bottom: 2px solid var(--color-primary-dark);
+    background-color: #fff;
 }
   
 .tabs_radio:checked + .tabs_label + .tab_content {
