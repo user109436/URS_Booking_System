@@ -44,15 +44,15 @@ async function getOffice() {
 
 	xhr.open(httpMethod, url, true);
 
-	xhr.onload = function(){
-	  if(this.status == 200){
-		var data = JSON.parse(this.responseText);
-		appendOfficeOption(office, data)
-	  } else if(this.status = 404){
-		console.log("error")
-	  }
+	xhr.onload = function () {
+		if (this.status == 200) {
+			var data = JSON.parse(this.responseText);
+			appendOfficeOption(office, data)
+		} else if (this.status = 404) {
+			console.log("error")
+		}
 	}
-	
+
 	xhr.send();
 }
 
@@ -63,15 +63,15 @@ async function getService() {
 
 	xhr.open(httpMethod, url, true);
 
-	xhr.onload = function(){
-	  if(this.status == 200){
-		var data = JSON.parse(this.responseText);
-		appendServiceOption(service, data)
-	  } else if(this.status = 404){
-		console.log("error")
-	  }
+	xhr.onload = function () {
+		if (this.status == 200) {
+			var data = JSON.parse(this.responseText);
+			appendServiceOption(service, data)
+		} else if (this.status = 404) {
+			console.log("error")
+		}
 	}
-	
+
 	xhr.send();
 }
 
@@ -82,26 +82,55 @@ async function getRequest() {
 
 	xhr.open(httpMethod, url, true);
 
-	xhr.onload = function(){
-	  if(this.status == 200){
-		var data = JSON.parse(this.responseText);
-		console.log(data)
-	  } else if(this.status = 404){
-		console.log("error")
-	  }
+	xhr.onload = function () {
+		if (this.status == 200) {
+			var data = JSON.parse(this.responseText);
+			console.log(data)
+		} else if (this.status = 404) {
+			console.log("error")
+		}
 	}
-	
+
+	xhr.send();
+}
+
+async function deleteRequest(trackingId) {
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/request/delete-request/${trackingId}`
+	var httpMethod = 'DELETE'
+
+	xhr.open(httpMethod, url, true);
+
+	xhr.onload = function () {
+		if (this.status == 200) {
+			var data = JSON.parse(this.responseText);
+			console.log(data)
+		} else if (this.status = 404) {
+			console.log("error")
+		}
+	}
+
 	xhr.send();
 }
 
 async function sendRequest(values) {
+	var xhr = new XMLHttpRequest();
 	var url = `${proxy}/api/request/create-request`
+	var httpMethod = 'POST'
 
-	const response = await fetch(url, {
-		method: "POST",
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify(values)
-	});
+	xhr.open(httpMethod, url, true);
 
-	console.log(response)
+	//Send the proper header information along with the request
+	xhr.setRequestHeader('Content-type', 'application/json');
+
+	xhr.onload = function () {
+		if (this.status == 200) {
+			var data = JSON.parse(this.responseText);
+			console.log(data)
+		} else if (this.status = 404) {
+			console.log("error")
+		}
+	}
+
+	xhr.send(JSON.stringify(values));
 }

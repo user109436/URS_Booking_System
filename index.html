@@ -1,151 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Request</title>
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="stylesheet" href="./assets/css/utilities.css" />
-    <link rel="stylesheet" href="./assets/css/queries.css" />
-  </head>
-  <body>
-    <section class="landing-page h-full flex flex-align-center">
-      <div class="container-80 flex flex-col">
-        <h1 class="text-center color-primary font-lg font-light u-m-y-m">
-          URS Request Management System
-        </h1>
-        <div class="steps flex flex-justify-evenly">
-          <!-- TODO:Replace the Image of Each Steps with appropriate IMG(it should be SVG) -->
-          <div class="box card border-rounded w-25 text-center">
-            <img
-              class="img-sm"
-              src="./assets/img/undraw_hiring_re_yk5n.svg"
-              alt="Step 4"
-            />
-            <p class="caption font-bold color-primary u-mt-m">Step 1</p>
-            <p class="caption-sm u-m-y-sm">
-              Download the form that you need from urs and fill it up
-            </p>
-          </div>
-          <div class="box card border-rounded w-25 text-center">
-            <img
-              class="img-sm"
-              src="./assets/img/undraw_hiring_re_yk5n.svg"
-              alt="Step 4"
-            />
-            <p class="caption font-bold color-primary u-mt-m">Step 2</p>
-            <p class="caption-sm u-m-y-sm">
-              Submit it to the request form in pdf format
-            </p>
-          </div>
-          <div class="box card border-rounded w-25 text-center">
-            <img
-              class="img-sm"
-              src="./assets/img/undraw_hiring_re_yk5n.svg"
-              alt="Step 4"
-            />
-            <p class="caption font-bold color-primary u-mt-m">Step 3</p>
-            <p class="caption-sm u-m-y-sm">
-              Pay the cashier on any mode of payment
-            </p>
-          </div>
-          <div class="box card border-rounded w-25 text-center">
-            <img
-              class="img-sm"
-              src="./assets/img/undraw_hiring_re_yk5n.svg"
-              alt="Step 4"
-            />
-            <p class="caption font-bold color-primary u-mt-m">Step 4</p>
-            <p class="caption-sm u-m-y-sm">
-              Track your request with the given Tracking ID.<br />
-            </p>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Request</title>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="stylesheet" href="./assets/css/utilities.css" />
+  <link rel="stylesheet" href="./assets/css/queries.css" />
+</head>
+
+<body>
+  <section class="landing-page h-full flex flex-align-center">
+    <div class="container-80 flex flex-col">
+      <h1 class="text-center color-primary font-lg font-light u-m-y-m">
+        URS Request Management System
+      </h1>
+      <div class="steps flex flex-justify-evenly">
+        <!-- TODO:Replace the Image of Each Steps with appropriate IMG(it should be SVG) -->
+        <div class="box card border-rounded w-25 text-center">
+          <img class="img-sm" src="./assets/img/undraw_hiring_re_yk5n.svg" alt="Step 4" />
+          <p class="caption font-bold color-primary u-mt-m">Step 1</p>
+          <p class="caption-sm u-m-y-sm">
+            Download the form that you need from urs and fill it up
+          </p>
         </div>
-        <form class="flex flex-justify-center">
-          <div class="u-mt-lg w-full flex flex-justify-center flex-wrap">
-            <input
-              type="text"
-              placeholder="RandomLetter-1655631349573-OfficeID-ServiceID"
-              class="form-input u-no-margin w-50"
-              name="tracking-id"
-              value=""
-            />
-            <button
-              type="submit"
-              class="btn btn-primary transition-normal transform-none cursor-pointer"
-            >
-              Track Request
-            </button>
-            <a
-              href="#form-account-request"
-              class="btn btn-secondary transition-normal transform-none text-decoration-none color-secondary"
-            >
-              Make Request
-            </a>
-          </div>
-        </form>
+        <div class="box card border-rounded w-25 text-center">
+          <img class="img-sm" src="./assets/img/undraw_hiring_re_yk5n.svg" alt="Step 4" />
+          <p class="caption font-bold color-primary u-mt-m">Step 2</p>
+          <p class="caption-sm u-m-y-sm">
+            Submit it to the request form in pdf format
+          </p>
+        </div>
+        <div class="box card border-rounded w-25 text-center">
+          <img class="img-sm" src="./assets/img/undraw_hiring_re_yk5n.svg" alt="Step 4" />
+          <p class="caption font-bold color-primary u-mt-m">Step 3</p>
+          <p class="caption-sm u-m-y-sm">
+            Pay the cashier on any mode of payment
+          </p>
+        </div>
+        <div class="box card border-rounded w-25 text-center">
+          <img class="img-sm" src="./assets/img/undraw_hiring_re_yk5n.svg" alt="Step 4" />
+          <p class="caption font-bold color-primary u-mt-m">Step 4</p>
+          <p class="caption-sm u-m-y-sm">
+            Track your request with the given Tracking ID.<br />
+          </p>
+        </div>
       </div>
-    </section>
-    <section class="request-form h-full flex flex-align-center">
-      <div class="container-80">
-        <div class="card flex flex-align-center flex-1 border-rounded">
-          <form id="form-account-request" class="flex flex-col u-p-lg w-full">
-            <div class="container-80 text-center">
-              <img
-                src="./assets/img/urs-logo.jpeg"
-                alt="URS Logo"
-                class="img-logo"
-              />
-            </div>
-            <h1 class="text-center color-primary">Request Form</h1>
-            <div class="u-mt-lg">
-              <label for="office">Office</label>
-              <select name="office" id="office" class="form-input" required>
-                <!-- <option value="office_id">Registrar's Office</option>
+      <form class="flex flex-justify-center">
+        <div class="u-mt-lg w-full flex flex-justify-center flex-wrap">
+          <input type="text" placeholder="RandomLetter-1655631349573-OfficeID-ServiceID"
+            class="form-input u-no-margin w-50" name="tracking-id" value="" />
+          <button type="submit" class="btn btn-primary transition-normal transform-none cursor-pointer">
+            Track Request
+          </button>
+          <a href="#form-account-request"
+            class="btn btn-secondary transition-normal transform-none text-decoration-none color-secondary">
+            Make Request
+          </a>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="request-form h-full flex flex-align-center">
+    <div class="container-80">
+      <div class="card flex flex-align-center flex-1 border-rounded">
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+          <div class="container-80 text-center">
+            <img src="./assets/img/urs-logo.jpeg" alt="URS Logo" class="img-logo" />
+          </div>
+          <h1 class="text-center color-primary">Request Form</h1>
+          <div class="u-mt-lg">
+            <label for="office">Office</label>
+            <select name="office" id="office" class="form-input" required>
+              <!-- <option value="office_id">Registrar's Office</option>
                 <option value="office_id">OSDS Office</option> -->
-              </select>
-            </div>
-            <div class="u-mt-lg">
-              <label for="service">Service</label>
-              <select name="service" id="service" class="form-input" required>
-                <!-- <option value="service_id">
+            </select>
+          </div>
+          <div class="u-mt-lg">
+            <label for="service">Service</label>
+            <select name="service" id="service" class="form-input" required>
+              <!-- <option value="service_id">
                   Transcript of Records (Php 50/page) - Php 50
                 </option>
                 <option value="service_id">
                   Scholastic Records (Php 20/page) - Php 20
                 </option> -->
-              </select>
-            </div>
-            <div class="u-mt-lg">
-              <label for="user_note"
-                >Important Notes of Documents (optional):</label
-              >
-              <textarea
-                class="form-input"
-                name="user_note"
-                id="user_note"
-                rows="5"
-                placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
-              ></textarea>
-            </div>
-            <div class="u-mt-lg">
-              <input class="" type="file" name="files" accept=".pdf" id="obj_file"/>
-            </div>
-            <button
-              type="submit"
-              class="btn btn-primary u-mt-lg transition-normal"
-            >
-              Submit Request
-            </button>
-          </form>
-          
-        </div>
+            </select>
+          </div>
+          <div class="u-mt-lg">
+            <label for="user_note">Important Notes of Documents (optional):</label>
+            <textarea class="form-input" name="user_note" id="user_note" rows="5"
+              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"></textarea>
+          </div>
+          <div class="u-mt-lg">
+            <input class="" type="file" name="files" accept=".pdf" id="obj_file" />
+          </div>
+          <button type="submit" class="btn btn-primary u-mt-lg transition-normal">
+            Submit Request
+          </button>
+        </form>
       </div>
-    </section>
-    <section class="contributors">
-      <!-- TODO: Images, LinkedIn and Repo of the Project -->
-    </section>
-    <script src="./assets/js/script.js" type="module"></script>
-  </body>
+    </div>
+  </section>
+  <section class="contributors">
+    <!-- TODO: Images, LinkedIn and Repo of the Project -->
+  </section>
+  <script src="./assets/js/script.js" type="module"></script>
+</body>
+
 </html>
