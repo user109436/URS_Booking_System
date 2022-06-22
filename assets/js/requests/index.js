@@ -15,25 +15,33 @@ getOffice()
 getService()
 getRequest()
 
+
 // Form Submit
 requestForm.addEventListener("submit", (e) => {
 	e.preventDefault()
 
 	try {
+		var fileName = file.files[0].name
+		var fileType = file.files[0].type
+		var fileSize = file.files[0].size
+		// 2097152 = 2MB
+		var fileSizeLimit = 2097152 * 10
+
 		//Validate FileType and FileSize
-		if (!Validate.fileType(file.files[0].type)) {
-			alert(`${file.files[0].name} is not pdf.`)
+		if (!Validate.fileType(fileType)) {
+			alert(`${fileName} is not pdf.`)
 			return
 		}
 
-		// 2097152 = 2MB
-		if (!Validate.fileSize(file.files[0].size, 2097152)) {
-			alert(`${Convert.toFileSize(file.files[0].size)} is too large.`)
+		if (!Validate.fileSize(fileSize, fileSizeLimit)) {
+			alert(`${Convert.toFileSize(fileSize)} is too large.`)
 			return
 		}
 
 		// Send request
 		var reader = new FileReader();
+		console.log("filename", fileName);
+
 		reader.readAsDataURL(file.files[0]);
 
 		reader.onload = function () {
@@ -41,7 +49,8 @@ requestForm.addEventListener("submit", (e) => {
 				OfficeId: office.value,
 				ServiceId: service.value,
 				UserNote: userNote.value,
-				FileData: reader.result.split(",")[1]
+				FileData: reader.result.split(",")[1],
+				FileName: fileName
 			}
 
 			// testBtn.href = reader.result
@@ -52,6 +61,7 @@ requestForm.addEventListener("submit", (e) => {
 		};
 
 	} catch (error) {
+		console.log("error", error)
 		console.log("Error")
 		return
 	}
