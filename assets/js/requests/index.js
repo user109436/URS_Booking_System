@@ -71,7 +71,7 @@ requestForm.addEventListener("submit", (e) => {
 // API Request
 async function getOffice() {
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}/api/request/get-all-offices`
+	var url = `${proxy}/api/office/get-all`
 	var httpMethod = 'GET'
 
 	xhr.open(httpMethod, url, true);
@@ -90,7 +90,7 @@ async function getOffice() {
 
 async function getService() {
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}/api/request/get-all-services`
+	var url = `${proxy}/api/service/get-all`
 	var httpMethod = 'GET'
 
 	xhr.open(httpMethod, url, true);
@@ -109,7 +109,7 @@ async function getService() {
 
 async function getRequest() {
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}/api/request/get-all-requests`
+	var url = `${proxy}/api/request/get-all`
 	var httpMethod = 'GET'
 
 	xhr.open(httpMethod, url, true);
@@ -128,7 +128,7 @@ async function getRequest() {
 
 async function deleteRequest(trackingId) {
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}/api/request/delete-request/${trackingId}`
+	var url = `${proxy}/api/request/delete/${trackingId}`
 	var httpMethod = 'DELETE'
 
 	xhr.open(httpMethod, url, true);
@@ -147,7 +147,7 @@ async function deleteRequest(trackingId) {
 
 async function sendRequest(values) {
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}/api/request/create-request`
+	var url = `${proxy}/api/request/create`
 	var httpMethod = 'POST'
 
 	xhr.open(httpMethod, url, true);
