@@ -13,6 +13,8 @@
     --color-processing: #1d81df;
     --color-processing-2: #337AB7;
     --color-processing-dark: #286090;
+    --color-register-submit:#34e7e4;
+    --color-register-cancel:#ff3f34;
     --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
     --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
     --font-size-medium: medium;
@@ -163,6 +165,7 @@ html {
  
     background-color: var(--color-processing-2);
 }
+
 
 .edit:hover{
     background-color: var(--color-processing-dark);
@@ -420,12 +423,14 @@ tr:nth-child(even) {
 }
 
 .registerModal{
+   display: none;
     position: fixed;
     z-index:1;
     left:0;
     top: 0;
     height: 100%;
     width: 100%;
+    margin-bottom: 20px;
     overflow: auto;
     background-color: rgba(0,0,0,0.5);
 
@@ -436,21 +441,12 @@ tr:nth-child(even) {
     padding: 20px;
     width: 70%;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2)0 7px 20px 0 rgba(0,0,0,0.17);
+    
+   
 }
 
-.closeBtn{
-color:#ccc;
-float: right;
-font-size: 30px;
-margin-bottom: 10px;
 
-}
 
-.closeBtn:hover, .closeBtn:focus{
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 @keyframes load {
     from {
