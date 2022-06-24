@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script src="./assets//js/script.js"></script>
   </head>
@@ -33,7 +34,7 @@
       <div
         class="login flex flex-justify-center flex-align-center flex-1 h-full"
       >
-        <div class="card flex flex-align-center flex-1 h-50 border-rounded">
+        <div class="card flex flex-align-center flex-1 h-70 border-rounded">
           <form id="form-account-login" class="flex flex-col u-p-lg w-full">
             <div class="container-80 text-center">
               <img
@@ -67,13 +68,98 @@
             </div>
             <button
               type="submit"
+              id="login"
               class="btn btn-primary u-mt-lg transition-normal"
             >
               Login
             </button>
+            <button
+            id="btnRegister"
+            
+            type="button"
+            class="btnReg btn button btn-primary u-mt-lg transition-normal"
+          >
+            Register
+          </button>
+        <div id="modalRegistration" class="registerModal  " style="display: none;">
+          <div class="register-content" id="registerContent">
+            <header class="font-bold font-lg color-primary text-center">Registration Form</header>
+         <form action="">
+          <div id="" class="u-mt-lg font-lg ">
+          <label for="firstName">First name:</label>
+           <input type="text" required id="firstName" name="firstName" class="form-input" ><br>
+          </div >
+          <div class="u-mt-lg font-lg" ><label for="lastName">Last name:</label>
+            <input type="text" required id="lastName" name="lastName" class="form-input" ><br>
+          </div>
+          <div class="u-mt-lg font-lg"><label for="email">Email:</label>
+            <input name="email" type="email" required placeholder="user@email.com" class="form-input">
+          </div>
+          <div class="u-mt-lg font-lg"><label for="pw">Password:</label>
+            <input name="pw" type="password" required class="form-input">
+          </div>
+          <div class="u-mt-lg font-lg"><label for="role">Role:</label>
+            <select name="role" id="role" class="form-input" required>
+              <option value="office_id">Registrar's Office</option>
+              <option value="office_id">OSDS Office</option>
+              <option value="office_id">Human Resource</option>
+              <option value="office_id">Dean's Office</option>
+            </select>
+          </div>
+          
+            <input type="submit"  value="Submit" class="btn button btn-primary u-mt-lg transition-normal">
+            
+            <button type="button"  id="cancelButton" class="btn button delete u-mt-lg transition-normal ">Cancel</button>
+         </form>
+
+
+        </div>
+      </div>
           </form>
         </div>
       </div>
+
+<script>// Get DOM Elements
+  const modal = document.getElementById('modalRegistration');
+  const modalBtn = document.getElementById('btnRegister');
+  const closeBtn = document.getElementById('cancelButton');
+  const alert = document.getElementById('alertLogin');
+
+  
+  
+  
+  // Events
+  modalBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  window.addEventListener('click', outsideClick);
+
+  
+
+  //alert Function
+
+  function alertClick(){
+    swal("hello","hahhaha","success");
+
+
+
+  }
+  
+  // Open
+  function openModal() {
+    modal.style.display = 'block';
+  }
+  
+  // Close
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+  
+  // Close If Outside Click
+  function outsideClick(e) {
+    if (e.target == modal) {
+      modal.style.display = 'none';
+    }
+  }</script>
     </section>
   </body>
 </html>
