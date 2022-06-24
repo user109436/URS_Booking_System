@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
+
+    <script src="./assets/js/script.js"></script>
   </head>
   <body>
     <h1 class=" font-lg color-primary text-center u-m-y-m">
@@ -30,23 +32,17 @@
         </div>
 
         <tr class="bg-primary">
-          <th>Action</th>
+          <th>ID</th>
           <th>Date Created</th>
           <th>Request/Service</th>
           <th>File Name</th>
           <th>User Note</th>
           <th>Status</th>
+          <th>Action</th>
         </tr>
 
         <tr>
-          <td >
-            <button class="action-btn edit" onclick="window.location.href='update_form.html'">
-              Edit
-            </button>
-             <button class="action-btn delete"> <!--Alert Message -->
-              Delete
-            </button>
-          </td>
+          <td>123456789123</td>
           <td>June 18, 2022 8:05 AM</td>
           <td>Transcript of Records (Php 50/page) - Php 50</td>
           <td><a href="#download-link">John Doe - Request.pdf</a></td>
@@ -56,17 +52,24 @@
           <td>
             <span class="badge border-rounded bg-success">Paid</span>
           </td>
+          <td>
+              <!-- Modal CRUD -->
+              <div class="modal-crud ">
+                <div class="modal-crud-box">
+                  
+                      <button class="action-btn edit cursor-pointer"  id="modalUpdate-btn" onclick="openUpdateModal();">
+                        Edit
+                      </buttom>
+                      <button class="action-btn delete cursor-pointer"> 
+                        Delete
+                      </button>
+                </div>
+              </div>
+          </td>
         </tr>
 
         <tr>
-          <td >
-            <button class="action-btn edit">
-              Edit
-            </button>
-            <button class="action-btn delete">
-              Delete
-            </button>
-          </td>
+          <td>123456789123</td>
           <td>June 17, 2022 8:04 AM</td>
           <td>Transcript of Records (Php 50/page) - Php 50</td>
           <td><a href="#download-link">Jane Doe - Request.pdf</a></td>
@@ -78,17 +81,24 @@
               >Payment Required</span
             >
           </td>
+          <td>
+            <!-- Modal CRUD -->
+            <div class="modal-crud ">
+              <div class="modal-crud-box">
+                
+                    <button class="action-btn edit cursor-pointer"  id="modalUpdate-btn" >
+                      Edit
+                    </buttom>
+                    <button class="action-btn delete cursor-pointer"> 
+                      Delete
+                    </button>
+              </div>
+            </div>
+        </td>
         </tr>
 
         <tr>
-          <td >
-            <button class="action-btn edit">
-              Edit
-            </button>
-            <button class="action-btn delete">
-              Delete
-            </button>
-          </td>
+          <td>123456789123</td>
           <td>June 17, 2022 8:03 AM</td>
           <td>Transcript of Records (Php 50/page) - Php 50</td>
           <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
@@ -98,13 +108,27 @@
           <td>
             <span class="badge border-rounded bg-processing">Processing</span>
           </td>
+          <td>
+            <!-- Modal CRUD -->
+            <div class="modal-crud ">
+              <div class="modal-crud-box">
+                
+                    <button class="action-btn edit cursor-pointer"  id="modal-btn" onclick="openUpdateModal();">
+                      Edit
+                    </buttom>
+                    <button class="action-btn delete cursor-pointer"> 
+                      Delete
+                    </button>
+              </div>
+            </div>
+        </td>
         </tr>
       </table>
    
 
     </div>
-   <!-- Loading Screen -->
-      <div class="loading-screen border-rounded">
+    <!-- modal Loading Screen -->
+      <!-- <div class="loading-screen border-rounded">
         <div class="loading-screen-box">
           <div class="loading">
             <div class="dot">L</div>
@@ -117,7 +141,85 @@
             <span class="text">Please Wait...</span>
           </div>
         </div>
+      </div> -->
+
+    <!-- Modal Update -->
+    <div class="modal-update flex" id="openUpdateModal" style="display: none;">
+      <div class="modal-update-box u-p-sm ">
+         <h1 class="text-center font-lg color-primary text-center u-m-y-m">Update</h1>
+
+         <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+
+          <div class="u-mt-lg">
+            <label for="user_note"
+              >Important Notes of Documents (optional):</label
+            >
+            <textarea
+              class="form-input"
+              name="user_note"
+              id="user_note"
+              rows="5"
+              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
+            ></textarea>
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="status">status</label>
+            <select name="status" id="status" class="form-input" required> 
+              <option value="Panding">Pending</option>
+              <option value="Paid">Paid</option>
+              <option value="Processing">Processing</option>
+              <option value="Finished">Finished</option>
+            </select>
+          </div>
+          <div class="modal-update-btn crud " >
+          
+            <button  type="submit" class="action-btn update">
+              Update
+            </button>
+          
+            <button class="action-btn cancel" id="closeUpdateModal" onclick="closeUpdateModal();"> <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+
+          </form>
+              
       </div>
+    </div>
+
+
   </body>
 </html>
 
+<!-- <script>
+//Table Modal
+// Get DOM Elements
+var modal = document.getElementById('openUpdateModal');
+var modalBtn = document.getElementById('modalUpdate-btn');
+var closeBtn = document.getElementById('closeUpdateModal');
+
+// Events
+modalBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
+
+// Open
+function openModal() {
+  modal.style.display = 'block';
+}
+
+// Close
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Close If Outside Click
+function outsideClick(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+
+
+</script> -->
