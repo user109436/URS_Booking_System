@@ -16,7 +16,7 @@
       Registrar's Office
     </h1>
     <div class="container overflow-auto ">
-      <table class="container-90 card">
+      <table class="container-90 card" id="table">
         <div class="search-table flex flex-justify-center container-90">
           <input
             class="form-input"
@@ -24,6 +24,7 @@
             name="search-table"
             value=""
             placeholder="Search Items"
+            id="search-table"
           />
         </div>
         
@@ -31,7 +32,7 @@
           <button class="add btn "> Create New Request</button>
         </div>
 
-        <tr class="bg-primary">
+        <tr class="bg-primary" id="table-header">
           <th>ID</th>
           <th>Date Created</th>
           <th>Request/Service</th>
@@ -190,6 +191,9 @@
 
 
   </body>
+  <footer>
+    <script src="./assets/js/table-features.js"></script>
+  </footer>
 </html>
 
 <!-- <script>
