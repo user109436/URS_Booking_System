@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
 
-    <script src="./assets/js/script.js"></script>
   </head>
   <body>
     <h1 class=" font-lg color-primary text-center u-m-y-m">
@@ -58,7 +57,7 @@
               <div class="modal-crud ">
                 <div class="modal-crud-box">
                   
-                      <button class="action-btn edit cursor-pointer"  id="modalUpdate-btn" onclick="openUpdateModal();">
+                      <button class="action-btn edit cursor-pointer"  id="modalUpdate-btn">
                         Edit
                       </buttom>
                       <button class="action-btn delete cursor-pointer"> 
@@ -114,7 +113,7 @@
             <div class="modal-crud ">
               <div class="modal-crud-box">
                 
-                    <button class="action-btn edit cursor-pointer"  id="modal-btn" onclick="openUpdateModal();">
+                    <button class="action-btn edit cursor-pointer"  id="modal-btn">
                       Edit
                     </buttom>
                     <button class="action-btn delete cursor-pointer"> 
@@ -179,7 +178,7 @@
               Update
             </button>
           
-            <button class="action-btn cancel" id="closeUpdateModal" onclick="closeUpdateModal();"> <!--Alert Message -->
+            <button class="action-btn cancel" id="closeUpdateModal"> <!--Alert Message -->
               Cancel
             </button>
           </div>
@@ -192,38 +191,7 @@
 
   </body>
   <footer>
+    <script src="./assets/js/script.js" type="module"></script>
     <script src="./assets/js/table-features.js"></script>
   </footer>
 </html>
-
-<!-- <script>
-//Table Modal
-// Get DOM Elements
-var modal = document.getElementById('openUpdateModal');
-var modalBtn = document.getElementById('modalUpdate-btn');
-var closeBtn = document.getElementById('closeUpdateModal');
-
-// Events
-modalBtn.addEventListener('click', openModal);
-closeBtn.addEventListener('click', closeModal);
-window.addEventListener('click', outsideClick);
-
-// Open
-function openModal() {
-  modal.style.display = 'block';
-}
-
-// Close
-function closeModal() {
-  modal.style.display = 'none';
-}
-
-// Close If Outside Click
-function outsideClick(e) {
-  if (e.target == modal) {
-    modal.style.display = 'none';
-  }
-}
-
-
-</script> -->

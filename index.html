@@ -209,34 +209,7 @@
       <!-- TODO: Images, LinkedIn and Repo of the Project -->
     </section>
   </body>
+  <footer>
+    <script src="./assets//js/script.js" type="module"></script>
+  </footer>
 </html>
-
-<script>
-  //tracking Modal
-  var trackModal = document.getElementById("openTrackModal");
-  var TrackModalBtn = document.getElementById("modalTrack-btn");
-  var closeBtn = document.getElementById("closeTrackModal");
-
-  // Events
-  TrackModalBtn.addEventListener("click", openTrackModal);
-  closeBtn.addEventListener("click", closeTrackModal);
-  window.addEventListener("click", closeTrackBtn);
-
-  // Open
-  function openTrackModal() {
-    trackModal.style.display = "block";
-  }
-
-  // Close
-  function closeTrackModal() {
-    trackModal.style.display = "none";
-  }
-
-  // Close If Outside Click
-  function closeTrackBtn(e) {
-    e.preventDefault();
-    if (e.target.id === "closeTrackModal" || e.target.id === "openTrackModal") {
-      trackModal.style.display = "none";
-    }
-  }
-</script>
