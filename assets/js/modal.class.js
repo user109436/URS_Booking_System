@@ -4,11 +4,6 @@ export class Modal {
     this.modal = modal;
     this.openBtn = openBtn;
     this.closeBtn = closeBtn;
-
-    //2. event listener
-    this.openBtn.addEventListener("click", this.openModal);
-    this.closeBtn.addEventListener("click", this.closeModal);
-    window.addEventListener("click", this.closeOnOutsideClick);
   }
   openModal = (e) => {
     e.preventDefault();
@@ -23,5 +18,18 @@ export class Modal {
     if (e.target == this.modal) {
       this.modal.style.display = "none";
     }
+  };
+
+  modalSingleOpenBtn = () => {
+    //2. event listener
+    this.openBtn.addEventListener("click", this.openModal);
+    this.closeBtn.addEventListener("click", this.closeModal);
+    window.addEventListener("click", this.closeOnOutsideClick);
+  };
+  modalMultipleOpenBtn = () => {
+    const array = Array.from(this.openBtn);
+    array.forEach((element) => {
+      element.addEventListener("click", this.openModal);
+    });
   };
 }
