@@ -35,3 +35,22 @@ if (requestModalExist) {
   const tableModal = new Modal(requestModal, requestOpenBtn, requestCloseBtn);
   tableModal.modalMultipleOpenBtn();
 }
+
+// MAKE REQUEST Scroll on Trigger "a"
+
+const removeString = (originalString, stringToRemove, startLocation = 0) => {
+  let stringLocation = originalString.indexOf(stringToRemove);
+  if (stringLocation >= 0) {
+    return originalString.slice(startLocation, stringLocation);
+  }
+  return false;
+};
+const makeRequest = document.getElementById("make-request");
+makeRequest.addEventListener("click", function () {
+  let url = window.location.href;
+  url = removeString(url, "#form-account-request");
+  if (!url) {
+    return false;
+  }
+  window.location.assign(`${url}#form-account-request`);
+});
