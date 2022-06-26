@@ -73,8 +73,8 @@
             />
             <button
               type="submit"
-              class="btn btn-primary transition-normal transform-none cursor-pointer"
-              id="modalTrack-btn"
+              class="btn btn-primary transition-normal transform-none cursor-pointer modalTrack-btn"
+              
             >
               Track Request
             </button>
@@ -97,6 +97,7 @@
         </h1>
 
         <form id="track-request" class="flex flex-col u-p-lg w-full">
+          
           <div class="u-mt-lg">
             <label for="ID">ID</label>
             <input
@@ -104,17 +105,6 @@
               id="ID"
               class="form-input"
               placeholder="123456789123"
-              disabled
-            />
-          </div>
-
-          <div class="u-mt-lg">
-            <label for="Name">Name</label>
-            <input
-              name="name"
-              id="nmae"
-              class="form-input"
-              placeholder="Juan Dela Cruz"
               disabled
             />
           </div>
@@ -128,6 +118,19 @@
               rows="5"
               placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
               disabled
+            ></textarea>
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="office_note"
+              >Important: Office Notes</label
+            >
+            <textarea
+              class="form-input"
+              name="user_note"
+              id="user_note"
+              rows="5"
+              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
             ></textarea>
           </div>
 
