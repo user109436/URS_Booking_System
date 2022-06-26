@@ -45,12 +45,15 @@ const removeString = (originalString, stringToRemove, startLocation = 0) => {
   }
   return false;
 };
+
 const makeRequest = document.getElementById("make-request");
-makeRequest.addEventListener("click", function () {
-  let url = window.location.href;
-  url = removeString(url, "#form-account-request");
-  if (!url) {
-    return false;
-  }
-  window.location.assign(`${url}#form-account-request`);
-});
+if (makeRequest) {
+  makeRequest.addEventListener("click", function () {
+    let url = window.location.href;
+    url = removeString(url, "#form-account-request");
+    if (!url) {
+      return false;
+    }
+    window.location.assign(`${url}#form-account-request`);
+  });
+}
