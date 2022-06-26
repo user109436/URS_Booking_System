@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
-
   </head>
   <body>
-    <h1 class=" font-lg color-primary text-center u-m-y-m">
+    <h1 class="font-lg color-primary text-center u-m-y-m">
       Registrar's Office
     </h1>
-    <div class="container overflow-auto ">
+    <div class="container overflow-auto">
       <table class="container-90 card" id="table">
         <div class="search-table flex flex-justify-center container-90">
           <input
@@ -26,10 +25,6 @@
             id="search-table"
           />
         </div>
-        
-        <div class="container-90">
-          <button class="add btn "> Create New Request</button>
-        </div>
 
         <tr class="bg-primary" id="table-header">
           <th>ID</th>
@@ -38,7 +33,6 @@
           <th>File Name</th>
           <th>User Note</th>
           <th>Status</th>
-          <th>Action</th>
         </tr>
 
         <tr>
@@ -51,20 +45,6 @@
           </td>
           <td>
             <span class="badge border-rounded bg-success">Paid</span>
-          </td>
-          <td>
-              <!-- Modal CRUD -->
-              <div class="modal-crud ">
-                <div class="modal-crud-box">
-                  
-                      <button class="action-btn edit cursor-pointer"  id="modalUpdate-btn">
-                        Edit
-                      </buttom>
-                      <button class="action-btn delete cursor-pointer"> 
-                        Delete
-                      </button>
-                </div>
-              </div>
           </td>
         </tr>
 
@@ -81,20 +61,6 @@
               >Payment Required</span
             >
           </td>
-          <td>
-            <!-- Modal CRUD -->
-            <div class="modal-crud ">
-              <div class="modal-crud-box">
-                
-                    <button class="action-btn edit cursor-pointer"  id="modalUpdate-btn" >
-                      Edit
-                    </buttom>
-                    <button class="action-btn delete cursor-pointer"> 
-                      Delete
-                    </button>
-              </div>
-            </div>
-        </td>
         </tr>
 
         <tr>
@@ -108,27 +74,11 @@
           <td>
             <span class="badge border-rounded bg-processing">Processing</span>
           </td>
-          <td>
-            <!-- Modal CRUD -->
-            <div class="modal-crud ">
-              <div class="modal-crud-box">
-                
-                    <button class="action-btn edit cursor-pointer"  id="modal-btn">
-                      Edit
-                    </buttom>
-                    <button class="action-btn delete cursor-pointer"> 
-                      Delete
-                    </button>
-              </div>
-            </div>
-        </td>
         </tr>
       </table>
-   
-
     </div>
     <!-- modal Loading Screen -->
-      <!-- <div class="loading-screen border-rounded">
+    <!-- <div class="loading-screen border-rounded">
         <div class="loading-screen-box">
           <div class="loading">
             <div class="dot">L</div>
@@ -144,12 +94,13 @@
       </div> -->
 
     <!-- Modal Update -->
-    <div class="modal-update flex" id="openUpdateModal" style="display: none;">
-      <div class="modal-update-box u-p-sm ">
-         <h1 class="text-center font-lg color-primary text-center u-m-y-m">Update</h1>
+    <div class="modal-update flex" id="openUpdateModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Update
+        </h1>
 
-         <form id="form-account-request" class="flex flex-col u-p-lg w-full">
-
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
           <div class="u-mt-lg">
             <label for="user_note"
               >Important Notes of Documents (optional):</label
@@ -165,30 +116,24 @@
 
           <div class="u-mt-lg">
             <label for="status">status</label>
-            <select name="status" id="status" class="form-input" required> 
+            <select name="status" id="status" class="form-input" required>
               <option value="Panding">Pending</option>
               <option value="Paid">Paid</option>
               <option value="Processing">Processing</option>
               <option value="Finished">Finished</option>
             </select>
           </div>
-          <div class="modal-update-btn crud " >
-          
-            <button  type="submit" class="action-btn update">
-              Update
-            </button>
-          
-            <button class="action-btn cancel" id="closeUpdateModal"> <!--Alert Message -->
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Update</button>
+
+            <button class="action-btn cancel" id="closeUpdateModal">
+              <!--Alert Message -->
               Cancel
             </button>
           </div>
-
-          </form>
-              
+        </form>
       </div>
     </div>
-
-
   </body>
   <footer>
     <script src="./assets/js/script.js" type="module"></script>
