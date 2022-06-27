@@ -57,7 +57,7 @@ requestForm.addEventListener("submit", (e) => {
 			// testBtn.download = "test.pdf"
 
 			console.log(values)
-			return sendRequest(values)
+			return createRequest(values)
 		};
 
 	} catch (error) {
@@ -71,7 +71,7 @@ requestForm.addEventListener("submit", (e) => {
 // API Request
 async function getOffice() {
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}/api/office/get-all`
+	var url = `${proxy}/api/office`
 	var httpMethod = 'GET'
 
 	xhr.open(httpMethod, url, true);
@@ -90,7 +90,7 @@ async function getOffice() {
 
 async function getService() {
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}/api/service/get-all`
+	var url = `${proxy}/api/service`
 	var httpMethod = 'GET'
 
 	xhr.open(httpMethod, url, true);
@@ -109,7 +109,7 @@ async function getService() {
 
 async function getRequest() {
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}/api/request/get-all`
+	var url = `${proxy}/api/request`
 	var httpMethod = 'GET'
 
 	xhr.open(httpMethod, url, true);
@@ -128,7 +128,7 @@ async function getRequest() {
 
 async function deleteRequest(trackingId) {
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}/api/request/delete/${trackingId}`
+	var url = `${proxy}/api/request/${trackingId}`
 	var httpMethod = 'DELETE'
 
 	xhr.open(httpMethod, url, true);
@@ -145,9 +145,9 @@ async function deleteRequest(trackingId) {
 	xhr.send();
 }
 
-async function sendRequest(values) {
+async function createRequest(values) {
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}/api/request/create`
+	var url = `${proxy}/api/request`
 	var httpMethod = 'POST'
 
 	xhr.open(httpMethod, url, true);
