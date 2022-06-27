@@ -1,19 +1,6 @@
 import { Modal } from "./modal.class.js";
 
-// //REGISTER MODAL
-const registerModal = document.getElementById("modalRegistration");
-const registerOpenBtn = document.getElementById("btnRegister");
-const registerCloseBtn = document.getElementById("cancelButton");
-const registrationModalExist =
-  registerModal && registerOpenBtn && registerCloseBtn;
-if (registrationModalExist) {
-  const registerModalObj = new Modal(
-    registerModal,
-    registerOpenBtn,
-    registerCloseBtn
-  );
-  registerModalObj.modalSingleOpenBtn();
-}
+
 
 // // TRACKING MODAL
 const trackModal = document.getElementById("openTrackModal");
@@ -32,10 +19,45 @@ const requestOpenBtn = document.getElementsByClassName("modalUpdate-btn");
 const requestCloseBtn = document.getElementById("closeUpdateModal");
 const requestModalExist = requestModal && requestOpenBtn && requestCloseBtn;
 if (requestModalExist) {
+  new Modal(requestModal, requestOpenBtn, requestCloseBtn);
   const tableModal = new Modal(requestModal, requestOpenBtn, requestCloseBtn);
   tableModal.modalMultipleOpenBtn();
+ 
+  
 }
 
+
+// User's table Create new
+const userForm = document.querySelector('#formAddUser');
+const inputId = document.querySelector('#newInputId');
+const inputUserNumber = document.querySelector('#newInputUserNumber');
+const inputFirstName = document.querySelector('#newInputFirstName');
+const inputLastName = document.querySelector('#newInputLastName');
+const inputPosition = document.querySelector('#newInputPosition');
+const inputEmail = document.querySelector('#newInputEmail');
+const inputPassword = document.querySelector('#newInputPassword');
+const inputRole = document.querySelector('#newInputRole');
+const inputVerified = document.querySelector('#newInputVerified');
+const inputStatus = document.querySelector('#newInputStatus');
+const inputCreated = document.querySelector('#newInputCreated');
+const inputUpdated = document.querySelector('#newInputUpdated');
+const submitBtn = document.getElementById('createBtn').addEventListener('click', function(){
+  
+});
+
+
+
+
+const userModal = document.getElementById("userModal");
+const newUserBtn = document.getElementById("newUserBtn");
+const cancelCreateBtn = document.getElementById("cancelCreateBtn");
+const userModalExist = userModal && createBtn && cancelCreateBtn;
+if (userModalExist) {
+  const userModalObj = new Modal(userModal, createBtn, cancelCreateBtn);
+  userModalObj.modalSingleOpenBtn();
+
+
+}
 // MAKE REQUEST Scroll on Trigger "a"
 
 const removeString = (originalString, stringToRemove, startLocation = 0) => {

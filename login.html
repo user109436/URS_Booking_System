@@ -70,83 +70,11 @@
             >
               Login
             </button>
-            <button
-              id="btnRegister"
-              type="button"
-              class="btnRegister btn button btn-primary u-mt-lg transition-normal"
-            >
-              Register
-            </button>
+           
           </form>
         </div>
       </div>
-      <div id="modalRegistration" class="registerModal">
-        <div class="register-content" id="registerContent">
-          <header class="font-bold font-lg color-primary text-center">
-            Registration Form
-          </header>
-          <form action="">
-            <div id="" class="u-mt-lg font-lg">
-              <label for="firstName">First name:</label>
-              <input
-                type="text"
-                required
-                id="firstName"
-                name="firstName"
-                class="form-input"
-              /><br />
-            </div>
-            <div class="u-mt-lg font-lg">
-              <label for="lastName">Last name:</label>
-              <input
-                type="text"
-                required
-                id="lastName"
-                name="lastName"
-                class="form-input"
-              /><br />
-            </div>
-            <div class="u-mt-lg font-lg">
-              <label for="email">Email:</label>
-              <input
-                name="email"
-                type="email"
-                required
-                placeholder="user@email.com"
-                class="form-input"
-              />
-            </div>
-            <div class="u-mt-lg font-lg">
-              <label for="pw">Password:</label>
-              <input name="pw" type="password" required class="form-input" />
-            </div>
-            <div class="u-mt-lg font-lg">
-              <label for="role">Role:</label>
-              <select name="role" id="role" class="form-input" required>
-                <option value="office_id">Registrar's Office</option>
-                <option value="office_id">OSDS Office</option>
-                <option value="office_id">Human Resource</option>
-                <option value="office_id">Dean's Office</option>
-              </select>
-            </div>
-
-            <input
-              type="submit"
-              id="registerButton"
-              value="Submit"
-              class="btn btn-primary u-mt-lg transition-normal"
-            />
-
-            <button
-              type="button"
-              id="cancelButton"
-              class="btn btn-primary u-mt-lg transition-normal flex-align-center"
-            >
-              Cancel
-            </button>
-          </form>
-        </div>
-      </div>
+   
     </section>
   </body>
   <!-- I Moved here the java script tag so we can use the javascript file, I got an error because it is called before declaring the element, the fix I got is calling it way after the most of the elements-->
