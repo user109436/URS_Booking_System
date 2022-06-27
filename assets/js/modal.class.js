@@ -31,5 +31,7 @@ export class Modal {
     array.forEach((element) => {
       element.addEventListener("click", this.openModal);
     });
+    this.closeBtn.addEventListener("click", this.closeModal);
+    window.addEventListener("click", this.closeOnOutsideClick);
   };
 }

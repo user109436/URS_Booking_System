@@ -4,16 +4,36 @@ import { Modal } from "./modal.class.js";
 
 // // TRACKING MODAL
 const trackModal = document.getElementById("openTrackModal");
-const trackOpenBtn = document.getElementById("modalTrack-btn");
+const trackOpenBtn = document.getElementsByClassName("modalTrack-btn");
 const trackCloseBtn = document.getElementById("closeTrackModal");
 const trackingModalExist = trackModal && trackOpenBtn && trackCloseBtn;
 if (trackingModalExist) {
-  const trackingModalObj = new Modal(trackModal, trackOpenBtn, trackCloseBtn);
-  trackingModalObj.modalSingleOpenBtn();
+  const tableModal = new Modal(trackModal, trackOpenBtn, trackCloseBtn);
+  tableModal.modalMultipleOpenBtn();
+}
+// updated VARIABLE NAME - later
+// // UPDATE MODAL
+const updateModal = document.getElementById("openUpdateModal");
+const updateOpenBtn = document.getElementsByClassName("modalUpdate-btn");
+const updateCloseBtn = document.getElementById("closeUpdateModal");
+const updateModalExist = updateModal && updateOpenBtn && updateCloseBtn;
+if (updateModalExist) {
+  const tableModal = new Modal(updateModal, updateOpenBtn, updateCloseBtn);
+  tableModal.modalMultipleOpenBtn();
 }
 
-//REQUEST MODAL
+// delete when the table have thier own FILE
+// // OFFICE MODAL 
+const officeModal = document.getElementById("openOfficeModal");
+const officeOpenBtn = document.getElementsByClassName("modalOffice-btn");
+const officeCloseBtn = document.getElementById("closeOfficeModal");
+const officeModalExist = officeModal && officeOpenBtn && officeCloseBtn;
+if (officeModalExist) {
+  const tableModal = new Modal(officeModal, officeOpenBtn, officeCloseBtn);
+  tableModal.modalMultipleOpenBtn();
+}
 
+<<<<<<< HEAD
 const requestModal = document.getElementById("openUpdateModal");
 const requestOpenBtn = document.getElementsByClassName("modalUpdate-btn");
 const requestCloseBtn = document.getElementById("closeUpdateModal");
@@ -21,6 +41,25 @@ const requestModalExist = requestModal && requestOpenBtn && requestCloseBtn;
 if (requestModalExist) {
   new Modal(requestModal, requestOpenBtn, requestCloseBtn);
   const tableModal = new Modal(requestModal, requestOpenBtn, requestCloseBtn);
+=======
+// // SERVICES MODAL 
+const servicesModal = document.getElementById("openServicesModal");
+const servicesOpenBtn = document.getElementsByClassName("modalServices-btn");
+const servicesCloseBtn = document.getElementById("closeServicesModal");
+const servicesModalExist = servicesModal && servicesOpenBtn && servicesCloseBtn;
+if (servicesModalExist) {
+  const tableModal = new Modal(servicesModal, servicesOpenBtn, servicesCloseBtn);
+  tableModal.modalMultipleOpenBtn();
+}
+
+// // ROLE MODAL 
+const roleModal = document.getElementById("openRoleModal");
+const roleOpenBtn = document.getElementsByClassName("modalRole-btn");
+const roleCloseBtn = document.getElementById("closeRoleModal");
+const roleModalExist = roleModal && roleOpenBtn && roleCloseBtn;
+if (roleModalExist) {
+  const tableModal = new Modal(roleModal, roleOpenBtn, roleCloseBtn);
+>>>>>>> faa734cf7277c17c4c3e93c4fb42ac4955a6d3b4
   tableModal.modalMultipleOpenBtn();
  
   
@@ -67,12 +106,20 @@ const removeString = (originalString, stringToRemove, startLocation = 0) => {
   }
   return false;
 };
+
 const makeRequest = document.getElementById("make-request");
-makeRequest.addEventListener("click", function () {
-  let url = window.location.href;
-  url = removeString(url, "#form-account-request");
-  if (!url) {
-    return false;
-  }
-  window.location.assign(`${url}#form-account-request`);
-});
+if (makeRequest) {
+  makeRequest.addEventListener("click", function () {
+    let url = window.location.href;
+    url = removeString(url, "#form-account-request");
+    if (!url) {
+      return false;
+    }
+    window.location.assign(`${url}#form-account-request`);
+  });
+}
+
+
+
+
+
