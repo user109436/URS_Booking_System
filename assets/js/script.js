@@ -11,6 +11,8 @@ if (trackingModalExist) {
   const tableModal = new Modal(trackModal, trackOpenBtn, trackCloseBtn);
   tableModal.modalMultipleOpenBtn();
 }
+
+
 // updated VARIABLE NAME - later
 // // UPDATE MODAL
 const updateModal = document.getElementById("openUpdateModal");
@@ -33,15 +35,6 @@ if (officeModalExist) {
   tableModal.modalMultipleOpenBtn();
 }
 
-<<<<<<< HEAD
-const requestModal = document.getElementById("openUpdateModal");
-const requestOpenBtn = document.getElementsByClassName("modalUpdate-btn");
-const requestCloseBtn = document.getElementById("closeUpdateModal");
-const requestModalExist = requestModal && requestOpenBtn && requestCloseBtn;
-if (requestModalExist) {
-  new Modal(requestModal, requestOpenBtn, requestCloseBtn);
-  const tableModal = new Modal(requestModal, requestOpenBtn, requestCloseBtn);
-=======
 // // SERVICES MODAL 
 const servicesModal = document.getElementById("openServicesModal");
 const servicesOpenBtn = document.getElementsByClassName("modalServices-btn");
@@ -59,14 +52,33 @@ const roleCloseBtn = document.getElementById("closeRoleModal");
 const roleModalExist = roleModal && roleOpenBtn && roleCloseBtn;
 if (roleModalExist) {
   const tableModal = new Modal(roleModal, roleOpenBtn, roleCloseBtn);
->>>>>>> faa734cf7277c17c4c3e93c4fb42ac4955a6d3b4
   tableModal.modalMultipleOpenBtn();
  
   
 }
-
+// // TRACKING MODAL
+// const trackModal = document.getElementById("openTrackModal");
+// const trackOpenBtn = document.getElementById("modalTrack-btn");
+// const trackCloseBtn = document.getElementById("closeTrackModal");
+// const trackingModalExist = trackModal && trackOpenBtn && trackCloseBtn;
+// if (trackingModalExist) {
+//   const trackingModalObj = new Modal(trackModal, trackOpenBtn, trackCloseBtn);
+//   trackingModalObj.modalSingleOpenBtn();
+// }
 
 // User's table Create new
+const newUserModal = document.getElementById("newUserModal");
+const newUserBtn = document.getElementById("newUserBtn");
+const cancelCreateBtn = document.getElementById("cancelCreateBtn");
+const userModalExist = newUserModal && newUserBtn && cancelCreateBtn
+if (userModalExist) {
+  const userModalObj = new Modal(newUserModal , newUserBtn , cancelCreateBtn);
+  userModalObj.modalSingleOpenBtn();
+
+
+}
+
+
 const userForm = document.querySelector('#formAddUser');
 const inputId = document.querySelector('#newInputId');
 const inputUserNumber = document.querySelector('#newInputUserNumber');
@@ -82,21 +94,22 @@ const inputCreated = document.querySelector('#newInputCreated');
 const inputUpdated = document.querySelector('#newInputUpdated');
 const submitBtn = document.getElementById('createBtn').addEventListener('click', function(){
   
+
 });
 
 
 
 
-const userModal = document.getElementById("userModal");
-const newUserBtn = document.getElementById("newUserBtn");
-const cancelCreateBtn = document.getElementById("cancelCreateBtn");
-const userModalExist = userModal && createBtn && cancelCreateBtn;
-if (userModalExist) {
-  const userModalObj = new Modal(userModal, createBtn, cancelCreateBtn);
-  userModalObj.modalSingleOpenBtn();
-
-
+//user's table update Modal
+const userUpdateModal = document.getElementById("userUpdateModal");
+const userUpdateOpenBtn = document.getElementsByClassName("userUpdateModal-btn");
+const userCloseUpdateModal = document.getElementById("userCloseUpdateModal");
+const userUpdateModalExist = userUpdateOpenBtn && userUpdateOpenBtn && userCloseUpdateModal;
+if (userUpdateModalExist) {
+  const tableModal = new Modal(userUpdateModal, userUpdateOpenBtn, userCloseUpdateModal);
+  tableModal.modalMultipleOpenBtn();
 }
+
 // MAKE REQUEST Scroll on Trigger "a"
 
 const removeString = (originalString, stringToRemove, startLocation = 0) => {
