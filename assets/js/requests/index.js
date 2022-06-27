@@ -24,8 +24,8 @@ requestForm.addEventListener("submit", (e) => {
 		var fileName = file.files[0].name
 		var fileType = file.files[0].type
 		var fileSize = file.files[0].size
-		// 2097152 = 2MB
-		var fileSizeLimit = 2097152 * 10
+		// 1,048,576 = 1MB
+		var fileSizeLimit = 1048576 * 5
 
 		//Validate FileType and FileSize
 		if (!Validate.fileType(fileType)) {
