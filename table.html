@@ -139,6 +139,9 @@
             id="search-table"
           />
         </div> -->
+        <div class="container-90">
+          <button class="add btn createOffice-btn"> Create New Office</button>
+        </div>
 
         <tr class="bg-primary" id="table-header">
           <th>ID</th>
@@ -174,7 +177,7 @@
     <div class="modal-update flex" id="openOfficeModal" style="display: none">
       <div class="modal-update-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
-          Update - office
+          Update - Office
         </h1>
 
         <form id="form-account-request" class="flex flex-col u-p-lg w-full">
@@ -197,7 +200,6 @@
               id="Office"
               class="form-input"
               placeholder="Registrar"
-              disabled
             />
           </div>
 
@@ -234,6 +236,36 @@
         </form>
       </div>
     </div>
+    <!-- Modal Office Create new -->
+    <div class="modal-update flex" id="openCreateOfficeModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Create New Office
+        </h1>
+
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+         
+          <div class="u-mt-lg">
+            <label for="createOffice">office</label>
+            <input
+              name="createOffice"
+              id="createOffice"
+              class="form-input"
+              placeholder="Registrar"
+            />
+          </div>
+
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Create</button>
+
+            <button class="action-btn cancel" id="closeCreateOfficeModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- services table -->
     <h1 class="font-lg color-primary text-center u-m-y-m">
@@ -241,6 +273,10 @@
     </h1>
     <div class="container overflow-auto">
       <table class="container-90 card" id="table">
+
+        <div class="container-90">
+          <button class="add btn createServices-btn" id=""> Create New Service</button>
+        </div>
         <!-- <div class="search-table flex flex-justify-center container-90">
           <input
             class="form-input"
@@ -360,6 +396,46 @@
         </form>
       </div>
     </div>
+    <!-- Modal Services Create new -->
+    <div class="modal-update flex" id="openCreateServicesModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Create New Services
+        </h1>
+
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+         
+          <div class="u-mt-lg">
+            <label for="createServices">Services</label>
+            <input
+              name="createServices"
+              id="createServices"
+              class="form-input"
+              placeholder="Transcript of Records"
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="createFee">Fee</label>
+            <input
+              name="createFee"
+              id="createFee"
+              class="form-input"
+              placeholder="&#8369;50 /page"  
+            />
+          </div>
+
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Create</button>
+
+            <button class="action-btn cancel" id="closeCreateServicesModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- Role's table -->
     <h1 class="font-lg color-primary text-center u-m-y-m">
@@ -367,6 +443,10 @@
     </h1>
     <div class="container overflow-auto">
       <table class="container-90 card" id="table">
+
+        <div class="container-90">
+          <button class="add btn createRole-btn" id=""> Create New Role</button>
+        </div>
         <!-- <div class="search-table flex flex-justify-center container-90">
           <input
             class="form-input"
@@ -393,7 +473,7 @@
         </tr>
 
         <tr class="modalRole-btn">
-          <td>Office</td>
+          <td>132456798464</td>
           <td>Scholastic Records </td>
           <td>June 17, 2022 8:04 AM</td>
           <td>June 17, 2022 8:04 AM</td>
@@ -411,7 +491,7 @@
      <div class="modal-update flex" id="openRoleModal" style="display: none">
       <div class="modal-update-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
-          Update - office
+          Update - Role
         </h1>
 
         <form id="form-account-request" class="flex flex-col u-p-lg w-full">
@@ -471,6 +551,37 @@
         </form>
       </div>
     </div>
+     <!-- Modal Role Create New -->
+     <div class="modal-update flex" id="openCreateRoleModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+         Create New Role
+        </h1>
+
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+         
+         
+          <div class="u-mt-lg">
+            <label for="createRole">Role</label>
+            <input
+              name="createRole"
+              id="createRole"
+              class="form-input"
+              placeholder="Registrar admin"         
+            />
+          </div>
+
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Create</button>
+
+            <button class="action-btn cancel" id="closeCreateRoleModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- Request table -->
     <h1 class="font-lg color-primary text-center u-m-y-m">
@@ -478,7 +589,8 @@
     </h1>
     <div class="container overflow-auto">
       <table class="container-90 card" id="table">
-        <!-- <div class="search-table flex flex-justify-center container-90">
+        
+      <div class="search-table flex flex-justify-center container-90">
           <input
             class="form-input"
             type="text"
@@ -487,7 +599,11 @@
             placeholder="Search Items"
             id="search-table"
           />
-        </div> -->
+        </div>
+        <div class="container-90">
+          <button class="add btn createRequest-btn" id=""> Create New Request</button>
+        </div>
+        
 
         <tr class="bg-primary" id="table-header">
           <th>ID</th>
@@ -560,7 +676,7 @@
         </tr>
       </table>
     </div>
-    <!-- Traking Modal -->
+    <!-- Traking Modal/ Request -->
     <div class="modal-track flex" id="openTrackModal" style="display: none">
       <div class="modal-track-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
@@ -592,7 +708,7 @@
           </div>
 
           <div class="u-mt-lg">
-            <label for="offivce">Office</label>
+            <label for="office">Office</label>
             <input
               name="office"
               id="Office"
@@ -692,6 +808,95 @@
         </form>
       </div>
     </div>
+    <!-- Traking Modal/ Request Create New -->
+    <div class="modal-track flex" id="openCreateTrackModal" style="display: none">
+      <div class="modal-track-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Request Form
+        </h1>
+
+        <form id="track-request" class="flex flex-col u-p-lg w-full">   
+
+          <div class="u-mt-lg">
+            <label for="office">Office</label>
+            <input
+              name="office"
+              id="Office"
+              class="form-input"
+              placeholder="Registrar"
+              
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="services">Services</label>
+            <input
+              name="services"
+              id="services"
+              class="form-input"
+              placeholder="Transcript of Records"
+             
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="fileName">File Name</label>
+            <input
+              name="fileName"
+              id="fileName"
+              class="form-input"
+              placeholder="John Doe - Request.pdf"
+           
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="user_note">Notes of Documents</label>
+            <textarea
+              class="form-input"
+              name="user_note"
+              id="user_note"
+              rows="5"
+              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
+         
+            ></textarea>
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="office_note"
+              >Important: Office Notes</label
+            >
+            <textarea
+              class="form-input"
+              name="user_note"
+              id="user_note"
+              rows="5"
+              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
+            ></textarea>
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="status">Status</label>
+            <input
+              name="status"
+              id="status"
+              class="form-input"
+              placeholder="Pending"
+             
+            />
+          </div>
+
+          <div class="modal-track-btn crud">
+            <button type="submit" class="action-btn update">Create</button>
+            <button class="action-btn cancel" id="closeCreateTrackModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!--User's Table-->
     <h1 class=" font-lg color-primary text-center u-m-y-m">
       User's Table
@@ -763,15 +968,8 @@
   
         </tr>
          
-         
-       
- 
-        
-           
-      
        </table>
-    
- 
+  
      </div>
   <!--User UPDATE MODAL-->
     Modal Update 
@@ -780,18 +978,30 @@
          <h1 class="text-center font-lg color-primary text-center u-m-y-m">Update User</h1>
 
          <form id="formUserUpdate" class="flex flex-col u-p-lg w-full ">
-            <label for="ID" class="w-full">ID:</label> <input name="ID" type="number" id="inputId" class="form-input" >
-            <label for="userNumber" class="w-full">User Number:</label> <input name="userNumber" type="number" id="inputUserNumber" class="form-input">
-            <label for="firstName" class="w-full">First Name:</label> <input name="firstName" type="text" id="inputFirstName" class="form-input">
-            <label for="lastName" class="w-full">Last Name:</label> <input name="lastName" type="text" id="inputLastName" class="form-input">
-            <label for="position" class="w-full">Position:</label> <input name="position" type="text" id="inputPosition" class="form-input">
-            <label for="email" class="w-full">Email:</label> <input name="email" type="email" id="inputEmail" class="form-input">
-            <label for="password" class="w-full">Password:</label> <input name="password" type="password" id="inputPassword" class="form-input">
-            <label for="role" class="w-full">Role:</label> <input name="role" type="text" id="inputRole" class="form-input">
-            <label for="verified" class="w-full">Verified</label> <input name="verified" type="text" id="inputVerified" class="form-input">
-            <label for="status" class="w-full">Status</label> <input name="status" type="text" id="inputStatus" class="form-input">
-            <label for="createdAt" class="w-full">Created At</label> <input name="createdAt" type="datetime" id="inputCreated" class="form-input">
-            <label for="updatedAt" class="w-full">Updated At</label> <input name="updatedAt" type="datetime" id="inputUpdated" class="form-input">
+            <label for="ID" class="w-full">ID:</label> 
+              <input name="ID" type="number" id="inputId" class="form-input" >
+            <label for="userNumber" class="w-full">User Number:</label> 
+              <input name="userNumber" type="number" id="inputUserNumber" class="form-input">
+            <label for="firstName" class="w-full">First Name:</label> 
+              <input name="firstName" type="text" id="inputFirstName" class="form-input">
+            <label for="lastName" class="w-full">Last Name:</label> 
+              <input name="lastName" type="text" id="inputLastName" class="form-input">
+            <label for="position" class="w-full">Position:</label> 
+              <input name="position" type="text" id="inputPosition" class="form-input">
+            <label for="email" class="w-full">Email:</label> 
+              <input name="email" type="email" id="inputEmail" class="form-input">
+            <label for="password" class="w-full">Password:</label> 
+              <input name="password" type="password" id="inputPassword" class="form-input">
+            <label for="role" class="w-full">Role:</label> 
+                <input name="role" type="text" id="inputRole" class="form-input">
+            <label for="verified" class="w-full">Verified</label> 
+              <input name="verified" type="text" id="inputVerified" class="form-input">
+            <label for="status" class="w-full">Status</label> 
+              <input name="status" type="text" id="inputStatus" class="form-input">
+            <label for="createdAt" class="w-full">Created At</label> 
+              <input name="createdAt" type="datetime" id="inputCreated" class="form-input">
+            <label for="updatedAt" class="w-full">Updated At</label>
+              <input name="updatedAt" type="datetime" id="inputUpdated" class="form-input">
 
 
          
@@ -817,20 +1027,30 @@
      <h1 class="text-center font-lg color-primary text-center u-m-y-m">Create New User</h1>
 
      <form id="formAddUser" class="flex flex-col u-p-lg w-full ">
-        <label for="ID" class="w-full">ID:</label> <input name="ID" type="number" id="newInputId" class="form-input" >
-        <label for="userNumber" class="w-full">User Number:</label> <input name="userNumber" type="number" id="newInputUserNumber" class="form-input">
-        <label for="firstName" class="w-full">First Name:</label> <input name="firstName" type="text" id="newInputFirstName" class="form-input">
-        <label for="lastName" class="w-full">Last Name:</label> <input name="lastName" type="text" id="newInputLastName" class="form-input">
-        <label for="position" class="w-full">Position:</label> <input name="position" type="text" id="newInputPosition" class="form-input">
-        <label for="email" class="w-full">Email:</label> <input name="email" type="email" id="newInputEmail" class="form-input">
-        <label for="password" class="w-full">Password:</label> <input name="password" type="password" id="newInputPassword" class="form-input">
-        <label for="role" class="w-full">Role:</label> <input name="role" type="text" id="newInputRole" class="form-input">
-        <label for="verified" class="w-full">Verified</label> <input name="verified" type="text" id="newInputVerified" class="form-input">
-        <label for="status" class="w-full">Status</label> <input name="status" type="text" id="newInputStatus" class="form-input">
-        <label for="createdAt" class="w-full">Created At</label> <input name="createdAt" type="datetime" id="newInputCreated" class="form-input">
-        <label for="updatedAt" class="w-full">Updated At</label> <input name="updatedAt" type="datetime" id="newInputUpdated" class="form-input">
-
-
+        <label for="ID" class="w-full">ID:</label> 
+          <input name="ID" type="number" id="newInputId" class="form-input" >
+        <label for="userNumber" class="w-full">User Number:</label> 
+          <input name="userNumber" type="number" id="newInputUserNumber" class="form-input">
+        <label for="firstName" class="w-full">First Name:</label> 
+          <input name="firstName" type="text" id="newInputFirstName" class="form-input">
+        <label for="lastName" class="w-full">Last Name:</label> 
+          <input name="lastName" type="text" id="newInputLastName" class="form-input">
+        <label for="position" class="w-full">Position:</label> 
+          <input name="position" type="text" id="newInputPosition" class="form-input">
+        <label for="email" class="w-full">Email:</label> 
+          <input name="email" type="email" id="newInputEmail" class="form-input">
+        <label for="password" class="w-full">Password:</label> 
+          <input name="password" type="password" id="newInputPassword" class="form-input">
+        <label for="role" class="w-full">Role:</label>
+          <input name="role" type="text" id="newInputRole" class="form-input">
+        <label for="verified" class="w-full">Verified</label> 
+          <input name="verified" type="text" id="newInputVerified" class="form-input">
+        <label for="status" class="w-full">Status</label> 
+          <input name="status" type="text" id="newInputStatus" class="form-input">
+        <label for="createdAt" class="w-full">Created At</label> 
+          <input name="createdAt" type="datetime" id="newInputCreated" class="form-input">
+        <label for="updatedAt" class="w-full">Updated At</label> 
+          <input name="updatedAt" type="datetime" id="newInputUpdated" class="form-input">
      
       <div class="modal-update-btn crud " >
       

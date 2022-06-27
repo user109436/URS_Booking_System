@@ -145,40 +145,42 @@ html {
     font-size: medium;
     text-align: center;
 }
-.edit{
+/* .edit{
     width: 70px !important;
     padding: .7rem;
     margin-right: 5px;
 
     background-color: var(--color-processing);
 }
-.update {
-    background-color: var(--color-primary);
-}
 .delete{
     width: 70px;
     padding: .7rem;
 
     background-color: var(--color-error-2);
+} */
+.update {
+    background-color: var(--color-primary);
 }
+
 .cancel{
  
     background-color: var(--color-processing-2);
 }
 
-
+/* .delete:hover{
+    background-color: var(--color-error-dark);
+}
 .edit:hover{
     background-color: var(--color-processing-dark);
-}
+} */
+
 .update:hover {
     background-color: var(--color-primary-dark);
-}
-.delete:hover{
-    background-color: var(--color-error-dark);
 }
 .cancel:hover{
     background-color: var(--color-processing-dark);
 }
+
 /* IMAGES */
 .img-logo {
     width: 6rem;
@@ -289,7 +291,7 @@ tr:nth-child(even) {
 }
 /* Modal fot update box */
 .modal-update-box {
-    min-height: 50%;
+    height:fit-content;
     width: 50%;
     background-color: white;
     box-shadow: var(--shadow-dark);
@@ -319,19 +321,18 @@ tr:nth-child(even) {
 	top: 0;
 	left: 0; 
 	background-color: rgba(0,0,0,.5); /* Black w/opacity/see-through */ 
- 
+    overflow: scroll;
+   overflow: hidden;
+    overflow-y: scroll;
 }
 
 .modal-track-box {
-    height: 80%;
+    height: fit-content;
     width: 50%;
     background-color: white;
     box-shadow: var(--shadow-dark);
     border-radius: 25px;   
-    margin: 2% auto;
-    overflow: hidden;
-    overflow-y: scroll;
-
+    margin: auto auto; /*udpate margin */
 }   
 
 .modal-track-btn{
@@ -343,7 +344,7 @@ tr:nth-child(even) {
     border-radius: 25px;
     justify-content: space-evenly;
 }
-.modal-track-box::-webkit-scrollbar {
+.modal-track::-webkit-scrollbar {
     display: none;
 }
 
