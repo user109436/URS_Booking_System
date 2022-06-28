@@ -145,13 +145,12 @@ html {
     font-size: medium;
     text-align: center;
 }
-/* .edit{
+.edit{
     width: 70px !important;
     padding: .7rem;
     margin-right: 5px;
-
     background-color: var(--color-processing);
-}
+}/* 
 .delete{
     width: 70px;
     padding: .7rem;
@@ -169,10 +168,10 @@ html {
 
 /* .delete:hover{
     background-color: var(--color-error-dark);
-}
+}*/
 .edit:hover{
     background-color: var(--color-processing-dark);
-} */
+} 
 
 .update:hover {
     background-color: var(--color-primary-dark);
@@ -420,12 +419,6 @@ tr:nth-child(even) {
 .dot:nth-child(7) {
     animation-delay: 0.96s;
 }
- 
-
-
-
-
-
 
 @keyframes load {
     from {
@@ -436,4 +429,11 @@ tr:nth-child(even) {
     }
 }
   
-
+/* Silde bar temporary */
+.sidebar{
+    width: 100px;
+    display: inline-flex;
+    position: fixed;
+    top:0;
+    left: 0;
+}
