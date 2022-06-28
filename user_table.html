@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./assets/css/queries.css" />
   </head>
   <body>
+    
     <!-- temporary side bar -->
     <div class="sidebar ">
       <button class=" action-btn edit" onclick="window.location.href='table.html'">Registrar</button>
@@ -26,7 +27,8 @@
      </h1>
      <div class="container overflow-auto ">
        <table class="container-90 card" id="table">
-         <div class="search-table flex flex-justify-center container-90">
+        <thead> 
+        <div class="search-table flex flex-justify-center container-90">
            <input
              class="form-input"
              type="text"
@@ -56,10 +58,11 @@
            <th>Created At</th>  
            <th>Updated At</th>  
  
-         
+          
           
          </tr>
- 
+        </thead>
+        <tbody></tbody>
          <tr class="multipleOpenBtn">
            <td>123456789123</td>
            <td>09653563201</td>
@@ -90,21 +93,21 @@
           <td>June 18, 2022 8:05 AM</td>  
   
         </tr>
-         
+      </tbody>
        </table>
   
      </div>
   <!--User UPDATE MODAL-->
     
-    <div class="modal-update flex overflow-auto modalBox " id="multipleModal" style="display: none"  >
+    <div class="modal-update flex overflow-auto modalBox " autocomplete="off" id="multipleModal" style="display: none"  >
       <div class="modal-update-box u-p-sm w-50   ">
          <h1 class="text-center font-lg color-primary text-center u-m-y-m">Update User</h1>
 
-         <form id="formUserUpdate" class="flex flex-col u-p-lg w-full ">
+         <form id="formUserUpdate" onsubmit="onFormSubmit()" class="flex flex-col u-p-lg w-full ">
             <label for="ID" class="w-full">ID:</label> 
-              <input name="ID" type="number" id="inputId" class="form-input" >
+              <input name="ID" type="number" id="inputId" class="form-input" disabled >
             <label for="userNumber" class="w-full">User Number:</label> 
-              <input name="userNumber" type="number" id="inputUserNumber" class="form-input">
+              <input name="userNumber" type="number" id="inputUserNumber" class="form-input" disabled>
             <label for="firstName" class="w-full">First Name:</label> 
               <input name="firstName" type="text" id="inputFirstName" class="form-input">
             <label for="lastName" class="w-full">Last Name:</label> 
@@ -120,17 +123,22 @@
             <label for="verified" class="w-full">Verified</label> 
               <input name="verified" type="text" id="inputVerified" class="form-input">
             <label for="status" class="w-full">Status</label> 
-              <input name="status" type="text" id="inputStatus" class="form-input">
-            <label for="createdAt" class="w-full">Created At</label> 
-              <input name="createdAt" type="datetime" id="inputCreated" class="form-input">
+              <select name="status" type="text" id="inputStatus" class="form-input">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            <label for="createdAt" class="w-full" disabled>Created At</label> 
+              <input name="createdAt" type="date" id="inputCreated" class="form-input" disabled>
+             
             <label for="updatedAt" class="w-full">Updated At</label>
-              <input name="updatedAt" type="datetime" id="inputUpdated" class="form-input">
+              <input name="updatedAt" type="date" id="inputUpdated" class="form-input">
+
 
 
          
           <div class="modal-update-btn crud " >
           
-            <button  type="submit" class="action-btn update">
+            <button  type="submit" onsubmit="showConsole()" class="action-btn update">
               Update
             </button>
           
@@ -149,7 +157,7 @@
   <div class="modal-update-box u-p-sm w-50   ">
      <h1 class="text-center font-lg color-primary text-center u-m-y-m">Create New User</h1>
 
-     <form id="formAddUser" class="flex flex-col u-p-lg w-full ">
+     <form id="formAddUser" autocomplete="off" onsubmit="onFormSubmit(); return false;" class="flex flex-col u-p-lg w-full ">
         <label for="ID" class="w-full">ID:</label> 
           <input name="ID" type="number" id="newInputId" class="form-input" >
         <label for="userNumber" class="w-full">User Number:</label> 
@@ -177,7 +185,7 @@
      
       <div class="modal-update-btn crud " >
       
-        <button   type="submit"  class=" action-btn update" id="createBtn">
+        <button   type="submit" onsubmit="showConsole()"  class=" action-btn update" id="createBtn">
           Submit
         </button>
       

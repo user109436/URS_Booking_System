@@ -36,7 +36,7 @@
             id="search-table"
           />
         </div>
-
+<thead>
         <tr class="bg-primary" id="table-header">
           <th>ID</th>
           <th>Date Created</th>
@@ -46,8 +46,9 @@
           <th>Office Note</th>
           <th>Status</th>
         </tr>
-
-        <tr class="multipleOpenBtn">
+      </thead>
+      <tbody>
+        <tr class="multipleOpenBtn" onclick="onEdit()">
           <td>123456789123</td>
           <td>June 18, 2022 8:05 AM</td>
           <td>Transcript of Records (Php 50/page) - Php 50</td>
@@ -90,6 +91,7 @@
             <span class="badge border-rounded bg-processing">Processing</span>
           </td>
         </tr>
+      </tbody>
       </table>
     </div>
      <!-- Modal Update -->
@@ -116,7 +118,7 @@
           <div class="u-mt-lg">
             <label for="status">status</label>
             <select name="status" id="status" class="form-input" required>
-              <option value="Panding">Pending</option>
+              <option value="Pending">Pending</option>
               <option value="Paid">Paid</option>
               <option value="Processing">Processing</option>
               <option value="Finished">Finished</option>
