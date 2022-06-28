@@ -37,7 +37,7 @@
           />
         </div>
         <div class="container-90">
-          <button class="add btn createOffice-btn"> Create New Office</button>
+          <button class="add btn " id="singleOpenBtn"> Create New Office</button>
         </div>
 
         <tr class="bg-primary" id="table-header">
@@ -47,14 +47,14 @@
           <th>Date Updated</th>
         </tr>
 
-        <tr class="modalOffice-btn">
+        <tr class="multipleOpenBtn">
           <td>123456789123</td>
           <td>Registrar</td>
           <td>June 18, 2022 8:05 AM</td>
           <td>June 18, 2022 8:05 AM</td>
         </tr>
 
-        <tr class="modalOffice-btn">
+        <tr class="multipleOpenBtn">
           <td>123456789123</td>
         
           <td>OSDS</td>
@@ -62,7 +62,7 @@
           <td>June 17, 2022 8:04 AM</td>
         </tr>
 
-        <tr class="modalOffice-btn">
+        <tr class="multipleOpenBtn">
           <td>123456789123</td>
           <td>Dean's Office</td>
           <td>June 17, 2022 8:03 AM</td>
@@ -71,7 +71,7 @@
       </table>
     </div>
     <!-- Modal Office Table -->
-    <div class="modal-update flex" id="openOfficeModal" style="display: none">
+    <div class="modal-update flex" id="multipleModal" style="display: none">
       <div class="modal-update-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
           Update - Office
@@ -125,7 +125,7 @@
           <div class="modal-update-btn crud">
             <button type="submit" class="action-btn update">Update</button>
 
-            <button class="action-btn cancel" id="closeOfficeModal">
+            <button class="action-btn cancel" id="multipleCloseBtn">
               <!--Alert Message -->
               Cancel
             </button>
@@ -134,7 +134,7 @@
       </div>
     </div>
     <!-- Modal Office Create new -->
-    <div class="modal-update flex" id="openCreateOfficeModal" style="display: none">
+    <div class="modal-update flex" id="singleModal" style="display: none">
       <div class="modal-update-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
           Create New Office
@@ -155,7 +155,7 @@
           <div class="modal-update-btn crud">
             <button type="submit" class="action-btn update">Create</button>
 
-            <button class="action-btn cancel" id="closeCreateOfficeModal">
+            <button class="action-btn cancel" id="singleCloseBtn">
               <!--Alert Message -->
               Cancel
             </button>

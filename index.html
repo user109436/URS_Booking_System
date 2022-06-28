@@ -73,12 +73,14 @@
             />
             <button
               type="submit"
-              class="btn btn-primary transition-normal transform-none cursor-pointer modalTrack-btn"
+              class="btn btn-primary transition-normal transform-none cursor-pointer "
+              id="singleOpenBtn"
               
             >
               Track Request
             </button>
             <a
+             
               href="#form-account-request"
               class="btn btn-secondary transition-normal transform-none text-decoration-none color-secondary"
               id="make-request"
@@ -90,7 +92,7 @@
       </div>
     </section>
     <!-- Tracking Modal -->
-    <div class="modal-track flex" id="openTrackModal" style="display: none">
+    <div class="modal-track flex" id="singleModal" style="display: none">
       <div class="modal-track-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
           Tracking Request
@@ -145,7 +147,7 @@
             />
           </div>
           <div class="modal-track-btn crud">
-            <button class="action-btn cancel" id="closeTrackModal">
+            <button class="action-btn cancel" id="singleCloseBtn">
               <!--Alert Message -->
               Cancel
             </button>

@@ -38,13 +38,13 @@
           />
         </div>
         <div class="container-90">
-          <button class="add btn createRequest-btn" id=""> Create New Request</button>
+          <button class="add btn " id="singleOpenBtn"> Create New Request</button>
         </div>
         
 
         <tr class="bg-primary" id="table-header">
           <th>ID</th>
-          <th>Traking ID</th>
+          <th>Tracking ID</th>
           <th>Office</th>
           <th>Service/Request</th>
           <th>File Name</th>
@@ -55,7 +55,7 @@
           <th>Date Updated</th>
         </tr>
 
-        <tr class="modalTrack-btn">
+        <tr class="multipleOpenBtn">
           <td>1</td>
           <td>321654987789</td>
           <td>Registrar</td>
@@ -74,7 +74,7 @@
           <td>June 18, 2022 8:05 AM</td>
         </tr>
 
-        <tr class="modalTrack-btn">
+        <tr class="multipleOpenBtn">
           <td>2</td>
           <td>321654987789</td>
           <td>Registrar</td>
@@ -93,7 +93,7 @@
           <td>June 17, 2022 8:04 AM</td>
         </tr>
 
-        <tr class="modalTrack-btn">
+        <tr class="multipleOpenBtn">
           <td>3</td>
           <td>321654987789</td>
           <td>Registrar</td>
@@ -113,8 +113,8 @@
         </tr>
       </table>
     </div>
-    <!-- Traking Modal/ Request -->
-    <div class="modal-track flex" id="openTrackModal" style="display: none">
+    <!-- Tracking Modal/ Request -->
+    <div class="modal-track flex" id="multipleModal" style="display: none">
       <div class="modal-track-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
           Request Form
@@ -134,10 +134,10 @@
           </div>
 
           <div class="u-mt-lg">
-            <label for="trakingD">Traking ID</label>
+            <label for="trakingD">Tracking ID</label>
             <input
-              name="trakingID"
-              id="trakingID"
+              name="trackingID"
+              id="trackingID"
               class="form-input"
               placeholder="123456789123"
               disabled
@@ -237,7 +237,7 @@
 
           <div class="modal-track-btn crud">
             <button type="submit" class="action-btn update">Update</button>
-            <button class="action-btn cancel" id="closeTrackModal">
+            <button class="action-btn cancel" id="multipleCloseBtn">
               <!--Alert Message -->
               Cancel
             </button>
@@ -245,8 +245,8 @@
         </form>
       </div>
     </div>
-    <!-- Traking Modal/ Request Create New -->
-    <div class="modal-track flex" id="openCreateTrackModal" style="display: none">
+    <!-- Tracking Modal/ Request Create New -->
+    <div class="modal-track flex" id="singleModal" style="display: none">
       <div class="modal-track-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
           Request Form
@@ -325,7 +325,7 @@
 
           <div class="modal-track-btn crud">
             <button type="submit" class="action-btn update">Create</button>
-            <button class="action-btn cancel" id="closeCreateTrackModal">
+            <button class="action-btn cancel" id="singleCloseBtn">
               <!--Alert Message -->
               Cancel
             </button>

@@ -38,7 +38,7 @@
          </div>
          
          <div class="container-90">
-           <button class="add btn" id="newUserBtn"> Create New User</button>
+           <button class="add btn" id="singleOpenBtn"> Create New User</button>
          </div>
  
          <tr class="bg-primary" id="table-header">
@@ -60,7 +60,7 @@
           
          </tr>
  
-         <tr class="userUpdateModal-btn">
+         <tr class="multipleOpenBtn">
            <td>123456789123</td>
            <td>09653563201</td>
            <td>Rhotrix</td>
@@ -75,7 +75,7 @@
            <td>June 18, 2022 8:05 AM</td>  
    
          </tr>
-         <tr class="userUpdateModal-btn">
+         <tr class="multipleOpenBtn">
           <td>123456789123</td>
           <td>09653563201</td>
           <td>trixia</td>
@@ -96,7 +96,7 @@
      </div>
   <!--User UPDATE MODAL-->
     
-    <div class="modal-update flex overflow-auto modalBox " id="userUpdateModal" style="display: none"  >
+    <div class="modal-update flex overflow-auto modalBox " id="multipleModal" style="display: none"  >
       <div class="modal-update-box u-p-sm w-50   ">
          <h1 class="text-center font-lg color-primary text-center u-m-y-m">Update User</h1>
 
@@ -134,7 +134,7 @@
               Update
             </button>
           
-            <button class="action-btn cancel" id="userCloseUpdateModal"> 
+            <button class="action-btn cancel" id="multipleCloseBtn"> 
               Cancel
             </button>
           </div>
@@ -145,7 +145,7 @@
     </div>
 
     <!-- Modal Create New User -->
-<div class="modal-update flex overflow-auto modalBox " id="newUserModal" style="display: none"  >
+<div class="modal-update flex overflow-auto modalBox " id="singleModal" style="display: none"  >
   <div class="modal-update-box u-p-sm w-50   ">
      <h1 class="text-center font-lg color-primary text-center u-m-y-m">Create New User</h1>
 
@@ -181,7 +181,7 @@
           Submit
         </button>
       
-        <button  class="action-btn cancel" id="cancelCreateBtn"> <!--Alert Message -->
+        <button  class="action-btn cancel" id="singleCloseBtn"> <!--Alert Message -->
           Cancel
         </button>
       </div>

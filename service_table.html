@@ -37,7 +37,7 @@
           />
         </div>
         <div class="container-90">
-          <button class="add btn createServices-btn" id=""> Create New Service</button>
+          <button class="add btn " id="singleOpenBtn"> Create New Service</button>
         </div>
         
 
@@ -49,7 +49,7 @@
           <th>Date Updated</th>
         </tr>
 
-        <tr class="modalServices-btn">
+        <tr class="multipleOpenBtn">
           <td>123456789123</td>
           <td>Transcript of Records</td>
           <td><span>&#8369;</span>50 /page </td>
@@ -57,7 +57,7 @@
           <td>June 18, 2022 8:05 AM</td>
         </tr>
 
-        <tr class="modalServices-btn">
+        <tr class="multipleOpenBtn">
           <td>123456789123</td>
           <td>Scholastic Records </td>
           <td><span>&#8369;</span>50 /page </td>
@@ -65,7 +65,7 @@
           <td>June 17, 2022 8:04 AM</td>
         </tr>
 
-        <tr class="modalServices-btn">
+        <tr class="multipleOpenBtn">
           <td>123456789123</td>
           <td>Certificate of Grades</td>
           <td><span>&#8369;</span>20 /page </td>
@@ -75,7 +75,7 @@
       </table>
     </div>
     <!-- Modal Services Table -->
-    <div class="modal-update flex" id="openServicesModal" style="display: none">
+    <div class="modal-update flex" id="multipleModal" style="display: none">
       <div class="modal-update-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
           Update - Services
@@ -141,7 +141,7 @@
           <div class="modal-update-btn crud">
             <button type="submit" class="action-btn update">Update</button>
 
-            <button class="action-btn cancel" id="closeServicesModal">
+            <button class="action-btn cancel" id="multipleCloseBtn">
               <!--Alert Message -->
               Cancel
             </button>
@@ -150,7 +150,7 @@
       </div>
     </div>
     <!-- Modal Services Create new -->
-    <div class="modal-update flex" id="openCreateServicesModal" style="display: none">
+    <div class="modal-update flex" id="singleModal" style="display: none">
       <div class="modal-update-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
           Create New Services
@@ -181,7 +181,7 @@
           <div class="modal-update-btn crud">
             <button type="submit" class="action-btn update">Create</button>
 
-            <button class="action-btn cancel" id="closeCreateServicesModal">
+            <button class="action-btn cancel" id="singleCloseBtn">
               <!--Alert Message -->
               Cancel
             </button>
