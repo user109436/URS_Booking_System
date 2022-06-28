@@ -11,6 +11,13 @@
     width: 80%;
     margin: 0 auto;
 }
+.container-10 {
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-light);
+    padding: 20px;
+}
 
 /* FLEXBOX */
 .flex {

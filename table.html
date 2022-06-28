@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="./assets/css/queries.css" />
   </head>
   <body>
-    <h1 class=" font-lg color-primary text-center u-m-y-m">
+    <h1 class="font-lg color-primary text-center u-m-y-m">
       Registrar's Office
     </h1>
-    <div class="container overflow-auto ">
-      <table class="container-90 card">
+    <div class="container overflow-auto">
+      <table class="container-90 card" id="table">
         <div class="search-table flex flex-justify-center container-90">
           <input
             class="form-input"
@@ -22,57 +22,43 @@
             name="search-table"
             value=""
             placeholder="Search Items"
+            id="search-table"
           />
         </div>
-        
-        <div class="container-90">
-          <button class="add btn "> Create New Request</button>
-        </div>
 
-        <tr class="bg-primary">
-          <th>Action</th>
+        <tr class="bg-primary" id="table-header">
+          <th>ID</th>
           <th>Date Created</th>
           <th>Request/Service</th>
           <th>File Name</th>
           <th>User Note</th>
+          <th>Office Note</th>
           <th>Status</th>
         </tr>
 
-        <tr>
-          <td >
-            <button class="action-btn edit" onclick="window.location.href='update_form.html'">
-              Edit
-            </button>
-             <button class="action-btn delete"> <!--Alert Message -->
-              Delete
-            </button>
-          </td>
+        <tr class="modalUpdate-btn">
+          <td>123456789123</td>
           <td>June 18, 2022 8:05 AM</td>
           <td>Transcript of Records (Php 50/page) - Php 50</td>
           <td><a href="#download-link">John Doe - Request.pdf</a></td>
           <td>
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
+          <td>Please make you payment to proceed</td>
           <td>
             <span class="badge border-rounded bg-success">Paid</span>
           </td>
         </tr>
 
-        <tr>
-          <td >
-            <button class="action-btn edit">
-              Edit
-            </button>
-            <button class="action-btn delete">
-              Delete
-            </button>
-          </td>
+        <tr class="modalUpdate-btn">
+          <td>123456789123</td>
           <td>June 17, 2022 8:04 AM</td>
           <td>Transcript of Records (Php 50/page) - Php 50</td>
           <td><a href="#download-link">Jane Doe - Request.pdf</a></td>
           <td>
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
+          <td>Your documents are Ready!</td>
           <td>
             <span class="badge border-rounded bg-pending"
               >Payment Required</span
@@ -80,31 +66,1010 @@
           </td>
         </tr>
 
-        <tr>
-          <td >
-            <button class="action-btn edit">
-              Edit
-            </button>
-            <button class="action-btn delete">
-              Delete
-            </button>
-          </td>
+        <tr class="modalUpdate-btn">
+          <td>123456789123</td>
           <td>June 17, 2022 8:03 AM</td>
           <td>Transcript of Records (Php 50/page) - Php 50</td>
           <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
           <td>
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
+          <td>1 (one) Document is missing!</td>
           <td>
             <span class="badge border-rounded bg-processing">Processing</span>
           </td>
         </tr>
       </table>
-   
-
     </div>
-   <!-- Loading Screen -->
-      <div class="loading-screen border-rounded">
+     <!-- Modal Update -->
+     <div class="modal-update flex" id="openUpdateModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Update
+        </h1>
+
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+          <div class="u-mt-lg">
+            <label for="user_note"
+              >Leave Important Notes:</label
+            >
+            <textarea
+              class="form-input"
+              name="user_note"
+              id="user_note"
+              rows="5"
+              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
+            ></textarea>
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="status">status</label>
+            <select name="status" id="status" class="form-input" required>
+              <option value="Panding">Pending</option>
+              <option value="Paid">Paid</option>
+              <option value="Processing">Processing</option>
+              <option value="Finished">Finished</option>
+            </select>
+          </div>
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Update</button>
+
+            <button class="action-btn cancel" id="closeUpdateModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Office table -->
+    <h1 class="font-lg color-primary text-center u-m-y-m">
+      Office Table
+    </h1>
+    <div class="container overflow-auto">
+      <table class="container-90 card" id="table">
+        <!-- <div class="search-table flex flex-justify-center container-90">
+          <input
+            class="form-input"
+            type="text"
+            name="search-table"
+            value=""
+            placeholder="Search Items"
+            id="search-table"
+          />
+        </div> -->
+        <div class="container-90">
+          <button class="add btn createOffice-btn"> Create New Office</button>
+        </div>
+
+        <tr class="bg-primary" id="table-header">
+          <th>ID</th>
+          <th>Offices</th>
+          <th>Date Created</th>
+          <th>Date Updated</th>
+        </tr>
+
+        <tr class="modalOffice-btn">
+          <td>123456789123</td>
+          <td>Registrar</td>
+          <td>June 18, 2022 8:05 AM</td>
+          <td>June 18, 2022 8:05 AM</td>
+        </tr>
+
+        <tr class="modalOffice-btn">
+          <td>123456789123</td>
+        
+          <td>OSDS</td>
+          <td>June 17, 2022 8:04 AM</td>
+          <td>June 17, 2022 8:04 AM</td>
+        </tr>
+
+        <tr class="modalOffice-btn">
+          <td>123456789123</td>
+          <td>Dean's Office</td>
+          <td>June 17, 2022 8:03 AM</td>
+          <td>June 17, 2022 8:03 AM</td>
+        </tr>
+      </table>
+    </div>
+    <!-- Modal Office Table -->
+    <div class="modal-update flex" id="openOfficeModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Update - Office
+        </h1>
+
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+         
+          <div class="u-mt-lg">
+            <label for="ID">ID</label>
+            <input
+              name="ID"
+              id="ID"
+              class="form-input"
+              placeholder="123456789123"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="office">office</label>
+            <input
+              name="Office"
+              id="Office"
+              class="form-input"
+              placeholder="Registrar"
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="dateCreated">Date Created</label>
+            <input
+              name="date-created"
+              id="date-created"
+              class="form-input"
+              placeholder="June 17, 2022 8:03 AM"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="dateUpdated">Date Updated</label>
+            <input
+              name="date-updated"
+              id="date-updated"
+              class="form-input"
+              placeholder="June 17, 2022 8:03 AM"
+              disabled
+            />
+          </div>
+
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Update</button>
+
+            <button class="action-btn cancel" id="closeOfficeModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Modal Office Create new -->
+    <div class="modal-update flex" id="openCreateOfficeModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Create New Office
+        </h1>
+
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+         
+          <div class="u-mt-lg">
+            <label for="createOffice">office</label>
+            <input
+              name="createOffice"
+              id="createOffice"
+              class="form-input"
+              placeholder="Registrar"
+            />
+          </div>
+
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Create</button>
+
+            <button class="action-btn cancel" id="closeCreateOfficeModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- services table -->
+    <h1 class="font-lg color-primary text-center u-m-y-m">
+      Services Table
+    </h1>
+    <div class="container overflow-auto">
+      <table class="container-90 card" id="table">
+
+        <div class="container-90">
+          <button class="add btn createServices-btn" id=""> Create New Service</button>
+        </div>
+        <!-- <div class="search-table flex flex-justify-center container-90">
+          <input
+            class="form-input"
+            type="text"
+            name="search-table"
+            value=""
+            placeholder="Search Items"
+            id="search-table"
+          />
+        </div> -->
+
+        <tr class="bg-primary" id="table-header">
+          <th>ID</th>
+          <th>Services</th>
+          <th>Fee</th>
+          <th>Date Created</th>
+          <th>Date Updated</th>
+        </tr>
+
+        <tr class="modalServices-btn">
+          <td>123456789123</td>
+          <td>Transcript of Records</td>
+          <td><span>&#8369;</span>50 /page </td>
+          <td>June 18, 2022 8:05 AM</td>
+          <td>June 18, 2022 8:05 AM</td>
+        </tr>
+
+        <tr class="modalServices-btn">
+          <td>123456789123</td>
+          <td>Scholastic Records </td>
+          <td><span>&#8369;</span>50 /page </td>
+          <td>June 17, 2022 8:04 AM</td>
+          <td>June 17, 2022 8:04 AM</td>
+        </tr>
+
+        <tr class="modalServices-btn">
+          <td>123456789123</td>
+          <td>Certificate of Grades</td>
+          <td><span>&#8369;</span>20 /page </td>
+          <td>June 17, 2022 8:03 AM</td>
+          <td>June 17, 2022 8:03 AM</td>
+        </tr>
+      </table>
+    </div>
+    <!-- Modal Services Table -->
+    <div class="modal-update flex" id="openServicesModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Update - Services
+        </h1>
+
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+         
+          <div class="u-mt-lg">
+            <label for="ID">ID</label>
+            <input
+              name="ID"
+              id="ID"
+              class="form-input"
+              placeholder="123456789123"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="services">Services</label>
+            <input
+              name="services"
+              id="services"
+              class="form-input"
+              placeholder="Transcript of Records"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="fee">Fee</label>
+            <input
+              name="fee"
+              id="fee"
+              class="form-input"
+              placeholder="&#8369;50 /page"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="dateCreated">Date Created</label>
+            <input
+              name="date-created"
+              id="date-created"
+              class="form-input"
+              placeholder="June 17, 2022 8:03 AM"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="dateUpdated">Date Updated</label>
+            <input
+              name="date-updated"
+              id="date-updated"
+              class="form-input"
+              placeholder="June 17, 2022 8:03 AM"
+              disabled
+            />
+          </div>
+
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Update</button>
+
+            <button class="action-btn cancel" id="closeServicesModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Modal Services Create new -->
+    <div class="modal-update flex" id="openCreateServicesModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Create New Services
+        </h1>
+
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+         
+          <div class="u-mt-lg">
+            <label for="createServices">Services</label>
+            <input
+              name="createServices"
+              id="createServices"
+              class="form-input"
+              placeholder="Transcript of Records"
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="createFee">Fee</label>
+            <input
+              name="createFee"
+              id="createFee"
+              class="form-input"
+              placeholder="&#8369;50 /page"  
+            />
+          </div>
+
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Create</button>
+
+            <button class="action-btn cancel" id="closeCreateServicesModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Role's table -->
+    <h1 class="font-lg color-primary text-center u-m-y-m">
+      Role's Table
+    </h1>
+    <div class="container overflow-auto">
+      <table class="container-90 card" id="table">
+
+        <div class="container-90">
+          <button class="add btn createRole-btn" id=""> Create New Role</button>
+        </div>
+        <!-- <div class="search-table flex flex-justify-center container-90">
+          <input
+            class="form-input"
+            type="text"
+            name="search-table"
+            value=""
+            placeholder="Search Items"
+            id="search-table"
+          />
+        </div> -->
+
+        <tr class="bg-primary" id="table-header">
+          <th>ID</th>
+          <th>Role</th>
+          <th>Date Created</th>
+          <th>Date Updated</th>
+        </tr>
+
+        <tr class="modalRole-btn">
+          <td>123456789123</td>
+          <td>Administrator</td>
+          <td>June 18, 2022 8:05 AM</td>
+          <td>June 18, 2022 8:05 AM</td>
+        </tr>
+
+        <tr class="modalRole-btn">
+          <td>132456798464</td>
+          <td>Scholastic Records </td>
+          <td>June 17, 2022 8:04 AM</td>
+          <td>June 17, 2022 8:04 AM</td>
+        </tr>
+
+        <tr class="modalRole-btn">
+          <td>123456789123</td>
+          <td>Department</td>
+          <td>June 17, 2022 8:03 AM</td>
+          <td>June 17, 2022 8:03 AM</td>
+        </tr>
+      </table>
+    </div>
+     <!-- Modal Role Table -->
+     <div class="modal-update flex" id="openRoleModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Update - Role
+        </h1>
+
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+         
+          <div class="u-mt-lg">
+            <label for="ID">ID</label>
+            <input
+              name="ID"
+              id="ID"
+              class="form-input"
+              placeholder="123456789123"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="role">Role</label>
+            <input
+              name="role"
+              id="role"
+              class="form-input"
+              placeholder="Registrar admin"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="dateCreated">Date Created</label>
+            <input
+              name="date-created"
+              id="date-created"
+              class="form-input"
+              placeholder="June 17, 2022 8:03 AM"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="dateUpdated">Date Updated</label>
+            <input
+              name="date-updated"
+              id="date-updated"
+              class="form-input"
+              placeholder="June 17, 2022 8:03 AM"
+              disabled
+            />
+          </div>
+
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Update</button>
+
+            <button class="action-btn cancel" id="closeRoleModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+     <!-- Modal Role Create New -->
+     <div class="modal-update flex" id="openCreateRoleModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+         Create New Role
+        </h1>
+
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+         
+         
+          <div class="u-mt-lg">
+            <label for="createRole">Role</label>
+            <input
+              name="createRole"
+              id="createRole"
+              class="form-input"
+              placeholder="Registrar admin"         
+            />
+          </div>
+
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Create</button>
+
+            <button class="action-btn cancel" id="closeCreateRoleModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Request table -->
+    <h1 class="font-lg color-primary text-center u-m-y-m">
+     Request's Table
+    </h1>
+    <div class="container overflow-auto">
+      <table class="container-90 card" id="table">
+        
+      <div class="search-table flex flex-justify-center container-90">
+          <input
+            class="form-input"
+            type="text"
+            name="search-table"
+            value=""
+            placeholder="Search Items"
+            id="search-table"
+          />
+        </div>
+        <div class="container-90">
+          <button class="add btn createRequest-btn" id=""> Create New Request</button>
+        </div>
+        
+
+        <tr class="bg-primary" id="table-header">
+          <th>ID</th>
+          <th>Traking ID</th>
+          <th>Office</th>
+          <th>Service/Request</th>
+          <th>File Name</th>
+          <th>User Note</th>
+          <th>Office Note</th>
+          <th>Status</th>
+          <th>Date Created</th>
+          <th>Date Updated</th>
+        </tr>
+
+        <tr class="modalTrack-btn">
+          <td>1</td>
+          <td>321654987789</td>
+          <td>Registrar</td>
+          <td>Scholastic Records </td>
+          <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+          <td>
+            Can I get the documents by Monday ? it's really urgent. Thanks!
+          </td>
+          <td>
+            Please make you payment to proceed 
+          </td>
+          <td>
+            <span class="badge border-rounded bg-processing">Processing</span>
+          </td>
+          <td>June 18, 2022 8:05 AM</td>
+          <td>June 18, 2022 8:05 AM</td>
+        </tr>
+
+        <tr class="modalTrack-btn">
+          <td>2</td>
+          <td>321654987789</td>
+          <td>Registrar</td>
+          <td>Scholastic Records </td>
+          <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+          <td>
+            Can I get the documents by Monday ? it's really urgent. Thanks!
+          </td>
+          <td>
+            Your documents are Ready!
+          </td>
+          <td>
+            <span class="badge border-rounded bg-processing">Processing</span>
+          </td>
+          <td>June 17, 2022 8:04 AM</td>
+          <td>June 17, 2022 8:04 AM</td>
+        </tr>
+
+        <tr class="modalTrack-btn">
+          <td>3</td>
+          <td>321654987789</td>
+          <td>Registrar</td>
+          <td>Scholastic Records </td>
+          <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+          <td>
+            Can I get the documents by Monday ? it's really urgent. Thanks!
+          </td>
+          <td>
+            1 (one) Document is missing!
+          </td>
+          <td>
+            <span class="badge border-rounded bg-processing">Processing</span>
+          </td>
+          <td>June 17, 2022 8:03 AM</td>
+          <td>June 17, 2022 8:03 AM</td>
+        </tr>
+      </table>
+    </div>
+    <!-- Traking Modal/ Request -->
+    <div class="modal-track flex" id="openTrackModal" style="display: none">
+      <div class="modal-track-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Request Form
+        </h1>
+
+        <form id="track-request" class="flex flex-col u-p-lg w-full">
+          
+          <div class="u-mt-lg">
+            <label for="ID">ID</label>
+            <input
+              name="ID"
+              id="ID"
+              class="form-input"
+              placeholder="123456789123"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="trakingD">Traking ID</label>
+            <input
+              name="trakingID"
+              id="trakingID"
+              class="form-input"
+              placeholder="123456789123"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="office">Office</label>
+            <input
+              name="office"
+              id="Office"
+              class="form-input"
+              placeholder="Registrar"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="services">Services</label>
+            <input
+              name="services"
+              id="services"
+              class="form-input"
+              placeholder="Transcript of Records"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="fileName">File Name</label>
+            <input
+              name="fileName"
+              id="fileName"
+              class="form-input"
+              placeholder="John Doe - Request.pdf"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="user_note">Notes of Documents</label>
+            <textarea
+              class="form-input"
+              name="user_note"
+              id="user_note"
+              rows="5"
+              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
+              disabled
+            ></textarea>
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="office_note"
+              >Important: Office Notes</label
+            >
+            <textarea
+              class="form-input"
+              name="user_note"
+              id="user_note"
+              rows="5"
+              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
+            ></textarea>
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="status">Status</label>
+            <input
+              name="status"
+              id="status"
+              class="form-input"
+              placeholder="Pending"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="dateCreated">Date Created</label>
+            <input
+              name="date-created"
+              id="date-created"
+              class="form-input"
+              placeholder="June 17, 2022 8:03 AM"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="dateUpdated">Date Updated</label>
+            <input
+              name="date-updated"
+              id="date-updated"
+              class="form-input"
+              placeholder="June 17, 2022 8:03 AM"
+              disabled
+            />
+          </div>
+
+          <div class="modal-track-btn crud">
+            <button type="submit" class="action-btn update">Update</button>
+            <button class="action-btn cancel" id="closeTrackModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Traking Modal/ Request Create New -->
+    <div class="modal-track flex" id="openCreateTrackModal" style="display: none">
+      <div class="modal-track-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Request Form
+        </h1>
+
+        <form id="track-request" class="flex flex-col u-p-lg w-full">   
+
+          <div class="u-mt-lg">
+            <label for="office">Office</label>
+            <input
+              name="office"
+              id="Office"
+              class="form-input"
+              placeholder="Registrar"
+              
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="services">Services</label>
+            <input
+              name="services"
+              id="services"
+              class="form-input"
+              placeholder="Transcript of Records"
+             
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="fileName">File Name</label>
+            <input
+              name="fileName"
+              id="fileName"
+              class="form-input"
+              placeholder="John Doe - Request.pdf"
+           
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="user_note">Notes of Documents</label>
+            <textarea
+              class="form-input"
+              name="user_note"
+              id="user_note"
+              rows="5"
+              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
+         
+            ></textarea>
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="office_note"
+              >Important: Office Notes</label
+            >
+            <textarea
+              class="form-input"
+              name="user_note"
+              id="user_note"
+              rows="5"
+              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
+            ></textarea>
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="status">Status</label>
+            <input
+              name="status"
+              id="status"
+              class="form-input"
+              placeholder="Pending"
+             
+            />
+          </div>
+
+          <div class="modal-track-btn crud">
+            <button type="submit" class="action-btn update">Create</button>
+            <button class="action-btn cancel" id="closeCreateTrackModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--User's Table-->
+    <h1 class=" font-lg color-primary text-center u-m-y-m">
+      User's Table
+     </h1>
+     <div class="container overflow-auto ">
+       <table class="container-90 card" id="table">
+         <div class="search-table flex flex-justify-center container-90">
+           <input
+             class="form-input"
+             type="text"
+             name="search-table"
+             value=""
+             placeholder="Search Items"
+             id="search-table"
+           />
+         </div>
+         
+         <div class="container-90">
+           <button class="add btn" id="newUserBtn"> Create New User</button>
+         </div>
+ 
+         <tr class="bg-primary" id="table-header">
+           <th>ID</th>
+           <th>User Number</th>
+           <th>First Name</th>
+           <th>Last Name</th>
+           <th>Position</th>
+           <th>Email</th>
+           <!-- password should have a toggle to be visible and not visible -->
+           <th>Password</th>  
+           <th>Role</th>  
+           <th>Verified</th>  
+           <th>Status</th>  
+           <th>Created At</th>  
+           <th>Updated At</th>  
+ 
+         
+          
+         </tr>
+ 
+         <tr class="userUpdateModal-btn">
+           <td>123456789123</td>
+           <td>09653563201</td>
+           <td>Rhotrix</td>
+           <td>Loreto</td>
+           <td>Admin</td>
+           <td>rhotrix20@yahoo.com</td>
+           <td>**********</td>  
+           <td>Core</td>  
+           <td>Yes</td>  
+           <td>Active</td>  
+           <td>June 18, 2022 8:05 AM</td>  
+           <td>June 18, 2022 8:05 AM</td>  
+   
+         </tr>
+         <tr class="userUpdateModal-btn">
+          <td>123456789123</td>
+          <td>09653563201</td>
+          <td>trixia</td>
+          <td>Loreto</td>
+          <td>Admin</td>
+          <td>trixia20@yahoo.com</td>
+          <td>**********</td>  
+          <td>Core</td>  
+          <td>Yes</td>  
+          <td>Active</td>  
+          <td>June 18, 2022 8:05 AM</td>  
+          <td>June 18, 2022 8:05 AM</td>  
+  
+        </tr>
+         
+       </table>
+  
+     </div>
+  <!--User UPDATE MODAL-->
+    Modal Update 
+    <div class="modal-update flex overflow-auto modalBox " id="userUpdateModal" style="display: none"  >
+      <div class="modal-update-box u-p-sm w-50   ">
+         <h1 class="text-center font-lg color-primary text-center u-m-y-m">Update User</h1>
+
+         <form id="formUserUpdate" class="flex flex-col u-p-lg w-full ">
+            <label for="ID" class="w-full">ID:</label> 
+              <input name="ID" type="number" id="inputId" class="form-input" >
+            <label for="userNumber" class="w-full">User Number:</label> 
+              <input name="userNumber" type="number" id="inputUserNumber" class="form-input">
+            <label for="firstName" class="w-full">First Name:</label> 
+              <input name="firstName" type="text" id="inputFirstName" class="form-input">
+            <label for="lastName" class="w-full">Last Name:</label> 
+              <input name="lastName" type="text" id="inputLastName" class="form-input">
+            <label for="position" class="w-full">Position:</label> 
+              <input name="position" type="text" id="inputPosition" class="form-input">
+            <label for="email" class="w-full">Email:</label> 
+              <input name="email" type="email" id="inputEmail" class="form-input">
+            <label for="password" class="w-full">Password:</label> 
+              <input name="password" type="password" id="inputPassword" class="form-input">
+            <label for="role" class="w-full">Role:</label> 
+                <input name="role" type="text" id="inputRole" class="form-input">
+            <label for="verified" class="w-full">Verified</label> 
+              <input name="verified" type="text" id="inputVerified" class="form-input">
+            <label for="status" class="w-full">Status</label> 
+              <input name="status" type="text" id="inputStatus" class="form-input">
+            <label for="createdAt" class="w-full">Created At</label> 
+              <input name="createdAt" type="datetime" id="inputCreated" class="form-input">
+            <label for="updatedAt" class="w-full">Updated At</label>
+              <input name="updatedAt" type="datetime" id="inputUpdated" class="form-input">
+
+
+         
+          <div class="modal-update-btn crud " >
+          
+            <button  type="submit" class="action-btn update">
+              Update
+            </button>
+          
+            <button class="action-btn cancel" id="userCloseUpdateModal"> 
+              Cancel
+            </button>
+          </div>
+
+          </form>
+              
+      </div>
+    </div>
+
+    <!-- Modal Create New User -->
+<div class="modal-update flex overflow-auto modalBox " id="newUserModal" style="display: none"  >
+  <div class="modal-update-box u-p-sm w-50   ">
+     <h1 class="text-center font-lg color-primary text-center u-m-y-m">Create New User</h1>
+
+     <form id="formAddUser" class="flex flex-col u-p-lg w-full ">
+        <label for="ID" class="w-full">ID:</label> 
+          <input name="ID" type="number" id="newInputId" class="form-input" >
+        <label for="userNumber" class="w-full">User Number:</label> 
+          <input name="userNumber" type="number" id="newInputUserNumber" class="form-input">
+        <label for="firstName" class="w-full">First Name:</label> 
+          <input name="firstName" type="text" id="newInputFirstName" class="form-input">
+        <label for="lastName" class="w-full">Last Name:</label> 
+          <input name="lastName" type="text" id="newInputLastName" class="form-input">
+        <label for="position" class="w-full">Position:</label> 
+          <input name="position" type="text" id="newInputPosition" class="form-input">
+        <label for="email" class="w-full">Email:</label> 
+          <input name="email" type="email" id="newInputEmail" class="form-input">
+        <label for="password" class="w-full">Password:</label> 
+          <input name="password" type="password" id="newInputPassword" class="form-input">
+        <label for="role" class="w-full">Role:</label>
+          <input name="role" type="text" id="newInputRole" class="form-input">
+        <label for="verified" class="w-full">Verified</label> 
+          <input name="verified" type="text" id="newInputVerified" class="form-input">
+        <label for="status" class="w-full">Status</label> 
+          <input name="status" type="text" id="newInputStatus" class="form-input">
+        <label for="createdAt" class="w-full">Created At</label> 
+          <input name="createdAt" type="datetime" id="newInputCreated" class="form-input">
+        <label for="updatedAt" class="w-full">Updated At</label> 
+          <input name="updatedAt" type="datetime" id="newInputUpdated" class="form-input">
+     
+      <div class="modal-update-btn crud " >
+      
+        <button   type="submit"  class=" action-btn update" id="createBtn">
+          Submit
+        </button>
+      
+        <button  class="action-btn cancel" id="cancelCreateBtn"> <!--Alert Message -->
+          Cancel
+        </button>
+      </div>
+
+      </form>
+          
+  </div>
+</div>
+
+    <!-- modal Loading Screen -->
+    <!-- <div class="loading-screen border-rounded">
         <div class="loading-screen-box">
           <div class="loading">
             <div class="dot">L</div>
@@ -117,7 +1082,11 @@
             <span class="text">Please Wait...</span>
           </div>
         </div>
-      </div>
-  </body>
-</html>
+      </div> -->
 
+  </body>
+  <footer>
+    <script src="./assets/js/script.js" type="module"></script>
+    <script src="./assets/js/table-features.js"></script>
+  </footer>
+</html>
