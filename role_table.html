@@ -20,13 +20,13 @@
       <button class=" action-btn edit" onclick="window.location.href='user_table.html'">user</button>
     </div>
 
-
+    <!-- Role's table -->
     <h1 class="font-lg color-primary text-center u-m-y-m">
-      Registrar's Office
+      Role's Table
     </h1>
     <div class="container overflow-auto">
       <table class="container-90 card" id="table">
-        <div class="search-table flex flex-justify-center container-90">
+          <div class="search-table flex flex-justify-center container-90">
           <input
             class="form-input"
             type="text"
@@ -36,96 +36,128 @@
             id="search-table"
           />
         </div>
+        <div class="container-90">
+          <button class="add btn createRole-btn" id=""> Create New Role</button>
+        </div>
+       
 
         <tr class="bg-primary" id="table-header">
           <th>ID</th>
+          <th>Role</th>
           <th>Date Created</th>
-          <th>Request/Service</th>
-          <th>File Name</th>
-          <th>User Note</th>
-          <th>Office Note</th>
-          <th>Status</th>
+          <th>Date Updated</th>
         </tr>
 
-        <tr class="modalUpdate-btn">
+        <tr class="modalRole-btn">
           <td>123456789123</td>
+          <td>Administrator</td>
           <td>June 18, 2022 8:05 AM</td>
-          <td>Transcript of Records (Php 50/page) - Php 50</td>
-          <td><a href="#download-link">John Doe - Request.pdf</a></td>
-          <td>
-            Can I get the documents by Monday ? it's really urgent. Thanks!
-          </td>
-          <td>Please make you payment to proceed</td>
-          <td>
-            <span class="badge border-rounded bg-success">Paid</span>
-          </td>
+          <td>June 18, 2022 8:05 AM</td>
         </tr>
 
-        <tr class="modalUpdate-btn">
-          <td>123456789123</td>
+        <tr class="modalRole-btn">
+          <td>132456798464</td>
+          <td>Scholastic Records </td>
           <td>June 17, 2022 8:04 AM</td>
-          <td>Transcript of Records (Php 50/page) - Php 50</td>
-          <td><a href="#download-link">Jane Doe - Request.pdf</a></td>
-          <td>
-            Can I get the documents by Monday ? it's really urgent. Thanks!
-          </td>
-          <td>Your documents are Ready!</td>
-          <td>
-            <span class="badge border-rounded bg-pending"
-              >Payment Required</span
-            >
-          </td>
+          <td>June 17, 2022 8:04 AM</td>
         </tr>
 
-        <tr class="modalUpdate-btn">
+        <tr class="modalRole-btn">
           <td>123456789123</td>
+          <td>Department</td>
           <td>June 17, 2022 8:03 AM</td>
-          <td>Transcript of Records (Php 50/page) - Php 50</td>
-          <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
-          <td>
-            Can I get the documents by Monday ? it's really urgent. Thanks!
-          </td>
-          <td>1 (one) Document is missing!</td>
-          <td>
-            <span class="badge border-rounded bg-processing">Processing</span>
-          </td>
+          <td>June 17, 2022 8:03 AM</td>
         </tr>
       </table>
     </div>
-     <!-- Modal Update -->
-     <div class="modal-update flex" id="openUpdateModal" style="display: none">
+     <!-- Modal Role Table -->
+     <div class="modal-update flex" id="openRoleModal" style="display: none">
       <div class="modal-update-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
-          Update
+          Update - Role
         </h1>
 
         <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+         
           <div class="u-mt-lg">
-            <label for="user_note"
-              >Leave Important Notes:</label
-            >
-            <textarea
+            <label for="ID">ID</label>
+            <input
+              name="ID"
+              id="ID"
               class="form-input"
-              name="user_note"
-              id="user_note"
-              rows="5"
-              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
-            ></textarea>
+              placeholder="123456789123"
+              disabled
+            />
           </div>
 
           <div class="u-mt-lg">
-            <label for="status">status</label>
-            <select name="status" id="status" class="form-input" required>
-              <option value="Panding">Pending</option>
-              <option value="Paid">Paid</option>
-              <option value="Processing">Processing</option>
-              <option value="Finished">Finished</option>
-            </select>
+            <label for="role">Role</label>
+            <input
+              name="role"
+              id="role"
+              class="form-input"
+              placeholder="Registrar admin"
+              disabled
+            />
           </div>
+
+          <div class="u-mt-lg">
+            <label for="dateCreated">Date Created</label>
+            <input
+              name="date-created"
+              id="date-created"
+              class="form-input"
+              placeholder="June 17, 2022 8:03 AM"
+              disabled
+            />
+          </div>
+
+          <div class="u-mt-lg">
+            <label for="dateUpdated">Date Updated</label>
+            <input
+              name="date-updated"
+              id="date-updated"
+              class="form-input"
+              placeholder="June 17, 2022 8:03 AM"
+              disabled
+            />
+          </div>
+
           <div class="modal-update-btn crud">
             <button type="submit" class="action-btn update">Update</button>
 
-            <button class="action-btn cancel" id="closeUpdateModal">
+            <button class="action-btn cancel" id="closeRoleModal">
+              <!--Alert Message -->
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+     <!-- Modal Role Create New -->
+     <div class="modal-update flex" id="openCreateRoleModal" style="display: none">
+      <div class="modal-update-box u-p-sm">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+         Create New Role
+        </h1>
+
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+         
+         
+          <div class="u-mt-lg">
+            <label for="createRole">Role</label>
+            <input
+              name="createRole"
+              id="createRole"
+              class="form-input"
+              placeholder="Registrar admin"         
+            />
+          </div>
+
+          <div class="modal-update-btn crud">
+            <button type="submit" class="action-btn update">Create</button>
+
+            <button class="action-btn cancel" id="closeCreateRoleModal">
               <!--Alert Message -->
               Cancel
             </button>
