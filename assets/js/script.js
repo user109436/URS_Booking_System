@@ -1,5 +1,5 @@
 import { Modal } from "./modal.class.js";
-
+import { getAsHtmlCollection } from "./utilities.js";
 //Single Open Modal-button
 const singleModal = document.getElementById("singleModal");
 const singleOpenBtn = document.getElementById("singleOpenBtn");
@@ -24,7 +24,27 @@ if (multipleModalExist) {
   );
   tableModal.modalMultipleOpenBtn();
 }
+for(let selectedTableRow of multipleOpenBtn){
+  selectedTableRow.addEventListener("click", function () {
+    const tableData =getAsHtmlCollection(selectedTableRow, 'td');
+    let inputFields =document.getElementsByClassName('form-input');
+    inputFields=Array.from(inputFields);
+    // 1. get all table data with classname including their classname 
+    tableData.forEach(td=>{
+      const hasClassName = td.classList.value;
+      if(hasClassName){
+        // 2. select all input fields with this classname and assigned the value
+        inputFields.forEach(element=>{
+          let classNameExist = element.classList.value.indexOf(hasClassName);
+          if(classNameExist>=0){
+              element.value=td.innerText;
+          }
+        })
+      };
+    });
 
+    });;
+}
 // DOM ----------------------------------------------------------
 
 // const userForm = document.querySelector('#formAddUser');

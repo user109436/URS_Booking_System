@@ -48,7 +48,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="multipleOpenBtn" onclick="onEdit()">
+        <!-- <tr class="multipleOpenBtn" onclick="onEdit()"> -->
+        <tr class="multipleOpenBtn">
+
           <td>123456789123</td>
           <td>June 18, 2022 8:05 AM</td>
           <td>Transcript of Records (Php 50/page) - Php 50</td>
@@ -56,8 +58,8 @@
           <td>
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
-          <td>Please make you payment to proceed</td>
-          <td>
+          <td class="table-office-note">Please make you payment to proceed</td>
+          <td class="table-status">
             <span class="badge border-rounded bg-success">Paid</span>
           </td>
         </tr>
@@ -70,8 +72,8 @@
           <td>
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
-          <td>Your documents are Ready!</td>
-          <td>
+          <td class="table-office-note">Your documents are Ready!</td>
+          <td class="table-status">
             <span class="badge border-rounded bg-pending"
               >Payment Required</span
             >
@@ -86,8 +88,8 @@
           <td>
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
-          <td>1 (one) Document is missing!</td>
-          <td>
+          <td class="table-office-note">1 (one) Document is missing!</td>
+          <td class="table-status">
             <span class="badge border-rounded bg-processing">Processing</span>
           </td>
         </tr>
@@ -107,7 +109,7 @@
               >Leave Important Notes:</label
             >
             <textarea
-              class="form-input"
+              class="form-input table-office-note"
               name="user_note"
               id="user_note"
               rows="5"
@@ -117,7 +119,8 @@
 
           <div class="u-mt-lg">
             <label for="status">status</label>
-            <select name="status" id="status" class="form-input" required>
+            <select name="status" id="status" class="form-input table-status" required >
+              <option value="Payment Required">Payment Required</option>
               <option value="Pending">Pending</option>
               <option value="Paid">Paid</option>
               <option value="Processing">Processing</option>
