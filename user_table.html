@@ -109,18 +109,19 @@
             <label for="userNumber" class="w-full">User Number:</label> 
               <input name="userNumber" type="number" id="inputUserNumber" class="form-input" disabled>
             <label for="firstName" class="w-full">First Name:</label> 
-              <input name="firstName" type="text" id="inputFirstName" class="form-input">
+              <input name="firstName" type="text" id="inputFirstName" class="form-input" required>
             <label for="lastName" class="w-full">Last Name:</label> 
-              <input name="lastName" type="text" id="inputLastName" class="form-input">
+              <input name="lastName" type="text" id="inputLastName" class="form-input" required>
             <label for="position" class="w-full">Position:</label> 
-              <input name="position" type="text" id="inputPosition" class="form-input">
+              <input name="position" type="text" id="inputPosition" class="form-input" required>
             <label for="email" class="w-full">Email:</label> 
-              <input name="email" type="email" id="inputEmail" class="form-input">
+              <input name="email" type="email" id="inputEmail" class="form-input" required>
             <label for="password" class="w-full">Password:</label> 
-              <input name="password" type="password" id="inputPassword" class="form-input">
+              <input name="password" type="password" id="inputPassword" class="form-input" required>
             <label for="role" class="w-full">Role:</label> 
-                <input name="role" type="text" id="inputRole" class="form-input">
+                <input name="role" type="text" id="inputRole" class="form-input" required>
             <label for="verified" class="w-full">Verified</label> 
+
               <input name="verified" type="text" id="inputVerified" class="form-input">
             <label for="status" class="w-full">Status</label> 
               <select name="status" type="text" id="inputStatus" class="form-input">
@@ -132,6 +133,24 @@
              
             <label for="updatedAt" class="w-full">Updated At</label>
               <input name="updatedAt" type="date" id="inputUpdated" class="form-input">
+
+
+              <input name="verified" type="text" id="inputVerified" class="form-input" required>
+            
+            <div class="u-mt-lg">
+              <label for="status">status</label>
+              <select name="status" id="status" class="form-input" required>
+                <option value="Panding">Pending</option>
+                <option value="Paid">Paid</option>
+                <option value="Processing">Processing</option>
+                <option value="Finished">Finished</option>
+              </select>
+            </div>
+
+            <label for="createdAt" class="w-full">Created At</label> 
+              <input name="createdAt" type="datetime" id="inputCreated" class="form-input" disabled>
+            <label for="updatedAt" class="w-full">Updated At</label>
+              <input name="updatedAt" type="datetime-local" id="inputUpdated" class="form-input" required>
 
 
 
@@ -159,29 +178,38 @@
 
      <form id="formAddUser" autocomplete="off" onsubmit="onFormSubmit(); return false;" class="flex flex-col u-p-lg w-full ">
         <label for="ID" class="w-full">ID:</label> 
-          <input name="ID" type="number" id="newInputId" class="form-input" >
+          <input name="ID" type="number" id="newInputId" class="form-input" disabled>
         <label for="userNumber" class="w-full">User Number:</label> 
-          <input name="userNumber" type="number" id="newInputUserNumber" class="form-input">
+          <input name="userNumber" type="number" id="newInputUserNumber" class="form-input" disabled>
         <label for="firstName" class="w-full">First Name:</label> 
-          <input name="firstName" type="text" id="newInputFirstName" class="form-input">
+          <input name="firstName" type="text" id="newInputFirstName" class="form-input" required>
         <label for="lastName" class="w-full">Last Name:</label> 
-          <input name="lastName" type="text" id="newInputLastName" class="form-input">
+          <input name="lastName" type="text" id="newInputLastName" class="form-input" required>
         <label for="position" class="w-full">Position:</label> 
-          <input name="position" type="text" id="newInputPosition" class="form-input">
+          <input name="position" type="text" id="newInputPosition" class="form-input" required>
         <label for="email" class="w-full">Email:</label> 
-          <input name="email" type="email" id="newInputEmail" class="form-input">
+          <input name="email" type="email" id="newInputEmail" class="form-input" required>
         <label for="password" class="w-full">Password:</label> 
-          <input name="password" type="password" id="newInputPassword" class="form-input">
+          <input name="password" type="password" id="newInputPassword" class="form-input" required>
         <label for="role" class="w-full">Role:</label>
-          <input name="role" type="text" id="newInputRole" class="form-input">
+          <input name="role" type="text" id="newInputRole" class="form-input" required>
         <label for="verified" class="w-full">Verified</label> 
-          <input name="verified" type="text" id="newInputVerified" class="form-input">
-        <label for="status" class="w-full">Status</label> 
-          <input name="status" type="text" id="newInputStatus" class="form-input">
+          <input name="verified" type="text" id="newInputVerified" class="form-input" required>
+
+        <div class="u-mt-lg">
+          <label for="status">status</label>
+          <select name="status" id="status" class="form-input" required>
+            <option value="Panding">Pending</option>
+            <option value="Paid">Paid</option>
+            <option value="Processing">Processing</option>
+            <option value="Finished">Finished</option>
+          </select>
+        </div>
+
         <label for="createdAt" class="w-full">Created At</label> 
-          <input name="createdAt" type="datetime" id="newInputCreated" class="form-input">
+          <input name="createdAt" type="datetime" id="newInputCreated" class="form-input" disabled>
         <label for="updatedAt" class="w-full">Updated At</label> 
-          <input name="updatedAt" type="datetime" id="newInputUpdated" class="form-input">
+          <input name="updatedAt" type="datetime" id="newInputUpdated" class="form-input" disabled>
      
       <div class="modal-update-btn crud " >
       
@@ -221,3 +249,46 @@
     <script src="./assets/js/table-features.js"></script>
   </footer>
 </html>
+<!-- <script>
+  // CRUD = READ
+    const tableHeader = ` <th>ID</th>
+                          <th>User Number</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Position</th>
+                          <th>Email</th>
+                          <th>Password</th>  
+                          <th>Role</th>  
+                          <th>Verified</th>  
+                          <th>Status</th>  
+                          <th>Created At</th>  
+                          <th>Updated At</th> `
+
+    console.log(tableHeader);
+    function createTableData(array) {
+        
+        for (let i = 0; i < array.length; i++) {
+            table.innerHTML+=  ` <tr class="multipleOpenBtn">
+            <td>${array[i].Id}</td>
+            <td>${array[i].UserNumber }</td>
+            <td>${array[i].FirstName  }</td>
+            <td>${array[i].LastName }</td>
+            <td>${array[i].Email  }</td>
+            <td>${array[i].Password  }</td>
+            <td>${array[i].Role }</td>
+            <td>${array[i].Verified   }</td>
+            <td>${array[i].Active }</td>
+            <td>${array[i].CreatedAt }</td>
+            <td>${array[i].UpdatedAt }</td>
+            </tr>`
+            
+          }
+      }
+
+      fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
+      .then(response => response.json())
+      .then(todos =>  {
+        createTableData(todos);
+      })
+
+</script> -->
