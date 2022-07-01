@@ -1,5 +1,4 @@
 
-
 // CRUD = READ
 const tableHeader = `<tr class="bg-primary" id="table-header">
                     <th>ID</th>
@@ -31,32 +30,6 @@ console.log(tableHeader);
  function formInputs(){
 
  }
-
-
-// ----------------------------------------------
-// submit POST
-// $(document).ready(function () {
-//   $("form-account-request").submit(function (event) {
-//     var formData = {
-//       id: $("#ID").val(),
-//       office: $("#office").val(),
-//       createAt: $("#date-created").val(),
-//       updatedAt: $("#date-updated").val(),
-//     };
-
-//     $.ajax({
-//       type: "POST",
-//       url: "",
-//       data: formData,
-//       dataType: "json",
-//       encode: true,
-//     }).done(function (data) {
-//       console.log(data);
-//     });
-
-//     event.preventDefault();
-//   });
-// });
 
 
 

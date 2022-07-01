@@ -56,60 +56,60 @@
         </tr>
 
         <tr class="multipleOpenBtn" onClick="onEdit(this)">
-          <td>1</td>
-          <td>321654987789</td>
-          <td>Registrar</td>
-          <td>Scholastic Records </td>
-          <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
-          <td>
+          <td  class="table-id">1</td>
+          <td  class="table-traking-id">321654987789</td>
+          <td class="table-office">Registrar</td>
+          <td class="table-services">Scholastic Records </td>
+          <td  class="table-file"><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+          <td class="table-user-note">
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
-          <td>
+          <td class="table-office-note">
             Please make you payment to proceed 
           </td>
-          <td>
+          <td class="table-status">
             <span class="badge border-rounded bg-processing">Processing</span>
           </td>
-          <td>June 18, 2022 8:05 AM</td>
-          <td>June 18, 2022 8:05 AM</td>
+          <td class="table-date-created">June 18, 2022 8:05 AM</td>
+          <td class="table-date-updated">June 18, 2022 8:05 AM</td>
         </tr>
 
         <tr class="multipleOpenBtn" onClick="onEdit(this)">
-          <td>2</td>
-          <td>321654987789</td>
-          <td>Registrar</td>
-          <td>Scholastic Records </td>
-          <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
-          <td>
+          <td  class="table-id">2</td>
+          <td  class="table-traking-id">321654987789</td>
+          <td class="table-office">Registrar</td>
+          <td class="table-services">Scholastic Records </td>
+          <td  class="table-file"><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+          <td class="table-user-note">
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
-          <td>
+          <td class="table-office-note">
             Your documents are Ready!
           </td>
-          <td>
+          <td class="table-status">
             <span class="badge border-rounded bg-processing">Processing</span>
           </td>
-          <td>June 17, 2022 8:04 AM</td>
-          <td>June 17, 2022 8:04 AM</td>
+          <td class="table-date-created">June 17, 2022 8:04 AM</td>
+          <td class="table-date-updated">June 17, 2022 8:04 AM</td>
         </tr>
 
         <tr class="multipleOpenBtn" onClick="onEdit(this)">
-          <td>3</td>
-          <td>321654987789</td>
-          <td>Registrar</td>
-          <td>Scholastic Records </td>
-          <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
-          <td>
+          <td  class="table-id">3</td>
+          <td  class="table-traking-id">321654987789</td>
+          <td class="table-office">Registrar</td>
+          <td class="table-services">Scholastic Records </td>
+          <td  class="table-file"><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+          <td class="table-user-note">
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
-          <td>
+          <td class="table-office-note">
             1 (one) Document is missing!
           </td>
-          <td>
-            <span class="badge border-rounded bg-processing">Processing</span>
+          <td class="table-status">
+            <span class="badge border-rounded bg-processing ">Processing</span>
           </td>
-          <td>June 17, 2022 8:03 AM</td>
-          <td>June 17, 2022 8:03 AM</td>
+          <td class="table-date-created">June 17, 2022 8:03 AM</td>
+          <td class="table-date-updated">June 17, 2022 8:03 AM</td>
         </tr>
         <tr>
           <tbody>
@@ -132,7 +132,7 @@
             <input
               name="ID"
               id="ID"
-              class="form-input"
+              class="form-input table-id"
               placeholder="123456789123"
               disabled
             />
@@ -143,7 +143,7 @@
             <input
               name="trackingID"
               id="trackingID"
-              class="form-input"
+              class="form-input table-traking-id"
               placeholder="123456789123"
               disabled
             />
@@ -154,7 +154,7 @@
             <input type="text"
               name="office"
               id="Office"
-              class="form-input"
+              class="form-input  table-office"
               placeholder="Registrar"
              required
             />
@@ -165,7 +165,7 @@
             <input type="text"
               name="services"
               id="services"
-              class="form-input"
+              class="form-input table-services"
               placeholder="Transcript of Records"
               required
             />
@@ -176,7 +176,7 @@
             <input 
               name="fileName"
               id="fileName"
-              class="form-input"
+              class="form-input table-file"
               placeholder="John Doe - Request.pdf"
               disabled
             />
@@ -185,7 +185,7 @@
           <div class="u-mt-lg">
             <label for="user_note">Notes of Documents</label>
             <textarea
-              class="form-input"
+              class="form-input table-user-note"
               name="user_note"
               id="user_note"
               rows="5"
@@ -199,7 +199,7 @@
               >Important: Office Notes</label
             >
             <textarea
-              class="form-input"
+              class="form-input table-office-note"
               name="user_note"
               id="user_note"
               rows="5"
@@ -210,7 +210,7 @@
 
           <div class="u-mt-lg">
             <label for="status">status</label>
-            <select name="status" id="status" class="form-input" required>
+            <select name="status" id="status" class="form-input table-status" required>
               <option value="Panding">Pending</option>
               <option value="Paid">Paid</option>
               <option value="Processing">Processing</option>
@@ -223,7 +223,7 @@
             <input
               name="date-created"
               id="date-created"
-              class="form-input"
+              class="form-input table-date-created"
               placeholder="June 17, 2022 8:03 AM"
               disabled
             />
@@ -234,14 +234,14 @@
             <input type="datetime-local"
               name="date-updated"
               id="date-updated"
-              class="form-input"
+              class="form-input table-date-updated"
               placeholder="June 17, 2022 8:03 AM"
               required
             />
           </div>
 
           <div class="modal-track-btn crud">
-            <button type="submit" value="Submit "class="action-btn update">Update</button>
+            <button type="submit" class="action-btn update">Update</button>
             <button class="action-btn cancel" id="multipleCloseBtn">
          
               Cancel
@@ -250,6 +250,7 @@
         </form>
       </div>
     </div>
+
     <!-- Tracking Modal/ Request Create New -->
     <div class="modal-track flex" id="singleModal" style="display: none">
       <div class="modal-track-box u-p-sm">
@@ -322,7 +323,7 @@
           
           <div class="u-mt-lg">
             <label for="status">status</label>
-            <select name="status" id="status" class="form-input" required>
+            <select name="status" id="status" class="form-input table-status" required>
               <option value="Panding">Pending</option>
               <option value="Paid">Paid</option>
               <option value="Processing">Processing</option>
@@ -333,8 +334,6 @@
           <div class="modal-track-btn crud">
 
             <button type="submit" onclick="AddRow();"  class="action-btn update">Create</button>
-
-            <input type="submit" class="action-btn update" >
 
             <button class="action-btn cancel" id="singleCloseBtn">
               <!--Alert Message -->
@@ -391,17 +390,17 @@
         
         for (let i = 0; i < array.length; i++) {
             table.innerHTML+=  ` <tr class="multipleOpenBtn">
-            <td>${array[i].Id}</td>
-            <td>${array[i].TrackingId}</td>
-            <td>${array[i].OfficeId }</td>
-            <td>${array[i].ServiceId}</td>
-            <td>${array[i].StatusId }</td>
-            <td>${array[i].UserNote }</td>
-            <td>${array[i].OfficeNote}</td>
-            <td>${array[i].FileName  }</td>
+            <td  class="table-traking-id">${array[i].Id}</td>
+            <td class="table-traking-id">${array[i].TrackingId}</td>
+            <td class="table-office">${array[i].OfficeId }</td>
+            <td class="table-services">${array[i].ServiceId}</td>
+            <td  class="table-status" >${array[i].StatusId }</td>
+            <td class="table-user-note">${array[i].UserNote }</td>
+            <td class="table-office-note">${array[i].OfficeNote}</td>
+            <td  class="table-file">${array[i].FileName  }</td>
 
-            <td>${array[i].createAt}</td>
-            <td>${array[i].updatedAt}</td>
+            <td class="table-date-created">${array[i].createAt}</td>
+            <td class="table-date-updated">${array[i].updatedAt}</td>
             <td>${array[i].FinishedAt }</td>
             </tr>`
             

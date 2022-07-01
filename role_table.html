@@ -97,7 +97,7 @@
               name="role"
               id="role"
               class="form-input table-role"
-              placeholder="Registrar admin"
+              placeholder="Ex. Registrar admin"
               required
             />
           </div>
@@ -151,7 +151,7 @@
               name="createRole"
               id="createRole"
               class="form-input"
-              placeholder="Registrar admin"     
+              placeholder="Ex. Registrar admin"     
               required    
             />
           </div>
@@ -205,10 +205,10 @@
         
         for (let i = 0; i < array.length; i++) {
             table.innerHTML+=  ` <tr class="multipleOpenBtn">
-            <td>${array[i].Id}</td>
-            <td>${array[i].Name}</td>
-            <td>${array[i].CreateAt}</td>
-            <td>${array[i].UpdatedAt}</td>
+            <td class="table-id">${array[i].Id}</td>
+            <td class="table-role">${array[i].Name}</td>
+            <td class="table-date-created">${array[i].CreateAt}</td>
+            <td class="table-date-updated">${array[i].UpdatedAt}</td>
             </tr>`
             
           }

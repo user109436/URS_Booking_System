@@ -42,35 +42,35 @@
         
 
         <tr class="bg-primary" id="table-header">
-          <th>ID</th>
-          <th>Services</th>
-          <th>Fee</th>
-          <th>Date Created</th>
-          <th>Date Updated</th>
+          <th class="table-id">ID</th>
+          <th class="table-services">Services</th>
+          <th class="table-fee">Fee <span>&#8369;</span> / page</th>
+          <th class="table-date-created">Date Created</th>
+          <th class="table-date-updated">Date Updated</th>
         </tr>
 
         <tr class="multipleOpenBtn">
-          <td>123456789123</td>
-          <td>Transcript of Records</td>
-          <td><span>&#8369;</span>50 /page </td>
-          <td>June 18, 2022 8:05 AM</td>
-          <td>June 18, 2022 8:05 AM</td>
+          <td class="table-id">123456789123</td>
+          <td class="table-services">Transcript of Records</td>
+          <td class="table-fee">50</td>
+          <td class="table-date-created">June 18, 2022 8:05 AM</td>
+          <td class="table-date-updated">June 18, 2022 8:05 AM</td>
         </tr>
 
         <tr class="multipleOpenBtn">
-          <td>123456789123</td>
-          <td>Scholastic Records </td>
-          <td><span>&#8369;</span>50 /page </td>
-          <td>June 17, 2022 8:04 AM</td>
-          <td>June 17, 2022 8:04 AM</td>
+          <td class="table-id">123456789123</td>
+          <td class="table-services">Scholastic Records </td>
+          <td class="table-fee">50 </td>
+          <td class="table-date-created">June 17, 2022 8:04 AM</td>
+          <td class="table-date-updated">June 17, 2022 8:04 AM</td>
         </tr>
 
         <tr class="multipleOpenBtn">
-          <td>123456789123</td>
-          <td>Certificate of Grades</td>
-          <td><span>&#8369;</span>20 /page </td>
-          <td>June 17, 2022 8:03 AM</td>
-          <td>June 17, 2022 8:03 AM</td>
+          <td class="table-id">123456789123</td>
+          <td class="table-services">Certificate of Grades</td>
+          <td class="table-fee">20  </td>
+          <td class="table-date-created">June 17, 2022 8:03 AM</td>
+          <td class="table-date-updated">June 17, 2022 8:03 AM</td>
         </tr>
       </table>
     </div>
@@ -88,7 +88,7 @@
             <input
               name="ID"
               id="ID"
-              class="form-input"
+              class="form-input table-id"
               placeholder="123456789123"
               disabled
             />
@@ -99,8 +99,8 @@
             <input type="text"
               name="services"
               id="services"
-              class="form-input"
-              placeholder="Transcript of Records"
+              class="form-input table-services"
+              placeholder="Ex. Transcript of Records"
               required
             />
           </div>
@@ -110,8 +110,8 @@
             <input type="number"
               name="fee"
               id="fee"
-              class="form-input"
-              placeholder="&#8369;50 /page"
+              class="form-input table-fee"
+              placeholder="Ex. &#8369;50 /page"
               required
             />
           </div>
@@ -121,7 +121,7 @@
             <input
               name="date-created"
               id="date-created"
-              class="form-input"
+              class="form-input table-date-created"
               placeholder="June 17, 2022 8:03 AM"
               disabled
             />
@@ -132,7 +132,7 @@
             <input type="datetime-local"
               name="date-updated"
               id="date-updated"
-              class="form-input"
+              class="form-input table-date-updated"
               placeholder="June 17, 2022 8:03 AM"
               required
             />
@@ -165,7 +165,7 @@
               name="createServices"
               id="createServices"
               class="form-input"
-              placeholder="Transcript of Records"
+              placeholder="Ex. Transcript of Records"
               required
             />
           </div>
@@ -176,7 +176,7 @@
               name="createFee"
               id="createFee"
               class="form-input"
-              placeholder="&#8369;50 /page"  
+              placeholder="Ex. &#8369;50 /page"  
               required
             />
           </div>
@@ -231,11 +231,11 @@
         
         for (let i = 0; i < array.length; i++) {
             table.innerHTML+=  ` <tr class="multipleOpenBtn">
-            <td>${array[i].Id}</td>
-            <td>${array[i].Name }</td>
-            <td>${array[i].Fee }</td>
-            <td>${array[i].CreateAt}</td>
-            <td>${array[i].UpdatedAt}</td>
+            <td class="table-id">${array[i].Id}</td>
+            <td class="table-services">${array[i].Name }</td>
+            <td class-"table-fee">${array[i].Fee }</td>
+            <td class="table-date-created">${array[i].CreateAt}</td>
+            <td class="table-date-updated">${array[i].UpdatedAt}</td>
             </tr>`
             
           }

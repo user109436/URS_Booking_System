@@ -180,13 +180,13 @@
         
         for (let i = 0; i < array.length; i++) {
             table.innerHTML+=  ` <tr class="multipleOpenBtn">
-            <td>${array[i].TrackingId}</td>
-            <td>${array[i].createAt}</td>
-            <td>${array[i].ServiceId}</td>
-            <td>${array[i].FileName  }</td>
-            <td>${array[i].UserNote }</td>
-            <td>${array[i].OfficeNote}</td>
-            <td>${array[i].StatusId }</td>
+            <td  class="table-traking-id">${array[i].TrackingId}</td>
+            <td class="table-date-created">${array[i].createAt}</td>
+            <td class="table-services">${array[i].ServiceId}</td>
+            <td  class="table-file">${array[i].FileName  }</td>
+            <td class="table-user-note">${array[i].UserNote }</td>
+            <td class="table-office-note">${array[i].OfficeNote}</td>
+            <td  class="table-status" >${array[i].StatusId }</td>
             </tr>`
             
           }

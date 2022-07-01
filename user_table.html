@@ -64,33 +64,33 @@
         </thead>
         <tbody></tbody>
          <tr class="multipleOpenBtn">
-           <td>123456789123</td>
-           <td>09653563201</td>
-           <td>Rhotrix</td>
-           <td>Loreto</td>
-           <td>Admin</td>
-           <td>rhotrix20@yahoo.com</td>
-           <td>**********</td>  
-           <td>Core</td>  
-           <td>Yes</td>  
-           <td>Active</td>  
+           <td class="table-id">123456789123</td>
+           <td class="table-user-number">09653563201</td>
+           <td class="table-first-name">Rhotrix</td>
+           <td class="table-last-name">Loreto</td>
+           <td  class="table-role">Admin</td>
+           <td class="table-email">rhotrix20@yahoo.com</td>
+           <td class="password">**********</td>  
+           <td  class="table-role">Core</td>  
+           <td class="table-verification">Yes</td>  
+           <td  class="table-status" >Active</td>  
            <td>June 18, 2022 8:05 AM</td>  
            <td>June 18, 2022 8:05 AM</td>  
    
          </tr>
          <tr class="multipleOpenBtn">
-          <td>123456789123</td>
-          <td>09653563201</td>
-          <td>trixia</td>
-          <td>Loreto</td>
-          <td>Admin</td>
-          <td>trixia20@yahoo.com</td>
-          <td>**********</td>  
-          <td>Core</td>  
-          <td>Yes</td>  
-          <td>Active</td>  
-          <td>June 18, 2022 8:05 AM</td>  
-          <td>June 18, 2022 8:05 AM</td>  
+          <td class="table-id">123456789123</td>
+          <td class="table-user-number">09653563201</td>
+          <td class="table-first-name">trixia</td>
+          <td class="table-last-name">Loreto</td>
+          <td  class="table-position">Admin</td>
+          <td class="table-email">trixia20@yahoo.com</td>
+          <td class="password">**********</td>  
+          <td  class="table-role">Core</td>  
+          <td class="table-verification">Yes</td>  
+          <td  class="table-status" >Active</td>  
+          <td class="table-date-created">June 18, 2022 8:05 AM</td>  
+          <td class="table-date-updated">June 18, 2022 8:05 AM</td>  
   
         </tr>
       </tbody>
@@ -105,55 +105,97 @@
 
          <form id="formUserUpdate" onsubmit="onFormSubmit()" class="flex flex-col u-p-lg w-full ">
             <label for="ID" class="w-full">ID:</label> 
-              <input name="ID" type="number" id="inputId" class="form-input" disabled >
-            <label for="userNumber" class="w-full">User Number:</label> 
-              <input name="userNumber" type="number" id="inputUserNumber" class="form-input" disabled>
-            <label for="firstName" class="w-full">First Name:</label> 
-              <input name="firstName" type="text" id="inputFirstName" class="form-input" required>
-            <label for="lastName" class="w-full">Last Name:</label> 
-              <input name="lastName" type="text" id="inputLastName" class="form-input" required>
-            <label for="position" class="w-full">Position:</label> 
-              <input name="position" type="text" id="inputPosition" class="form-input" required>
-            <label for="email" class="w-full">Email:</label> 
-              <input name="email" type="email" id="inputEmail" class="form-input" required>
-            <label for="password" class="w-full">Password:</label> 
-              <input name="password" type="password" id="inputPassword" class="form-input" required>
-            <label for="role" class="w-full">Role:</label> 
-                <input name="role" type="text" id="inputRole" class="form-input" required>
-            <label for="verified" class="w-full">Verified</label> 
+              <input 
+              name="ID" 
+              type="number" 
+              id="inputId" 
+              class="form-input table-id" 
+              disabled >
 
-              <input name="verified" type="text" id="inputVerified" class="form-input">
+            <label for="userNumber" class="w-full">User Number:</label> 
+              <input 
+              name="userNumber" 
+              type="number" 
+              id="inputUserNumber " 
+              class="form-input table-user-number" 
+              disabled>
+
+            <label for="firstName" class="w-full">First Name:</label> 
+              <input 
+              name="firstName"
+               type="text" 
+               id="inputFirstName" 
+               class="form-input table-first-name" 
+               required>
+
+            <label for="lastName" class="w-full">Last Name:</label> 
+              <input 
+              name="lastName" 
+              type="text" 
+              id="inputLastName" 
+              class="form-input table-last-name" 
+              required>
+
+            <label for="position" class="w-full">Position:</label> 
+              <input 
+              name="position" 
+              type="text" 
+              id="inputPosition" 
+              class="form-input table-position" 
+              required>
+
+            <label for="email" class="w-full">Email:</label> 
+              <input
+               name="email" 
+               type="email" 
+               id="inputEmail"
+               class="form-input table-email"
+               required>
+
+            <label for="password" class="w-full">Password:</label> 
+              <input 
+              name="password" 
+              type="password" 
+              id="inputPassword" 
+              class="form-input table-email" 
+              required>
+
+            <label for="role" class="w-full">Role:</label> 
+                <input 
+                name="role" 
+                type="text" 
+                id="inputRole" 
+                class="form-input table-role" 
+                required>
+
+            <label for="verified" class="w-full">Verified</label> 
+              <input 
+              name="verified" 
+              type="text" 
+              id="inputVerified" 
+              class="form-input table-verification"
+              >
+
             <label for="status" class="w-full">Status</label> 
               <select name="status" type="text" id="inputStatus" class="form-input">
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
               </select>
+
             <label for="createdAt" class="w-full" disabled>Created At</label> 
-              <input name="createdAt" type="date" id="inputCreated" class="form-input" disabled>
+              <input 
+              name="createdAt" 
+              type="date" 
+              id="inputCreated" 
+              class="form-input table-date-created" 
+              disabled>
              
             <label for="updatedAt" class="w-full">Updated At</label>
-              <input name="updatedAt" type="date" id="inputUpdated" class="form-input">
-
-
-              <input name="verified" type="text" id="inputVerified" class="form-input" required>
-            
-            <div class="u-mt-lg">
-              <label for="status">status</label>
-              <select name="status" id="status" class="form-input" required>
-                <option value="Panding">Pending</option>
-                <option value="Paid">Paid</option>
-                <option value="Processing">Processing</option>
-                <option value="Finished">Finished</option>
-              </select>
-            </div>
-
-            <label for="createdAt" class="w-full">Created At</label> 
-              <input name="createdAt" type="datetime" id="inputCreated" class="form-input" disabled>
-            <label for="updatedAt" class="w-full">Updated At</label>
-              <input name="updatedAt" type="datetime-local" id="inputUpdated" class="form-input" required>
-
-
-
+              <input 
+              name="updatedAt" 
+              type="date" 
+              id="inputUpdated" 
+              class="form-input table-date-updated">
          
           <div class="modal-update-btn crud " >
           
@@ -178,23 +220,76 @@
 
      <form id="formAddUser" autocomplete="off" onsubmit="onFormSubmit(); return false;" class="flex flex-col u-p-lg w-full ">
         <label for="ID" class="w-full">ID:</label> 
-          <input name="ID" type="number" id="newInputId" class="form-input" disabled>
+          <input 
+          name="ID" 
+          type="number" 
+          id="newInputId"
+          class="form-input"
+          disabled>
+
         <label for="userNumber" class="w-full">User Number:</label> 
-          <input name="userNumber" type="number" id="newInputUserNumber" class="form-input" disabled>
+          <input 
+          name="userNumber" 
+          type="number" 
+          id="newInputUserNumber" 
+          class="form-input" 
+          disabled>
+
         <label for="firstName" class="w-full">First Name:</label> 
-          <input name="firstName" type="text" id="newInputFirstName" class="form-input" required>
+          <input 
+          name="firstName" 
+          type="text" 
+          id="newInputFirstName" 
+          class="form-input" 
+          required>
+
         <label for="lastName" class="w-full">Last Name:</label> 
-          <input name="lastName" type="text" id="newInputLastName" class="form-input" required>
+          <input 
+          name="lastName" 
+          type="text" 
+          id="newInputLastName" 
+          class="form-input" 
+          required>
+
         <label for="position" class="w-full">Position:</label> 
-          <input name="position" type="text" id="newInputPosition" class="form-input" required>
+          <input 
+          name="position" 
+          type="text" 
+          id="newInputPosition" 
+          class="form-input" 
+          required>
+
         <label for="email" class="w-full">Email:</label> 
-          <input name="email" type="email" id="newInputEmail" class="form-input" required>
+          <input 
+          name="email" 
+          type="email" 
+          id="newInputEmail" 
+          class="form-input" 
+          required>
+
         <label for="password" class="w-full">Password:</label> 
-          <input name="password" type="password" id="newInputPassword" class="form-input" required>
+          <input 
+          name="password" 
+          type="password" 
+          id="newInputPassword" 
+          class="form-input" 
+          required>
+
         <label for="role" class="w-full">Role:</label>
-          <input name="role" type="text" id="newInputRole" class="form-input" required>
+          <input
+           name="role" 
+           type="text" 
+           id="newInputRole" 
+           class="form-input" 
+           required>
+
         <label for="verified" class="w-full">Verified</label> 
-          <input name="verified" type="text" id="newInputVerified" class="form-input" required>
+          <input 
+          name="verified" 
+          type="text" 
+          id="newInputVerified" 
+          class="form-input" 
+          required>
 
         <div class="u-mt-lg">
           <label for="status">status</label>
@@ -207,9 +302,20 @@
         </div>
 
         <label for="createdAt" class="w-full">Created At</label> 
-          <input name="createdAt" type="datetime" id="newInputCreated" class="form-input" disabled>
+          <input 
+          name="createdAt" 
+          type="datetime" 
+          id="newInputCreated" 
+          class="form-input" 
+          disabled>
+
         <label for="updatedAt" class="w-full">Updated At</label> 
-          <input name="updatedAt" type="datetime" id="newInputUpdated" class="form-input" disabled>
+          <input 
+          name="updatedAt" 
+          type="datetime" 
+          id="newInputUpdated" 
+          class="form-input" 
+          disabled>
      
       <div class="modal-update-btn crud " >
       
@@ -269,17 +375,18 @@
         
         for (let i = 0; i < array.length; i++) {
             table.innerHTML+=  ` <tr class="multipleOpenBtn">
-            <td>${array[i].Id}</td>
-            <td>${array[i].UserNumber }</td>
-            <td>${array[i].FirstName  }</td>
-            <td>${array[i].LastName }</td>
-            <td>${array[i].Email  }</td>
-            <td>${array[i].Password  }</td>
-            <td>${array[i].Role }</td>
-            <td>${array[i].Verified   }</td>
-            <td>${array[i].Active }</td>
-            <td>${array[i].CreatedAt }</td>
-            <td>${array[i].UpdatedAt }</td>
+            <td class="table-id">${array[i].Id}</td>
+            <td class="table-user-number">${array[i].UserNumber }</td>
+            <td class="table-first-name">${array[i].FirstName  }</td>
+            <td class="table-last-name">${array[i].LastName }</td>
+             <td class="table-position">${array[i].Position }</td>
+            <td class="table-email">${array[i].Email  }</td>
+            <td class="password">${array[i].Password  }</td>
+            <td class="table-role">${array[i].Role }</td>
+            <td class="table-verification">${array[i].Verified   }</td>
+            <td  class="table-status" >${array[i].Active }</td>
+            <td class="table-date-created">${array[i].CreatedAt }</td>
+            <td class="table-date-updated">${array[i].UpdatedAt }</td>
             </tr>`
             
           }
