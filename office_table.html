@@ -178,7 +178,7 @@
     </div>
 
     <!-- modal Loading Screen -->
-    <!-- <div class="loading-screen border-rounded">
+      <div class="loading-screen border-rounded" id="loading" >
         <div class="loading-screen-box">
           <div class="loading">
             <div class="dot">L</div>
@@ -191,14 +191,14 @@
             <span class="text">Please Wait...</span>
           </div>
         </div>
-      </div> -->
+      </div>
 
   </body>
 
   <footer>
     <script src="./assets/js/script.js" type="module"></script>
     <script src="./assets/js/table-features.js"></script>
-    <!-- <script src="./assets/js/dom-table.js"></script> -->
+    <script src="./assets/js/dom-table.js"></script>
   </footer>
 </html>
 
@@ -224,28 +224,28 @@
     //       })
     
     // ---    
-        function readData(){
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
-        
-        xhr.onload = function(){
-          if(this.status == 200){
-          var users = JSON.parse(this.responseText);
-          // console.log(users);
-          
-          for (let i = 0; i < users.length; i++) {
-              table.innerHTML+= ` <tr class="multipleOpenBtn">
-                  <td class="table-id">${users[i].userId}</td>
-                  <td class="table-office">${users[i].id}</td>
-                  <td class="table-date-created">${users[i].title}</td>
-                  <td class="table-date-updated">${users[i].body}</td>
-                  </tr>`;       
-            }
+      //   function readData(){
+      //   var xhr = new XMLHttpRequest();
+      //   xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
 
-        }
+      //   xhr.onload = function(){
+      //     if(this.status == 200){
+      //     var users = JSON.parse(this.responseText);
+      //     // console.log(users);
+          
+      //     for (let i = 0; i < users.length; i++) {
+      //         table.innerHTML+= ` <tr class="multipleOpenBtn">
+      //             <td class="table-id">${users[i].userId}</td>
+      //             <td class="table-office">${users[i].id}</td>
+      //             <td class="table-date-created">${users[i].title}</td>
+      //             <td class="table-date-updated">${users[i].body}</td>
+      //             </tr>`;       
+      //       }
+
+      //   }
         
-        }
-        xhr.send();
+      //   }
+      //   xhr.send();
         
-      }
+      // }
 </script>
