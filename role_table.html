@@ -77,7 +77,8 @@
           Update - Role
         </h1>
 
-        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+        <form id="form-account-request" action="" method="post"
+        class="flex flex-col u-p-lg w-full">
          
           <div class="u-mt-lg">
             <label for="ID">ID</label>
@@ -92,12 +93,12 @@
 
           <div class="u-mt-lg">
             <label for="role">Role</label>
-            <input
+            <input type="text"
               name="role"
               id="role"
               class="form-input table-role"
               placeholder="Registrar admin"
-              disabled
+              required
             />
           </div>
 
@@ -114,12 +115,12 @@
 
           <div class="u-mt-lg">
             <label for="dateUpdated">Date Updated</label>
-            <input
+            <input type="datetime-local"
               name="date-updated"
               id="date-updated"
               class="form-input table-date-updated"
               placeholder="June 17, 2022 8:03 AM"
-              disabled
+              required
             />
           </div>
 
@@ -146,11 +147,12 @@
          
           <div class="u-mt-lg">
             <label for="createRole">Role</label>
-            <input
+            <input type="text"
               name="createRole"
               id="createRole"
               class="form-input"
-              placeholder="Registrar admin"         
+              placeholder="Registrar admin"     
+              required    
             />
           </div>
 
@@ -188,3 +190,34 @@
     <script src="./assets/js/table-features.js"></script>
   </footer>
 </html>
+<!-- 
+<script>
+  // CRUD = READ
+    const tableHeader = `<tr class="bg-primary" id="table-header">
+                        <th>ID</th>
+                        <th>Role</th>
+                        <th>Date Created</th>
+                        <th>Date Updated</th>
+                        </tr>
+                        `
+    console.log(tableHeader);
+    function createTableData(array) {
+        
+        for (let i = 0; i < array.length; i++) {
+            table.innerHTML+=  ` <tr class="multipleOpenBtn">
+            <td>${array[i].Id}</td>
+            <td>${array[i].Name}</td>
+            <td>${array[i].CreateAt}</td>
+            <td>${array[i].UpdatedAt}</td>
+            </tr>`
+            
+          }
+      }
+
+      fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
+      .then(response => response.json())
+      .then(todos =>  {
+        createTableData(todos);
+      })
+
+</script> -->

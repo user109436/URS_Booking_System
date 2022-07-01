@@ -96,23 +96,23 @@
 
           <div class="u-mt-lg">
             <label for="services">Services</label>
-            <input
+            <input type="text"
               name="services"
               id="services"
               class="form-input"
               placeholder="Transcript of Records"
-              disabled
+              required
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="fee">Fee</label>
-            <input
+            <input type="number"
               name="fee"
               id="fee"
               class="form-input"
               placeholder="&#8369;50 /page"
-              disabled
+              required
             />
           </div>
 
@@ -129,12 +129,12 @@
 
           <div class="u-mt-lg">
             <label for="dateUpdated">Date Updated</label>
-            <input
+            <input type="datetime-local"
               name="date-updated"
               id="date-updated"
               class="form-input"
               placeholder="June 17, 2022 8:03 AM"
-              disabled
+              required
             />
           </div>
 
@@ -149,6 +149,7 @@
         </form>
       </div>
     </div>
+    
     <!-- Modal Services Create new -->
     <div class="modal-update flex" id="singleModal" style="display: none">
       <div class="modal-update-box u-p-sm">
@@ -165,16 +166,18 @@
               id="createServices"
               class="form-input"
               placeholder="Transcript of Records"
+              required
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="createFee">Fee</label>
-            <input
+            <input type="number"
               name="createFee"
               id="createFee"
               class="form-input"
               placeholder="&#8369;50 /page"  
+              required
             />
           </div>
 
@@ -212,3 +215,36 @@
     <script src="./assets/js/table-features.js"></script>
   </footer>
 </html>
+
+<!-- <script>
+  // CRUD = READ
+    const tableHeader = `<tr class="bg-primary" id="table-header">
+                        <th>ID</th>
+                        <th>Services</th>
+                        <th>Fee</th>
+                        <th>Date Created</th>
+                        <th>Date Updated</th>
+                        </tr>
+                        `
+    console.log( table.innerHTML+= tableHeader);
+    function createTableData(array) {
+        
+        for (let i = 0; i < array.length; i++) {
+            table.innerHTML+=  ` <tr class="multipleOpenBtn">
+            <td>${array[i].Id}</td>
+            <td>${array[i].Name }</td>
+            <td>${array[i].Fee }</td>
+            <td>${array[i].CreateAt}</td>
+            <td>${array[i].UpdatedAt}</td>
+            </tr>`
+            
+          }
+      }
+
+      fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
+      .then(response => response.json())
+      .then(todos =>  {
+        createTableData(todos);
+      })
+
+</script> -->

@@ -55,7 +55,7 @@
           <th>Date Updated</th>
         </tr>
 
-        <tr class="multipleOpenBtn">
+        <tr class="multipleOpenBtn" onClick="onEdit(this)">
           <td>1</td>
           <td>321654987789</td>
           <td>Registrar</td>
@@ -74,7 +74,7 @@
           <td>June 18, 2022 8:05 AM</td>
         </tr>
 
-        <tr class="multipleOpenBtn">
+        <tr class="multipleOpenBtn" onClick="onEdit(this)">
           <td>2</td>
           <td>321654987789</td>
           <td>Registrar</td>
@@ -93,7 +93,7 @@
           <td>June 17, 2022 8:04 AM</td>
         </tr>
 
-        <tr class="multipleOpenBtn">
+        <tr class="multipleOpenBtn" onClick="onEdit(this)">
           <td>3</td>
           <td>321654987789</td>
           <td>Registrar</td>
@@ -111,6 +111,11 @@
           <td>June 17, 2022 8:03 AM</td>
           <td>June 17, 2022 8:03 AM</td>
         </tr>
+        <tr>
+          <tbody>
+
+          </tbody>
+        </tr>
       </table>
     </div>
     <!-- Tracking Modal/ Request -->
@@ -120,7 +125,7 @@
           Request Form
         </h1>
 
-        <form id="track-request" class="flex flex-col u-p-lg w-full">
+        <form id="track-request" class="flex flex-col u-p-lg w-full" >
           
           <div class="u-mt-lg">
             <label for="ID">ID</label>
@@ -146,29 +151,29 @@
 
           <div class="u-mt-lg">
             <label for="office">Office</label>
-            <input
+            <input type="text"
               name="office"
               id="Office"
               class="form-input"
               placeholder="Registrar"
-              disabled
+             required
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="services">Services</label>
-            <input
+            <input type="text"
               name="services"
               id="services"
               class="form-input"
               placeholder="Transcript of Records"
-              disabled
+              required
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="fileName">File Name</label>
-            <input
+            <input 
               name="fileName"
               id="fileName"
               class="form-input"
@@ -199,18 +204,18 @@
               id="user_note"
               rows="5"
               placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
+              required
             ></textarea>
           </div>
 
           <div class="u-mt-lg">
-            <label for="status">Status</label>
-            <input
-              name="status"
-              id="status"
-              class="form-input"
-              placeholder="Pending"
-              disabled
-            />
+            <label for="status">status</label>
+            <select name="status" id="status" class="form-input" required>
+              <option value="Panding">Pending</option>
+              <option value="Paid">Paid</option>
+              <option value="Processing">Processing</option>
+              <option value="Finished">Finished</option>
+            </select>
           </div>
 
           <div class="u-mt-lg">
@@ -226,19 +231,19 @@
 
           <div class="u-mt-lg">
             <label for="dateUpdated">Date Updated</label>
-            <input
+            <input type="datetime-local"
               name="date-updated"
               id="date-updated"
               class="form-input"
               placeholder="June 17, 2022 8:03 AM"
-              disabled
+              required
             />
           </div>
 
           <div class="modal-track-btn crud">
-            <button type="submit" class="action-btn update">Update</button>
+            <button type="submit" value="Submit "class="action-btn update">Update</button>
             <button class="action-btn cancel" id="multipleCloseBtn">
-              <!--Alert Message -->
+         
               Cancel
             </button>
           </div>
@@ -252,38 +257,39 @@
           Request Form
         </h1>
 
-        <form id="track-request" class="flex flex-col u-p-lg w-full">   
+        <form autocomplete="off" id="track-request" class="flex flex-col u-p-lg w-full" method="post" onsubmit="onFormSubmit()">   
 
           <div class="u-mt-lg">
             <label for="office">Office</label>
-            <input
+            <input type="text"
               name="office"
-              id="Office"
+              id="office"
               class="form-input"
               placeholder="Registrar"
+              required
               
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="services">Services</label>
-            <input
+            <input type="text"
               name="services"
               id="services"
               class="form-input"
               placeholder="Transcript of Records"
-             
+              required
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="fileName">File Name</label>
-            <input
+            <input 
               name="fileName"
               id="fileName"
               class="form-input"
               placeholder="John Doe - Request.pdf"
-           
+              required
             />
           </div>
 
@@ -295,7 +301,7 @@
               id="user_note"
               rows="5"
               placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
-         
+              required
             ></textarea>
           </div>
 
@@ -309,22 +315,27 @@
               id="user_note"
               rows="5"
               placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
-            ></textarea>
+              required
+              ></textarea>
           </div>
 
+          
           <div class="u-mt-lg">
-            <label for="status">Status</label>
-            <input
-              name="status"
-              id="status"
-              class="form-input"
-              placeholder="Pending"
-             
-            />
+            <label for="status">status</label>
+            <select name="status" id="status" class="form-input" required>
+              <option value="Panding">Pending</option>
+              <option value="Paid">Paid</option>
+              <option value="Processing">Processing</option>
+              <option value="Finished">Finished</option>
+            </select>
           </div>
 
           <div class="modal-track-btn crud">
+
             <button type="submit" onclick="AddRow();"  class="action-btn update">Create</button>
+
+            <input type="submit" class="action-btn update" >
+
             <button class="action-btn cancel" id="singleCloseBtn">
               <!--Alert Message -->
               Cancel
@@ -358,3 +369,52 @@
     <script src="./assets/js/table-features.js"></script>
   </footer>
 </html>
+
+<!-- <script>
+  // CRUD = READ
+    const tableHeader = `<tr class="bg-primary" id="table-header">
+                        <th>ID</th>
+                        <th>Tracking ID</th>
+                        <th>Office</th>
+                        <th>Service/Request</th>
+                        <th>File Name</th>
+                        <th>User Note</th>
+                        <th>Office Note</th>
+                        <th>Status</th>
+                        <th>Date Created</th>
+                        <th>Date Updated</th>
+                        <th>Date Finished</th>
+                        </tr>
+                        `
+    console.log(tableHeader);
+    function createTableData(array) {
+        
+        for (let i = 0; i < array.length; i++) {
+            table.innerHTML+=  ` <tr class="multipleOpenBtn">
+            <td>${array[i].Id}</td>
+            <td>${array[i].TrackingId}</td>
+            <td>${array[i].OfficeId }</td>
+            <td>${array[i].ServiceId}</td>
+            <td>${array[i].StatusId }</td>
+            <td>${array[i].UserNote }</td>
+            <td>${array[i].OfficeNote}</td>
+            <td>${array[i].FileName  }</td>
+
+            <td>${array[i].createAt}</td>
+            <td>${array[i].updatedAt}</td>
+            <td>${array[i].FinishedAt }</td>
+            </tr>`
+            
+          }
+      }
+
+      fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
+      .then(response => response.json())
+      .then(todos =>  {
+        createTableData(todos);
+      })
+
+</script> -->
+
+
+

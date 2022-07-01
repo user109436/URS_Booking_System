@@ -24,29 +24,31 @@
     <h1 class="font-lg color-primary text-center u-m-y-m">
       Office Table
     </h1>
-    <div class="container overflow-auto">
-      <table class="container-90 card" id="table">
-        <div class="search-table flex flex-justify-center container-90">
-          <input
-            class="form-input"
-            type="text"
-            name="search-table"
-            value=""
-            placeholder="Search Items"
-            id="search-table"
-          />
-        </div>
-        <div class="container-90">
-          <button class="add btn " id="singleOpenBtn"> Create New Office</button>
-        </div>
 
+    <div class="container overflow-auto">
+      <div class="search-table flex flex-justify-center container-90">
+        <input
+          class="form-input"
+          type="text"
+          name="search-table"
+          value=""
+          placeholder="Search Items"
+          id="search-table"
+        />
+      </div>
+      <div class="container-90">
+        <button class="add btn " id="singleOpenBtn"> Create New Office</button>
+      </div>
+
+      <table class="container-90 card" id="table">
+        
         <tr class="bg-primary" id="table-header">
           <th>ID</th>
           <th>Offices</th>
           <th>Date Created</th>
           <th>Date Updated</th>
         </tr>
-
+ 
         <tr class="multipleOpenBtn">
           <td>123456789123</td>
           <td>Registrar</td>
@@ -56,7 +58,6 @@
 
         <tr class="multipleOpenBtn">
           <td>123456789123</td>
-        
           <td>OSDS</td>
           <td>June 17, 2022 8:04 AM</td>
           <td>June 17, 2022 8:04 AM</td>
@@ -68,8 +69,10 @@
           <td>June 17, 2022 8:03 AM</td>
           <td>June 17, 2022 8:03 AM</td>
         </tr>
+        
       </table>
     </div>
+
     <!-- Modal Office Table -->
     <div class="modal-update flex" id="multipleModal" style="display: none">
       <div class="modal-update-box u-p-sm">
@@ -77,48 +80,51 @@
           Update - Office
         </h1>
 
-        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+        <form id="form-update-office" class="flex flex-col u-p-lg w-full">
          
           <div class="u-mt-lg">
             <label for="ID">ID</label>
-            <input
+            <input type="number"
               name="ID"
               id="ID"
               class="form-input"
               placeholder="123456789123"
+              value="123456789123"
               disabled
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="office">office</label>
-            <input
+            <input type="text"
               name="Office"
               id="Office"
               class="form-input"
               placeholder="Registrar"
+              required
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="dateCreated">Date Created</label>
-            <input
+            <input type="datetime"
               name="date-created"
               id="date-created"
               class="form-input"
               placeholder="June 17, 2022 8:03 AM"
+              
               disabled
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="dateUpdated">Date Updated</label>
-            <input
+            <input type="datetime-local"
               name="date-updated"
               id="date-updated"
               class="form-input"
               placeholder="June 17, 2022 8:03 AM"
-              disabled
+              required
             />
           </div>
 
@@ -130,9 +136,12 @@
               Cancel
             </button>
           </div>
+          
         </form>
+
       </div>
     </div>
+
     <!-- Modal Office Create new -->
     <div class="modal-update flex" id="singleModal" style="display: none">
       <div class="modal-update-box u-p-sm">
@@ -140,15 +149,19 @@
           Create New Office
         </h1>
 
-        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
+        <form id="form-create-office" class="flex flex-col u-p-lg w-full"
+        action="" method="post"  enctype="multipart/form-data" autocomplete="off">
          
           <div class="u-mt-lg">
             <label for="createOffice">office</label>
-            <input
+            <input            
+              pattern="^[a-zA-Z]+$"
+              type="text"      
               name="createOffice"
-              id="createOffice"
+              id="input-field"
               class="form-input"
               placeholder="Registrar"
+              required
             />
           </div>
 
@@ -164,7 +177,6 @@
       </div>
     </div>
 
-   
     <!-- modal Loading Screen -->
     <!-- <div class="loading-screen border-rounded">
         <div class="loading-screen-box">
@@ -182,8 +194,41 @@
       </div> -->
 
   </body>
+
   <footer>
     <script src="./assets/js/script.js" type="module"></script>
     <script src="./assets/js/table-features.js"></script>
+    <!-- <script src="./assets/js/dom-table.js"></script> -->
   </footer>
 </html>
+
+<!-- <script>
+    // CRUD = READ
+      const tableHeader = `<tr class="bg-primary" id="table-header">
+                          <th>ID</th>
+                          <th>Offices</th>
+                          <th>Date Created</th>
+                          <th>Date Updated</th>
+                          </tr>
+                          `
+      console.log(tableHeader);
+      function createTableData(array) {
+          
+          for (let i = 0; i < array.length; i++) {
+              table.innerHTML+=  ` <tr class="multipleOpenBtn">
+                <td>${array[i].userId}</td>
+                  <td>${array[i].id}</td>
+                  <td>${array[i].title}</td>
+                  <td>${array[i].completed}</td>
+                  </tr>`
+              
+            }
+        }
+
+        fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
+        .then(response => response.json())
+        .then(todos =>  {
+          createTableData(todos);
+        })
+
+</script> -->

@@ -24,6 +24,7 @@ if (multipleModalExist) {
   );
   tableModal.modalMultipleOpenBtn();
 }
+
 for(let selectedTableRow of multipleOpenBtn){
   selectedTableRow.addEventListener("click", function () {
     const tableData =getAsHtmlCollection(selectedTableRow, 'td');
@@ -66,6 +67,26 @@ for(let selectedTableRow of multipleOpenBtn){
 // });
 
 // DOM for Table Update
+
+
+
+// DOM for Table Update----------------------------------------------------------
+// // // User DOM 
+// const userForm = document.querySelector('#formAddUser');
+// const inputId = document.querySelector('#newInputId');
+// const inputUserNumber = document.querySelector('#newInputUserNumber');
+// const inputFirstName = document.querySelector('#newInputFirstName');
+// const inputLastName = document.querySelector('#newInputLastName');
+// const inputPosition = document.querySelector('#newInputPosition');
+// const inputEmail = document.querySelector('#newInputEmail');
+// const inputPassword = document.querySelector('#newInputPassword');
+// const inputRole = document.querySelector('#newInputRole');
+// const inputVerified = document.querySelector('#newInputVerified');
+// const inputStatus = document.querySelector('#newInputStatus');
+// const inputCreated = document.querySelector('#newInputCreated');
+// const inputUpdated = document.querySelector('#newInputUpdated');
+
+
 
 // // Registrar DOM
 // const inputUserNote = document.querySelector('#user_note');
@@ -239,6 +260,7 @@ const removeString = (originalString, stringToRemove, startLocation = 0) => {
 };
 
 const makeRequest = document.getElementById("make-request");
+
 if (makeRequest) {
   makeRequest.addEventListener("click", function () {
     let url = window.location.href;
