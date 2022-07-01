@@ -40,9 +40,9 @@
         <button class="add btn " id="singleOpenBtn"> Create New Office</button>
       </div>
 
-      <table class="container-90 card" id="table">
+      <table class="container-90 card" id="table" >
         
-        <tr class="bg-primary" id="table-header">
+        <tr class="bg-primary" id="table-header" >
           <th>ID</th>
           <th>Offices</th>
           <th>Date Created</th>
@@ -88,7 +88,7 @@
               name="ID"
               id="ID"
               class="form-input table-id"
-              placeholder="123456789123"
+              placeholder="123456789123 "
               value="123456789123"
               disabled
             />
@@ -112,14 +112,14 @@
               id="date-created"
               class="form-input table-date-created"
               placeholder="June 17, 2022 8:03 AM"
-              
+          
               disabled
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="dateUpdated">Date Updated</label>
-            <input type="datetime-local"
+            <input type="datetime"
               name="date-updated"
               id="date-updated"
               class="form-input table-date-updated"
@@ -204,50 +204,42 @@
 
 <script>
     // CRUD = READ
-      // const tableHeader = `<tr class="bg-primary" id="table-header">
-      //                     <th>ID</th>
-      //                     <th>Offices</th>
-      //                     <th>Date Created</th>
-      //                     <th>Date Updated</th>
-      //                     </tr>
-      //                     `;
-      // // console.log(tableHeader);
-      // function createTableData(array) {
+    //  function createTableData(array) {
           
-      //     for (let i = 0; i < array.length; i++) {
-      //         table.innerHTML+=  ` <tr class="multipleOpenBtn">
-      //             <td class="table-id">${array[i].Id}</td>
-      //             <td class="table-office">${array[i].Name}</td>
-      //             <td class="table-date-created">${array[i].CreateAt}</td>
-      //             <td class="table-date-updated">${array[i].UpdatedAt}</td>
-      //             </tr>`
+    //       for (let i = 0; i < array.length; i++) {
+    //           table.innerHTML+=  ` <tr class="multipleOpenBtn">
+    //               <td class="table-id">${array[i].Id}</td>
+    //               <td class="table-office">${array[i].Name}</td>
+    //               <td class="table-date-created">${array[i].CreateAt}</td>
+    //               <td class="table-date-updated">${array[i].UpdatedAt}</td>
+    //               </tr>`
               
-      //       }
-      //   }
+    //         }
 
-      //   // fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
-      //   // .then(response => response.json())
-      //   // .then(todos =>  {
-      //   //   createTableData(todos);
-      //   // })
-
-
+    //     }
+    //     fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
+    //     .then(response => response.json())
+    //     .then(todos =>  {
+    //       createTableData(todos);
+    //       })
+    
+    // ---    
         function readData(){
         var xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+        
         xhr.onload = function(){
           if(this.status == 200){
           var users = JSON.parse(this.responseText);
-          // console.log(users.length);
+          // console.log(users);
           
           for (let i = 0; i < users.length; i++) {
               table.innerHTML+= ` <tr class="multipleOpenBtn">
                   <td class="table-id">${users[i].userId}</td>
                   <td class="table-office">${users[i].id}</td>
                   <td class="table-date-created">${users[i].title}</td>
-                  <td class="table-date-updated">${users[i].completed}</td>
-                  </tr>`;      
-            // console.log(i);
+                  <td class="table-date-updated">${users[i].body}</td>
+                  </tr>`;       
             }
 
         }
@@ -256,9 +248,4 @@
         xhr.send();
         
       }
-
-
-      //UPDATE
-      
-
 </script>

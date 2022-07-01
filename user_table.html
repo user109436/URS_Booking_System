@@ -291,15 +291,11 @@
           class="form-input" 
           required>
 
-        <div class="u-mt-lg">
-          <label for="status">status</label>
-          <select name="status" id="status" class="form-input" required>
-            <option value="Panding">Pending</option>
-            <option value="Paid">Paid</option>
-            <option value="Processing">Processing</option>
-            <option value="Finished">Finished</option>
+          <label for="status" class="w-full">Status</label> 
+          <select name="status" type="text" id="inputStatus" class="form-input">
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
           </select>
-        </div>
 
         <label for="createdAt" class="w-full">Created At</label> 
           <input 

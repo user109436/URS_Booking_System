@@ -27,9 +27,9 @@ console.log(tableHeader);
     createTableData(todos);
   })
 
- function formInputs(){
+function formInputs(){
 
- }
+}
 
 
 
