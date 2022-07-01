@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
   </head>
-  <body>
+  <body onload="readData()">
     
     <!-- temporary side bar -->
     <div class="sidebar ">
@@ -355,7 +355,7 @@
     <script src="./assets/js/table-features.js"></script>
   </footer>
 </html>
-<!-- <script>
+<script>
   // CRUD = READ
     const tableHeader = ` <th>ID</th>
                           <th>User Number</th>
@@ -370,7 +370,7 @@
                           <th>Created At</th>  
                           <th>Updated At</th> `
 
-    console.log(tableHeader);
+    // console.log(tableHeader);
     function createTableData(array) {
         
         for (let i = 0; i < array.length; i++) {
@@ -392,10 +392,42 @@
           }
       }
 
-      fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
-      .then(response => response.json())
-      .then(todos =>  {
-        createTableData(todos);
-      })
+      // fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
+      // .then(response => response.json())
+      // .then(todos =>  {
+      //   createTableData(todos);
+      // })
 
-</script> -->
+      function readData(){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/', true);
+        xhr.onload = function(){
+          if(this.status == 200){
+          var users = this.responseText;
+          
+            var output = '';
+            output += ` <tr class="multipleOpenBtn">
+            <td class="table-id">${users[i].Id}</td>
+            <td class="table-user-number">${users[i].UserNumber }</td>
+            <td class="table-first-name">${users[i].FirstName  }</td>
+            <td class="table-last-name">${users[i].LastName }</td>
+             <td class="table-position">${users[i].Position }</td>
+            <td class="table-email">${users[i].Email  }</td>
+            <td class="password">${users[i].Password  }</td>
+            <td class="table-role">${users[i].Role }</td>
+            <td class="table-verification">${users[i].Verified   }</td>
+            <td  class="table-status" >${users[i].Active }</td>
+            <td class="table-date-created">${users[i].CreatedAt }</td>
+            <td class="table-date-updated">${users[i].UpdatedAt }</td>
+            </tr>`
+
+        }
+
+        }
+        xhr.send();
+      }
+
+      
+
+
+</script>
