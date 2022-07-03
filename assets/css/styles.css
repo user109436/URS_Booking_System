@@ -1,11 +1,12 @@
 /* variables */
 :root {
     --color-primary: #6868eb;
-    --color-secondary: #3689dc;
+    --color-secondary: #36cedc;
     --color-grey-light-1: #faf9f9;
     --color-grey-light-2: #f4f2f2;
     --color-grey-light-3: #cacaca;
     --color-grey-light-4: #a1a1a1;
+    --color-navHover:#4fecfa;
     --color-primary-dark: #5a5abb;
     --color-error: #eb6868;
     --color-error-2: #D9534F;
@@ -420,13 +421,53 @@ tr:nth-child(even) {
     }
 }
 
-/* Silde bar temporary */
-.sidebar {
-    width: 100px;
-    display: inline-flex;
-    position: fixed;
-    top: 0;
-    left: 0;
+/*   Navigation Bar*/
+nav{
+    box-sizing: border-box;
+    background:var(--color-primary-dark) ;
+    height: 80px;
+    width: 100%;
+    
+    }
+
+     label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+    
+    }
+    nav ul{
+    float: right;
+    margin: 10px;
+    
+    
+    }
+    nav ul li {
+    list-style: none;
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    
+    }
+    
+    nav ul li a{
+        text-decoration: none;
+        color: white;
+        font-size: 17px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+    
+    }
+    nav ul li a:visited{
+        color: white;
+
+    }
+    a.active,a:hover{
+      background: var(--color-navHover);  
+    transition: .5s;
 }
 
 /* input arrow remove */
