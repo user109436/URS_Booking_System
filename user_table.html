@@ -10,209 +10,241 @@
     <link rel="stylesheet" href="./assets/css/queries.css" />
   </head>
   <body onload="readData()">
-    
     <!-- temporary side bar -->
-    <div class="sidebar ">
-      <button class=" action-btn edit" onclick="window.location.href='table.html'">Registrar</button>
-      <button class=" action-btn edit" onclick="window.location.href='office_table.html'">Office</button>
-      <button class=" action-btn edit" onclick="window.location.href='service_table.html'">Service</button>
-      <button class=" action-btn edit" onclick="window.location.href='role_table.html'">Role</button>
-      <button class=" action-btn edit" onclick="window.location.href='request_table.html'">Request</button>
-      <button class=" action-btn edit" onclick="window.location.href='user_table.html'">user</button>
+    <div class="sidebar">
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='table.html'"
+      >
+        Registrar
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='office_table.html'"
+      >
+        Office
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='service_table.html'"
+      >
+        Service
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='role_table.html'"
+      >
+        Role
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='request_table.html'"
+      >
+        Request
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='user_table.html'"
+      >
+        user
+      </button>
     </div>
 
     <!--User's Table-->
-    <h1 class=" font-lg color-primary text-center u-m-y-m">
-      User's Table
-     </h1>
-     <div class="container overflow-auto ">
-       <table class="container-90 card" id="table">
-        <thead> 
-        <div class="search-table flex flex-justify-center container-90">
-           <input
-             class="form-input"
-             type="text"
-             name="search-table"
-             value=""
-             placeholder="Search Items"
-             id="search-table"
-           />
-         </div>
-         
-         <div class="container-90">
-           <button class="add btn" id="singleOpenBtn"> Create New User</button>
-         </div>
- 
-         <tr class="bg-primary" id="table-header">
-           <th>ID</th>
-           <th>User Number</th>
-           <th>First Name</th>
-           <th>Last Name</th>
-           <th>Position</th>
-           <th>Email</th>
-           <!-- password should have a toggle to be visible and not visible -->
-           <th>Password</th>  
-           <th>Role</th>  
-           <th>Verified</th>  
-           <th>Status</th>  
-           <th>Created At</th>  
-           <th>Updated At</th>  
- 
-          
-          
-         </tr>
+    <h1 class="font-lg color-primary text-center u-m-y-m">User's Table</h1>
+    <div class="container overflow-auto">
+      <table class="container-90 card" id="table">
+        <thead>
+          <div class="search-table flex flex-justify-center container-90">
+            <input
+              class="form-input"
+              type="text"
+              name="search-table"
+              value=""
+              placeholder="Search Items"
+              id="search-table"
+            />
+          </div>
+
+          <div class="container-90">
+            <button class="add btn" id="singleOpenBtn">Create New User</button>
+          </div>
+
+          <tr class="bg-primary" id="table-header">
+            <th>ID</th>
+            <th>User Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Position</th>
+            <th>Email</th>
+            <!-- password should have a toggle to be visible and not visible -->
+            <th>Password</th>
+            <th>Role</th>
+            <th>Verified</th>
+            <th>Status</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+          </tr>
         </thead>
-        <tbody></tbody>
-         <tr class="multipleOpenBtn">
-           <td class="table-id">123456789123</td>
-           <td class="table-user-number">09653563201</td>
-           <td class="table-first-name">Rhotrix</td>
-           <td class="table-last-name">Loreto</td>
-           <td  class="table-role">Admin</td>
-           <td class="table-email">rhotrix20@yahoo.com</td>
-           <td class="password">**********</td>  
-           <td  class="table-role">Core</td>  
-           <td class="table-verification">Yes</td>  
-           <td  class="table-status" >Active</td>  
-           <td>June 18, 2022 8:05 AM</td>  
-           <td>June 18, 2022 8:05 AM</td>  
-   
-         </tr>
-         <tr class="multipleOpenBtn">
-          <td class="table-id">123456789123</td>
-          <td class="table-user-number">09653563201</td>
-          <td class="table-first-name">trixia</td>
-          <td class="table-last-name">Loreto</td>
-          <td  class="table-position">Admin</td>
-          <td class="table-email">trixia20@yahoo.com</td>
-          <td class="password">**********</td>  
-          <td  class="table-role">Core</td>  
-          <td class="table-verification">Yes</td>  
-          <td  class="table-status" >Active</td>  
-          <td class="table-date-created">June 18, 2022 8:05 AM</td>  
-          <td class="table-date-updated">June 18, 2022 8:05 AM</td>  
-  
-        </tr>
-      </tbody>
-       </table>
-  
-     </div>
-  <!--User UPDATE MODAL-->
-    
-    <div class="modal-update flex overflow-auto modalBox " autocomplete="off" id="multipleModal" style="display: none"  >
-      <div class="modal-update-box u-p-sm w-50   ">
-         <h1 class="text-center font-lg color-primary text-center u-m-y-m">Update User</h1>
+        <tbody>
+          <tr class="multipleOpenBtn">
+            <td class="table-id">123456789123</td>
+            <td class="table-user-number">09653563201</td>
+            <td class="table-first-name">Rhotrix</td>
+            <td class="table-last-name">Loreto</td>
+            <td class="table-role">Admin</td>
+            <td class="table-email">rhotrix20@yahoo.com</td>
+            <td class="password">**********</td>
+            <td class="table-role">Core</td>
+            <td class="table-verification">Yes</td>
+            <td class="table-status">Active</td>
+            <td class="table-date-created">June 18, 2022 8:05 AM</td>
+            <td class="table-date-updated">June 18, 2022 8:05 AM</td>
+          </tr>
+          <tr class="multipleOpenBtn">
+            <td class="table-id">123456789123</td>
+            <td class="table-user-number">09653563201</td>
+            <td class="table-first-name">trixia</td>
+            <td class="table-last-name">Loreto</td>
+            <td class="table-position">Admin</td>
+            <td class="table-email">trixia20@yahoo.com</td>
+            <td class="password">**********</td>
+            <td class="table-role">Core</td>
+            <td class="table-verification">Yes</td>
+            <td class="table-status">Active</td>
+            <td class="table-date-created">June 18, 2022 8:05 AM</td>
+            <td class="table-date-updated">June 18, 2022 8:05 AM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--User UPDATE MODAL-->
 
-         <form id="formUserUpdate" onsubmit="onFormSubmit()" class="flex flex-col u-p-lg w-full ">
-            <label for="ID" class="w-full">ID:</label> 
-              <input 
-              name="ID" 
-              type="number" 
-              id="inputId" 
-              class="form-input table-id" 
-              disabled >
+    <div
+      class="modal-update flex overflow-auto modalBox"
+      autocomplete="off"
+      id="multipleModal"
+      style="display: none"
+    >
+      <div class="modal-update-box u-p-sm w-50">
+        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
+          Update User
+        </h1>
 
-            <label for="userNumber" class="w-full">User Number:</label> 
-              <input 
-              name="userNumber" 
-              type="number" 
-              id="inputUserNumber " 
-              class="form-input table-user-number" 
-              disabled>
+        <form
+          id="formUserUpdate"
+          onsubmit="onFormSubmit()"
+          class="flex flex-col u-p-lg w-full"
+        >
+          <label for="ID" class="w-full">ID:</label>
+          <input
+            name="ID"
+            type="number"
+            id="inputId"
+            class="form-input table-id"
+            disabled
+          />
 
-            <label for="firstName" class="w-full">First Name:</label> 
-              <input 
-              name="firstName"
-               type="text" 
-               id="inputFirstName" 
-               class="form-input table-first-name" 
-               required>
+          <label for="userNumber" class="w-full">User Number:</label>
+          <input
+            name="userNumber"
+            type="number"
+            id="inputUserNumber "
+            class="form-input table-user-number"
+            disabled
+          />
 
-            <label for="lastName" class="w-full">Last Name:</label> 
-              <input 
-              name="lastName" 
-              type="text" 
-              id="inputLastName" 
-              class="form-input table-last-name" 
-              required>
+          <label for="firstName" class="w-full">First Name:</label>
+          <input
+            name="firstName"
+            type="text"
+            id="inputFirstName"
+            class="form-input table-first-name"
+            required
+          />
 
-            <label for="position" class="w-full">Position:</label> 
-              <input 
-              name="position" 
-              type="text" 
-              id="inputPosition" 
-              class="form-input table-position" 
-              required>
+          <label for="lastName" class="w-full">Last Name:</label>
+          <input
+            name="lastName"
+            type="text"
+            id="inputLastName"
+            class="form-input table-last-name"
+            required
+          />
 
-            <label for="email" class="w-full">Email:</label> 
-              <input
-               name="email" 
-               type="email" 
-               id="inputEmail"
-               class="form-input table-email"
-               required>
+          <label for="email" class="w-full">Email:</label>
+          <input
+            name="email"
+            type="email"
+            id="inputEmail"
+            class="form-input table-email"
+            required
+          />
 
-            <label for="password" class="w-full">Password:</label> 
-              <input 
-              name="password" 
-              type="password" 
-              id="inputPassword" 
-              class="form-input table-email" 
-              required>
+          <label for="password" class="w-full">Password:</label>
+          <input
+            name="password"
+            type="password"
+            id="inputPassword"
+            class="form-input table-email"
+            required
+          />
+          <!-- TODO:this should be dropdown, options are found in roles table (admin, officer and etc) -->
+          <label for="role" class="w-full">Role:</label>
+          <input
+            name="role"
+            type="text"
+            id="inputRole"
+            class="form-input table-role"
+            required
+          />
+          <!-- TODO:this should be dropdown, options are "Verifiend and Non-Verified?" -->
+          <label for="verified" class="w-full">Verified</label>
+          <input
+            name="verified"
+            type="text"
+            id="inputVerified"
+            class="form-input table-verification"
+          />
 
-            <label for="role" class="w-full">Role:</label> 
-                <input 
-                name="role" 
-                type="text" 
-                id="inputRole" 
-                class="form-input table-role" 
-                required>
+          <label for="status" class="w-full">Status</label>
+          <select name="status" type="text" id="inputStatus" class="form-input">
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
 
-            <label for="verified" class="w-full">Verified</label> 
-              <input 
-              name="verified" 
-              type="text" 
-              id="inputVerified" 
-              class="form-input table-verification"
-              >
+          <label for="createdAt" class="w-full" disabled>Created At</label>
+          <input
+            name="createdAt"
+            id="inputCreated"
+            class="form-input table-date-created"
+            disabled
+          />
 
-            <label for="status" class="w-full">Status</label> 
-              <select name="status" type="text" id="inputStatus" class="form-input">
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </select>
+          <label for="updatedAt" class="w-full">Updated At</label>
+          <input
+            name="updatedAt"
+            id="inputUpdated"
+            class="form-input table-date-updated"
+            disabled
+          />
 
-            <label for="createdAt" class="w-full" disabled>Created At</label> 
-              <input 
-              name="createdAt" 
-              type="date" 
-              id="inputCreated" 
-              class="form-input table-date-created" 
-              disabled>
-             
-            <label for="updatedAt" class="w-full">Updated At</label>
-              <input 
-              name="updatedAt" 
-              type="date" 
-              id="inputUpdated" 
-              class="form-input table-date-updated">
-         
-          <div class="modal-update-btn crud " >
-          
-            <button  type="submit" onsubmit="showConsole()" class="action-btn update">
+          <div class="modal-update-btn crud">
+            <button
+              type="submit"
+              onsubmit="showConsole()"
+              class="action-btn update"
+            >
               Update
             </button>
-          
-            <button class="action-btn cancel" id="multipleCloseBtn"> 
+
+            <button class="action-btn cancel" id="multipleCloseBtn">
               Cancel
             </button>
           </div>
-
-          </form>
-              
+        </form>
       </div>
     </div>
-
 
     <!-- modal Loading Screen -->
     <!-- <div class="loading-screen border-rounded">
@@ -229,7 +261,6 @@
           </div>
         </div>
       </div> -->
-
   </body>
   <footer>
     <script src="./assets/js/script.js" type="module"></script>
@@ -238,7 +269,7 @@
 </html>
 <script>
   // CRUD = READ
-    const tableHeader = ` <th>ID</th>
+  const tableHeader = ` <th>ID</th>
                           <th>User Number</th>
                           <th>First Name</th>
                           <th>Last Name</th>
@@ -249,71 +280,64 @@
                           <th>Verified</th>  
                           <th>Status</th>  
                           <th>Created At</th>  
-                          <th>Updated At</th> `
+                          <th>Updated At</th> `;
 
-    // console.log(tableHeader);
-    function createTableData(array) {
-        
-        for (let i = 0; i < array.length; i++) {
-            table.innerHTML+=  ` <tr class="multipleOpenBtn">
+  // console.log(tableHeader);
+  function createTableData(array) {
+    for (let i = 0; i < array.length; i++) {
+      const tbody = table.getElementsByTagName("tbody")[0];
+      tbody.innerHTML += ` <tr class="multipleOpenBtn">
             <td class="table-id">${array[i].Id}</td>
-            <td class="table-user-number">${array[i].UserNumber }</td>
-            <td class="table-first-name">${array[i].FirstName  }</td>
-            <td class="table-last-name">${array[i].LastName }</td>
-             <td class="table-position">${array[i].Position }</td>
-            <td class="table-email">${array[i].Email  }</td>
-            <td class="password">${array[i].Password  }</td>
-            <td class="table-role">${array[i].Role }</td>
-            <td class="table-verification">${array[i].Verified   }</td>
-            <td  class="table-status" >${array[i].Active }</td>
-            <td class="table-date-created">${array[i].CreatedAt }</td>
-            <td class="table-date-updated">${array[i].UpdatedAt }</td>
-            </tr>`
-            
-          }
-      }
+            <td class="table-user-number">${array[i].UserNumber}</td>
+            <td class="table-first-name">${array[i].FirstName}</td>
+            <td class="table-last-name">${array[i].LastName}</td>
+             <td class="table-position">${array[i].Position}</td>
+            <td class="table-email">${array[i].Email}</td>
+            <td class="password">${array[i].Password}</td>
+            <td class="table-role">${array[i].Role}</td>
+            <td class="table-verification">${array[i].Verified}</td>
+            <td  class="table-status" >${array[i].Active}</td>
+            <td class="table-date-created">${array[i].CreatedAt}</td>
+            <td class="table-date-updated">${array[i].UpdatedAt}</td>
+            </tr>`;
+    }
+  }
 
-      // fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
-      // .then(response => response.json())
-      // .then(todos =>  {
-      //   createTableData(todos);
-      // })
+  // fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
+  // .then(response => response.json())
+  // .then(todos =>  {
+  //   createTableData(todos);
+  // })
 
-      //Using local json data file
-      function readData(){
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'testData.json', true);
-        xhr.onload = function(){
-          if(this.status == 200){
-          var users = JSON.parse(this.responseText);
-          // console.log(users.length);
-          
-          for (let i = 0; i < users.length; i++) {
-              table.innerHTML+= ` <tr class="multipleOpenBtn">
+  //Using local json data file
+  function readData() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "testData.json", true);
+    xhr.onload = function () {
+      if (this.status == 200) {
+        var users = JSON.parse(this.responseText);
+        // console.log(users.length);
+
+        for (let i = 0; i < users.length; i++) {
+          const tbody = table.getElementsByTagName("tbody")[0];
+          tbody.innerHTML += ` <tr class="multipleOpenBtn">
             <td class="table-id">${users[i].id}</td>
-            <td class="table-user-number">${users[i].userNumber }</td>
-            <td class="table-first-name">${users[i].first_name  }</td>
-            <td class="table-last-name">${users[i].last_name }</td>
-             <td class="table-position">${users[i].position }</td>
-            <td class="table-email">${users[i].email  }</td>
-            <td class="password">${users[i].password  }</td>
-            <td class="table-role">${users[i].role }</td>
-            <td class="table-verification">${users[i].verified   }</td>
-            <td  class="table-status" >${users[i].active }</td>
-            <td class="table-date-created">${users[i].createdAt }</td>
-            <td class="table-date-updated">${users[i].updatedAt }</td>
-            </tr>`;      
-            // console.log(i);
-            }
-
+            <td class="table-user-number">${users[i].userNumber}</td>
+            <td class="table-first-name">${users[i].first_name}</td>
+            <td class="table-last-name">${users[i].last_name}</td>
+             <td class="table-position">${users[i].position}</td>
+            <td class="table-email">${users[i].email}</td>
+            <td class="password">${users[i].password}</td>
+            <td class="table-role">${users[i].role}</td>
+            <td class="table-verification">${users[i].verified}</td>
+            <td  class="table-status" >${users[i].active}</td>
+            <td class="table-date-created">${users[i].createdAt}</td>
+            <td class="table-date-updated">${users[i].updatedAt}</td>
+            </tr>`;
+          // console.log(i);
         }
-        
-        }
-        xhr.send();
-        
       }
-
-      
-
-
+    };
+    xhr.send();
+  }
 </script>
