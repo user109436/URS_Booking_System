@@ -247,20 +247,20 @@
     </div>
 
     <!-- modal Loading Screen -->
-    <!-- <div class="loading-screen border-rounded">
-        <div class="loading-screen-box">
-          <div class="loading">
-            <div class="dot">L</div>
-            <div class="dot">O</div>
-            <div class="dot">A</div>
-            <div class="dot">D</div>
-            <div class="dot">I</div>
-            <div class="dot">N</div>
-            <div class="dot">G</div>
-            <span class="text">Please Wait...</span>
-          </div>
+    <div class="loading-screen border-rounded">
+      <div class="loading-screen-box">
+        <div class="loading">
+          <div class="dot">L</div>
+          <div class="dot">O</div>
+          <div class="dot">A</div>
+          <div class="dot">D</div>
+          <div class="dot">I</div>
+          <div class="dot">N</div>
+          <div class="dot">G</div>
+          <span class="text">Please Wait...</span>
         </div>
-      </div> -->
+      </div>
+    </div>
   </body>
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
@@ -315,6 +315,9 @@
     xhr.open("GET", "testData.json", true);
     xhr.onload = function () {
       if (this.status == 200) {
+        const loadingScreen =
+          document.getElementsByClassName("loading-screen")[0];
+        loadingScreen.style.display = "none";
         var users = JSON.parse(this.responseText);
         // console.log(users.length);
 
