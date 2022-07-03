@@ -11,22 +11,50 @@
   </head>
   <body>
     <!-- temporary side bar -->
-    <div class="sidebar ">
-      <button class=" action-btn edit" onclick="window.location.href='table.html'">Registrar</button>
-      <button class=" action-btn edit" onclick="window.location.href='office_table.html'">Office</button>
-      <button class=" action-btn edit" onclick="window.location.href='service_table.html'">Service</button>
-      <button class=" action-btn edit" onclick="window.location.href='role_table.html'">Role</button>
-      <button class=" action-btn edit" onclick="window.location.href='request_table.html'">Request</button>
-      <button class=" action-btn edit" onclick="window.location.href='user_table.html'">user</button>
+    <div class="sidebar">
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='table.html'"
+      >
+        Registrar
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='office_table.html'"
+      >
+        Office
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='service_table.html'"
+      >
+        Service
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='role_table.html'"
+      >
+        Role
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='request_table.html'"
+      >
+        Request
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='user_table.html'"
+      >
+        user
+      </button>
     </div>
 
     <!-- Role's table -->
-    <h1 class="font-lg color-primary text-center u-m-y-m">
-      Role's Table
-    </h1>
+    <h1 class="font-lg color-primary text-center u-m-y-m">Role's Table</h1>
     <div class="container overflow-auto">
       <table class="container-90 card" id="table">
-          <div class="search-table flex flex-justify-center container-90">
+        <div class="search-table flex flex-justify-center container-90">
           <input
             class="form-input"
             type="text"
@@ -37,9 +65,8 @@
           />
         </div>
         <div class="container-90">
-          <button class="add btn " id="singleOpenBtn"> Create New Role</button>
+          <button class="add btn" id="singleOpenBtn">Create New Role</button>
         </div>
-       
 
         <tr class="bg-primary" id="table-header">
           <th>ID</th>
@@ -57,7 +84,7 @@
 
         <tr class="multipleOpenBtn">
           <td class="table-id">132456798464</td>
-          <td class="table-role">Scholastic Records </td>
+          <td class="table-role">Scholastic Records</td>
           <td class="table-date-created">June 17, 2022 8:04 AM</td>
           <td class="table-date-updated">June 17, 2022 8:04 AM</td>
         </tr>
@@ -70,15 +97,14 @@
         </tr>
       </table>
     </div>
-     <!-- Modal Role Table -->
-     <div class="modal-update flex" id="multipleModal" style="display: none">
+    <!-- Modal Role Table -->
+    <div class="modal-update flex" id="multipleModal" style="display: none">
       <div class="modal-update-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
           Update - Role
         </h1>
 
-        <form id="form-account-request"  class="flex flex-col u-p-lg w-full">
-         
+        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
           <div class="u-mt-lg">
             <label for="ID">ID</label>
             <input
@@ -92,12 +118,12 @@
 
           <div class="u-mt-lg">
             <label for="role">Role</label>
-            <input type="text"
+            <input
+              type="text"
               name="role"
               id="role"
               class="form-input table-role"
               placeholder="Ex. Registrar admin"
-              required
             />
           </div>
 
@@ -114,12 +140,12 @@
 
           <div class="u-mt-lg">
             <label for="dateUpdated">Date Updated</label>
-            <input type="datetime-local"
+            <input
               name="date-updated"
               id="date-updated"
               class="form-input table-date-updated"
               placeholder="June 17, 2022 8:03 AM"
-              required
+              disabled
             />
           </div>
 
@@ -134,24 +160,23 @@
         </form>
       </div>
     </div>
-     <!-- Modal Role Create New -->
-     <div class="modal-update flex" id="singleModal" style="display: none">
+    <!-- Modal Role Create New -->
+    <div class="modal-update flex" id="singleModal" style="display: none">
       <div class="modal-update-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
-         Create New Role
+          Create New Role
         </h1>
 
         <form id="form-account-request" class="flex flex-col u-p-lg w-full">
-         
-         
           <div class="u-mt-lg">
             <label for="createRole">Role</label>
-            <input type="text"
+            <input
+              type="text"
               name="createRole"
               id="createRole"
               class="form-input"
-              placeholder="Ex. Registrar admin"     
-              required    
+              placeholder="Ex. Registrar admin"
+              required
             />
           </div>
 
@@ -182,7 +207,6 @@
           </div>
         </div>
       </div> -->
-
   </body>
   <footer>
     <script src="./assets/js/script.js" type="module"></script>

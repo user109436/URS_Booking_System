@@ -11,23 +11,50 @@
   </head>
   <body>
     <!-- temporary side bar -->
-    <div class="sidebar ">
-      <button class=" action-btn edit" onclick="window.location.href='table.html'">Registrar</button>
-      <button class=" action-btn edit" onclick="window.location.href='office_table.html'">Office</button>
-      <button class=" action-btn edit" onclick="window.location.href='service_table.html'">Service</button>
-      <button class=" action-btn edit" onclick="window.location.href='role_table.html'">Role</button>
-      <button class=" action-btn edit" onclick="window.location.href='request_table.html'">Request</button>
-      <button class=" action-btn edit" onclick="window.location.href='user_table.html'">user</button>
+    <div class="sidebar">
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='table.html'"
+      >
+        Registrar
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='office_table.html'"
+      >
+        Office
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='service_table.html'"
+      >
+        Service
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='role_table.html'"
+      >
+        Role
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='request_table.html'"
+      >
+        Request
+      </button>
+      <button
+        class="action-btn edit"
+        onclick="window.location.href='user_table.html'"
+      >
+        user
+      </button>
     </div>
 
     <!-- Request table -->
-    <h1 class="font-lg color-primary text-center u-m-y-m">
-     Request's Table
-    </h1>
+    <h1 class="font-lg color-primary text-center u-m-y-m">Request's Table</h1>
     <div class="container overflow-auto">
       <table class="container-90 card" id="table">
-        
-      <div class="search-table flex flex-justify-center container-90">
+        <div class="search-table flex flex-justify-center container-90">
           <input
             class="form-input"
             type="text"
@@ -38,9 +65,8 @@
           />
         </div>
         <div class="container-90">
-          <button class="add btn " id="singleOpenBtn"> Create New Request</button>
+          <button class="add btn" id="singleOpenBtn">Create New Request</button>
         </div>
-        
 
         <tr class="bg-primary" id="table-header">
           <th>ID</th>
@@ -56,17 +82,17 @@
         </tr>
 
         <tr class="multipleOpenBtn" onClick="onEdit(this)">
-          <td  class="table-id">1</td>
-          <td  class="table-traking-id">321654987789</td>
+          <td class="table-id">1</td>
+          <td class="table-traking-id">321654987789</td>
           <td class="table-office">Registrar</td>
-          <td class="table-services">Scholastic Records </td>
-          <td  class="table-file"><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+          <td class="table-services">Scholastic Records</td>
+          <td class="table-file">
+            <a href="#download-link">Alexandra Daddario - Request.pdf</a>
+          </td>
           <td class="table-user-note">
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
-          <td class="table-office-note">
-            Please make you payment to proceed 
-          </td>
+          <td class="table-office-note">Please make you payment to proceed</td>
           <td class="table-status">
             <span class="badge border-rounded bg-processing">Processing</span>
           </td>
@@ -75,17 +101,17 @@
         </tr>
 
         <tr class="multipleOpenBtn" onClick="onEdit(this)">
-          <td  class="table-id">2</td>
-          <td  class="table-traking-id">321654987789</td>
+          <td class="table-id">2</td>
+          <td class="table-traking-id">321654987789</td>
           <td class="table-office">Registrar</td>
-          <td class="table-services">Scholastic Records </td>
-          <td  class="table-file"><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+          <td class="table-services">Scholastic Records</td>
+          <td class="table-file">
+            <a href="#download-link">Alexandra Daddario - Request.pdf</a>
+          </td>
           <td class="table-user-note">
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
-          <td class="table-office-note">
-            Your documents are Ready!
-          </td>
+          <td class="table-office-note">Your documents are Ready!</td>
           <td class="table-status">
             <span class="badge border-rounded bg-processing">Processing</span>
           </td>
@@ -94,27 +120,25 @@
         </tr>
 
         <tr class="multipleOpenBtn" onClick="onEdit(this)">
-          <td  class="table-id">3</td>
-          <td  class="table-traking-id">321654987789</td>
+          <td class="table-id">3</td>
+          <td class="table-traking-id">321654987789</td>
           <td class="table-office">Registrar</td>
-          <td class="table-services">Scholastic Records </td>
-          <td  class="table-file"><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+          <td class="table-services">Scholastic Records</td>
+          <td class="table-file">
+            <a href="#download-link">Alexandra Daddario - Request.pdf</a>
+          </td>
           <td class="table-user-note">
             Can I get the documents by Monday ? it's really urgent. Thanks!
           </td>
-          <td class="table-office-note">
-            1 (one) Document is missing!
-          </td>
+          <td class="table-office-note">1 (one) Document is missing!</td>
           <td class="table-status">
-            <span class="badge border-rounded bg-processing ">Processing</span>
+            <span class="badge border-rounded bg-processing">Processing</span>
           </td>
           <td class="table-date-created">June 17, 2022 8:03 AM</td>
           <td class="table-date-updated">June 17, 2022 8:03 AM</td>
         </tr>
         <tr>
-          <tbody>
-
-          </tbody>
+          <tbody></tbody>
         </tr>
       </table>
     </div>
@@ -125,8 +149,7 @@
           Request Form
         </h1>
 
-        <form id="track-request" class="flex flex-col u-p-lg w-full" >
-          
+        <form id="track-request" class="flex flex-col u-p-lg w-full">
           <div class="u-mt-lg">
             <label for="ID">ID</label>
             <input
@@ -151,18 +174,20 @@
 
           <div class="u-mt-lg">
             <label for="office">Office</label>
-            <input type="text"
+            <input
+              type="text"
               name="office"
               id="Office"
-              class="form-input  table-office"
+              class="form-input table-office"
               placeholder="Registrar"
-             required
+              required
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="services">Services</label>
-            <input type="text"
+            <input
+              type="text"
               name="services"
               id="services"
               class="form-input table-services"
@@ -173,7 +198,7 @@
 
           <div class="u-mt-lg">
             <label for="fileName">File Name</label>
-            <input 
+            <input
               name="fileName"
               id="fileName"
               class="form-input table-file"
@@ -195,9 +220,7 @@
           </div>
 
           <div class="u-mt-lg">
-            <label for="office_note"
-              >Important: Office Notes</label
-            >
+            <label for="office_note">Important: Office Notes</label>
             <textarea
               class="form-input table-office-note"
               name="user_note"
@@ -210,7 +233,12 @@
 
           <div class="u-mt-lg">
             <label for="status">status</label>
-            <select name="status" id="status" class="form-input table-status" required>
+            <select
+              name="status"
+              id="status"
+              class="form-input table-status"
+              required
+            >
               <option value="Panding">Pending</option>
               <option value="Paid">Paid</option>
               <option value="Processing">Processing</option>
@@ -231,19 +259,18 @@
 
           <div class="u-mt-lg">
             <label for="dateUpdated">Date Updated</label>
-            <input type="datetime-local"
+            <input
               name="date-updated"
               id="date-updated"
               class="form-input table-date-updated"
               placeholder="June 17, 2022 8:03 AM"
-              required
+              disabled
             />
           </div>
 
           <div class="modal-track-btn crud">
             <button type="submit" class="action-btn update">Update</button>
             <button class="action-btn cancel" id="multipleCloseBtn">
-         
               Cancel
             </button>
           </div>
@@ -258,23 +285,29 @@
           Request Form
         </h1>
 
-        <form autocomplete="off" id="track-request" class="flex flex-col u-p-lg w-full" method="post" onsubmit="onFormSubmit()">   
-
+        <form
+          autocomplete="off"
+          id="track-request"
+          class="flex flex-col u-p-lg w-full"
+          method="post"
+          onsubmit="onFormSubmit()"
+        >
           <div class="u-mt-lg">
             <label for="office">Office</label>
-            <input type="text"
+            <input
+              type="text"
               name="office"
               id="office"
               class="form-input"
               placeholder="Registrar"
               required
-              
             />
           </div>
 
           <div class="u-mt-lg">
             <label for="services">Services</label>
-            <input type="text"
+            <input
+              type="text"
               name="services"
               id="services"
               class="form-input"
@@ -285,7 +318,7 @@
 
           <div class="u-mt-lg">
             <label for="fileName">File Name</label>
-            <input 
+            <input
               name="fileName"
               id="fileName"
               class="form-input"
@@ -307,9 +340,7 @@
           </div>
 
           <div class="u-mt-lg">
-            <label for="office_note"
-              >Important: Office Notes</label
-            >
+            <label for="office_note">Important: Office Notes</label>
             <textarea
               class="form-input"
               name="user_note"
@@ -317,13 +348,17 @@
               rows="5"
               placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
               required
-              ></textarea>
+            ></textarea>
           </div>
 
-          
           <div class="u-mt-lg">
             <label for="status">status</label>
-            <select name="status" id="status" class="form-input table-status" required>
+            <select
+              name="status"
+              id="status"
+              class="form-input table-status"
+              required
+            >
               <option value="Panding">Pending</option>
               <option value="Paid">Paid</option>
               <option value="Processing">Processing</option>
@@ -332,8 +367,9 @@
           </div>
 
           <div class="modal-track-btn crud">
-
-            <button type="submit" onclick="AddRow();"  class="action-btn update">Create</button>
+            <button type="submit" onclick="AddRow();" class="action-btn update">
+              Create
+            </button>
 
             <button class="action-btn cancel" id="singleCloseBtn">
               <!--Alert Message -->
@@ -343,7 +379,6 @@
         </form>
       </div>
     </div>
-
 
     <!-- modal Loading Screen -->
     <!-- <div class="loading-screen border-rounded">
@@ -360,10 +395,8 @@
           </div>
         </div>
       </div> -->
-
   </body>
   <footer>
-    
     <script src="./assets/js/script.js" type="module"></script>
     <script src="./assets/js/table-features.js"></script>
   </footer>
@@ -414,6 +447,3 @@
       })
 
 </script> -->
-
-
-
