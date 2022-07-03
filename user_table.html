@@ -263,8 +263,8 @@
       </div> -->
   </body>
   <footer>
-    <script src="./assets/js/script.js" type="module"></script>
-    <script src="./assets/js/table-features.js"></script>
+    <script defer src="./assets/js/script.js" type="module"></script>
+    <script defer src="./assets/js/table-features.js"></script>
   </footer>
 </html>
 <script>
@@ -319,8 +319,7 @@
         // console.log(users.length);
 
         for (let i = 0; i < users.length; i++) {
-          const tbody = table.getElementsByTagName("tbody")[0];
-          tbody.innerHTML += ` <tr class="multipleOpenBtn">
+          table.innerHTML += ` <tr class="multipleOpenBtn">
             <td class="table-id">${users[i].id}</td>
             <td class="table-user-number">${users[i].userNumber}</td>
             <td class="table-first-name">${users[i].first_name}</td>
