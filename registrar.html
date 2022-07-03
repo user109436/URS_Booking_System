@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table</title>
+    <title>Registrar</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
   </head>
   <body>
-    <!-- temporary side bar -->
+  
     <nav>
       <ul>
         <li><a href="registrar.html" class="active">Registrar</a></li>
@@ -170,39 +170,4 @@
     <script src="./assets/js/table-features.js"></script>
   </footer>
 </html>
-<!-- 
-<script>
-  // CRUD = READ
-    const tableHeader = `<tr class="bg-primary" id="table-header">
-                        <th>ID</th>
-                        <th>Date Created</th>
-                        <th>Request/Service</th>
-                        <th>File Name</th>
-                        <th>User Note</th>
-                        <th>Office Note</th>
-                        <th>Status</th>
-                      </tr>`
-    console.log(tableHeader);
-    function createTableData(array) {
-        
-        for (let i = 0; i < array.length; i++) {
-            table.innerHTML+=  ` <tr class="multipleOpenBtn">
-            <td  class="table-traking-id">${array[i].TrackingId}</td>
-            <td class="table-date-created">${array[i].createAt}</td>
-            <td class="table-services">${array[i].ServiceId}</td>
-            <td  class="table-file">${array[i].FileName  }</td>
-            <td class="table-user-note">${array[i].UserNote }</td>
-            <td class="table-office-note">${array[i].OfficeNote}</td>
-            <td  class="table-status" >${array[i].StatusId }</td>
-            </tr>`
-            
-          }
-      }
 
-      fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
-      .then(response => response.json())
-      .then(todos =>  {
-        createTableData(todos);
-      })
-
-</script> -->

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table</title>
+    <title>Requests</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
@@ -374,48 +374,4 @@
   </footer>
 </html>
 
-<!-- <script>
-  // CRUD = READ
-    const tableHeader = `<tr class="bg-primary" id="table-header">
-                        <th>ID</th>
-                        <th>Tracking ID</th>
-                        <th>Office</th>
-                        <th>Service/Request</th>
-                        <th>File Name</th>
-                        <th>User Note</th>
-                        <th>Office Note</th>
-                        <th>Status</th>
-                        <th>Date Created</th>
-                        <th>Date Updated</th>
-                        <th>Date Finished</th>
-                        </tr>
-                        `
-    console.log(tableHeader);
-    function createTableData(array) {
-        
-        for (let i = 0; i < array.length; i++) {
-            table.innerHTML+=  ` <tr class="multipleOpenBtn">
-            <td  class="table-traking-id">${array[i].Id}</td>
-            <td class="table-traking-id">${array[i].TrackingId}</td>
-            <td class="table-office">${array[i].OfficeId }</td>
-            <td class="table-services">${array[i].ServiceId}</td>
-            <td  class="table-status" >${array[i].StatusId }</td>
-            <td class="table-user-note">${array[i].UserNote }</td>
-            <td class="table-office-note">${array[i].OfficeNote}</td>
-            <td  class="table-file">${array[i].FileName  }</td>
 
-            <td class="table-date-created">${array[i].createAt}</td>
-            <td class="table-date-updated">${array[i].updatedAt}</td>
-            <td>${array[i].FinishedAt }</td>
-            </tr>`
-            
-          }
-      }
-
-      fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
-      .then(response => response.json())
-      .then(todos =>  {
-        createTableData(todos);
-      })
-
-</script> -->

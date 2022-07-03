@@ -215,35 +215,4 @@
   </footer>
 </html>
 
-<!-- <script>
-  // CRUD = READ
-    const tableHeader = `<tr class="bg-primary" id="table-header">
-                        <th>ID</th>
-                        <th>Services</th>
-                        <th>Fee</th>
-                        <th>Date Created</th>
-                        <th>Date Updated</th>
-                        </tr>
-                        `
-    console.log( table.innerHTML+= tableHeader);
-    function createTableData(array) {
-        
-        for (let i = 0; i < array.length; i++) {
-            table.innerHTML+=  ` <tr class="multipleOpenBtn">
-            <td class="table-id">${array[i].Id}</td>
-            <td class="table-services">${array[i].Name }</td>
-            <td class-"table-fee">${array[i].Fee }</td>
-            <td class="table-date-created">${array[i].CreateAt}</td>
-            <td class="table-date-updated">${array[i].UpdatedAt}</td>
-            </tr>`
-            
-          }
-      }
 
-      fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
-      .then(response => response.json())
-      .then(todos =>  {
-        createTableData(todos);
-      })
-
-</script> -->
