@@ -13,18 +13,18 @@ export class Modal {
     e.preventDefault();
     this.modal.style.display = "none";
   };
-//   closeOnOutsideClick = (e) => {
-//     e.preventDefault();
-//     if (e.target == this.modal) {
-//       this.modal.style.display = "none";
-//     }
-//   };
+  closeOnOutsideClick = (e) => {
+    e.preventDefault();
+    if (e.target == this.modal) {
+      this.modal.style.display = "none";
+    }
+  };
 
   modalSingleOpenBtn = () => {
     //2. event listener
     this.openBtn.addEventListener("click", this.openModal);
     this.closeBtn.addEventListener("click", this.closeModal);
-    // window.addEventListener("click", this.closeOnOutsideClick);
+    window.addEventListener("click", this.closeOnOutsideClick);
   };
   modalMultipleOpenBtn = () => {
     const array = Array.from(this.openBtn);
@@ -32,6 +32,6 @@ export class Modal {
       element.addEventListener("click", this.openModal);
     });
     this.closeBtn.addEventListener("click", this.closeModal);
-    // window.addEventListener("click", this.closeOnOutsideClick);
+    window.addEventListener("click", this.closeOnOutsideClick);
   };
 }
