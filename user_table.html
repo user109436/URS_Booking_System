@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table</title>
+    <title>List of User</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
@@ -36,10 +36,6 @@
               placeholder="Search Items"
               id="search-table"
             />
-          </div>
-
-          <div class="container-90">
-            <button class="add btn" id="singleOpenBtn">Create New User</button>
           </div>
 
           <tr class="bg-primary" id="table-header">
@@ -90,17 +86,17 @@
         </tbody>
       </table>
     </div>
-    <!--User UPDATE MODAL-->
+    <!--MODAL user Table-->
 
     <div
-      class="modal-update flex overflow-auto modalBox"
+      class="modal flex overflow-auto modalBox"
       autocomplete="off"
       id="multipleModal"
       style="display: none"
     >
-      <div class="modal-update-box u-p-sm w-50">
+      <div class="modal-box u-p-sm w-50">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
-          Update User
+           User Form
         </h1>
 
         <form
@@ -114,16 +110,20 @@
             type="number"
             id="inputId"
             class="form-input table-id"
+            placeholder="Auto"
             disabled
           />
 
           <label for="userNumber" class="w-full">User Number:</label>
           <input
             name="userNumber"
-            type="number"
+            type="tel"
             id="inputUserNumber "
             class="form-input table-user-number"
-            disabled
+            maxlength="11"
+            pattern="[0]{1}[0-9]{10}"
+            placeholder="User number"
+           required
           />
 
           <label for="firstName" class="w-full">First Name:</label>
@@ -132,6 +132,7 @@
             type="text"
             id="inputFirstName"
             class="form-input table-first-name"
+            placeholder="Ex. Juan"
             required
           />
 
@@ -141,6 +142,7 @@
             type="text"
             id="inputLastName"
             class="form-input table-last-name"
+            placeholder="Ex. Dela Cruz"
             required
           />
 
@@ -150,6 +152,7 @@
             type="email"
             id="inputEmail"
             class="form-input table-email"
+            placeholder="JuanDC@gmail.com"
             required
           />
 
@@ -159,28 +162,41 @@
             type="password"
             id="inputPassword"
             class="form-input table-email"
+            placeholder="JuanDelaCruz0000"
             required
           />
           <!-- TODO:this should be dropdown, options are found in roles table (admin, officer and etc) -->
           <label for="role" class="w-full">Role:</label>
-          <input
+          <select
             name="role"
             type="text"
             id="inputRole"
             class="form-input table-role"
             required
-          />
+          >       
+            <option value=""></option>  
+            <option value="Administrator">Administrator</option>
+            <option value="Office Department">Office Department</option>
+             <option value="Core">Core</option>
+          </select>
           <!-- TODO:this should be dropdown, options are "Verifiend and Non-Verified?" -->
           <label for="verified" class="w-full">Verified</label>
-          <input
+          <select
             name="verified"
             type="text"
             id="inputVerified"
-            class="form-input table-verification"
-          />
+            class="form-input table-verification">
+
+            <!-- <option value="Verifiend">Verifiend</option> -->
+            <!-- <option value="Non-Verified">Non-Verified</option> -->
+            <option value=""></option> 
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
 
           <label for="status" class="w-full">Status</label>
           <select name="status" type="text" id="inputStatus" class="form-input">
+        
             <option value="Active">Active</option>
             <option value="Inactive">Inactive</option>
           </select>
@@ -190,6 +206,7 @@
             name="createdAt"
             id="inputCreated"
             class="form-input table-date-created"
+            placeholder="Auto"
             disabled
           />
 
@@ -198,22 +215,30 @@
             name="updatedAt"
             id="inputUpdated"
             class="form-input table-date-updated"
+            placeholder="Auto"
             disabled
           />
 
-          <div class="modal-update-btn crud">
-            <button
-              type="submit"
-              onsubmit="showConsole()"
-              class="action-btn update"
-            >
+          <div class="modal-btn crud">
+            <button type="submit" class="action-btn add">
+              Create
+            </button>
+            <button type="reset" class="action-btn reset" onclick="reset()">
+              Reset
+            </button>
+            <button type="submit" class="action-btn update">
               Update
             </button>
-
+            <button type="submit" class="action-btn delete">
+              Delete
+              <!--Alert Message "are you sure to delete this request?" -->
+            </button>
             <button class="action-btn cancel" id="multipleCloseBtn">
               Cancel
+                <!--Alert Message -->
             </button>
           </div>
+
         </form>
       </div>
     </div>
@@ -233,85 +258,12 @@
         </div>
       </div>
     </div>
+    
   </body>
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
+    <script defer src="./assets/js/intregration.js"></script>
   </footer>
 </html>
-<script>
-  // CRUD = READ
-  const tableHeader = ` <th>ID</th>
-                          <th>User Number</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Position</th>
-                          <th>Email</th>
-                          <th>Password</th>  
-                          <th>Role</th>  
-                          <th>Verified</th>  
-                          <th>Status</th>  
-                          <th>Created At</th>  
-                          <th>Updated At</th> `;
 
-  // console.log(tableHeader);
-  function createTableData(array) {
-    for (let i = 0; i < array.length; i++) {
-      const tbody = table.getElementsByTagName("tbody")[0];
-      tbody.innerHTML += ` <tr class="multipleOpenBtn">
-            <td class="table-id">${array[i].Id}</td>
-            <td class="table-user-number">${array[i].UserNumber}</td>
-            <td class="table-first-name">${array[i].FirstName}</td>
-            <td class="table-last-name">${array[i].LastName}</td>
-             <td class="table-position">${array[i].Position}</td>
-            <td class="table-email">${array[i].Email}</td>
-            <td class="password">${array[i].Password}</td>
-            <td class="table-role">${array[i].Role}</td>
-            <td class="table-verification">${array[i].Verified}</td>
-            <td  class="table-status" >${array[i].Active}</td>
-            <td class="table-date-created">${array[i].CreatedAt}</td>
-            <td class="table-date-updated">${array[i].UpdatedAt}</td>
-            </tr>`;
-    }
-  }
-
-  // fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
-  // .then(response => response.json())
-  // .then(todos =>  {
-  //   createTableData(todos);
-  // })
-
-  //Using local json data file
-  function readData() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "testData.json", true);
-    xhr.onload = function () {
-      if (this.status == 200) {
-        const loadingScreen =
-          document.getElementsByClassName("loading-screen")[0];
-        loadingScreen.style.display = "none";
-        var users = JSON.parse(this.responseText);
-        // console.log(users.length);
-
-        for (let i = 0; i < users.length; i++) {
-          table.innerHTML += ` <tr class="multipleOpenBtn">
-            <td class="table-id">${users[i].id}</td>
-            <td class="table-user-number">${users[i].userNumber}</td>
-            <td class="table-first-name">${users[i].first_name}</td>
-            <td class="table-last-name">${users[i].last_name}</td>
-             <td class="table-position">${users[i].position}</td>
-            <td class="table-email">${users[i].email}</td>
-            <td class="password">${users[i].password}</td>
-            <td class="table-role">${users[i].role}</td>
-            <td class="table-verification">${users[i].verified}</td>
-            <td  class="table-status" >${users[i].active}</td>
-            <td class="table-date-created">${users[i].createdAt}</td>
-            <td class="table-date-updated">${users[i].updatedAt}</td>
-            </tr>`;
-          // console.log(i);
-        }
-      }
-    };
-    xhr.send();
-  }
-</script>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table</title>
+    <title>List of Service</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
@@ -23,7 +23,7 @@
     </nav>
 
     <!-- services table -->
-    <h1 class="font-lg color-primary text-center u-m-y-m">Services Table</h1>
+    <h1 class="font-lg color-primary text-center u-m-y-m">Service's Table</h1>
     <div class="container overflow-auto">
       <table class="container-90 card" id="table">
         <div class="search-table flex flex-justify-center container-90">
@@ -35,9 +35,6 @@
             placeholder="Search Items"
             id="search-table"
           />
-        </div>
-        <div class="container-90">
-          <button class="add btn" id="singleOpenBtn">Create New Service</button>
         </div>
 
         <tr class="bg-primary" id="table-header">
@@ -73,11 +70,12 @@
         </tr>
       </table>
     </div>
+
     <!-- Modal Services Table -->
-    <div class="modal-update flex" id="multipleModal" style="display: none">
-      <div class="modal-update-box u-p-sm">
+    <div class="modal flex" id="multipleModal" style="display: none">
+      <div class="modal-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
-          Update - Services
+          Service Form
         </h1>
 
         <form id="form-account-request" class="flex flex-col u-p-lg w-full">
@@ -87,7 +85,7 @@
               name="ID"
               id="ID"
               class="form-input table-id"
-              placeholder="123456789123"
+              placeholder="Auto"
               disabled
             />
           </div>
@@ -122,7 +120,7 @@
               name="date-created"
               id="date-created"
               class="form-input table-date-created"
-              placeholder="June 17, 2022 8:03 AM"
+              placeholder="Auto"
               disabled
             />
           </div>
@@ -133,62 +131,31 @@
               name="date-updated"
               id="date-updated"
               class="form-input table-date-updated"
-              placeholder="June 17, 2022 8:03 AM"
+              placeholder="Auto"
               disabled
             />
           </div>
 
-          <div class="modal-update-btn crud">
-            <button type="submit" class="action-btn update">Update</button>
-
+          <div class="modal-btn crud">
+            <button type="submit" class="action-btn add">
+              Create
+            </button>
+            <button type="reset" class="action-btn reset" onclick="reset()">
+              Reset
+            </button>
+            <button type="submit" class="action-btn update">
+              Update
+            </button>
+            <button type="submit" class="action-btn delete">
+              Delete
+              <!--Alert Message "are you sure to delete this request?" -->
+            </button>
             <button class="action-btn cancel" id="multipleCloseBtn">
-              <!--Alert Message -->
               Cancel
+                <!--Alert Message -->
             </button>
           </div>
-        </form>
-      </div>
-    </div>
 
-    <!-- Modal Services Create new -->
-    <div class="modal-update flex" id="singleModal" style="display: none">
-      <div class="modal-update-box u-p-sm">
-        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
-          Create New Services
-        </h1>
-
-        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
-          <div class="u-mt-lg">
-            <label for="createServices">Services</label>
-            <input
-              name="createServices"
-              id="createServices"
-              class="form-input"
-              placeholder="Ex. Transcript of Records"
-              required
-            />
-          </div>
-
-          <div class="u-mt-lg">
-            <label for="createFee">Fee</label>
-            <input
-              type="number"
-              name="createFee"
-              id="createFee"
-              class="form-input"
-              placeholder="Ex. &#8369;50 /page"
-              required
-            />
-          </div>
-
-          <div class="modal-update-btn crud">
-            <button type="submit" class="action-btn update">Create</button>
-
-            <button class="action-btn cancel" id="singleCloseBtn">
-              <!--Alert Message -->
-              Cancel
-            </button>
-          </div>
         </form>
       </div>
     </div>
@@ -208,42 +175,12 @@
           </div>
         </div>
       </div> -->
+
   </body>
   <footer>
     <script src="./assets/js/script.js" type="module"></script>
     <script src="./assets/js/table-features.js"></script>
+    <script defer src="./assets/js/intregration.js"></script>
   </footer>
 </html>
 
-<!-- <script>
-  // CRUD = READ
-    const tableHeader = `<tr class="bg-primary" id="table-header">
-                        <th>ID</th>
-                        <th>Services</th>
-                        <th>Fee</th>
-                        <th>Date Created</th>
-                        <th>Date Updated</th>
-                        </tr>
-                        `
-    console.log( table.innerHTML+= tableHeader);
-    function createTableData(array) {
-        
-        for (let i = 0; i < array.length; i++) {
-            table.innerHTML+=  ` <tr class="multipleOpenBtn">
-            <td class="table-id">${array[i].Id}</td>
-            <td class="table-services">${array[i].Name }</td>
-            <td class-"table-fee">${array[i].Fee }</td>
-            <td class="table-date-created">${array[i].CreateAt}</td>
-            <td class="table-date-updated">${array[i].UpdatedAt}</td>
-            </tr>`
-            
-          }
-      }
-
-      fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
-      .then(response => response.json())
-      .then(todos =>  {
-        createTableData(todos);
-      })
-
-</script> -->
