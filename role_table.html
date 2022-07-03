@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
     <title>Role</title>
+=======
+    <title>List of Roles</title>
+>>>>>>> dccadee75fa198cd8d149f5bc41640a86fef1b51
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
@@ -36,9 +40,6 @@
             id="search-table"
           />
         </div>
-        <div class="container-90">
-          <button class="add btn" id="singleOpenBtn">Create New Role</button>
-        </div>
 
         <tr class="bg-primary" id="table-header">
           <th>ID</th>
@@ -56,7 +57,7 @@
 
         <tr class="multipleOpenBtn">
           <td class="table-id">132456798464</td>
-          <td class="table-role">Scholastic Records</td>
+          <td class="table-role">Office</td>
           <td class="table-date-created">June 17, 2022 8:04 AM</td>
           <td class="table-date-updated">June 17, 2022 8:04 AM</td>
         </tr>
@@ -70,10 +71,10 @@
       </table>
     </div>
     <!-- Modal Role Table -->
-    <div class="modal-update flex" id="multipleModal" style="display: none">
-      <div class="modal-update-box u-p-sm">
+    <div class="modal flex" id="multipleModal" style="display: none">
+      <div class="modal-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
-          Update - Role
+          Role Form
         </h1>
 
         <form id="form-account-request" class="flex flex-col u-p-lg w-full">
@@ -83,7 +84,7 @@
               name="ID"
               id="ID"
               class="form-input table-id"
-              placeholder="123456789123"
+              placeholder="Auto"
               disabled
             />
           </div>
@@ -105,7 +106,7 @@
               name="date-created"
               id="date-created"
               class="form-input table-date-created"
-              placeholder="June 17, 2022 8:03 AM"
+              placeholder="Auto"
               disabled
             />
           </div>
@@ -116,50 +117,31 @@
               name="date-updated"
               id="date-updated"
               class="form-input table-date-updated"
-              placeholder="June 17, 2022 8:03 AM"
+              placeholder="Auto"
               disabled
             />
           </div>
 
-          <div class="modal-update-btn crud">
-            <button type="submit" class="action-btn update">Update</button>
-
+          <div class="modal-btn crud">
+            <button type="submit" class="action-btn add">
+              Create
+            </button>
+            <button type="reset" class="action-btn reset" onclick="reset()">
+              Reset
+            </button>
+            <button type="submit" class="action-btn update">
+              Update
+            </button>
+            <button type="submit" class="action-btn delete">
+              Delete
+              <!--Alert Message "are you sure to delete this request?" -->
+            </button>
             <button class="action-btn cancel" id="multipleCloseBtn">
-              <!--Alert Message -->
               Cancel
+                <!--Alert Message -->
             </button>
           </div>
-        </form>
-      </div>
-    </div>
-    <!-- Modal Role Create New -->
-    <div class="modal-update flex" id="singleModal" style="display: none">
-      <div class="modal-update-box u-p-sm">
-        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
-          Create New Role
-        </h1>
 
-        <form id="form-account-request" class="flex flex-col u-p-lg w-full">
-          <div class="u-mt-lg">
-            <label for="createRole">Role</label>
-            <input
-              type="text"
-              name="createRole"
-              id="createRole"
-              class="form-input"
-              placeholder="Ex. Registrar admin"
-              required
-            />
-          </div>
-
-          <div class="modal-update-btn crud">
-            <button type="submit" class="action-btn update">Create</button>
-
-            <button class="action-btn cancel" id="singleCloseBtn">
-              <!--Alert Message -->
-              Cancel
-            </button>
-          </div>
         </form>
       </div>
     </div>
@@ -183,6 +165,10 @@
   <footer>
     <script src="./assets/js/script.js" type="module"></script>
     <script src="./assets/js/table-features.js"></script>
+    <script defer src="./assets/js/intregration.js"></script>
   </footer>
 </html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> dccadee75fa198cd8d149f5bc41640a86fef1b51

@@ -95,10 +95,6 @@ html {
     font-weight: 100;
 }
 
-.action-btn,
-.btn:hover {
-    transform: translateY(-2px);
-}
 
 .action-btn,
 .btn:active {
@@ -118,6 +114,7 @@ html {
     color: #fff;
 }
 
+.action-btn,
 .btn-secondary:hover {
     background-color: var(--color-secondary);
     color: #fff;
@@ -129,64 +126,6 @@ html {
     border: 1px solid var(--color-secondary);
 }
 
-/* add button */
-.add {
-    color: #fff;
-    background: var(--color-success);
-    padding: 1rem;
-    border: none;
-    font-size: 12px;
-}
-
-/* table action button */
-.action-btn {
-    width: 45%;
-    min-width: 100px;
-    height: fit-content;
-    cursor: pointer;
-    color: #fff;
-    border: none;
-    padding: 1rem 0;
-    font-size: medium;
-    text-align: center;
-}
-
-.edit {
-    width: 70px !important;
-    padding: .7rem;
-    margin-right: 5px;
-    background-color: var(--color-processing);
-}
-
-/* 
-.delete{
-    width: 70px;
-    padding: .7rem;
-    background-color: var(--color-error-2);
-} */
-.update {
-    background-color: var(--color-primary);
-}
-
-.cancel {
-
-    background-color: var(--color-processing-2);
-}
-
-/* .delete:hover{
-    background-color: var(--color-error-dark);
-}*/
-.edit:hover {
-    background-color: var(--color-processing-dark);
-}
-
-.update:hover {
-    background-color: var(--color-primary-dark);
-}
-
-.cancel:hover {
-    background-color: var(--color-processing-dark);
-}
 
 /* IMAGES */
 .img-logo {
@@ -260,44 +199,7 @@ tr:nth-child(even) {
 
 
 /* Modal UPDATE */
-.modal-update {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, .5);
-    /* Black w/opacity/see-through */
-
-}
-
-/* Modal fot update box */
-.modal-update-box {
-    height: fit-content;
-    width: 50%;
-    background-color: white;
-    box-shadow: var(--shadow-dark);
-    border-radius: 25px;
-    margin: auto auto;
-    /* Update later */
-}
-
-.modal-update-btn {
-    height: 80px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    border-radius: 25px;
-    justify-content: space-evenly;
-
-}
-
-/* Modal TRACK */
-.modal-track {
+.modal {
     width: 100%;
     height: 100%;
     display: flex;
@@ -313,27 +215,68 @@ tr:nth-child(even) {
     overflow-y: scroll;
 }
 
-.modal-track-box {
+/* Modal fot update box */
+.modal-box {
     height: fit-content;
     width: 50%;
     background-color: white;
     box-shadow: var(--shadow-dark);
     border-radius: 25px;
     margin: auto auto;
-    /*udpate margin */
+    /* Update later */
 }
 
-.modal-track-btn {
+.modal-btn {
     height: 80px;
     width: 100%;
+    margin-top: 5px;
     display: flex;
     align-items: center;
-    overflow: hidden;
-    border-radius: 25px;
+    overflow: hidden;;
     justify-content: space-evenly;
 }
+/* table action button */
+.action-btn {
+    width: 45%;
+    min-width: 100px;
+    height: fit-content;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    padding: 1rem 0;
+    font-size: medium;
+    text-align: center;
+    background-color: var(--color-primary);
+}
 
-.modal-track::-webkit-scrollbar {
+/* .add {
+    background: var(--color-success);
+} */
+.delete{
+    background-color: var(--color-error-2);
+}
+/* .update {
+    background-color: var(--color-primary);
+} */
+.cancel {
+    background-color: var(--color-processing-2);
+}
+
+.delete:hover{
+    background-color: var(--color-error-dark);
+}
+/* .add:hover {
+    background-color: var(--color-processing-dark);
+} */
+.update:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.cancel:hover {
+    background-color: var(--color-processing-dark);
+}
+
+.modal::-webkit-scrollbar {
     display: none;
 }
 
@@ -348,7 +291,7 @@ tr:nth-child(even) {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.596);
+    background-color: rgba(0, 0, 0, .5);
     /* Black w/opacity/see-through */
 }
 

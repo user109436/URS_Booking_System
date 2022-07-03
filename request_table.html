@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
     <title>Requests</title>
+=======
+    <title>List of Requests</title>
+>>>>>>> dccadee75fa198cd8d149f5bc41640a86fef1b51
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
@@ -35,9 +39,6 @@
             placeholder="Search Items"
             id="search-table"
           />
-        </div>
-        <div class="container-90">
-          <button class="add btn" id="singleOpenBtn">Create New Request</button>
         </div>
 
         <tr class="bg-primary" id="table-header">
@@ -114,9 +115,9 @@
         </tr>
       </table>
     </div>
-    <!-- Tracking Modal/ Request -->
-    <div class="modal-track flex" id="multipleModal" style="display: none">
-      <div class="modal-track-box u-p-sm">
+    <!-- Modal Request Table-->
+    <div class="modal flex" id="multipleModal" style="display: none">
+      <div class="modal-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
           Request Form
         </h1>
@@ -128,7 +129,7 @@
               name="ID"
               id="ID"
               class="form-input table-id"
-              placeholder="123456789123"
+              placeholder="Auto"
               disabled
             />
           </div>
@@ -139,7 +140,7 @@
               name="trackingID"
               id="trackingID"
               class="form-input table-traking-id"
-              placeholder="123456789123"
+              placeholder="Auto"
               disabled
             />
           </div>
@@ -170,12 +171,12 @@
 
           <div class="u-mt-lg">
             <label for="fileName">File Name</label>
-            <input
+            <input type="file"
               name="fileName"
               id="fileName"
               class="form-input table-file"
               placeholder="John Doe - Request.pdf"
-              disabled
+              required
             />
           </div>
 
@@ -211,6 +212,7 @@
               class="form-input table-status"
               required
             >
+            <option value="">Ex. Pending</option>
               <option value="Panding">Pending</option>
               <option value="Paid">Paid</option>
               <option value="Processing">Processing</option>
@@ -224,7 +226,7 @@
               name="date-created"
               id="date-created"
               class="form-input table-date-created"
-              placeholder="June 17, 2022 8:03 AM"
+              placeholder="Auto"
               disabled
             />
           </div>
@@ -235,119 +237,31 @@
               name="date-updated"
               id="date-updated"
               class="form-input table-date-updated"
-              placeholder="June 17, 2022 8:03 AM"
+              placeholder="Auto"
               disabled
             />
           </div>
 
-          <div class="modal-track-btn crud">
-            <button type="submit" class="action-btn update">Update</button>
-            <button class="action-btn cancel" id="multipleCloseBtn">
-              Cancel
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Tracking Modal/ Request Create New -->
-    <div class="modal-track flex" id="singleModal" style="display: none">
-      <div class="modal-track-box u-p-sm">
-        <h1 class="text-center font-lg color-primary text-center u-m-y-m">
-          Request Form
-        </h1>
-
-        <form
-          autocomplete="off"
-          id="track-request"
-          class="flex flex-col u-p-lg w-full"
-          method="post"
-          onsubmit="onFormSubmit()"
-        >
-          <div class="u-mt-lg">
-            <label for="office">Office</label>
-            <input
-              type="text"
-              name="office"
-              id="office"
-              class="form-input"
-              placeholder="Registrar"
-              required
-            />
-          </div>
-
-          <div class="u-mt-lg">
-            <label for="services">Services</label>
-            <input
-              type="text"
-              name="services"
-              id="services"
-              class="form-input"
-              placeholder="Transcript of Records"
-              required
-            />
-          </div>
-
-          <div class="u-mt-lg">
-            <label for="fileName">File Name</label>
-            <input
-              name="fileName"
-              id="fileName"
-              class="form-input"
-              placeholder="John Doe - Request.pdf"
-              required
-            />
-          </div>
-
-          <div class="u-mt-lg">
-            <label for="user_note">Notes of Documents</label>
-            <textarea
-              class="form-input"
-              name="user_note"
-              id="user_note"
-              rows="5"
-              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
-              required
-            ></textarea>
-          </div>
-
-          <div class="u-mt-lg">
-            <label for="office_note">Important: Office Notes</label>
-            <textarea
-              class="form-input"
-              name="user_note"
-              id="user_note"
-              rows="5"
-              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
-              required
-            ></textarea>
-          </div>
-
-          <div class="u-mt-lg">
-            <label for="status">status</label>
-            <select
-              name="status"
-              id="status"
-              class="form-input table-status"
-              required
-            >
-              <option value="Panding">Pending</option>
-              <option value="Paid">Paid</option>
-              <option value="Processing">Processing</option>
-              <option value="Finished">Finished</option>
-            </select>
-          </div>
-
-          <div class="modal-track-btn crud">
-            <button type="submit" onclick="AddRow();" class="action-btn update">
+          <div class="modal-btn crud">
+            <button type="submit" class="action-btn add" >
               Create
             </button>
-
-            <button class="action-btn cancel" id="singleCloseBtn">
-              <!--Alert Message -->
+            <button type="reset" class="action-btn reset" onclick="reset()">
+              Reset
+            </button>
+            <button type="submit" class="action-btn update">
+              Update
+            </button>
+            <button type="submit" class="action-btn delete">
+              Delete
+              <!--Alert Message "are you sure to delete this request?" -->
+            </button>
+            <button class="action-btn cancel" id="multipleCloseBtn">
               Cancel
+                <!--Alert Message -->
             </button>
           </div>
+
         </form>
       </div>
     </div>
@@ -371,7 +285,11 @@
   <footer>
     <script src="./assets/js/script.js" type="module"></script>
     <script src="./assets/js/table-features.js"></script>
+    <script src="./assets/js/intregration.js"></script>
   </footer>
 </html>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> dccadee75fa198cd8d149f5bc41640a86fef1b51
