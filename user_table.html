@@ -4,17 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<<<<<<< HEAD
-    <title>Users</title>
-=======
     <title>List of User</title>
->>>>>>> dccadee75fa198cd8d149f5bc41640a86fef1b51
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
    
   </head>
-  <body onload="readData()">
+  <body onload="GetAllOffice()">
     <nav>
       <ul>
         <li><a href="registrar.html" >Registrar</a></li>
@@ -44,13 +40,6 @@
             />
           </div>
 
-<<<<<<< HEAD
-          <div class="container-90">
-            <button class="add btn" id="singleOpenBtn" >Create New User</button>
-          </div>
-
-=======
->>>>>>> dccadee75fa198cd8d149f5bc41640a86fef1b51
           <tr class="bg-primary" id="table-header">
             <th>ID</th>
             <th>User Number</th>
@@ -271,105 +260,12 @@
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-    <!--Alert-->
-    <div id="dialogOverlay">
-      <div id="dialogBox">
-        <div id="dialogBoxHead"></div>
-        <div id="dialogBoxBody"></div>
-        <div id="dialogBoxFoot"></div>
-      </div>
-
-    </div>
-    <script defer src="./assets/js/script.js" type="module"></script>
-    <script defer src="./assets/js/table-features.js"></script>
-    <script defer src="./assets/js/dom-table.js"></script>
-    <script defer src="./assets/js/alert.js"></script>
-   
-  </body>
-  <footer>
-    <script>// CRUD = READ
-      const tableHeader = ` <th>ID</th>
-                              <th>User Number</th>
-                              <th>First Name</th>
-                              <th>Last Name</th>
-                              <th>Position</th>
-                              <th>Email</th>
-                              <th>Password</th>  
-                              <th>Role</th>  
-                              <th>Verified</th>  
-                              <th>Status</th>  
-                              <th>Created At</th>  
-                              <th>Updated At</th> `;
-    
-      // console.log(tableHeader);
-      function createTableData(array) {
-        for (let i = 0; i < array.length; i++) {
-          const tbody = table.getElementsByTagName("tbody")[0];
-          tbody.innerHTML += ` <tr class="multipleOpenBtn">
-                <td class="table-id">${array[i].Id}</td>
-                <td class="table-user-number">${array[i].UserNumber}</td>
-                <td class="table-first-name">${array[i].FirstName}</td>
-                <td class="table-last-name">${array[i].LastName}</td>
-                 <td class="table-position">${array[i].Position}</td>
-                <td class="table-email">${array[i].Email}</td>
-                <td class="password">${array[i].Password}</td>
-                <td class="table-role">${array[i].Role}</td>
-                <td class="table-verification">${array[i].Verified}</td>
-                <td  class="table-status" >${array[i].Active}</td>
-                <td class="table-date-created">${array[i].CreatedAt}</td>
-                <td class="table-date-updated">${array[i].UpdatedAt}</td>
-                </tr>`;
-        }
-      }
-    
-      // fetch('https://jsonplaceholder.typicode.com/todos/') // ajax
-      // .then(response => response.json())
-      // .then(todos =>  {
-      //   createTableData(todos);
-      // })
-    
-      //Using local json data file
-      function readData() {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "testData.json", true);
-        xhr.onload = function () {
-          if (this.status == 200) {
-            const loadingScreen =
-              document.getElementsByClassName("loading-screen")[0];
-            loadingScreen.style.display = "none";
-            var users = JSON.parse(this.responseText);
-            // console.log(users.length);
-    
-            for (let i = 0; i < users.length; i++) {
-              table.innerHTML += ` <tr class="multipleOpenBtn">
-                <td class="table-id">${users[i].id}</td>
-                <td class="table-user-number">${users[i].userNumber}</td>
-                <td class="table-first-name">${users[i].first_name}</td>
-                <td class="table-last-name">${users[i].last_name}</td>
-                 <td class="table-position">${users[i].position}</td>
-                <td class="table-email">${users[i].email}</td>
-                <td class="password">${users[i].password}</td>
-                <td class="table-role">${users[i].role}</td>
-                <td class="table-verification">${users[i].verified}</td>
-                <td  class="table-status" >${users[i].active}</td>
-                <td class="table-date-created">${users[i].createdAt}</td>
-                <td class="table-date-updated">${users[i].updatedAt}</td>
-                </tr>`;
-              // console.log(i);
-            }
-          }
-        };
-        xhr.send();
-      }</script>
-=======
     
   </body>
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
     <script defer src="./assets/js/intregration.js"></script>
->>>>>>> dccadee75fa198cd8d149f5bc41640a86fef1b51
   </footer>
 </html>
 

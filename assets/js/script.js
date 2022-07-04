@@ -48,6 +48,8 @@ setTimeout(function () {
     });
   }
 }, 3000);
+
+
 // MAKE REQUEST Scroll on Trigger "a"
 
 const removeString = (originalString, stringToRemove, startLocation = 0) => {

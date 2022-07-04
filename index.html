@@ -167,10 +167,10 @@
               <label for="office">Office</label>
               <select name="office" id="office" class="form-input" required>
                 <option value="">Ex. Registrar's Office</option>
-                <option value="office_id">Registrar's Office</option>
-                <option value="office_id">OSDS Office</option>
-                <option value="office_id">Cashier Office</option>
-                <option value="office_id">Human Resources Office</option>
+                <option value=1>Registrar's Office</option>
+                <option value=2>OSDS Office</option>
+                <option value=3>Cashier Office</option>
+                <option value=4>Human Resources Office</option>
               </select>
             </div>
             <div class="u-mt-lg">
@@ -179,34 +179,34 @@
                 <option value="">
                   Ex. Transcript of Records (Php 50/page) - Php 50
                 </option>
-                <option value="service_id">
+                <option value="1">
                   Transcript of Records (Php 50/page) - Php 50
                 </option>
-                <option value="service_id">
+                <option value="2">
                   Scholastic Records (Php 20/page) - Php 20
                 </option>
-                <option value="service_id">
+                <option value="3">
                   Certificate of Grades - Php 20
                 </option>
-                <option value="service_id">
+                <option value="4">
                   Certificate of Enrolment - Php 20
                 </option>
-                <option value="service_id">
+                <option value="5">
                   Certificate of Graduation - Php 20
                 </option>
-                <option value="service_id">
+                <option value="6">
                   Certification, Authentication and Verification - Php 20
                 </option>
-                <option value="service_id">
+                <option value="7">
                   Transfer Credentials/Honorable Dismissal - Php 20
                 </option>
-                <option value="service_id">
+                <option value="8">
                   Certificate of Good Moral Character - Php 20
                 </option>
-                <option value="service_id">
+                <option value="9">
                   Form 137(For High School and Senior High School)
                 </option>
-                <option value="service_id">Second Copy of Diploma</option>
+                <option value="10">Second Copy of Diploma</option>
               </select>
             </div>
 
@@ -224,9 +224,10 @@
               ></textarea>
             </div>
             <div class="u-mt-lg">
-              <input class="" type="file" name="files" accept=".pdf" />
+              <input class="" type="file" name="files" id="obj_file" accept=".pdf" />
             </div>
             <button
+            id="btnSubmit"
               type="submit"
               class="btn btn-primary u-mt-lg transition-normal"
             >
@@ -241,6 +242,7 @@
     </section>
   </body>
   <footer>
-    <script src="/assets/js/script.js" type="module"></script>
+    <!-- <script src="/assets/js/script.js" type="module"></script> -->
+    <script src="/assets/js/intregration.js" ></script>
   </footer>
 </html>
