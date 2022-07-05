@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./assets/css/queries.css" />
    
   </head>
-  <body onload="GetAllOffice()">
+  <body onload="getAllUsers()">
     <nav>
       <ul>
         <li><a href="registrar.html" >Registrar</a></li>
@@ -222,7 +222,7 @@
           />
 
           <div class="modal-btn crud">
-            <button type="submit" class="action-btn add">
+            <button type="submit"  id="btnSubmit" class="action-btn add">
               Create
             </button>
             <button type="reset" class="action-btn reset" onclick="reset()">
@@ -246,7 +246,7 @@
     </div>
 
     <!-- modal Loading Screen -->
-    <div class="loading-screen border-rounded">
+    <!-- <div class="loading-screen border-rounded">
       <div class="loading-screen-box">
         <div class="loading">
           <div class="dot">L</div>
@@ -259,13 +259,14 @@
           <span class="text">Please Wait...</span>
         </div>
       </div>
-    </div>
+    </div> -->
     
   </body>
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
-    <script defer src="./assets/js/intregration.js"></script>
+    <script defer src="./assets/js/integration/user.js" ></script>
+    <!-- <script defer src="./assets/js/intregration.js" ></script> -->
   </footer>
 </html>
 
