@@ -1,5 +1,6 @@
 //global var
 
+
 //user fields
 var role = document.getElementById("inputRole");
 var firstName = document.getElementById("inputFirstName");
@@ -21,9 +22,9 @@ function getAllUsers() {
     xhr.onload = function () {
       
       if (this.status == 200) {
-        // const loadingScreen =
-        //   document.getElementsByClassName("loading-screen")[0];
-        // loadingScreen.style.display = "none";
+        const loadingScreen =
+          document.getElementsByClassName("loading-screen")[0];
+        loadingScreen.style.display = "none";
         var data = JSON.parse(this.responseText);
         for (let i = 0; i < data.length; i++) {
                     table.innerHTML += ` <tr class="multipleOpenBtn">

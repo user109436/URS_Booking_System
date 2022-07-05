@@ -412,32 +412,60 @@ nav{
       background: var(--color-navHover);  
     transition: .5s;
 }
+
 /*Alert*/
-#dialogOverlay{
-    display: none;
-    opacity: .8;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    background: white;
+.alert-screen {
     width: 100%;
-    z-index: 10;
-}
-
-#dialogBox{
-    display: none;
+    height: 30%;
+    display: flex;
+    justify-content: center;  
     position: fixed;
-    background: #000;
-    border-radius: 7px;
-    width: 550px;
-    z-index: 10;
-
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.222);
+    /* Black w/opacity/see-through */
 }
 
-#dialogBox > div{background: #fff; margin: 8px;}
-#dialogBox > div > #dialogBoxHead{background: #666; font-size: 19px; padding: 10px; color: #ccc;}
-#dialogBox > div > #dialogBoxBody{background: #333; padding: 20px; color: #fff;}
-#dialogBox > div > #dialogBoxFoot{background: #666; padding: 10px; text-align:right ;}
+.alert-box {
+    min-height: 40%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: var(--color-grey-light-4);
+    margin-top: 1pc;
+    padding: 0;
+}
+
+.alert{
+    width: 100%;
+    height: 15rem;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+  
+}
+.alert .alert-text{
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: var(--color-grey-light-3);
+}
+.alert .text {
+    width: 100%;
+    height: 7rem;
+    font-size: 1.5rem;
+    padding: 3rem 2rem;
+}
+.alert-box .crud{
+    width: auto;
+    height: inherit;
+    display: block;
+    float: right;
+    padding: .5rem 3rem;
+}
+
 
 /* input arrow remove */
 input::-webkit-outer-spin-button,

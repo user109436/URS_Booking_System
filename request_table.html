@@ -166,7 +166,7 @@
 
           <div class="u-mt-lg">
             <label for="fileName">File Name</label>
-            <input type="file"
+            <input type="type"
               name="fileName"
               id="fileName"
               class="form-input table-file"
@@ -244,7 +244,7 @@
             <button type="reset" class="action-btn reset" onclick="reset()">
               Reset
             </button>
-            <button type="submit" class="action-btn update">
+            <button type="submit" class="action-btn update" onclick="CustomAlert()">
               Update
             </button>
             <button type="submit" class="action-btn delete">
@@ -262,7 +262,7 @@
     </div>
 
     <!-- modal Loading Screen -->
-    <!-- <div class="loading-screen border-rounded">
+    <div class="loading-screen border-rounded" style="display: none;">
         <div class="loading-screen-box">
           <div class="loading">
             <div class="dot">L</div>
@@ -275,12 +275,32 @@
             <span class="text">Please Wait...</span>
           </div>
         </div>
-      </div> -->
+      </div>
+
+    <!-- modal Alert Box -->
+    <div class="alert-screen border-rounded" style="display: none;">
+      <div class="alert-box">
+        <div class="alert">
+
+          <div class="alert-text">Alert Message !</div>
+          <div class="text">User Successfully Created!</div>
+          
+          <div class="modal-btn crud">
+            <button class="action-btn close-btn" id="multipleCloseBtn">
+               Close
+             </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+      
   </body>
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
-    <!-- <script defer src="./assets/js/intregration.js"></script> -->
+    <script defer src="./assets/js/alert.js"></script>
     <script defer src="./assets/js/integration/registrar_request.js" ></script>
   </footer>
 </html>

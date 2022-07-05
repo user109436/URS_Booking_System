@@ -22,7 +22,7 @@ function CustomAlert(){
   
   
     }
-  var Alert = new CustomAlert();
+  console.log(CustomAlert());
   
   
   }
