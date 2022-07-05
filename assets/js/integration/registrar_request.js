@@ -11,7 +11,7 @@ var proxy = "https://localhost:44310"
 function getAllRequest() {
     
     var xhr = new XMLHttpRequest();
-    var url = `${proxy}/api/request`
+    var url = `${proxy}/api/request/{trackingId}`
     xhr.open("GET", url, true);
     xhr.onload = function () {
       
@@ -20,7 +20,21 @@ function getAllRequest() {
         //   document.getElementsByClassName("loading-screen")[0];
         // loadingScreen.style.display = "none";
         var data = JSON.parse(this.responseText);
-     
+        for (let i = 0; i < data.length; i++) {
+          table.innerHTML += ` <tr class="multipleOpenBtn">
+            <td class="table-id">${data[i].Id}</td>
+            <td class="table-id">${data[i].TrackingId}</td>
+            <td class="table-id">${data[i].OfficeId}</td>
+            <td class="table-user-number">${data[i].ServiceId}</td>
+			      <td class="table-user-number">${data[i].StatusId}</td>
+      	    <td class="table-user-number">${data[i].UserNote}</td>
+            <td class="table-user-number">${data[i].OfficeNote}</td>
+            <td class="table-first-name">${data[i].CreatedAt}</td>
+            <td class="table-first-name">${data[i].UpdatedAt}</td>
+            </tr>`;
+          // console.log(i);
+        }
+
         console.log(data);
 
       
