@@ -1,0 +1,24 @@
+{
+  "name": "URS_Booking_System",
+  "version": "1.0.0",
+  "description": "Technology Used\r - HTML5\r - CSS3\r - JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "snowpack dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/user109436/URS_Booking_System.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/user109436/URS_Booking_System/issues"
+  },
+  "homepage": "https://github.com/user109436/URS_Booking_System#readme",
+  "devDependencies": {
+    "snowpack": "^3.8.8"
+  }
+}
