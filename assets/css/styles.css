@@ -429,10 +429,7 @@ nav{
 .alert-box {
     min-height: 40%;
     width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+
     background-color: white;
     box-shadow: var(--color-grey-light-4);
     margin-top: 1pc;
@@ -451,6 +448,7 @@ nav{
     font-size: 2rem;
     padding: 1rem;
     background-color: var(--color-grey-light-3);
+    
 }
 .alert .text {
     width: 100%;

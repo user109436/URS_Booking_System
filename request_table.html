@@ -238,16 +238,16 @@
           </div>
 
           <div class="modal-btn crud">
-            <button type="submit" class="action-btn add" >
+            <button type="submit" class="action-btn add">
               Create
             </button>
             <button type="reset" class="action-btn reset" onclick="reset()">
               Reset
             </button>
-            <button type="submit" class="action-btn update" onclick="CustomAlert()">
+            <button type="submit" class="action-btn update multipleOpenBtn"  id="=singleOpenBtn">
               Update
             </button>
-            <button type="submit" class="action-btn delete">
+            <button type="submit" class="action-btn delete" >
               Delete
               <!--Alert Message "are you sure to delete this request?" -->
             </button>
@@ -278,13 +278,13 @@
       </div>
 
     <!-- modal Alert Box -->
-    <div class="alert-screen border-rounded" style="display: none;">
+    <div class="alert-screen border-rounded" id="multipleModal">
       <div class="alert-box">
         <div class="alert">
 
-          <div class="alert-text">Alert Message !</div>
-          <div class="text">User Successfully Created!</div>
-          
+          <div class="alert-text">Message....</div>
+          <div class="text">Request Successfully Created!</div>
+
           <div class="modal-btn crud">
             <button class="action-btn close-btn" id="multipleCloseBtn">
                Close
@@ -300,7 +300,7 @@
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
-    <script defer src="./assets/js/alert.js"></script>
+
     <script defer src="./assets/js/integration/registrar_request.js" ></script>
   </footer>
 </html>
