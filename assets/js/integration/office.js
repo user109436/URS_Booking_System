@@ -1,8 +1,10 @@
 //Global Var
 
 var proxy = "https://localhost:44310"
-
-
+var office = document.getElementById('office');
+var btnDelete = document.getElementById('btnDelete');
+var id = document.getElementById('id');
+var btnSubmit = document.getElementById('btnSubmit');
 
   function getAllOffice() {
     
@@ -19,9 +21,9 @@ var proxy = "https://localhost:44310"
         for (let i = 0; i < data.length; i++) {
           table.innerHTML += ` <tr class="multipleOpenBtn">
             <td class="table-id">${data[i].Id}</td>
-            <td class="table-user-number">${data[i].Name}</td>
-            <td class="table-first-name">${data[i].CreatedAt}</td>
-            <td class="table-first-name">${data[i].UpdatedAt}</td>
+            <td class="table-office">${data[i].Name}</td>
+            <td class="table-date-created">${data[i].CreatedAt}</td>
+            <td class="table-date-updated">${data[i].UpdatedAt}</td>
             </tr>`;
           // console.log(i);
         }
@@ -32,3 +34,107 @@ var proxy = "https://localhost:44310"
     };
     xhr.send();
   }
+
+  async function createOffice(values) {
+
+    var xhr = new XMLHttpRequest();
+    var url = `${proxy}/api/office`
+    var httpMethod = 'POST'
+  
+    xhr.open(httpMethod, url, true);
+  
+    //Send the proper header information along with the request
+    xhr.setRequestHeader('Content-type', 'application/json');
+  
+    xhr.onload = function () {
+      if (this.status == 200) {
+        var data = JSON.parse(this.responseText);
+        if(data == 'Success'){
+          alert('Office Created');
+          table.innerHTML ="" ;
+          getAllOffice();
+          document.getElementById('multipleModal').style.display = "none";
+          
+        }
+        console.log(data)
+      } else if (this.status = 404) {
+        console.log("error")
+      }
+    }
+  
+    xhr.send(JSON.stringify(values));
+  }
+
+
+// Form Submit
+btnSubmit.addEventListener("click", (e) => {
+	e.preventDefault()
+ 
+	try {	
+// Send request
+	
+			var values = {
+				Name: office.value
+				
+			}
+        console.log(values);
+
+			return createOffice(values)
+		
+        console.log(values)
+
+	} catch (error) {
+		console.log("error", error)
+		console.log("Error")
+		return
+	}
+
+})
+
+
+async function deleteOffice(Id) {
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/office/${Id}`
+	var httpMethod = 'DELETE'
+
+	xhr.open(httpMethod, url, true);
+
+	xhr.onload = function () {
+		if (this.status == 200) {
+			var data = JSON.parse(this.responseText);
+			console.log(data)
+      if(data == 'Deleted'){
+        alert('Office Deleted');
+        table.innerHTML = "" ;
+        getAllOffice();
+        document.getElementById('multipleModal').style.display = "none";
+        
+      }
+		} else if (this.status = 404) {
+			console.log("error")
+		}
+	}
+
+	xhr.send();
+}
+
+btnDelete.addEventListener("click", (e) => {
+	e.preventDefault()
+ 
+	try {	
+// Send request
+	
+    console.log(id.value);
+			
+   
+			
+		return deleteOffice(id.value);
+      
+
+	} catch (error) {
+		console.log("error", error)
+		console.log("Error")
+		return
+	}
+
+})
