@@ -128,10 +128,6 @@ html {
 
 
 /* IMAGES */
-.img-logo {
-    width: 6rem;
-}
-
 .features-img-lg {
     width: 30rem;
 }
@@ -370,17 +366,27 @@ nav{
     background:var(--color-primary-dark) ;
     height: 80px;
     width: 100%;
+    overflow: hidden;
     
     }
 
-     label.logo{
+    label.logo{
     color: white;
     font-size: 35px;
     line-height: 80px;
     padding: 0 100px;
     font-weight: bold;
+    border: black solid;
     
     }
+ 
+    .img-logo {
+        width: 15rem;
+        margin: -3pc 5% 0 5%;
+        -ms-transform: rotate(45deg); 
+        transform: rotate(45deg);
+    }
+    
     nav ul{
     float: right;
     margin: 10px;
@@ -416,7 +422,7 @@ nav{
 /*Alert*/
 .alert-screen {
     width: 100%;
-    height: 30%;
+    height: 100%;
     display: flex;
     justify-content: center;  
     position: fixed;
@@ -427,9 +433,8 @@ nav{
 }
 
 .alert-box {
-    min-height: 40%;
+    height: 30%;
     width: 30%;
-
     background-color: white;
     box-shadow: var(--color-grey-light-4);
     margin-top: 1pc;
@@ -456,6 +461,7 @@ nav{
     font-size: 1.5rem;
     padding: 3rem 2rem;
 }
+
 .alert-box .crud{
     width: auto;
     height: inherit;

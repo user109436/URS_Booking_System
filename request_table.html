@@ -11,13 +11,19 @@
   </head>
   <body onload="getAllRequest()">
     <nav>
+      <img
+          class="img-logo"
+          src="./assets/img/Logo.png"
+          alt="Logo"
+        />
       <ul>
-        <li><a href="registrar.html" >Registrar</a></li>
-        <li><a href="office_table.html">Office</a></li>
-        <li><a href="service_table.html">Services</a></li>
-        <li><a href="request_table.html" class="active">Request</a></li>
-        <li><a href="user_table.html" >Users</a></li>
-        <li><a href="request_management.html">Request Management</a></li>
+        <li><a href="/registrar.html" >Registrar</a></li>
+        <li><a href="/office_table.html">Office</a></li>
+        <li><a href="/service_table.html">Services</a></li>
+        <li><a href="/request_table.html" class="active">Request</a></li>
+        <li><a href="/user_table.html" >Users</a></li>
+        <li><a href="/request_management.html">Request Management</a></li>
+        <li><a href="/login.html">Logout</a></li> <li>
       </ul>
     </nav>
 
@@ -110,6 +116,7 @@
         </tr>
       </table>
     </div>
+    
     <!-- Modal Request Table-->
     <div class="modal flex" id="multipleModal" style="display: none">
       <div class="modal-box u-p-sm">
@@ -260,7 +267,7 @@
         </form>
       </div>
     </div>
-
+    
     <!-- modal Loading Screen -->
     <div class="loading-screen border-rounded" style="display: none;">
         <div class="loading-screen-box">
@@ -278,7 +285,7 @@
       </div>
 
     <!-- modal Alert Box -->
-    <div class="alert-screen border-rounded" id="multipleModal">
+    <div class="alert-screen border-rounded" id="singleModal"  style="display: none;" >
       <div class="alert-box">
         <div class="alert">
 
@@ -286,7 +293,7 @@
           <div class="text">Request Successfully Created!</div>
 
           <div class="modal-btn crud">
-            <button class="action-btn close-btn" id="multipleCloseBtn">
+            <button class="action-btn close-btn" id="singleCloseBtn">
                Close
              </button>
           </div>
@@ -300,7 +307,6 @@
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
-
-    <script defer src="./assets/js/integration/registrar_request.js" ></script>
+    <!-- <script defer src="./assets/js/integration/registrar_request.js" ></script> -->
   </footer>
 </html>
