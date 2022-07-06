@@ -12,8 +12,8 @@
   </head>
   <body onload="getAllUsers()">
     <nav>
-      <img
-          class="img-logo"
+      <img 
+          class="header_logo"
           src="./assets/img/Logo.png"
           alt="Logo"
         />
@@ -58,9 +58,9 @@
           </tr>
         </thead>
         
-        <tbody>
+        <tbody id="tBody">
       
-          <tr class="multipleOpenBtn">
+          <!-- <tr class="multipleOpenBtn">
             <td class="table-id">123456789123</td>
             <td class="table-first-name">Rhotrix</td>
             <td class="table-last-name">Loreto</td>
@@ -78,7 +78,7 @@
             <td class="password">**********</td>
             <td class="table-role">Core</td>
             <td class="table-date-created">June 18, 2022 8:05 AM</td>
-            <td class="table-date-updated">June 18, 2022 8:05 AM</td>
+            <td class="table-date-updated">June 18, 2022 8:05 AM</td> -->
           </tr>
         </tbody>
       </table>
@@ -191,7 +191,7 @@
             <button type="reset" class="action-btn reset" onclick="reset()">
               Reset
             </button>
-            <button type="submit" class="action-btn update">
+            <button type="submit" id="btnUpdate" class="action-btn update">
               Update
             </button>
             <button type="submit" id="btnDelete" class="action-btn delete">
@@ -209,7 +209,7 @@
     </div>
 
     <!-- modal Loading Screen -->
-    <!-- <div class="loading-screen border-rounded">
+    <div class="loading-screen border-rounded">
       <div class="loading-screen-box">
         <div class="loading">
           <div class="dot">L</div>
@@ -222,14 +222,14 @@
           <span class="text">Please Wait...</span>
         </div>
       </div>
-    </div> -->
+    </div>
     
   </body>
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
     <script defer src="./assets/js/integration/user.js" ></script>
-    <!-- <script defer src="./assets/js/intregration.js" ></script> -->
+   
   </footer>
 </html>
 

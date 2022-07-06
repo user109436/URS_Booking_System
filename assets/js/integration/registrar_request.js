@@ -16,9 +16,9 @@ function getAllRequest() {
     xhr.onload = function () {
       
       if (this.status == 200) {
-        // const loadingScreen =
-        //   document.getElementsByClassName("loading-screen")[0];
-        // loadingScreen.style.display = "none";
+        const loadingScreen =
+          document.getElementsByClassName("loading-screen")[0];
+        loadingScreen.style.display = "none";
         var data = JSON.parse(this.responseText);
         for (let i = 0; i < data.length; i++) {
           table.innerHTML += ` <tr class="multipleOpenBtn">
@@ -32,7 +32,7 @@ function getAllRequest() {
             <td class="table-first-name">${data[i].CreatedAt}</td>
             <td class="table-first-name">${data[i].UpdatedAt}</td>
             </tr>`;
-          // console.log(i);
+        
         }
 
         console.log(data);
@@ -110,4 +110,3 @@ btnSubmit.addEventListener("click", (e) => {
 	}
 
 })
-console.log(requestForm);

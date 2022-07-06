@@ -12,7 +12,7 @@
   <body onload="getAllServices()">
     <nav>
       <img
-          class="img-logo"
+          class="header_logo"
           src="./assets/img/Logo.png"
           alt="Logo"
         />
@@ -41,38 +41,40 @@
             id="search-table"
           />
         </div>
+      <thead><tr class="bg-primary" id="table-header">
+        <th class="table-id">ID</th>
+        <th class="table-services">Services</th>
+        <th class="table-fee">Fee <span>&#8369;</span> / page</th>
+        <th class="table-date-created">Date Created</th>
+        <th class="table-date-updated">Date Updated</th>
+      </tr></thead>
+              
+      <tbody>
+      <!-- <tr class="multipleOpenBtn">
+                <td class="table-id">123456789123</td>
+                <td class="table-services">Transcript of Records</td>
+                <td class="table-fee">50</td>
+                <td class="table-date-created">June 18, 2022 8:05 AM</td>
+                <td class="table-date-updated">June 18, 2022 8:05 AM</td>
+              </tr>
 
-        <tr class="bg-primary" id="table-header">
-          <th class="table-id">ID</th>
-          <th class="table-services">Services</th>
-          <th class="table-fee">Fee <span>&#8369;</span> / page</th>
-          <th class="table-date-created">Date Created</th>
-          <th class="table-date-updated">Date Updated</th>
-        </tr>
+              <tr class="multipleOpenBtn">
+                <td class="table-id">123456789123</td>
+                <td class="table-services">Scholastic Records</td>
+                <td class="table-fee">50</td>
+                <td class="table-date-created">June 17, 2022 8:04 AM</td>
+                <td class="table-date-updated">June 17, 2022 8:04 AM</td>
+              </tr>
 
-        <tr class="multipleOpenBtn">
-          <td class="table-id">123456789123</td>
-          <td class="table-services">Transcript of Records</td>
-          <td class="table-fee">50</td>
-          <td class="table-date-created">June 18, 2022 8:05 AM</td>
-          <td class="table-date-updated">June 18, 2022 8:05 AM</td>
-        </tr>
-
-        <tr class="multipleOpenBtn">
-          <td class="table-id">123456789123</td>
-          <td class="table-services">Scholastic Records</td>
-          <td class="table-fee">50</td>
-          <td class="table-date-created">June 17, 2022 8:04 AM</td>
-          <td class="table-date-updated">June 17, 2022 8:04 AM</td>
-        </tr>
-
-        <tr class="multipleOpenBtn">
-          <td class="table-id">123456789123</td>
-          <td class="table-services">Certificate of Grades</td>
-          <td class="table-fee">20</td>
-          <td class="table-date-created">June 17, 2022 8:03 AM</td>
-          <td class="table-date-updated">June 17, 2022 8:03 AM</td>
-        </tr>
+              <tr class="multipleOpenBtn">
+                <td class="table-id">123456789123</td>
+                <td class="table-services">Certificate of Grades</td>
+                <td class="table-fee">20</td>
+                <td class="table-date-created">June 17, 2022 8:03 AM</td>
+                <td class="table-date-updated">June 17, 2022 8:03 AM</td>
+              </tr> -->
+      </tbody>
+      
       </table>
     </div>
 
@@ -166,7 +168,7 @@
     </div>
 
     <!-- modal Loading Screen -->
-    <!-- <div class="loading-screen border-rounded">
+    <div class="loading-screen border-rounded">
         <div class="loading-screen-box">
           <div class="loading">
             <div class="dot">L</div>
@@ -179,13 +181,12 @@
             <span class="text">Please Wait...</span>
           </div>
         </div>
-      </div> -->
+      </div>
 
   </body>
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
-    <!-- <script defer src="./assets/js/intregration.js"></script> -->
     <script defer src="./assets/js/integration/services.js" ></script>
   </footer>
 </html>

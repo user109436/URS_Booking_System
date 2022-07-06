@@ -1,5 +1,5 @@
 //Alert
-function CustomAlert(){
+ function CustomAlert(){
     this.render = function(dialog){
       var winW = window.innerWidth;
       var winH = window.innerHeight;
@@ -26,3 +26,5 @@ function CustomAlert(){
   
   
   }
+
+  var newAlert = new CustomAlert();

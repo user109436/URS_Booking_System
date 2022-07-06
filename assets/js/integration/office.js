@@ -14,9 +14,9 @@ var btnSubmit = document.getElementById('btnSubmit');
     xhr.onload = function () {
       
       if (this.status == 200) {
-        // const loadingScreen =
-        //   document.getElementsByClassName("loading-screen")[0];
-        // loadingScreen.style.display = "none";
+        const loadingScreen =
+          document.getElementsByClassName("loading-screen")[0];
+        loadingScreen.style.display = "none";
         var data = JSON.parse(this.responseText);
         for (let i = 0; i < data.length; i++) {
           table.innerHTML += ` <tr class="multipleOpenBtn">
@@ -25,11 +25,8 @@ var btnSubmit = document.getElementById('btnSubmit');
             <td class="table-date-created">${data[i].CreatedAt}</td>
             <td class="table-date-updated">${data[i].UpdatedAt}</td>
             </tr>`;
-          // console.log(i);
         }
         console.log(data);
-
-      
       }
     };
     xhr.send();
@@ -40,7 +37,6 @@ var btnSubmit = document.getElementById('btnSubmit');
     var xhr = new XMLHttpRequest();
     var url = `${proxy}/api/office`
     var httpMethod = 'POST'
-  
     xhr.open(httpMethod, url, true);
   
     //Send the proper header information along with the request
@@ -51,7 +47,12 @@ var btnSubmit = document.getElementById('btnSubmit');
         var data = JSON.parse(this.responseText);
         if(data == 'Success'){
           alert('Office Created');
-          table.innerHTML ="" ;
+         //when deleted the multipleModal class is not working
+        var myTable = document.getElementById("table");
+        var rowCount = myTable.rows.length;
+          for (var x=rowCount-1; x>0; x--) {
+            myTable.deleteRow(x);
+        }
           getAllOffice();
           document.getElementById('multipleModal').style.display = "none";
           
@@ -61,10 +62,8 @@ var btnSubmit = document.getElementById('btnSubmit');
         console.log("error")
       }
     }
-  
     xhr.send(JSON.stringify(values));
   }
-
 
 // Form Submit
 btnSubmit.addEventListener("click", (e) => {
@@ -105,7 +104,12 @@ async function deleteOffice(Id) {
 			console.log(data)
       if(data == 'Deleted'){
         alert('Office Deleted');
-        table.innerHTML = "" ;
+        //when deleted the multipleModal class is not working
+        var myTable = document.getElementById("table");
+          var rowCount = myTable.rows.length;
+            for (var x=rowCount-1; x>0; x--) {
+              myTable.deleteRow(x);
+          }
         getAllOffice();
         document.getElementById('multipleModal').style.display = "none";
         

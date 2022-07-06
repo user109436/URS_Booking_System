@@ -381,10 +381,7 @@ nav{
     }
  
     .img-logo {
-        width: 15rem;
-        margin: -3pc 5% 0 5%;
-        -ms-transform: rotate(45deg); 
-        transform: rotate(45deg);
+        width: 6rem;
     }
     
     nav ul{
@@ -417,6 +414,12 @@ nav{
     a.active,a:hover{
       background: var(--color-navHover);  
     transition: .5s;
+}
+.header_logo {
+    width: 15rem;
+    margin: -3pc 5% 0 5%;
+    -ms-transform: rotate(45deg); 
+    transform: rotate(45deg);
 }
 
 /*Alert*/

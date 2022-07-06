@@ -13,18 +13,18 @@
   <body onload="getAllOffice()">
     <nav>
         <img
-          class="img-logo"
+          class="header_logo"
           src="./assets/img/Logo.png"
           alt="Logo"
         />
       <ul>
-        <li><a href="./registrar.html" >Registrar</a></li>
-        <li><a href="./office_table.html" class="active">Office</a></li>
-        <li><a href="./service_table.html">Services</a></li>
-        <li><a href="./request_table.html">Request</a></li>
-        <li><a href="./user_table.html" >Users</a></li>
-        <li><a href="./request_management.html">Request Management</a></li>
-        <li><a href="./login.html">Logout</a></li> <li>
+        <li><a href="/registrar.html" >Registrar</a></li>
+        <li><a href="/office_table.html" class="active">Office</a></li>
+        <li><a href="/service_table.html">Services</a></li>
+        <li><a href="/request_table.html">Request</a></li>
+        <li><a href="/user_table.html" >Users</a></li>
+        <li><a href="/request_management.html">Request Management</a></li>
+        <li><a href="/login.html">Logout</a></li> <li>
   
       </ul>
     </nav>
@@ -45,15 +45,15 @@
       </div>
 
       <table class="container-90 card" id="table">
-        <tr class="bg-primary" id="table-header">
+        <thead><tr class="bg-primary" id="table-header">
           <th>ID</th>
           <th>Offices</th>
           <th>Date Created</th>
           <th>Date Updated</th>
-        </tr>
-
-        <tr class="multipleOpenBtn">
-          <td class="table-id">123456789123</td>
+        </tr></thead>
+        
+        <tbody><tr class="multipleOpenBtn">
+          <!-- <td class="table-id">123456789123</td>
           <td class="table-office">Registrar</td>
           <td class="table-date-created">June 18, 2022 8:05 AM</td>
           <td class="table-date-updated">June 18, 2022 8:05 AM</td>
@@ -71,7 +71,9 @@
           <td class="table-office">Dean's Office</td>
           <td class="table-date-created">June 17, 2022 8:03 AM</td>
           <td class="table-date-updated">June 17, 2022 8:03 AM</td>
-        </tr>
+        </tr> -->
+        </tbody>
+        
       </table>
     </div>
 
@@ -155,7 +157,7 @@
     </div>
 
       <!-- modal Loading Screen -->
-    <!-- <div class="loading-screen border-rounded">
+    <div class="loading-screen border-rounded">
         <div class="loading-screen-box">
           <div class="loading">
             <div class="dot">L</div>
@@ -168,14 +170,13 @@
             <span class="text">Please Wait...</span>
           </div>
         </div>
-      </div> -->
+      </div>
 
   </body>
 
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
-    <!-- <script defer src="./assets/js/intregration.js"></script> -->
     <script defer src="./assets/js/integration/office.js" ></script>
   </footer>
 </html>

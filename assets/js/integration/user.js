@@ -1,7 +1,4 @@
 //global var
-
-
-//user fields
 var role = document.getElementById("inputRole");
 var firstName = document.getElementById("inputFirstName");
 var lastName = document.getElementById("inputLastName");
@@ -10,10 +7,11 @@ var password = document.getElementById("inputPassword");
 var btnSubmit = document.getElementById("btnSubmit");
 var btnDelete = document.getElementById("btnDelete");
 var id = document.getElementById("inputId");
+var btnUpdate = document.getElementById('btnUpdate');
 
 var proxy = "https://localhost:44310"
 
-//Get "not yet tested - no data"
+
 function getAllUsers() {
     
     var xhr = new XMLHttpRequest();
@@ -36,21 +34,13 @@ function getAllUsers() {
                       <td class="table-role">${data[i].RoleId}</td>
                       <td class="table-date-created">${data[i].CreatedAt}</td>
                       <td class="table-date-updated">${data[i].UpdatedAt}</td>
-                      
-                      </tr>`;
-                     
-                    // console.log(i);
+                      </tr>`;   
                   }
-                  console.log(table);
-        // console.log(data);
-
-      
+                  
       }
     };
     xhr.send();
   }
-
-
 
   async function createUsers(values) {
 
@@ -68,7 +58,13 @@ function getAllUsers() {
         var data = JSON.parse(this.responseText);
         if(data == 'Success'){
           alert('User Created');
-          table.innerHTML ="" ;
+          //when reset the multipleModal class is not working
+        var myTable = document.getElementById("table");
+        var rowCount = myTable.rows.length;
+          for (var x=rowCount-1; x>0; x--) {
+            myTable.deleteRow(x);
+        }
+          
           getAllUsers();
           document.getElementById('multipleModal').style.display = "none";
           
@@ -81,6 +77,70 @@ function getAllUsers() {
   
     xhr.send(JSON.stringify(values));
   }
+//Not yet working, We can't implement the patch method here
+  async function updateUsers(values) {
+
+    var xhr = new XMLHttpRequest();
+    var url = `${proxy}/api/user/{Id}`
+    var httpMethod = 'PATCH'
+  
+    xhr.open(httpMethod, url, true);
+  
+    //Send the proper header information along with the request
+    xhr.setRequestHeader('Content-type', 'application/json');
+  
+    xhr.onload = function () {
+      if (this.status == 200) {
+        var data = JSON.parse(this.responseText);
+        if(data == 'Success'){
+          alert('User Updated');
+          //when reset the multipleModal class is not working
+        var myTable = document.getElementById("table");
+        var rowCount = myTable.rows.length;
+          for (var x=rowCount-1; x>0; x--) {
+            myTable.deleteRow(x);
+        }
+          
+          getAllUsers();
+          document.getElementById('multipleModal').style.display = "none";
+          
+        }
+        
+      } else if (this.status = 404) {
+        console.log("error")
+      }
+    }
+  
+    xhr.send(JSON.stringify(values));
+  }
+  btnUpdate.addEventListener("click", (e) => {
+    e.preventDefault()
+   
+    try {	
+  // Send request
+    
+        var values = {
+          FirstName: firstName.value,
+          LastName: lastName.value,
+          Email: email.value,
+          Password: password.value,
+          RoleID:role.value
+        }
+          console.log(values);
+  
+        
+  
+        return updateUsers(values)
+      
+          console.log(values)
+  
+    } catch (error) {
+      console.log("error", error)
+      console.log("Error")
+      return
+    }
+  
+  })
 
 
 // Form Submit
@@ -113,7 +173,6 @@ btnSubmit.addEventListener("click", (e) => {
 
 })
 
-
 async function deleteUser(Id) {
 	var xhr = new XMLHttpRequest();
 	var url = `${proxy}/api/user/${Id}`
@@ -127,36 +186,31 @@ async function deleteUser(Id) {
 			console.log(data)
       if(data == 'Deleted'){
         alert('User Deleted');
-        table.innerHTML = "" ;
+       //when reset the multipleModal class is not working
+       var myTable = document.getElementById("table");
+       var rowCount = myTable.rows.length;
+         for (var x=rowCount-1; x>0; x--) {
+           myTable.deleteRow(x);
+       }
         getAllUsers();
-        document.getElementById('multipleModal').style.display = "none";
-        
+        document.getElementById('multipleModal').style.display = "none";  
       }
 		} else if (this.status = 404) {
 			console.log("error")
 		}
 	}
-
 	xhr.send();
 }
 
 btnDelete.addEventListener("click", (e) => {
 	e.preventDefault()
- 
 	try {	
 // Send request
-	
-    console.log(id.value);
-			
-   
-			
-		return deleteUser(id.value);
-      
-
+    console.log(id.value);	
+		return deleteUser(id.value); 
 	} catch (error) {
 		console.log("error", error)
 		console.log("Error")
 		return
 	}
-
 })

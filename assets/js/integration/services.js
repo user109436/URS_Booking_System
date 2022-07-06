@@ -10,14 +10,14 @@ var fee = document.getElementById('fee');
   function getAllServices() {
     
     var xhr = new XMLHttpRequest();
-    var url = `${proxy}/api/service}`
+    var url = `${proxy}/api/service`
     xhr.open("GET", url, true);
     xhr.onload = function () {
       
       if (this.status == 200) {
-        // const loadingScreen =
-        //   document.getElementsByClassName("loading-screen")[0];
-        // loadingScreen.style.display = "none";
+        const loadingScreen =
+          document.getElementsByClassName("loading-screen")[0];
+        loadingScreen.style.display = "none";
         var data = JSON.parse(this.responseText);
         for (let i = 0; i < data.length; i++) {
           table.innerHTML += ` <tr class="multipleOpenBtn">
@@ -53,7 +53,12 @@ var fee = document.getElementById('fee');
         var data = JSON.parse(this.responseText);
         if(data == 'Success'){
           alert('Service Created');
-          table.innerHTML ="" ;
+          //when reset the multipleModal class is not working
+       var myTable = document.getElementById("table");
+       var rowCount = myTable.rows.length;
+         for (var x=rowCount-1; x>0; x--) {
+           myTable.deleteRow(x);
+       }
           getAllServices();
           document.getElementById('multipleModal').style.display = "none";
           
@@ -76,7 +81,7 @@ btnSubmit.addEventListener("click", (e) => {
 // Send request
 	
 			var values = {
-				Name: office.value,
+				Name: services.value,
         Fee: fee.value
 				
 			}
@@ -108,7 +113,12 @@ async function deleteService(Id) {
 			console.log(data)
       if(data == 'Deleted'){
         alert('Service Deleted');
-        table.innerHTML = "" ;
+        //when reset the multipleModal class is not working
+       var myTable = document.getElementById("table");
+       var rowCount = myTable.rows.length;
+         for (var x=rowCount-1; x>0; x--) {
+           myTable.deleteRow(x);
+       }
         getAllServices();
         document.getElementById('multipleModal').style.display = "none";
         
