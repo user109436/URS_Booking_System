@@ -87,3 +87,13 @@ export const currentUser = () => {
 		return {}
 	}	
 }
+
+export const getToken = () => {
+	try {
+		var authToken = localStorage.getItem("auth_token")
+		return "Bearer " + authToken
+		
+	} catch (error) {
+		return ""
+	}	
+}

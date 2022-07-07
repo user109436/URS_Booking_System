@@ -1,20 +1,29 @@
 import { appendOfficeOption } from "./offices"
 import { appendServiceOption } from "./services"
-import { Validate } from "../helpers/validate"
-import { Convert } from "../helpers/convert"
+import { API_BASE_URL } from "../../constants/ApiConstant"
+import { getToken } from "../../auth/auth_manager"
+import { Validate } from "../../helpers/validate"
+import { Convert } from "../../helpers/convert"
 
+//Request Form
 var requestForm = document.getElementById("form-account-request")
 var office = document.getElementById("office")
 var service = document.getElementById("service")
 var userNote = document.getElementById("user_note")
 var file = document.getElementById("obj_file")
-var proxy = "https://localhost:44310"
+
+//Tracking Form
+var trackingForm = document.getElementById("tracking_form")
+var trackingId = document.getElementById("tracking_id")
+
+//Global
+var token = getToken()
+var proxy = API_BASE_URL;
 
 //OnStart
 getOffice()
 getService()
-getRequest()
-
+//getRequest()
 
 // Form Submit
 requestForm.addEventListener("submit", (e) => {
@@ -44,6 +53,7 @@ requestForm.addEventListener("submit", (e) => {
 
 		reader.readAsDataURL(file.files[0]);
 
+		console.log(userNote)
 		reader.onload = function () {
 			var values = {
 				OfficeId: office.value,
@@ -68,6 +78,21 @@ requestForm.addEventListener("submit", (e) => {
 
 })
 
+trackingForm.addEventListener("submit", (e) => {
+	e.preventDefault()
+
+	try {
+		// Send request
+		return findOneRequest(trackingId.value)
+
+
+	} catch (error) {
+		console.log("error", error)
+		return
+	}
+
+})
+
 // API Request
 async function getOffice() {
 	var xhr = new XMLHttpRequest();
@@ -80,8 +105,12 @@ async function getOffice() {
 		if (this.status == 200) {
 			var data = JSON.parse(this.responseText);
 			appendOfficeOption(office, data)
-		} else if (this.status = 404) {
+		}
+		else if (this.status == 404) {
 			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")
 		}
 	}
 
@@ -99,8 +128,12 @@ async function getService() {
 		if (this.status == 200) {
 			var data = JSON.parse(this.responseText);
 			appendServiceOption(service, data)
-		} else if (this.status = 404) {
+		}
+		else if (this.status == 404) {
 			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")
 		}
 	}
 
@@ -114,12 +147,41 @@ async function getRequest() {
 
 	xhr.open(httpMethod, url, true);
 
+	xhr.setRequestHeader('Authorization', token);
+
 	xhr.onload = function () {
 		if (this.status == 200) {
 			var data = JSON.parse(this.responseText);
 			console.log(data)
-		} else if (this.status = 404) {
+		}
+		else if (this.status == 404) {
 			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")
+		}
+	}
+
+	xhr.send();
+}
+
+async function findOneRequest(trackingId) {
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/request/${trackingId}`
+	var httpMethod = 'GET'
+
+	xhr.open(httpMethod, url, true);
+
+	xhr.onload = function () {
+		if (this.status == 200) {
+			var data = JSON.parse(this.responseText);
+			console.log(data)
+		}
+		else if (this.status == 404) {
+			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")
 		}
 	}
 
@@ -137,8 +199,12 @@ async function deleteRequest(trackingId) {
 		if (this.status == 200) {
 			var data = JSON.parse(this.responseText);
 			console.log(data)
-		} else if (this.status = 404) {
+		}
+		else if (this.status == 404) {
 			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")
 		}
 	}
 
@@ -159,8 +225,12 @@ async function createRequest(values) {
 		if (this.status == 200) {
 			var data = JSON.parse(this.responseText);
 			console.log(data)
-		} else if (this.status = 404) {
+		} 
+		else if (this.status == 404) {
 			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")
 		}
 	}
 

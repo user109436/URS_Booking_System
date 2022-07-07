@@ -62,13 +62,14 @@
             </p>
           </div>
         </div>
-        <form class="flex flex-justify-center">
+        <form class="flex flex-justify-center" id="tracking_form">
           <div class="u-mt-lg w-full flex flex-justify-center flex-wrap">
             <input
               type="text"
               placeholder="RandomLetter-1655631349573-OfficeID-ServiceID"
               class="form-input u-no-margin w-50"
-              name="tracking-id"
+              id="tracking_id"
+              name="tracking_id"
               value=""
             />
             <button
@@ -109,11 +110,11 @@
           </div>
 
           <div class="u-mt-lg">
-            <label for="user_note">Notes of Documents</label>
+            <label for="user_note_modal">Notes of Documents</label>
             <textarea
               class="form-input"
-              name="user_note"
-              id="user_note"
+              name="user_note_modal"
+              id="user_note_modal"
               rows="5"
               placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
               disabled
@@ -124,8 +125,8 @@
             <label for="office_note">Important: Office Notes</label>
             <textarea
               class="form-input"
-              name="user_note"
-              id="user_note"
+              name="office_note"
+              id="office_note"
               rows="5"
               placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
             ></textarea>
@@ -166,47 +167,13 @@
             <div class="u-mt-lg">
               <label for="office">Office</label>
               <select name="office" id="office" class="form-input" required>
-                <option value="">Ex. Registrar's Office</option>
-                <option value=1>Registrar's Office</option>
-                <option value=2>OSDS Office</option>
-                <option value=3>Cashier Office</option>
-                <option value=4>Human Resources Office</option>
+
               </select>
             </div>
             <div class="u-mt-lg">
               <label for="service">Service</label>
               <select name="service" id="service" class="form-input" required>
-                <option value="">
-                  Ex. Transcript of Records (Php 50/page) - Php 50
-                </option>
-                <option value="1">
-                  Transcript of Records (Php 50/page) - Php 50
-                </option>
-                <option value="2">
-                  Scholastic Records (Php 20/page) - Php 20
-                </option>
-                <option value="3">
-                  Certificate of Grades - Php 20
-                </option>
-                <option value="4">
-                  Certificate of Enrolment - Php 20
-                </option>
-                <option value="5">
-                  Certificate of Graduation - Php 20
-                </option>
-                <option value="6">
-                  Certification, Authentication and Verification - Php 20
-                </option>
-                <option value="7">
-                  Transfer Credentials/Honorable Dismissal - Php 20
-                </option>
-                <option value="8">
-                  Certificate of Good Moral Character - Php 20
-                </option>
-                <option value="9">
-                  Form 137(For High School and Senior High School)
-                </option>
-                <option value="10">Second Copy of Diploma</option>
+
               </select>
             </div>
 
@@ -244,6 +211,6 @@
   <footer>
     <!--Commented the script below because the attach file input is not working if it is not commented-->>
     <!-- <script defer src="/assets/js/script.js" type="module"></script> -->
-    <script defer src="/assets/js/integration/registrar_request.js" ></script>
+    <script defer src="/assets/js/integration/request/index.js" type="module"></script>
   </footer>
 </html>
