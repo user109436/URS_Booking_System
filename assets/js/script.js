@@ -1,5 +1,8 @@
 import { Modal } from "./modal.class.js";
 import { getAsHtmlCollection } from "./utilities.js";
+import { isAuthenticated } from "./auth/auth_manager.js";
+
+isAuthenticated();
 
 //Single Open Modal-button
 const singleModal = document.getElementById("singleModal");
