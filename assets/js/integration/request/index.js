@@ -23,14 +23,18 @@ var proxy = API_BASE_URL;
 //OnStart
 getOffice()
 getService()
-//getRequest()
+getRequest()
 
 // Form Submit
 requestForm.addEventListener("submit", (e) => {
 	e.preventDefault()
 
 	try {
-		var fileName = file.files[0].name
+		var fileNameRaw = file.files[0].name
+		var splitter = fileNameRaw.lastIndexOf(".")
+		var fileName = fileNameRaw.slice(0, splitter)
+		var fileExtension = fileNameRaw.slice(splitter)
+
 		var fileType = file.files[0].type
 		var fileSize = file.files[0].size
 		// 1,048,576 = 1MB
@@ -60,7 +64,9 @@ requestForm.addEventListener("submit", (e) => {
 				ServiceId: service.value,
 				UserNote: userNote.value,
 				FileData: reader.result.split(",")[1],
-				FileName: fileName
+				FileName: fileName,
+				FileSize: fileSize,
+				FileExtension: fileExtension,
 			}
 
 			// testBtn.href = reader.result
@@ -142,6 +148,8 @@ async function getService() {
 
 async function getRequest() {
 	var xhr = new XMLHttpRequest();
+	//You can also try the url below if u want to get the foreign key values
+	//url = `${proxy}/api/request/aggregated`
 	var url = `${proxy}/api/request`
 	var httpMethod = 'GET'
 
@@ -209,6 +217,32 @@ async function deleteRequest(trackingId) {
 	}
 
 	xhr.send();
+}
+
+async function updateRequest(values) {
+	//values should have id
+	//suggestion: can you add a boolean isFileNew if user put a new file
+
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/request`
+	var httpMethod = 'PATCH'
+
+	xhr.open(httpMethod, url, true);
+
+	xhr.onload = function () {
+		if (this.status == 200) {
+			var data = JSON.parse(this.responseText);
+			console.log(data)
+		}
+		else if (this.status == 404) {
+			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")
+		}
+	}
+
+	xhr.send(JSON.stringify(values));
 }
 
 async function createRequest(values) {
