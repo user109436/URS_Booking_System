@@ -78,70 +78,44 @@ function getAllUsers() {
     xhr.send(JSON.stringify(values));
   }
 //Not yet working, We can't implement the patch method here
-  async function updateUsers(values) {
+  // async function updateUsers(values) {
 
-    var xhr = new XMLHttpRequest();
-    var url = `${proxy}/api/user/{Id}`
-    var httpMethod = 'PATCH'
+  //   var xhr = new XMLHttpRequest();
+  //   var url = `${proxy}/api/user/{Id}`
+  //   var httpMethod = 'PATCH'
   
-    xhr.open(httpMethod, url, true);
+  //   xhr.open(httpMethod, url, true);
   
-    //Send the proper header information along with the request
-    xhr.setRequestHeader('Content-type', 'application/json');
+  //   //Send the proper header information along with the request
+  //   xhr.setRequestHeader('Content-type', 'application/json');
   
-    xhr.onload = function () {
-      if (this.status == 200) {
-        var data = JSON.parse(this.responseText);
-        if(data == 'Success'){
-          alert('User Updated');
-          //when reset the multipleModal class is not working
-        var myTable = document.getElementById("table");
-        var rowCount = myTable.rows.length;
-          for (var x=rowCount-1; x>0; x--) {
-            myTable.deleteRow(x);
-        }
+  //   xhr.onload = function () {
+  //     if (this.status == 200) {
+  //       var data = JSON.parse(this.responseText);
+  //       if(data == 'Success'){
+  //         alert('User Updated');
+  //         //when reset the multipleModal class is not working
+  //       var myTable = document.getElementById("table");
+  //       var rowCount = myTable.rows.length;
+  //         for (var x=rowCount-1; x>0; x--) {
+  //           myTable.deleteRow(x);
+  //       }
           
-          getAllUsers();
-          document.getElementById('multipleModal').style.display = "none";
+  //         getAllUsers();
+  //         document.getElementById('multipleModal').style.display = "none";
           
-        }
+  //       }
         
-      } else if (this.status = 404) {
-        console.log("error")
-      }
-    }
+  //     } else if (this.status = 404) {
+  //       console.log("error")
+  //     }
+  //   }
   
-    xhr.send(JSON.stringify(values));
-  }
-  btnUpdate.addEventListener("click", (e) => {
-    e.preventDefault()
-   
-    try {	
-  // Send request
-    
-        var values = {
-          FirstName: firstName.value,
-          LastName: lastName.value,
-          Email: email.value,
-          Password: password.value,
-          RoleID:role.value
-        }
-          console.log(values);
+  //   xhr.send(JSON.stringify(values));
+  // }
   
-        
+  // console.log(values)
   
-        return updateUsers(values)
-      
-          console.log(values)
-  
-    } catch (error) {
-      console.log("error", error)
-      console.log("Error")
-      return
-    }
-  
-  })
-
 
 // Form Submit
 btnSubmit.addEventListener("click", (e) => {
@@ -172,7 +146,7 @@ btnSubmit.addEventListener("click", (e) => {
 	}
 
 })
-
+//Delete
 async function deleteUser(Id) {
 	var xhr = new XMLHttpRequest();
 	var url = `${proxy}/api/user/${Id}`
@@ -213,4 +187,62 @@ btnDelete.addEventListener("click", (e) => {
 		console.log("Error")
 		return
 	}
+})
+
+//update
+async function updateUsers(values) {
+	//values should have id
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/user`
+	var httpMethod = 'PATCH'
+
+  xhr.open(httpMethod, url);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onload = function () {
+    console.log("before");
+		if (this.status == 200) {
+			// var data = JSON.parse(this.responseText);
+      console.log(this.responseText);
+			
+		}
+		else if (this.status == 404) {
+			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")
+      
+		}
+    console.log("after");
+	}
+
+	xhr.send(JSON.stringify(values));
+}
+btnUpdate.addEventListener("click", (e) => {
+  e.preventDefault()
+ 
+  try {	
+// Send request
+  
+      var values = {
+        FirstName: firstName.value,
+        LastName: lastName.value,
+        Email: email.value,
+        Password: password.value,
+        RoleID:parseInt(role.value),
+        Id :parseInt(id.value)
+      }
+        console.log(values);
+
+      
+
+      return updateUsers(values)
+    
+        
+  } catch (error) {
+    console.log("error", error)
+    console.log("Error")
+    return
+  }
+
 })

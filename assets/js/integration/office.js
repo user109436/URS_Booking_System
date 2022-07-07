@@ -5,6 +5,7 @@ var office = document.getElementById('office');
 var btnDelete = document.getElementById('btnDelete');
 var id = document.getElementById('id');
 var btnSubmit = document.getElementById('btnSubmit');
+var btnUpdate = document.getElementById('btnUpdate');
 
   function getAllOffice() {
     
@@ -26,7 +27,7 @@ var btnSubmit = document.getElementById('btnSubmit');
             <td class="table-date-updated">${data[i].UpdatedAt}</td>
             </tr>`;
         }
-        console.log(data);
+        
       }
     };
     xhr.send();
@@ -57,7 +58,7 @@ var btnSubmit = document.getElementById('btnSubmit');
           document.getElementById('multipleModal').style.display = "none";
           
         }
-        console.log(data)
+        
       } else if (this.status = 404) {
         console.log("error")
       }
@@ -74,13 +75,12 @@ btnSubmit.addEventListener("click", (e) => {
 	
 			var values = {
 				Name: office.value
-				
 			}
-        console.log(values);
+        
 
 			return createOffice(values)
 		
-        console.log(values)
+        
 
 	} catch (error) {
 		console.log("error", error)
@@ -90,7 +90,7 @@ btnSubmit.addEventListener("click", (e) => {
 
 })
 
-
+//Delete
 async function deleteOffice(Id) {
 	var xhr = new XMLHttpRequest();
 	var url = `${proxy}/api/office/${Id}`
@@ -128,17 +128,66 @@ btnDelete.addEventListener("click", (e) => {
 	try {	
 // Send request
 	
-    console.log(id.value);
-			
-   
-			
 		return deleteOffice(id.value);
-      
-
+    
 	} catch (error) {
 		console.log("error", error)
 		console.log("Error")
 		return
 	}
+
+})
+
+
+//update
+async function updateOffice(values) {
+	//values should have id
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/office`
+	var httpMethod = 'PATCH'
+
+  xhr.open(httpMethod, url);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onload = function () {
+		if (this.status == 200) {
+      console.log(this.responseText);
+      alert('Service Updated');
+      //when reset the multipleModal class is not working
+      var myTable = document.getElementById("table");
+      var rowCount = myTable.rows.length;
+        for (var x=rowCount-1; x>0; x--) {
+          myTable.deleteRow(x);
+      }
+			getAllOffice();
+      document.getElementById('multipleModal').style.display = "none";
+		}
+		else if (this.status == 404) {
+			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")    
+		}  
+	}
+	xhr.send(JSON.stringify(values));
+}
+btnUpdate.addEventListener("click", (e) => {
+  e.preventDefault()
+ 
+  try {	
+// Send request
+  
+      var values = {
+        Name: office.value,
+        Id : id.value
+      }
+      
+      return updateOffice(values)
+
+  } catch (error) {
+    console.log("error", error)
+    console.log("Error")
+    return
+  }
 
 })

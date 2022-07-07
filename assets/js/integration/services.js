@@ -5,6 +5,7 @@ var btnDelete = document.getElementById('btnDelete');
 var id = document.getElementById('id');
 var btnSubmit = document.getElementById('btnSubmit');
 var fee = document.getElementById('fee');
+var btnUpdate = document.getElementById('btnUpdate');
 
 
   function getAllServices() {
@@ -27,11 +28,7 @@ var fee = document.getElementById('fee');
             <td class="table-date-created">${data[i].CreatedAt}</td>
             <td class="table-date-updated">${data[i].UpdatedAt}</td>
             </tr>`;
-          // console.log(i);
         }
-        console.log(data);
-
-      
       }
     };
     xhr.send();
@@ -63,7 +60,7 @@ var fee = document.getElementById('fee');
           document.getElementById('multipleModal').style.display = "none";
           
         }
-        console.log(data)
+        
       } else if (this.status = 404) {
         console.log("error")
       }
@@ -85,11 +82,11 @@ btnSubmit.addEventListener("click", (e) => {
         Fee: fee.value
 				
 			}
-        console.log(values);
+       
 
 			return createServices(values)
 		
-        console.log(values)
+       
 
 	} catch (error) {
 		console.log("error", error)
@@ -110,7 +107,7 @@ async function deleteService(Id) {
 	xhr.onload = function () {
 		if (this.status == 200) {
 			var data = JSON.parse(this.responseText);
-			console.log(data)
+      console.log(this.responseText);
       if(data == 'Deleted'){
         alert('Service Deleted');
         //when reset the multipleModal class is not working
@@ -137,10 +134,6 @@ btnDelete.addEventListener("click", (e) => {
 	try {	
 // Send request
 	
-    console.log(id.value);
-			
-   
-			
 		return deleteService(id.value);
       
 
@@ -149,5 +142,62 @@ btnDelete.addEventListener("click", (e) => {
 		console.log("Error")
 		return
 	}
+
+})
+
+//Update
+async function updateService(values) {
+	//values should have id
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/service`
+	var httpMethod = 'PATCH'
+
+  xhr.open(httpMethod, url);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onload = function () {
+		if (this.status == 200) {
+      console.log(this.responseText);
+      alert('Service Updated');
+      //when reset the multipleModal class is not working
+      var myTable = document.getElementById("table");
+      var rowCount = myTable.rows.length;
+        for (var x=rowCount-1; x>0; x--) {
+          myTable.deleteRow(x);
+      }
+			getAllServices();
+      document.getElementById('multipleModal').style.display = "none";
+		}
+		else if (this.status == 404) {
+			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")    
+		}  
+	}
+	xhr.send(JSON.stringify(values));
+}
+btnUpdate.addEventListener("click", (e) => {
+  e.preventDefault()
+ 
+  try {	
+// Send request
+  
+      var values = {
+        Name: services.value,
+        Fee: fee.value,
+        Id : id.value
+      }
+       
+      
+
+      return updateService(values)
+    
+        
+  } catch (error) {
+    console.log("error", error)
+    console.log("Error")
+    return
+  }
 
 })

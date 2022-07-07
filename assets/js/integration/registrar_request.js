@@ -1,11 +1,13 @@
-var requestForm = document.getElementById("form-account-request")
+var requestForm = document.getElementById("form-account-request");
 var btnSubmit = document.getElementById("btnSubmit");
-var office = document.getElementById("office")
-var service = document.getElementById("service")
-var userNote = document.getElementById("user_note")
-var file = document.getElementById("obj_file")
-var proxy = "https://localhost:44310"
-
+var office = document.getElementById("office");
+var service = document.getElementById("service");
+var userNote = document.getElementById("user_note");
+var file = document.getElementById("obj_file");
+var proxy = "https://localhost:44310";
+var officeNote = document.getElementById('office_note');
+var btnUpdate = document.getElementById('btnUpdate');
+var trackingId = document.getElementById('trackingID');
 
 //Get
 function getAllRequest() {
@@ -22,7 +24,6 @@ function getAllRequest() {
         var data = JSON.parse(this.responseText);
         for (let i = 0; i < data.length; i++) {
           table.innerHTML += ` <tr class="multipleOpenBtn">
-            <td class="table-id">${data[i].Id}</td>
             <td class="table-id">${data[i].TrackingId}</td>
             <td class="table-id">${data[i].OfficeId}</td>
             <td class="table-user-number">${data[i].ServiceId}</td>
@@ -69,7 +70,7 @@ function getAllRequest() {
 
 
 // Form Submit
-btnSubmit.addEventListener("click", (e) => {
+if (btnSubmit){btnSubmit.addEventListener("click", (e) => {
 	e.preventDefault()
   // console.log('request form');
 	try {
@@ -109,4 +110,64 @@ btnSubmit.addEventListener("click", (e) => {
 		return
 	}
 
-})
+})}
+
+//Update
+async function updateRequest(values) {
+	//values should have id
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}api/request`
+	var httpMethod = 'PATCH'
+
+  xhr.open(httpMethod, url);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onload = function () {
+		if (this.status == 200) {
+      console.log(this.responseText);
+      alert('Request Updated');
+      //when reset the multipleModal class is not working
+      var myTable = document.getElementById("table");
+      var rowCount = myTable.rows.length;
+        for (var x=rowCount-1; x>0; x--) {
+          myTable.deleteRow(x);
+      }
+			getAllRequest();
+      document.getElementById('multipleModal').style.display = "none";
+		}
+		else if (this.status == 404) {
+			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")    
+		}  
+	}
+	xhr.send(JSON.stringify(values));
+}
+if (btnUpdate){btnUpdate.addEventListener("click", (e) => {
+  e.preventDefault()
+ 
+  try {	
+// Send request
+  
+      var values = {
+      
+        TrackingId : trackingId.value,
+        OfficeNote: officeNote.value
+
+      }
+       
+      
+
+      return updateRequest(values)
+    
+        
+  } catch (error) {
+    console.log("error", error)
+    console.log("Error")
+    return
+  }
+
+})}
+
+

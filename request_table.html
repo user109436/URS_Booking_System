@@ -55,7 +55,7 @@
           <th>Date Updated</th>
         </tr>
 
-        <tr class="multipleOpenBtn" onClick="onEdit(this)">
+        <tr class="multipleOpenBtn">
           <td class="table-id">1</td>
           <td class="table-traking-id">321654987789</td>
           <td class="table-office">Registrar</td>
@@ -74,7 +74,7 @@
           <td class="table-date-updated">June 18, 2022 8:05 AM</td>
         </tr>
 
-        <tr class="multipleOpenBtn" onClick="onEdit(this)">
+        <tr class="multipleOpenBtn" >
           <td class="table-id">2</td>
           <td class="table-traking-id">321654987789</td>
           <td class="table-office">Registrar</td>
@@ -93,7 +93,7 @@
           <td class="table-date-updated">June 17, 2022 8:04 AM</td>
         </tr>
 
-        <tr class="multipleOpenBtn" onClick="onEdit(this)">
+        <tr class="multipleOpenBtn" >
           <td class="table-id">3</td>
           <td class="table-traking-id">321654987789</td>
           <td class="table-office">Registrar</td>
@@ -125,22 +125,13 @@
         </h1>
 
         <form id="track-request" class="flex flex-col u-p-lg w-full">
-          <div class="u-mt-lg">
-            <label for="ID">ID</label>
-            <input
-              name="ID"
-              id="ID"
-              class="form-input table-id"
-              placeholder="Auto"
-              disabled
-            />
-          </div>
-
+         
           <div class="u-mt-lg">
             <label for="trakingD">Tracking ID</label>
             <input
               name="trackingID"
               id="trackingID"
+              value=""
               class="form-input table-traking-id"
               placeholder="Auto"
               disabled
@@ -155,7 +146,7 @@
               id="Office"
               class="form-input table-office"
               placeholder="Registrar"
-              required
+              disabled
             />
           </div>
 
@@ -167,7 +158,7 @@
               id="services"
               class="form-input table-services"
               placeholder="Transcript of Records"
-              required
+              disabled
             />
           </div>
 
@@ -178,7 +169,7 @@
               id="fileName"
               class="form-input table-file"
               placeholder="John Doe - Request.pdf"
-              required
+              disabled
             />
           </div>
 
@@ -198,8 +189,8 @@
             <label for="office_note">Important: Office Notes</label>
             <textarea
               class="form-input table-office-note"
-              name="user_note"
-              id="user_note"
+              name="office_note"
+              id="office_note"
               rows="5"
               placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
               required
@@ -212,10 +203,10 @@
               name="status"
               id="status"
               class="form-input table-status"
-              required
+              disabled
             >
             <option value="">Ex. Pending</option>
-              <option value="Panding">Pending</option>
+              <option value="Pending">Pending</option>
               <option value="Paid">Paid</option>
               <option value="Processing">Processing</option>
               <option value="Finished">Finished</option>
@@ -245,13 +236,10 @@
           </div>
 
           <div class="modal-btn crud">
-            <button type="submit" class="action-btn add">
-              Create
-            </button>
-            <button type="reset" class="action-btn reset" onclick="reset()">
+            <!-- <button type="reset" class="action-btn reset" onclick="reset()">
               Reset
-            </button>
-            <button type="submit" class="action-btn update multipleOpenBtn"  id="singleOpenBtn">
+            </button> -->
+            <button type="submit" class="action-btn update "  id="btnUpdate">
               Update
             </button>
             <button type="submit" class="action-btn delete" >
@@ -285,7 +273,7 @@
       </div>
 
     <!-- modal Alert Box -->
-    <div class="alert-screen border-rounded" id="singleModal" style="display: none;"    >
+    <div class="alert-screen border-rounded" id="singleModal" style="display: none;">
       <div class="alert-box"
       id="dialogOverlay">
         <div class="alert"
@@ -303,11 +291,14 @@
         </div>
       </div>
     </div>
+    <!-- <button onclick="CustomAlert()">button</button> -->
+    
     
   </body>
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
     <script defer src="./assets/js/integration/registrar_request.js" ></script>
+    <script defer src="./assets/js/alert.js"></script>
   </footer>
 </html>
