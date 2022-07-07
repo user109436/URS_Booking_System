@@ -1,6 +1,6 @@
 import { Modal } from "./modal.class.js";
 import { getAsHtmlCollection } from "./utilities.js";
-import { isAuthenticated } from "./auth/auth_manager.js";
+import { isAuthenticated } from "./auth/auth_manager.js";// blocking the modal traking request it wont show
 
 isAuthenticated();
 
