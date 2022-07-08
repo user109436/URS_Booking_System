@@ -75,7 +75,7 @@
             <button
               type="submit"
               class="btn btn-primary transition-normal transform-none cursor-pointer"
-              id="singleOpenBtn"
+              id="trackBtn"
             >
               Track Request
             </button>
@@ -91,7 +91,7 @@
       </div>
     </section>
     <!-- Tracking Modal -->
-    <div class="modal flex" id="singleModal" style="display: none">
+    <div class="modal flex" id="trackingModal" style="display: none">
       <div class="modal-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
           Tracking Request
@@ -99,13 +99,30 @@
 
         <form id="track-request" class="flex flex-col u-p-lg w-full">
           <div class="u-mt-lg">
-            <label for="ID">ID</label>
+            <label for="ID">Tracking ID</label>
             <input
-              name="ID"
-              id="ID"
+              name="trackingId"
+              id="trackingId"
+              class="form-input"  
+              readonly
+            />
+          </div>
+          <div class="u-mt-lg">
+            <label for="outputOffice">Office</label>
+            <input
+              name="outputOffice"
+              id="outputOffice"
               class="form-input"
-              placeholder="123456789123"
-              disabled
+              readonly
+            />
+          </div>
+          <div class="u-mt-lg">
+            <label for="outputService">Service</label>
+            <input
+              name="outputService"
+              id="outputService"
+              class="form-input"
+              readonly
             />
           </div>
 
@@ -116,8 +133,7 @@
               name="user_note_modal"
               id="user_note_modal"
               rows="5"
-              placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
-              disabled
+              readonly
             ></textarea>
           </div>
 
@@ -210,7 +226,7 @@
   </body>
   <footer>
     <!-- The script below because the attach file input is not working if it is not commented-->>
-    <script defer src="/assets/js/script.js" type="module"></script>
+    <!-- <script defer src="/assets/js/script.js" type="module"></script> -->
     <script defer src="/assets/js/integration/request/index.js" type="module"></script>
   </footer>
 </html>

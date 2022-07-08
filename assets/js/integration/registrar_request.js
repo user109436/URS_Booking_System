@@ -1,3 +1,6 @@
+import { getToken } from "../auth/auth_manager"
+
+
 var requestForm = document.getElementById("form-account-request");
 var btnSubmit = document.getElementById("btnSubmit");
 var office = document.getElementById("office");
@@ -7,43 +10,48 @@ var file = document.getElementById("obj_file");
 var proxy = "https://localhost:44310";
 var officeNote = document.getElementById('office_note');
 var btnUpdate = document.getElementById('btnUpdate');
-var trackingId = document.getElementById('trackingID');
-
+var id = document.getElementById('id');
+var status = document.getElementById('status');
+var token = getToken()
+document.body.onload = getAllRequest();
 //Get
-function getAllRequest() {
+async function getAllRequest() {
     
     var xhr = new XMLHttpRequest();
-    var url = `${proxy}/api/request/{trackingId}`
+    var url = `${proxy}/api/request-aggregated`
     xhr.open("GET", url, true);
+    xhr.setRequestHeader('Authorization', token);
     xhr.onload = function () {
-      
       if (this.status == 200) {
         const loadingScreen =
           document.getElementsByClassName("loading-screen")[0];
         loadingScreen.style.display = "none";
         var data = JSON.parse(this.responseText);
+        
+        console.log(data);
         for (let i = 0; i < data.length; i++) {
           table.innerHTML += ` <tr class="multipleOpenBtn">
-            <td class="table-id">${data[i].TrackingId}</td>
-            <td class="table-id">${data[i].OfficeId}</td>
-            <td class="table-user-number">${data[i].ServiceId}</td>
-			      <td class="table-user-number">${data[i].StatusId}</td>
-      	    <td class="table-user-number">${data[i].UserNote}</td>
-            <td class="table-user-number">${data[i].OfficeNote}</td>
-            <td class="table-first-name">${data[i].CreatedAt}</td>
-            <td class="table-first-name">${data[i].UpdatedAt}</td>
+            <td class="table-id" hidden>${data[i].Id}</td>
+            <td class="table-TrackingId">${data[i].TrackingId}</td>
+            <td class="table-service">${data[i].Service}</td>
+            <td class="table-fileName">${data[i].FileName}</td>
+			      <td class="table-userNote">${data[i].UserNote}</td>
+      	    <td class="table-officeNote">${data[i].OfficeNote}</td>
+            <td class="table-status">${data[i].Status}</td>
+            <td class="table-createdAt">${data[i].CreatedAt}</td>
+            <td class="table-updatedAt">${data[i].UpdatedAt}</td>
             </tr>`;
-        
+            
+          
         }
-
-        console.log(data);
-
-      
+     
       }
     };
+
     xhr.send();
   }
 
+  console.log(id);
 //Post
   async function createRequest(values) {
 
@@ -116,15 +124,17 @@ if (btnSubmit){btnSubmit.addEventListener("click", (e) => {
 async function updateRequest(values) {
 	//values should have id
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}api/request`
+	var url = `${proxy}/api/request`
 	var httpMethod = 'PATCH'
 
-  xhr.open(httpMethod, url);
+	xhr.open(httpMethod, url, true);
   xhr.setRequestHeader("Accept", "application/json");
   xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader('Authorization', token);
 	xhr.onload = function () {
 		if (this.status == 200) {
-      console.log(this.responseText);
+			var data = JSON.parse(this.responseText);
+			console.log(data)
       alert('Request Updated');
       //when reset the multipleModal class is not working
       var myTable = document.getElementById("table");
@@ -139,9 +149,10 @@ async function updateRequest(values) {
 			console.log("error")
 		}
 		else if (this.status == 401) {
-			console.log("unauthorized")    
-		}  
+			console.log("unauthorized")
+		}
 	}
+
 	xhr.send(JSON.stringify(values));
 }
 if (btnUpdate){btnUpdate.addEventListener("click", (e) => {
@@ -152,11 +163,12 @@ if (btnUpdate){btnUpdate.addEventListener("click", (e) => {
   
       var values = {
       
-        TrackingId : trackingId.value,
-        OfficeNote: officeNote.value
+        Id : id.value,
+        OfficeNote: officeNote.value,
+        StatusId:status.value
 
       }
-       
+       console.log(values);
       
 
       return updateRequest(values)
@@ -169,5 +181,5 @@ if (btnUpdate){btnUpdate.addEventListener("click", (e) => {
   }
 
 })}
-
+//Need to put status:Finished in database
 

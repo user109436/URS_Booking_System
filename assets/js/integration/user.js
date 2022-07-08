@@ -1,3 +1,5 @@
+import { getToken } from "../auth/auth_manager"
+
 //global var
 var role = document.getElementById("inputRole");
 var firstName = document.getElementById("inputFirstName");
@@ -8,8 +10,9 @@ var btnSubmit = document.getElementById("btnSubmit");
 var btnDelete = document.getElementById("btnDelete");
 var id = document.getElementById("inputId");
 var btnUpdate = document.getElementById('btnUpdate');
-
+var token = getToken()
 var proxy = "https://localhost:44310"
+document.body.onload = getAllUsers();
 
 
 function getAllUsers() {
@@ -32,6 +35,7 @@ function getAllUsers() {
                       <td class="table-email">${data[i].Email}</td>
                       <td class="password">${data[i].Password}</td>
                       <td class="table-role">${data[i].RoleId}</td>
+                      <td class="table-office">${data[i].OfficeId}</td>
                       <td class="table-date-created">${data[i].CreatedAt}</td>
                       <td class="table-date-updated">${data[i].UpdatedAt}</td>
                       </tr>`;   
@@ -52,9 +56,11 @@ function getAllUsers() {
   
     //Send the proper header information along with the request
     xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.setRequestHeader('Authorization', token);
   
     xhr.onload = function () {
       if (this.status == 200) {
+        console.log(this.responseText);
         var data = JSON.parse(this.responseText);
         if(data == 'Success'){
           alert('User Created');
@@ -77,45 +83,6 @@ function getAllUsers() {
   
     xhr.send(JSON.stringify(values));
   }
-//Not yet working, We can't implement the patch method here
-  // async function updateUsers(values) {
-
-  //   var xhr = new XMLHttpRequest();
-  //   var url = `${proxy}/api/user/{Id}`
-  //   var httpMethod = 'PATCH'
-  
-  //   xhr.open(httpMethod, url, true);
-  
-  //   //Send the proper header information along with the request
-  //   xhr.setRequestHeader('Content-type', 'application/json');
-  
-  //   xhr.onload = function () {
-  //     if (this.status == 200) {
-  //       var data = JSON.parse(this.responseText);
-  //       if(data == 'Success'){
-  //         alert('User Updated');
-  //         //when reset the multipleModal class is not working
-  //       var myTable = document.getElementById("table");
-  //       var rowCount = myTable.rows.length;
-  //         for (var x=rowCount-1; x>0; x--) {
-  //           myTable.deleteRow(x);
-  //       }
-          
-  //         getAllUsers();
-  //         document.getElementById('multipleModal').style.display = "none";
-          
-  //       }
-        
-  //     } else if (this.status = 404) {
-  //       console.log("error")
-  //     }
-  //   }
-  
-  //   xhr.send(JSON.stringify(values));
-  // }
-  
-  // console.log(values)
-  
 
 // Form Submit
 btnSubmit.addEventListener("click", (e) => {
@@ -153,6 +120,7 @@ async function deleteUser(Id) {
 	var httpMethod = 'DELETE'
 
 	xhr.open(httpMethod, url, true);
+  xhr.setRequestHeader('Authorization', token);
 
 	xhr.onload = function () {
 		if (this.status == 200) {
@@ -199,12 +167,21 @@ async function updateUsers(values) {
   xhr.open(httpMethod, url);
   xhr.setRequestHeader("Accept", "application/json");
   xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader('Authorization', token);
 	xhr.onload = function () {
-    console.log("before");
+    
 		if (this.status == 200) {
 			// var data = JSON.parse(this.responseText);
       console.log(this.responseText);
-			
+			alert('User Updated');
+      //when reset the multipleModal class is not working
+      var myTable = document.getElementById("table");
+      var rowCount = myTable.rows.length;
+        for (var x=rowCount-1; x>0; x--) {
+          myTable.deleteRow(x);
+      }
+			getAllUsers();
+      document.getElementById('multipleModal').style.display = "none";
 		}
 		else if (this.status == 404) {
 			console.log("error")
@@ -213,7 +190,7 @@ async function updateUsers(values) {
 			console.log("unauthorized")
       
 		}
-    console.log("after");
+    
 	}
 
 	xhr.send(JSON.stringify(values));

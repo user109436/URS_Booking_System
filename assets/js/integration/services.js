@@ -147,7 +147,6 @@ btnDelete.addEventListener("click", (e) => {
 
 //Update
 async function updateService(values) {
-	//values should have id
 	var xhr = new XMLHttpRequest();
 	var url = `${proxy}/api/service`
 	var httpMethod = 'PATCH'

@@ -13,8 +13,17 @@ var userNote = document.getElementById("user_note")
 var file = document.getElementById("obj_file")
 
 //Tracking Form
-var trackingForm = document.getElementById("tracking_form")
-var trackingId = document.getElementById("tracking_id")
+var trackingForm = document.getElementById("tracking_form");
+var trackingId = document.getElementById("tracking_id");
+var trackingModalId = document.getElementById("trackingId");
+var officeNote = document.getElementById('office_note');
+var status = document.getElementById('status');
+var trackingModal = document.getElementById('trackingModal');
+var userNoteModal = document.getElementById('user_note_modal');
+var outputOffice = document.getElementById('outputOffice');
+var outputService = document.getElementById('outputService');
+
+
 
 //Global
 var token = getToken()
@@ -150,7 +159,7 @@ async function getRequest() {
 	var xhr = new XMLHttpRequest();
 	//You can also try the url below if u want to get the foreign key values
 	//url = `${proxy}/api/request/aggregated`
-	var url = `${proxy}/api/request`
+	var url = `${proxy}/api/request-aggregated`
 	var httpMethod = 'GET'
 
 	xhr.open(httpMethod, url, true);
@@ -175,7 +184,7 @@ async function getRequest() {
 
 async function findOneRequest(trackingId) {
 	var xhr = new XMLHttpRequest();
-	var url = `${proxy}/api/request/${trackingId}`
+	var url = `${proxy}/api/request-aggregated/${trackingId}`
 	var httpMethod = 'GET'
 
 	xhr.open(httpMethod, url, true);
@@ -184,6 +193,15 @@ async function findOneRequest(trackingId) {
 		if (this.status == 200) {
 			var data = JSON.parse(this.responseText);
 			console.log(data)
+			
+				trackingModalId.value = data.TrackingId;
+				outputOffice.value = data.Office;
+				outputService.value = data.Service;
+				userNoteModal.value = data.UserNote;
+				officeNote.value = data.OfficeNote;
+				status.value = data.Status;
+				trackingModal.style.display="block";
+
 		}
 		else if (this.status == 404) {
 			console.log("error")
@@ -259,6 +277,7 @@ async function createRequest(values) {
 		if (this.status == 200) {
 			var data = JSON.parse(this.responseText);
 			console.log(data)
+			
 		} 
 		else if (this.status == 404) {
 			console.log("error")

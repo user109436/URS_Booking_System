@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/utilities.css" />
     <link rel="stylesheet" href="./assets/css/queries.css" />
   </head>
-  <body onload="getAllRequest()">
+  <body>
   
     <nav>
       <img
@@ -45,63 +45,19 @@
         </div>
         <thead>
           <tr class="bg-primary" id="table-header">
-            <th>ID</th>
-            <th>Date Created</th>
+            
+            <th>Tracking ID</th>
             <th>Request/Service</th>
             <th>File Name</th>
             <th>User Note</th>
             <th>Office Note</th>
             <th>Status</th>
+            <th>Date Created</th>
+            <th>Date Updated</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="multipleOpenBtn">
-            <td>123456789123</td>
-            <td>June 18, 2022 8:05 AM</td>
-            <td>Transcript of Records (Php 50/page) - Php 50</td>
-            <td><a href="#download-link">John Doe - Request.pdf</a></td>
-            <td>
-              Can I get the documents by Monday ? it's really urgent. Thanks!
-            </td>
-            <td class="table-office-note">
-              Please make you payment to proceed
-            </td>
-            <td class="table-status">
-              <span class="badge border-rounded bg-success">Paid</span>
-            </td>
-          </tr>
-
-          <tr class="multipleOpenBtn">
-            <td>123456789123</td>
-            <td>June 17, 2022 8:04 AM</td>
-            <td>Transcript of Records (Php 50/page) - Php 50</td>
-            <td><a href="#download-link">Jane Doe - Request.pdf</a></td>
-            <td>
-              Can I get the documents by Monday ? it's really urgent. Thanks!
-            </td>
-            <td class="table-office-note">Your documents are Ready!</td>
-            <td class="table-status">
-              <span class="badge border-rounded bg-pending"
-                >Payment Required</span
-              >
-            </td>
-          </tr>
-
-          <tr class="multipleOpenBtn">
-            <td>123456789123</td>
-            <td>June 17, 2022 8:03 AM</td>
-            <td>Transcript of Records (Php 50/page) - Php 50</td>
-            <td>
-              <a href="#download-link">Alexandra Daddario - Request.pdf</a>
-            </td>
-            <td>
-              Can I get the documents by Monday ? it's really urgent. Thanks!
-            </td>
-            <td class="table-office-note">1 (one) Document is missing!</td>
-            <td class="table-status">
-              <span class="badge border-rounded bg-processing">Processing</span>
-            </td>
-          </tr>
+         
         </tbody>
       </table>
     </div>
@@ -115,16 +71,29 @@
 
         <form id="form-account-request" class="flex flex-col u-p-lg w-full">
           <div class="u-mt-lg">
-            <label for="user_note">Leave Important Notes:</label>
+            
+            <input
+              type="number"
+              name="ID"
+              id="id"
+              value=""
+              class="form-input table-id"
+              placeholder="Auto"
+              hidden
+            />
+          </div>
+          <div class="u-mt-lg">
+            <label  for="office_note">Leave Important Notes:</label>
             <textarea
-              class="form-input table-office-note"
-              name="user_note"
-              id="user_note"
+              class="form-input table-officeNote"
+              name="office_note"
+              id="office_note"
               rows="5"
               placeholder="ex. Can I get the documents by Monday ? it's really urgent. Thanks!"
               required
             ></textarea>
           </div>
+         
 
           <div class="u-mt-lg">
             <label for="status">status</label>
@@ -134,15 +103,15 @@
               class="form-input table-status"
               required
             >
-              <option value="Payment Required">Payment Required</option>
-              <option value="Pending">Pending</option>
-              <option value="Paid">Paid</option>
-              <option value="Processing">Processing</option>
-              <option value="Finished">Finished</option>
+              <option value="1">Payment Required</option>
+              <option value="2">Pending</option>
+              <option value="3">Paid</option>
+              <option value="4">Processing</option>
+              <option value="5">Finished</option>
             </select>
           </div>
           <div class="modal-btn crud">
-            <button type="submit" class="action-btn update">Update</button>
+            <button type="submit" class="action-btn update" id="btnUpdate">Update</button>
 
             <button class="action-btn cancel" id="multipleCloseBtn">
               <!--Alert Message -->
@@ -172,7 +141,7 @@
   <footer>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
-    <script defer src="./assets/js/integration/registrar_request.js" ></script>
+    <script defer src="./assets/js/integration/registrar_request.js" type="module"></script>
   </footer>
 </html>
 

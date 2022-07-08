@@ -1,17 +1,22 @@
+import { getToken } from "../auth/auth_manager"
 //Global Var
-
 var proxy = "https://localhost:44310"
 var office = document.getElementById('office');
 var btnDelete = document.getElementById('btnDelete');
 var id = document.getElementById('id');
 var btnSubmit = document.getElementById('btnSubmit');
 var btnUpdate = document.getElementById('btnUpdate');
+var token = getToken()
+document.body.onload = getAllOffice();
 
   function getAllOffice() {
     
     var xhr = new XMLHttpRequest();
     var url = `${proxy}/api/office`
     xhr.open("GET", url, true);
+
+    xhr.setRequestHeader('Authorization', token);
+
     xhr.onload = function () {
       
       if (this.status == 200) {
@@ -42,6 +47,7 @@ var btnUpdate = document.getElementById('btnUpdate');
   
     //Send the proper header information along with the request
     xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.setRequestHeader('Authorization', token);
   
     xhr.onload = function () {
       if (this.status == 200) {
