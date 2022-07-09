@@ -20,7 +20,7 @@ export const login = async (values) => {
                 localStorage.setItem("auth_token", authToken)
 				localStorage.setItem("access_token", accessToken)
 				
-				return window.location.href = "/registrar.html" 
+				return window.location.href = "/request_table.html" 
             } else {
                 alert(data)
             }
@@ -40,6 +40,7 @@ export const logout = async (values) => {
     xhr.open(httpMethod, url, true)
 
     xhr.setRequestHeader('Content-type', 'application/json')
+	xhr.setRequestHeader('Authorization', getToken());
 
     xhr.onload = function () {
         if (this.status == 200) {
@@ -47,6 +48,8 @@ export const logout = async (values) => {
 
             if (data == "Success") {
                 localStorage.clear();
+				return window.location.href = "/login.html" 
+				
             } else {
                 alert("Error")
             }
@@ -64,9 +67,14 @@ export const isAuthenticated = () => {
 		var accessToken = localStorage.getItem("access_token")
 		var accessTokenDecoded = window.atob(accessToken)
 		var userData = JSON.parse(accessTokenDecoded)
+		var date = new Date();
 		
-		if(userData.Authorized)
+		if(date < new Date(Date.parse(userData.ExpiredAt))){
 			return true
+		}
+		else{
+			return window.location.href = "/login.html"
+		}
 		
 	} catch (error) {
 		return window.location.href = "/login.html"

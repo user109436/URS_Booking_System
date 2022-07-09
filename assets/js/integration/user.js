@@ -20,6 +20,8 @@ function getAllUsers() {
     var xhr = new XMLHttpRequest();
     var url = `${proxy}/api/user`
     xhr.open("GET", url, true);
+	xhr.setRequestHeader('Authorization', token);
+	
     xhr.onload = function () {
       
       if (this.status == 200) {
