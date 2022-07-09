@@ -1,5 +1,5 @@
 import { getToken } from "../auth/auth_manager"
-
+import { appendOfficeOption } from "./request/offices"
 //global var
 var role = document.getElementById("inputRole");
 var firstName = document.getElementById("inputFirstName");
@@ -10,16 +10,41 @@ var btnSubmit = document.getElementById("btnSubmit");
 var btnDelete = document.getElementById("btnDelete");
 var id = document.getElementById("inputId");
 var btnUpdate = document.getElementById('btnUpdate');
-var token = getToken()
+var office = document.getElementById('inputOffice');
+var token = getToken();
 var proxy = "https://localhost:44310"
 document.body.onload = getAllUsers();
+getOffice()
+async function getOffice() {
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/office`
+	var httpMethod = 'GET'
 
+	xhr.open(httpMethod, url, true);
+
+	xhr.onload = function () {
+		if (this.status == 200) {
+			var data = JSON.parse(this.responseText);
+			appendOfficeOption(office, data)
+		}
+		else if (this.status == 404) {
+			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")
+		}
+	}
+
+	xhr.send();
+}
 
 function getAllUsers() {
     
     var xhr = new XMLHttpRequest();
-    var url = `${proxy}/api/user`
+    var url = `${proxy}/api/user-aggregated`
     xhr.open("GET", url, true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.setRequestHeader('Authorization', token);
     xhr.onload = function () {
       
       if (this.status == 200) {
@@ -27,6 +52,7 @@ function getAllUsers() {
           document.getElementsByClassName("loading-screen")[0];
         loadingScreen.style.display = "none";
         var data = JSON.parse(this.responseText);
+        console.log(data);
         for (let i = 0; i < data.length; i++) {
                     table.innerHTML += ` <tr class="multipleOpenBtn">
                       <td class="table-id">${data[i].Id}</td>
@@ -34,13 +60,14 @@ function getAllUsers() {
                       <td class="table-last-name">${data[i].LastName}</td>
                       <td class="table-email">${data[i].Email}</td>
                       <td class="password">${data[i].Password}</td>
-                      <td class="table-role">${data[i].RoleId}</td>
-                      <td class="table-office">${data[i].OfficeId}</td>
+                      <td class="table-role">${data[i].Role}</td>
+                      <td class="table-office">${data[i].Office}</td>
                       <td class="table-date-created">${data[i].CreatedAt}</td>
                       <td class="table-date-updated">${data[i].UpdatedAt}</td>
                       </tr>`;   
+                      
                   }
-                  
+              
       }
     };
     xhr.send();
@@ -96,7 +123,8 @@ btnSubmit.addEventListener("click", (e) => {
 				LastName: lastName.value,
 				Email: email.value,
         Password: password.value,
-        RoleID:role.value
+        RoleId:role.value,
+        OfficeId:office.value
 			}
         console.log(values);
 

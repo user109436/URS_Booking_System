@@ -66,7 +66,7 @@ requestForm.addEventListener("submit", (e) => {
 
 		reader.readAsDataURL(file.files[0]);
 
-		console.log(userNote)
+		
 		reader.onload = function () {
 			var values = {
 				OfficeId: office.value,

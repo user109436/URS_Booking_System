@@ -8,16 +8,17 @@ var file = document.getElementById("obj_file");
 var proxy = "https://localhost:44310";
 var officeNote = document.getElementById('office_note');
 var btnUpdate = document.getElementById('btnUpdate');
+var registrarOffice = 1;
 var id = document.getElementById('id');
 var status = document.getElementById('status');
 var token = getToken()
 console.log(token);
-document.body.onload = getAllRequest();
+document.body.onload = getAllRequestRegistrar();
 //Get
-async function getAllRequest() {
+async function getAllRequestRegistrar() {
     
     var xhr = new XMLHttpRequest();
-    var url = `${proxy}/api/request-aggregated`
+    var url = `${proxy}/api/all-request-aggregated/office/${registrarOffice}`
     xhr.open("GET", url, true);
     xhr.setRequestHeader('Authorization', token);
     xhr.onload = function () {
@@ -32,7 +33,6 @@ async function getAllRequest() {
           table.innerHTML += ` <tr class="multipleOpenBtn">
             <td class="table-id" hidden>${data[i].Id}</td>
             <td class="table-TrackingId">${data[i].TrackingId}</td>
-            <td class="table-office">${data[i].Office}</td>
             <td class="table-service">${data[i].Service}</td>
             <td class="table-fileName">${data[i].FileName}</td>
 			      <td class="table-userNote">${data[i].UserNote}</td>
@@ -181,5 +181,3 @@ if (btnUpdate){btnUpdate.addEventListener("click", (e) => {
   }
 
 })}
-
-

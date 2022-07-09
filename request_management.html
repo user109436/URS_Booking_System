@@ -35,14 +35,14 @@
       </div>
          
       <!-- Tab Section for: New request, Processing , Finished -->
-      <div class="tab-section container-80"> 
+      <div id="statusTabs" class="tab-section container-80"> 
         <!-- New request -->
-        <input type="radio" class="tabs_radio" name="tabs" id="NR-tab" checked>
+        <input type="radio" class="tabs_radio" name="tab-status" value="3" id="NR-tab" checked>
         <label for="NR-tab" class="tabs_label">New Request</label> 
         <!-- New request Content -->
         <div class="tab_content NR">
           <div class="container overflow-auto">
-            <table class="container">
+            <table class="container" id="pendingRequest">
               <div class="search-table flex flex-justify-center container">
                 <input
                   class="form-input"
@@ -58,30 +58,6 @@
                 <th>File Name</th>
                 <th>User Note</th>
                 <th>Status</th>
-              </tr>
-              <tr>
-                <td>June 18, 2022 8:05 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">John Doe - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-pending">Pending</span>
-                </td>
-              </tr>
-              <tr>
-                <td>June 17, 2022 8:04 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">Jane Doe - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-pending"
-                    >Pending</span
-                  >
-                </td>
               </tr>
               <tr>
                 <td>June 17, 2022 8:03 AM</td>
@@ -99,12 +75,12 @@
 
         </div>
         <!-- Paid -->
-        <input type="radio" class="tabs_radio" name="tabs" id="PAID-tab" >
+        <input type="radio" class="tabs_radio" name="tab-status" id="PAID-tab" >
         <label for="PAID-tab" class="tabs_label">Paid</label>
         <!-- Paid Content -->
         <div class="tab_content PAID">
           <div class="container overflow-auto">
-            <table class="container ">
+            <table class="container " id="paidRequest">
               <div class="search-table flex flex-justify-center container">
                 <input
                   class="form-input"
@@ -120,30 +96,6 @@
                 <th>File Name</th>
                 <th>User Note</th>
                 <th>Status</th>
-              </tr>
-              <tr>
-                <td>June 18, 2022 8:05 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">John Doe - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-success">Paid</span>
-                </td>
-              </tr>
-              <tr>
-                <td>June 17, 2022 8:04 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">Jane Doe - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-success"
-                    >Paid</span
-                  >
-                </td>
               </tr>
               <tr>
                 <td>June 17, 2022 8:03 AM</td>
@@ -162,12 +114,12 @@
         </div>
 
         <!-- Processing -->
-        <input type="radio" class="tabs_radio" name="tabs" id="PROC-tab" >
+        <input type="radio" class="tabs_radio" name="tab-status" id="PROC-tab" >
         <label for="PROC-tab" class="tabs_label">Processing</label>
           <!-- Processing Content -->
         <div class="tab_content PROC">
           <div class="container overflow-auto">
-            <table class="container">
+            <table class="container" id="processingRequest">
               <div class="search-table flex flex-justify-center container">
                 <input
                   class="form-input"
@@ -183,30 +135,6 @@
                 <th>File Name</th>
                 <th>User Note</th>
                 <th>Status</th>
-              </tr>
-              <tr>
-                <td>June 18, 2022 8:05 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">John Doe - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-processing">Processing</span>
-                </td>
-              </tr>
-              <tr>
-                <td>June 17, 2022 8:04 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">Jane Doe - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-processing"
-                    >Processing</span
-                  >
-                </td>
               </tr>
               <tr>
                 <td>June 17, 2022 8:03 AM</td>
@@ -224,12 +152,12 @@
 
         </div>
         <!-- Finished -->  
-        <input type="radio" class="tabs_radio" name="tabs" id="FIN-tab" >
+        <input type="radio" class="tabs_radio" name="tab-status" id="FIN-tab" >
         <label for="FIN-tab" class="tabs_label">Finished</label>
         <!-- Finished Content -->
         <div class="tab_content FIN"> 
           <div class="container overflow-auto">
-            <table class="container ">
+            <table class="container " id="finishedRequest">
               <div class="search-table flex flex-justify-center container">
                 <input
                   class="form-input"
@@ -245,30 +173,6 @@
                 <th>File Name</th>
                 <th>User Note</th>
                 <th>Status</th>
-              </tr>
-              <tr>
-                <td>June 18, 2022 8:05 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">John Doe - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-success">Paid</span>
-                </td>
-              </tr>
-              <tr>
-                <td>June 17, 2022 8:04 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">Jane Doe - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-pending"
-                    >Payment Required</span
-                  >
-                </td>
               </tr>
               <tr>
                 <td>June 17, 2022 8:03 AM</td>
@@ -292,4 +196,5 @@
       <!-- TODO: Images, LinkedIn and Repo of the Project -->
     </section>
   </body>
+  <script defer src="./assets/js/integration/request_management.js" type="module"></script>
 </html>
