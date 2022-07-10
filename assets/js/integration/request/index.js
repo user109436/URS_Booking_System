@@ -93,6 +93,7 @@ trackingForm.addEventListener("submit", (e) => {
 
   try {
     // Send request
+    if (!trackingId.value) return false; //TODO:display generic or warning message
     return findOneRequest(trackingId.value);
   } catch (error) {
     console.log("error", error);
