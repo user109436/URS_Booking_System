@@ -1,6 +1,7 @@
 import { getToken } from "../auth/auth_manager.js";
 import { API_BASE_URL } from "../constants/ApiConstant.js";
 import { ajax_query } from "../ajax_crud.js";
+import { multipleModalInit } from "../utilities.js";
 //Global Var
 var office = document.getElementById("office");
 var btnDelete = document.getElementById("btnDelete");
@@ -28,6 +29,7 @@ const initTable = (data) => {
             <td class="table-date-updated">${data[i].UpdatedAt}</td>
             </tr>`;
   }
+  multipleModalInit();
 };
 
 const reloadTable = (data) => {

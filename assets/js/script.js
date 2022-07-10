@@ -1,5 +1,5 @@
 import { Modal } from "./modal.class.js";
-import { getAsHtmlCollection } from "./utilities.js";
+import { multipleModalInit } from "./utilities.js";
 
 //Single Open Modal-button
 const singleModal = document.getElementById("singleModal");
@@ -11,44 +11,7 @@ if (singleModalExist) {
   singleModalObj.modalSingleOpenBtn();
 }
 
-setTimeout(function () {
-  // MULTIPLE Open MODEL-table
-  const multipleModal = document.getElementById("multipleModal");
-  const multipleOpenBtn = document.getElementsByClassName("multipleOpenBtn");
-  const multipleCloseBtn = document.getElementById("multipleCloseBtn");
-  const multipleModalExist =
-    multipleModal && multipleOpenBtn && multipleCloseBtn;
-  if (multipleModalExist) {
-    const tableModal = new Modal(
-      multipleModal,
-      multipleOpenBtn,
-      multipleCloseBtn
-    );
-    tableModal.modalMultipleOpenBtn();
-  }
-
-  for (let selectedTableRow of multipleOpenBtn) {
-    selectedTableRow.addEventListener("click", function () {
-      const tableData = getAsHtmlCollection(selectedTableRow, "td");
-      let inputFields = document.getElementsByClassName("form-input");
-      inputFields = Array.from(inputFields);
-      // 1. get all table data with classname including their classname
-      tableData.forEach((td) => {
-        const hasClassName = td.classList.value;
-        if (hasClassName) {
-          // 2. select all input fields with this classname and assigned the value
-          inputFields.forEach((element) => {
-            let classNameExist = element.classList.value.indexOf(hasClassName);
-            if (classNameExist >= 0) {
-              element.value = td.innerText;
-            }
-          });
-        }
-      });
-    });
-  }
-}, 3000);
-
+setTimeout(multipleModalInit, 3000);
 
 // MAKE REQUEST Scroll on Trigger "a"
 
@@ -72,9 +35,3 @@ if (makeRequest) {
     window.location.assign(`${url}#form-account-request`);
   });
 }
-
-
-
- 
-
-
