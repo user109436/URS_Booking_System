@@ -6,15 +6,12 @@ export class Modal {
     this.closeBtn = closeBtn;
   }
   openModal = (e) => {
-    e.preventDefault();
     this.modal.style.display = "block";
   };
   closeModal = (e) => {
-    e.preventDefault();
     this.modal.style.display = "none";
   };
   closeOnOutsideClick = (e) => {
-    e.preventDefault();
     if (e.target == this.modal) {
       this.modal.style.display = "none";
     }
