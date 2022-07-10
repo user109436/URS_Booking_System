@@ -11,19 +11,16 @@
   </head>
   <body onload="getAllServices()">
     <nav>
-      <img
-          class="header_logo"
-          src="./assets/img/Logo.png"
-          alt="Logo"
-        />
+      <img class="header_logo" src="./assets/img/Logo.png" alt="Logo" />
       <ul>
-        <li><a href="/registrar.html" >Registrar</a></li>
+        <li><a href="/registrar.html">Registrar</a></li>
         <li><a href="/office_table.html">Office</a></li>
         <li><a href="/service_table.html" class="active">Services</a></li>
         <li><a href="/request_table.html">Request</a></li>
-        <li><a href="/user_table.html" >Users</a></li>
+        <li><a href="/user_table.html">Users</a></li>
         <li><a href="/request_management.html">Request Management</a></li>
-        <li><a id="logout-btn" href="#">Logout</a></li> <li>
+        <li><a id="logout-btn" href="#">Logout</a></li>
+        <li></li>
       </ul>
     </nav>
 
@@ -41,16 +38,18 @@
             id="search-table"
           />
         </div>
-      <thead><tr class="bg-primary" id="table-header">
-        <th class="table-id">ID</th>
-        <th class="table-services">Services</th>
-        <th class="table-fee">Fee <span>&#8369;</span> / page</th>
-        <th class="table-date-created">Date Created</th>
-        <th class="table-date-updated">Date Updated</th>
-      </tr></thead>
-              
-      <tbody>
-      <!-- <tr class="multipleOpenBtn">
+        <thead>
+          <tr class="bg-primary" id="table-header">
+            <th class="table-id">ID</th>
+            <th class="table-services">Services</th>
+            <th class="table-fee">Fee <span>&#8369;</span> / page</th>
+            <th class="table-date-created">Date Created</th>
+            <th class="table-date-updated">Date Updated</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- <tr class="multipleOpenBtn">
                 <td class="table-id">123456789123</td>
                 <td class="table-services">Transcript of Records</td>
                 <td class="table-fee">50</td>
@@ -73,8 +72,7 @@
                 <td class="table-date-created">June 17, 2022 8:03 AM</td>
                 <td class="table-date-updated">June 17, 2022 8:03 AM</td>
               </tr> -->
-      </tbody>
-      
+        </tbody>
       </table>
     </div>
 
@@ -162,34 +160,31 @@
               Cancel
             </button>
           </div>
-
         </form>
       </div>
     </div>
 
     <!-- modal Loading Screen -->
     <div class="loading-screen">
-        <div class="loading-screen-box">
-          <div class="loading">
-            <div class="dot">L</div>
-            <div class="dot">O</div>
-            <div class="dot">A</div>
-            <div class="dot">D</div>
-            <div class="dot">I</div>
-            <div class="dot">N</div>
-            <div class="dot">G</div>
-            <span class="text">Please Wait...</span>
-          </div>
+      <div class="loading-screen-box">
+        <div class="loading">
+          <div class="dot">L</div>
+          <div class="dot">O</div>
+          <div class="dot">A</div>
+          <div class="dot">D</div>
+          <div class="dot">I</div>
+          <div class="dot">N</div>
+          <div class="dot">G</div>
+          <span class="text">Please Wait...</span>
         </div>
       </div>
-
+    </div>
   </body>
   <footer>
-	<script defer src="./assets/js/auth/index.js" type="module"></script>
+    <script defer src="./assets/js/auth/index.js" type="module"></script>
     <script defer src="./assets/js/script.js" type="module"></script>
-    <script defer src="./assets/js/table-features.js"></script>
-    <script defer src="./assets/js/integration/services.js" ></script>
-	<script defer src="./assets/js/auth/logout.js" type="module"></script>
+    <script defer src="./assets/js/table-features.js" type="module"></script>
+    <script defer src="./assets/js/integration/services.js"></script>
+    <script defer src="./assets/js/auth/logout.js" type="module"></script>
   </footer>
 </html>
-

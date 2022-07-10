@@ -2,6 +2,7 @@ import { getToken } from "../auth/auth_manager.js";
 import { API_BASE_URL } from "../constants/ApiConstant.js";
 import { ajax_query } from "../ajax_crud.js";
 import { multipleModalInit } from "../utilities.js";
+import { tableSearchInit } from "../table-features.js";
 //Global Var
 var office = document.getElementById("office");
 var btnDelete = document.getElementById("btnDelete");
@@ -30,6 +31,7 @@ const initTable = (data) => {
             </tr>`;
   }
   multipleModalInit();
+  tableSearchInit();
 };
 
 const reloadTable = (data) => {

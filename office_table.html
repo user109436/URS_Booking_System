@@ -11,21 +11,17 @@
     <link rel="stylesheet" href="./assets/css/queries.css" />
   </head>
   <body>
-    <nav> 
-        <img
-          class="header_logo"
-          src="./assets/img/Logo.png"
-          alt="Logo"
-        />
+    <nav>
+      <img class="header_logo" src="./assets/img/Logo.png" alt="Logo" />
       <ul>
-        <li><a href="/registrar.html" >Registrar</a></li>
+        <li><a href="/registrar.html">Registrar</a></li>
         <li><a href="/office_table.html" class="active">Office</a></li>
         <li><a href="/service_table.html">Services</a></li>
         <li><a href="/request_table.html">Request</a></li>
-        <li><a href="/user_table.html" >Users</a></li>
+        <li><a href="/user_table.html">Users</a></li>
         <li><a href="/request_management.html">Request Management</a></li>
-        <li><a id="logout-btn" href="#">Logout</a></li> <li>
-  
+        <li><a id="logout-btn" href="#">Logout</a></li>
+        <li></li>
       </ul>
     </nav>
 
@@ -45,15 +41,18 @@
       </div>
 
       <table class="container-90 card" id="table">
-        <thead><tr class="bg-primary" id="table-header">
-          <th>ID</th>
-          <th>Offices</th>
-          <th>Date Created</th>
-          <th>Date Updated</th>
-        </tr></thead>
-        
-        <tbody><tr class="multipleOpenBtn">
-          <!-- <td class="table-id">123456789123</td>
+        <thead>
+          <tr class="bg-primary" id="table-header">
+            <th>ID</th>
+            <th>Offices</th>
+            <th>Date Created</th>
+            <th>Date Updated</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="multipleOpenBtn">
+            <!-- <td class="table-id">123456789123</td>
           <td class="table-office">Registrar</td>
           <td class="table-date-created">June 18, 2022 8:05 AM</td>
           <td class="table-date-updated">June 18, 2022 8:05 AM</td>
@@ -72,8 +71,8 @@
           <td class="table-date-created">June 17, 2022 8:03 AM</td>
           <td class="table-date-updated">June 17, 2022 8:03 AM</td>
         </tr> -->
+          </tr>
         </tbody>
-        
       </table>
     </div>
 
@@ -81,7 +80,7 @@
     <div class="modal flex" id="multipleModal" style="display: none">
       <div class="modal-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
-         Office Form
+          Office Form
         </h1>
 
         <form id="form-office" class="flex flex-col u-p-lg w-full">
@@ -149,38 +148,39 @@
             </button>
             <button class="action-btn cancel" id="multipleCloseBtn">
               Cancel
-                <!--Alert Message -->
+              <!--Alert Message -->
             </button>
           </div>
-
         </form>
       </div>
     </div>
 
-      <!-- modal Loading Screen -->
-    <div class="loading-screen ">
-        <div class="loading-screen-box">
-          <div class="loading">
-            <div class="dot">L</div>
-            <div class="dot">O</div>
-            <div class="dot">A</div>
-            <div class="dot">D</div>
-            <div class="dot">I</div>
-            <div class="dot">N</div>
-            <div class="dot">G</div>
-            <span class="text">Please Wait...</span>
-          </div>
+    <!-- modal Loading Screen -->
+    <div class="loading-screen">
+      <div class="loading-screen-box">
+        <div class="loading">
+          <div class="dot">L</div>
+          <div class="dot">O</div>
+          <div class="dot">A</div>
+          <div class="dot">D</div>
+          <div class="dot">I</div>
+          <div class="dot">N</div>
+          <div class="dot">G</div>
+          <span class="text">Please Wait...</span>
         </div>
       </div>
-
+    </div>
   </body>
 
   <footer>
-	<script defer src="./assets/js/auth/index.js" type="module"></script>
+    <script defer src="./assets/js/auth/index.js" type="module"></script>
     <script defer src="./assets/js/script.js" type="module"></script>
-    <script defer src="./assets/js/table-features.js"></script>
-    <script defer src="./assets/js/integration/office.js" type="module" ></script>
-	<script defer src="./assets/js/auth/logout.js" type="module"></script>
+    <script defer src="./assets/js/table-features.js" type="module"></script>
+    <script
+      defer
+      src="./assets/js/integration/office.js"
+      type="module"
+    ></script>
+    <script defer src="./assets/js/auth/logout.js" type="module"></script>
   </footer>
 </html>
-

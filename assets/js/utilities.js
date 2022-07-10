@@ -57,3 +57,18 @@ export const multipleModalInit = () => {
     });
   }
 };
+
+/* 
+@tableData must be a an array of NodeList
+will transform rows to array of text
+*/
+
+export const extractRowsToTextArray = (tableData, textArray) => {
+  let text = "";
+
+  tableData.forEach((tableData) => {
+    text += tableData.innerText;
+  });
+  textArray.push(text);
+  return textArray;
+};

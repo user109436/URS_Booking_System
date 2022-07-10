@@ -1,25 +1,9 @@
-const searchTable = document.getElementById("search-table");
-const table = document.getElementById("table");
+import { extractRowsToTextArray } from "./utilities.js";
+export const tableSearchInit = () => {
+  const searchTable = document.getElementById("search-table");
+  const table = document.getElementById("table");
 
-/* 
-@tableData must be a an array of NodeList
-will transform rows to array of text
-*/
-const extractRowsToTextArray = (tableData, textArray) => {
-  let text = "";
-
-  tableData.forEach((tableData) => {
-    text += tableData.innerText;
-  });
-  textArray.push(text);
-  return textArray;
-};
-
-if (searchTable && table) {
-  //fetch from API
-  //wait 5 seconds
-
-  setTimeout(function () {
+  if (searchTable && table) {
     const tableRows = table.querySelectorAll("tr");
     const tableRowsArray = Array.from(tableRows).splice(1, tableRows.length); //exclude header of table
 
@@ -42,5 +26,5 @@ if (searchTable && table) {
         }
       }
     });
-  }, 3000);
-}
+  }
+};
