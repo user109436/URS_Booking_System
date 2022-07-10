@@ -1,70 +1,53 @@
 import { getToken } from "../auth/auth_manager.js";
+import { API_BASE_URL } from "../constants/ApiConstant.js";
+import { ajax_query } from "../ajax_crud.js";
 //Global Var
-var proxy = "https://localhost:44310";
 var office = document.getElementById("office");
 var btnDelete = document.getElementById("btnDelete");
 var id = document.getElementById("id");
 var btnSubmit = document.getElementById("btnSubmit");
 var btnUpdate = document.getElementById("btnUpdate");
 var token = getToken();
-document.body.onload = getAllOffice();
 
-function getAllOffice() {
-  var xhr = new XMLHttpRequest();
-  var url = `${proxy}/api/office`;
-  xhr.open("GET", url, true);
+const config = {
+  method: "GET",
+  url: `${API_BASE_URL}/api/office`,
+  async: true,
+  headerNames: ["Content-type", "Authorization"],
+  headerValues: ["application/json", token],
+};
 
-  xhr.setRequestHeader("Authorization", token);
-
-  xhr.onload = function () {
-    if (this.status == 200) {
-      const loadingScreen =
-        document.getElementsByClassName("loading-screen")[0];
-      loadingScreen.style.display = "none";
-      var data = JSON.parse(this.responseText);
-      for (let i = 0; i < data.length; i++) {
-        table.innerHTML += ` <tr class="multipleOpenBtn">
+const initTable = (data) => {
+  const loadingScreen = document.getElementsByClassName("loading-screen")[0];
+  loadingScreen.style.display = "none";
+  for (let i = 0; i < data.length; i++) {
+    table.innerHTML += ` <tr class="multipleOpenBtn">
             <td class="table-id">${data[i].Id}</td>
             <td class="table-office">${data[i].Name}</td>
             <td class="table-date-created">${data[i].CreatedAt}</td>
             <td class="table-date-updated">${data[i].UpdatedAt}</td>
             </tr>`;
-      }
+  }
+};
+
+const reloadTable = (data) => {
+  const success = data === "Success" || data === "Deleted" || data == "Updated";
+  if (success) {
+    alert(`Query:${data}`);
+    //when deleted the multipleModal class is not working
+    var myTable = document.getElementById("table");
+    var rowCount = myTable.rows.length;
+    for (var x = rowCount - 1; x > 0; x--) {
+      myTable.deleteRow(x);
     }
-  };
-  xhr.send();
-}
+    config.method = "GET";
+    config.url = `${API_BASE_URL}/api/office`;
+    ajax_query(config, initTable);
+    document.getElementById("multipleModal").style.display = "none";
+  }
+};
 
-async function createOffice(values) {
-  var xhr = new XMLHttpRequest();
-  var url = `${proxy}/api/office`;
-  var httpMethod = "POST";
-  xhr.open(httpMethod, url, true);
-
-  //Send the proper header information along with the request
-  xhr.setRequestHeader("Content-type", "application/json");
-  xhr.setRequestHeader("Authorization", token);
-
-  xhr.onload = function () {
-    if (this.status == 200) {
-      var data = JSON.parse(this.responseText);
-      if (data == "Success") {
-        alert("Office Created");
-        //when deleted the multipleModal class is not working
-        var myTable = document.getElementById("table");
-        var rowCount = myTable.rows.length;
-        for (var x = rowCount - 1; x > 0; x--) {
-          myTable.deleteRow(x);
-        }
-        getAllOffice();
-        document.getElementById("multipleModal").style.display = "none";
-      }
-    } else if ((this.status = 404)) {
-      console.log("error");
-    }
-  };
-  xhr.send(JSON.stringify(values));
-}
+document.body.onload = ajax_query(config, initTable);
 
 // Form Submit
 btnSubmit.addEventListener("click", (e) => {
@@ -76,53 +59,23 @@ btnSubmit.addEventListener("click", (e) => {
     var values = {
       Name: office.value,
     };
-
-    return createOffice(values);
+    config.method = "POST";
+    return ajax_query(config, reloadTable, values);
   } catch (error) {
     console.log("error", error);
     console.log("Error");
     return;
   }
 });
-
-//Delete
-async function deleteOffice(Id) {
-  var xhr = new XMLHttpRequest();
-  var url = `${proxy}/api/office/${Id}`;
-  var httpMethod = "DELETE";
-
-  xhr.open(httpMethod, url, true);
-
-  xhr.onload = function () {
-    if (this.status == 200) {
-      var data = JSON.parse(this.responseText);
-      console.log(data);
-      if (data == "Deleted") {
-        alert("Office Deleted");
-        //when deleted the multipleModal class is not working
-        var myTable = document.getElementById("table");
-        var rowCount = myTable.rows.length;
-        for (var x = rowCount - 1; x > 0; x--) {
-          myTable.deleteRow(x);
-        }
-        getAllOffice();
-        document.getElementById("multipleModal").style.display = "none";
-      }
-    } else if ((this.status = 404)) {
-      console.log("error");
-    }
-  };
-
-  xhr.send();
-}
 
 btnDelete.addEventListener("click", (e) => {
   e.preventDefault();
 
   try {
     // Send request
-
-    return deleteOffice(id.value);
+    config.method = "DELETE";
+    config.url = `${config.url}/${id.value}`;
+    return ajax_query(config, reloadTable, id.value);
   } catch (error) {
     console.log("error", error);
     console.log("Error");
@@ -130,36 +83,6 @@ btnDelete.addEventListener("click", (e) => {
   }
 });
 
-//update
-async function updateOffice(values) {
-  //values should have id
-  var xhr = new XMLHttpRequest();
-  var url = `${proxy}/api/office`;
-  var httpMethod = "PATCH";
-
-  xhr.open(httpMethod, url);
-  xhr.setRequestHeader("Accept", "application/json");
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.onload = function () {
-    if (this.status == 200) {
-      console.log(this.responseText);
-      alert("Service Updated");
-      //when reset the multipleModal class is not working
-      var myTable = document.getElementById("table");
-      var rowCount = myTable.rows.length;
-      for (var x = rowCount - 1; x > 0; x--) {
-        myTable.deleteRow(x);
-      }
-      getAllOffice();
-      document.getElementById("multipleModal").style.display = "none";
-    } else if (this.status == 404) {
-      console.log("error");
-    } else if (this.status == 401) {
-      console.log("unauthorized");
-    }
-  };
-  xhr.send(JSON.stringify(values));
-}
 btnUpdate.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -170,8 +93,8 @@ btnUpdate.addEventListener("click", (e) => {
       Name: office.value,
       Id: id.value,
     };
-
-    return updateOffice(values);
+    config.method = "PATCH";
+    return ajax_query(config, reloadTable, values);
   } catch (error) {
     console.log("error", error);
     console.log("Error");
