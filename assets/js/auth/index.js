@@ -1,3 +1,3 @@
-import { isAuthenticated } from "./auth_manager";
+import { isAuthenticated } from "./auth_manager.js";
 
-isAuthenticated()
+isAuthenticated();

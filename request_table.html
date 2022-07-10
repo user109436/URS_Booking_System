@@ -11,19 +11,16 @@
   </head>
   <body>
     <nav>
-      <img
-          class="header_logo"
-          src="./assets/img/Logo.png"
-          alt="Logo"
-        />
+      <img class="header_logo" src="./assets/img/Logo.png" alt="Logo" />
       <ul>
-        <li><a href="/registrar.html" >Registrar</a></li>
+        <li><a href="/registrar.html">Registrar</a></li>
         <li><a href="/office_table.html">Office</a></li>
         <li><a href="/service_table.html">Services</a></li>
         <li><a href="/request_table.html" class="active">Request</a></li>
-        <li><a href="/user_table.html" >Users</a></li>
+        <li><a href="/user_table.html">Users</a></li>
         <li><a href="/request_management.html">Request Management</a></li>
-        <li><a id="logout-btn" href="#">Logout</a></li> <li>
+        <li><a id="logout-btn" href="#">Logout</a></li>
+        <li></li>
       </ul>
     </nav>
 
@@ -43,7 +40,6 @@
         </div>
 
         <tr class="bg-primary" id="table-header">
-          
           <th>Tracking ID</th>
           <th>Office</th>
           <th>Service/Request</th>
@@ -73,13 +69,12 @@
           <td class="table-date-updated">June 18, 2022 8:05 AM</td>
         </tr>
 
-        
         <tr>
           <tbody></tbody>
         </tr>
       </table>
     </div>
-    
+
     <!-- Modal Request Table-->
     <div class="modal flex" id="multipleModal" style="display: none">
       <div class="modal-box u-p-sm">
@@ -88,12 +83,11 @@
         </h1>
 
         <form id="track-request" class="flex flex-col u-p-lg w-full">
-         
           <div class="u-mt-lg">
             <label for="trakingD">Tracking ID</label>
             <input
               name="trackingID"
-              id="trackingID"
+              id="id"
               value=""
               class="form-input table-traking-id"
               placeholder="Auto"
@@ -127,7 +121,8 @@
 
           <div class="u-mt-lg">
             <label for="fileName">File Name</label>
-            <input type="type"
+            <input
+              type="type"
               name="fileName"
               id="fileName"
               class="form-input table-file"
@@ -168,7 +163,7 @@
               class="form-input table-status"
               disabled
             >
-            <option value="">Ex. Pending</option>
+              <option value="">Ex. Pending</option>
               <option value="Pending">Pending</option>
               <option value="Paid">Paid</option>
               <option value="Processing">Processing</option>
@@ -202,10 +197,10 @@
             <!-- <button type="reset" class="action-btn reset" onclick="reset()">
               Reset
             </button> -->
-            <button type="submit" class="action-btn update "  id="btnUpdate">
+            <button type="submit" class="action-btn update" id="btnUpdate">
               Update
             </button>
-            <button type="submit" class="action-btn delete" >
+            <button type="submit" class="action-btn delete">
               Delete
               <!--Alert Message -->
             </button>
@@ -213,32 +208,30 @@
               Cancel
             </button>
           </div>
-
         </form>
       </div>
     </div>
-    
+
     <!-- modal Loading Screen -->
-    <div class="loading-screen border-rounded" style="display: none;">
-        <div class="loading-screen-box">
-          <div class="loading">
-            <div class="dot">L</div>
-            <div class="dot">O</div>
-            <div class="dot">A</div>
-            <div class="dot">D</div>
-            <div class="dot">I</div>
-            <div class="dot">N</div>
-            <div class="dot">G</div>
-            <span class="text">Please Wait...</span>
-          </div>
+    <div class="loading-screen border-rounded" style="display: none">
+      <div class="loading-screen-box">
+        <div class="loading">
+          <div class="dot">L</div>
+          <div class="dot">O</div>
+          <div class="dot">A</div>
+          <div class="dot">D</div>
+          <div class="dot">I</div>
+          <div class="dot">N</div>
+          <div class="dot">G</div>
+          <span class="text">Please Wait...</span>
         </div>
       </div>
+    </div>
 
     <!-- modal Alert Box -->
-    <div class="alert-screen" id="singleModal" style="display: none;">
+    <div class="alert-screen" id="singleModal" style="display: none">
       <div class="alert-box" id="dialogOverlay">
         <div class="alert" id="dialogBox">
-
           <div class="alert-text">Message....</div>
           <div class="text">Request Successfully Created!</div>
           <div class="modal-btn crud">
@@ -246,19 +239,21 @@
               Close
             </button>
           </div>
-
         </div>
       </div>
     </div>
     <!-- <button onclick="CustomAlert()">button</button> -->
-    
   </body>
   <footer>
     <script defer src="./assets/js/auth/index.js" type="module"></script>
     <script defer src="./assets/js/script.js" type="module"></script>
     <script defer src="./assets/js/table-features.js"></script>
-    <script defer src="./assets/js/integration/registrar_request.js" type="module" ></script>
-	<script defer src="./assets/js/auth/logout.js" type="module"></script>
+    <script
+      defer
+      src="./assets/js/integration/registrar_request.js"
+      type="module"
+    ></script>
+    <script defer src="./assets/js/auth/logout.js" type="module"></script>
     <!-- <script defer src="./assets/js/alert.js"></script> -->
   </footer>
 </html>

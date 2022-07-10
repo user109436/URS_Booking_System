@@ -1,4 +1,4 @@
-import { getToken } from "../auth/auth_manager"
+import { getToken } from "../auth/auth_manager.js"
 
 
 var token = getToken();
