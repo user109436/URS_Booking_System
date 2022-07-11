@@ -1,200 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Request Management</title>
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="stylesheet" href="./assets/css/utilities.css" />
-    <link rel="stylesheet" href="./assets/css/queries.css" /> 
-    <link rel="stylesheet" href="./assets/css/request_data.css" />
-  </head>
-  <body>
-    <nav>
-      <img
-          class="header_logo"
-          src="./assets/img/Logo.png"
-          alt="Logo"
-        />
-      <ul>
-        <li><a href="/registrar.html" >Registrar</a></li>
-        <li><a href="/office_table.html">Office</a></li>
-        <li><a href="/service_table.html">Services</a></li>
-        <li><a href="/request_table.html">Request</a></li>
-        <li><a href="/user_table.html" >Users</a></li>
-        <li><a href="/request_management.html" class="active">Request Management</a></li>
-        <li><a href="/login.html">Logout</a></li> <li>
-      </ul>
-    </nav>
-    <section class="landing-page h-full  ">
-      <div class="container-80 flex flex-col">
-        <h1 class="text-center color-primary font-lg font-light u-m-y-m">
-          URS Request Management System
-        </h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Management</title>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="stylesheet" href="./assets/css/utilities.css" />
+  <link rel="stylesheet" href="./assets/css/queries.css" />
+  <link rel="stylesheet" href="./assets/css/request_data.css" />
+</head>
+
+<body>
+  <nav>
+    <img class="header_logo" src="./assets/img/Logo.png" alt="Logo" />
+    <ul>
+      <li><a href="/registrar.html">Registrar</a></li>
+      <li><a href="/office_table.html">Office</a></li>
+      <li><a href="/service_table.html">Services</a></li>
+      <li><a href="/request_table.html">Request</a></li>
+      <li><a href="/user_table.html">Users</a></li>
+      <li><a href="/request_management.html" class="active">Request Management</a></li>
+      <li><a href="/login.html">Logout</a></li>
+      <li>
+    </ul>
+  </nav>
+  <section class="landing-page h-full  ">
+    <div class="container-80 flex flex-col">
+      <h1 class="text-center color-primary font-lg font-light u-m-y-m">
+        URS Request Management System
+      </h1>
+    </div>
+
+    <!-- Tab Section for: New request, Processing , Finished -->
+    <div id="statusTabs" class="tab-section container-80">
+      <!-- New request -->
+      <input type="radio" class="tabs_radio" name="tab-status" value="3" id="NR-tab" checked>
+      <label for="NR-tab" class="tabs_label">New Request</label>
+      <!-- New request Content -->
+      <div class="tab_content NR">
+        <div class="container overflow-auto">
+          <table class="container" id="pendingRequest">
+            <div class="search-table flex flex-justify-center container">
+              <input class="form-input" type="text" name="search-table" value="" placeholder="Search Items" />
+            </div>
+            <tr class="bg-primary">
+              <th>Date Created</th>
+              <th>Request/Service</th>
+              <th>File Name</th>
+              <th>User Note</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>June 17, 2022 8:03 AM</td>
+              <td>Transcript of Records (Php 50/page) - Php 50</td>
+              <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+              <td>
+                Can I get the documents by Monday ? it's really urgent. Thanks!
+              </td>
+              <td>
+                <span class="badge border-rounded bg-pending">Pending</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+
       </div>
-         
-      <!-- Tab Section for: New request, Processing , Finished -->
-      <div id="statusTabs" class="tab-section container-80"> 
-        <!-- New request -->
-        <input type="radio" class="tabs_radio" name="tab-status" value="3" id="NR-tab" checked>
-        <label for="NR-tab" class="tabs_label">New Request</label> 
-        <!-- New request Content -->
-        <div class="tab_content NR">
-          <div class="container overflow-auto">
-            <table class="container" id="pendingRequest">
-              <div class="search-table flex flex-justify-center container">
-                <input
-                  class="form-input"
-                  type="text"
-                  name="search-table"
-                  value=""
-                  placeholder="Search Items"
-                />
-              </div>
-              <tr class="bg-primary">
-                <th>Date Created</th>
-                <th>Request/Service</th>
-                <th>File Name</th>
-                <th>User Note</th>
-                <th>Status</th>
-              </tr>
-              <tr>
-                <td>June 17, 2022 8:03 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-pending">Pending</span>
-                </td>
-              </tr>
-            </table>
-          </div>
-
-        </div>
-        <!-- Paid -->
-        <input type="radio" class="tabs_radio" name="tab-status" id="PAID-tab" >
-        <label for="PAID-tab" class="tabs_label">Paid</label>
-        <!-- Paid Content -->
-        <div class="tab_content PAID">
-          <div class="container overflow-auto">
-            <table class="container " id="paidRequest">
-              <div class="search-table flex flex-justify-center container">
-                <input
-                  class="form-input"
-                  type="text"
-                  name="search-table"
-                  value=""
-                  placeholder="Search Items"
-                />
-              </div>
-              <tr class="bg-primary">
-                <th>Date Created</th>
-                <th>Request/Service</th>
-                <th>File Name</th>
-                <th>User Note</th>
-                <th>Status</th>
-              </tr>
-              <tr>
-                <td>June 17, 2022 8:03 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-success">Paid</span>
-                </td>
-              </tr>
-            </table>
-          </div>
-
+      <!-- Paid -->
+      <input type="radio" class="tabs_radio" name="tab-status" id="PAID-tab">
+      <label for="PAID-tab" class="tabs_label">Paid</label>
+      <!-- Paid Content -->
+      <div class="tab_content PAID">
+        <div class="container overflow-auto">
+          <table class="container " id="paidRequest">
+            <div class="search-table flex flex-justify-center container">
+              <input class="form-input" type="text" name="search-table" value="" placeholder="Search Items" />
+            </div>
+            <tr class="bg-primary">
+              <th>Date Created</th>
+              <th>Request/Service</th>
+              <th>File Name</th>
+              <th>User Note</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>June 17, 2022 8:03 AM</td>
+              <td>Transcript of Records (Php 50/page) - Php 50</td>
+              <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+              <td>
+                Can I get the documents by Monday ? it's really urgent. Thanks!
+              </td>
+              <td>
+                <span class="badge border-rounded bg-success">Paid</span>
+              </td>
+            </tr>
+          </table>
         </div>
 
-        <!-- Processing -->
-        <input type="radio" class="tabs_radio" name="tab-status" id="PROC-tab" >
-        <label for="PROC-tab" class="tabs_label">Processing</label>
-          <!-- Processing Content -->
-        <div class="tab_content PROC">
-          <div class="container overflow-auto">
-            <table class="container" id="processingRequest">
-              <div class="search-table flex flex-justify-center container">
-                <input
-                  class="form-input"
-                  type="text"
-                  name="search-table"
-                  value=""
-                  placeholder="Search Items"
-                />
-              </div>
-              <tr class="bg-primary">
-                <th>Date Created</th>
-                <th>Request/Service</th>
-                <th>File Name</th>
-                <th>User Note</th>
-                <th>Status</th>
-              </tr>
-              <tr>
-                <td>June 17, 2022 8:03 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-processing">Processing</span>
-                </td>
-              </tr>
-            </table>
-          </div>
-
-        </div>
-        <!-- Finished -->  
-        <input type="radio" class="tabs_radio" name="tab-status" id="FIN-tab" >
-        <label for="FIN-tab" class="tabs_label">Finished</label>
-        <!-- Finished Content -->
-        <div class="tab_content FIN"> 
-          <div class="container overflow-auto">
-            <table class="container " id="finishedRequest">
-              <div class="search-table flex flex-justify-center container">
-                <input
-                  class="form-input"
-                  type="text"
-                  name="search-table"
-                  value=""
-                  placeholder="Search Items"
-                />
-              </div>
-              <tr class="bg-primary">
-                <th>Date Created</th>
-                <th>Request/Service</th>
-                <th>File Name</th>
-                <th>User Note</th>
-                <th>Status</th>
-              </tr>
-              <tr>
-                <td>June 17, 2022 8:03 AM</td>
-                <td>Transcript of Records (Php 50/page) - Php 50</td>
-                <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
-                <td>
-                  Can I get the documents by Monday ? it's really urgent. Thanks!
-                </td>
-                <td>
-                  <span class="badge border-rounded bg-processing">Processing</span>
-                </td>
-              </tr>
-            </table>
-          </div>
-
-        </div>
       </div>
-      
-    </section>
-    <section class="contributors">
-      <!-- TODO: Images, LinkedIn and Repo of the Project -->
-    </section>
-  </body>
-  <script defer src="./assets/js/integration/request_management.js" type="module"></script>
+
+      <!-- Processing -->
+      <input type="radio" class="tabs_radio" name="tab-status" id="PROC-tab">
+      <label for="PROC-tab" class="tabs_label">Processing</label>
+      <!-- Processing Content -->
+      <div class="tab_content PROC">
+        <div class="container overflow-auto">
+          <table class="container" id="processingRequest">
+            <div class="search-table flex flex-justify-center container">
+              <input class="form-input" type="text" name="search-table" value="" placeholder="Search Items" />
+            </div>
+            <tr class="bg-primary">
+              <th>Date Created</th>
+              <th>Request/Service</th>
+              <th>File Name</th>
+              <th>User Note</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>June 17, 2022 8:03 AM</td>
+              <td>Transcript of Records (Php 50/page) - Php 50</td>
+              <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+              <td>
+                Can I get the documents by Monday ? it's really urgent. Thanks!
+              </td>
+              <td>
+                <span class="badge border-rounded bg-processing">Processing</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+      <!-- Finished -->
+      <input type="radio" class="tabs_radio" name="tab-status" id="FIN-tab">
+      <label for="FIN-tab" class="tabs_label">Finished</label>
+      <!-- Finished Content -->
+      <div class="tab_content FIN">
+        <div class="container overflow-auto">
+          <table class="container " id="finishedRequest">
+            <div class="search-table flex flex-justify-center container">
+              <input class="form-input" type="text" name="search-table" value="" placeholder="Search Items" />
+            </div>
+            <tr class="bg-primary">
+              <th>Date Created</th>
+              <th>Request/Service</th>
+              <th>File Name</th>
+              <th>User Note</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>June 17, 2022 8:03 AM</td>
+              <td>Transcript of Records (Php 50/page) - Php 50</td>
+              <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+              <td>
+                Can I get the documents by Monday ? it's really urgent. Thanks!
+              </td>
+              <td>
+                <span class="badge border-rounded bg-processing">Processing</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <section class="contributors">
+    <!-- TODO: Images, LinkedIn and Repo of the Project -->
+  </section>
+</body>
+<script defer src="./assets/js/auth/index.js" type="module"></script>
+<script defer src="./assets/js/integration/request_management.js" type="module"></script>
+<script defer src="./assets/js/auth/logout.js" type="module"></script>
+
 </html>

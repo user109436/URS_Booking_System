@@ -104,7 +104,7 @@ trackingForm.addEventListener("submit", (e) => {
 // API Request
 async function getOffice() {
   var xhr = new XMLHttpRequest();
-  var url = `${proxy}/api/office`;
+  var url = `${proxy}/api/student-office`;
   var httpMethod = "GET";
 
   xhr.open(httpMethod, url, true);
@@ -125,7 +125,7 @@ async function getOffice() {
 
 async function getService() {
   var xhr = new XMLHttpRequest();
-  var url = `${proxy}/api/service`;
+  var url = `${proxy}/api/student-service`;
   var httpMethod = "GET";
 
   xhr.open(httpMethod, url, true);
