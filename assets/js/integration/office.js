@@ -38,7 +38,6 @@ const reloadTable = (data) => {
   const success = data === "Success" || data === "Deleted" || data == "Updated";
   if (success) {
     alert(`Query:${data}`);
-    //when deleted the multipleModal class is not working
     var myTable = document.getElementById("table");
     var rowCount = myTable.rows.length;
     for (var x = rowCount - 1; x > 0; x--) {
@@ -72,6 +71,7 @@ btnSubmit.addEventListener("click", (e) => {
   }
 });
 
+//Delete
 btnDelete.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -87,6 +87,7 @@ btnDelete.addEventListener("click", (e) => {
   }
 });
 
+//Update
 btnUpdate.addEventListener("click", (e) => {
   e.preventDefault();
 

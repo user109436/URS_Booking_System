@@ -22,7 +22,7 @@
       <li><a href="/request_table.html">Request</a></li>
       <li><a href="/user_table.html">Users</a></li>
       <li><a href="/request_management.html" class="active">Request Management</a></li>
-      <li><a href="/login.html">Logout</a></li>
+      <li><a href="/login.html" id="logout-btn">Logout</a></li>
       <li>
     </ul>
   </nav>
@@ -67,6 +67,38 @@
         </div>
 
       </div>
+       <!-- Payment Required -->
+       <input type="radio" class="tabs_radio" name="tab-status" value="3" id="PR-tab" >
+       <label for="PR-tab" class="tabs_label">Payment Required</label>
+       <!-- Payment Required Content -->
+       <div class="tab_content PR">
+         <div class="container overflow-auto">
+           <table class="container" id="paymentRequired">
+             <div class="search-table flex flex-justify-center container">
+               <input class="form-input" type="text" name="search-table" value="" placeholder="Search Items" />
+             </div>
+             <tr class="bg-primary">
+               <th>Date Created</th>
+               <th>Request/Service</th>
+               <th>File Name</th>
+               <th>User Note</th>
+               <th>Status</th>
+             </tr>
+             <tr>
+               <td>June 17, 2022 8:03 AM</td>
+               <td>Transcript of Records (Php 50/page) - Php 50</td>
+               <td><a href="#download-link">Alexandra Daddario - Request.pdf</a></td>
+               <td>
+                 Can I get the documents by Monday ? it's really urgent. Thanks!
+               </td>
+               <td>
+                 <span class="badge border-rounded bg-pending">Payment Required</span>
+               </td>
+             </tr>
+           </table>
+         </div>
+ 
+       </div>
       <!-- Paid -->
       <input type="radio" class="tabs_radio" name="tab-status" id="PAID-tab">
       <label for="PAID-tab" class="tabs_label">Paid</label>
@@ -157,7 +189,7 @@
                 Can I get the documents by Monday ? it's really urgent. Thanks!
               </td>
               <td>
-                <span class="badge border-rounded bg-processing">Processing</span>
+                <span class="badge border-rounded bg-processing">Finished</span>
               </td>
             </tr>
           </table>
@@ -167,6 +199,21 @@
     </div>
 
   </section>
+   <!-- modal Loading Screen -->
+    <div class="loading-screen" style="display: none">
+      <div class="loading-screen-box">
+        <div class="loading">
+          <div class="dot">L</div>
+          <div class="dot">O</div>
+          <div class="dot">A</div>
+          <div class="dot">D</div>
+          <div class="dot">I</div>
+          <div class="dot">N</div>
+          <div class="dot">G</div>
+          <span class="text">Please Wait...</span>
+        </div>
+      </div>
+    </div>
   <section class="contributors">
     <!-- TODO: Images, LinkedIn and Repo of the Project -->
   </section>

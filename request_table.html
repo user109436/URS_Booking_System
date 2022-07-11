@@ -51,7 +51,7 @@
           <th>Date Updated</th>
         </tr>
 
-        <tr class="multipleOpenBtn">
+        <!-- <tr class="multipleOpenBtn">
           <td class="table-traking-id">321654987789</td>
           <td class="table-office">Registrar</td>
           <td class="table-services">Scholastic Records</td>
@@ -67,7 +67,7 @@
           </td>
           <td class="table-date-created">June 18, 2022 8:05 AM</td>
           <td class="table-date-updated">June 18, 2022 8:05 AM</td>
-        </tr>
+        </tr> -->
 
         <tr>
           <tbody></tbody>
@@ -76,7 +76,7 @@
     </div>
 
     <!-- Modal Request Table-->
-    <div class="modal flex" id="multipleModal" style="display: none">
+    <div class="modal flex multipleOpenBtn" id="multipleModal" style="display: none">
       <div class="modal-box u-p-sm">
         <h1 class="text-center font-lg color-primary text-center u-m-y-m">
           Request Form
@@ -84,12 +84,20 @@
 
         <form id="track-request" class="flex flex-col u-p-lg w-full">
           <div class="u-mt-lg">
-            <label for="trakingD">Tracking ID</label>
+            <label for="trakingID">Tracking ID</label>
             <input
-              name="trackingID"
+              name="ID"
               id="id"
               value=""
-              class="form-input table-traking-id"
+              class="form-input table-id"
+              placeholder="Auto"
+              hidden
+            />
+            <input
+              name="trackingID"
+              id="trackingId"
+              value=""
+              class="form-input table-tracking-id"
               placeholder="Auto"
               disabled
             />
@@ -125,7 +133,7 @@
               type="type"
               name="fileName"
               id="fileName"
-              class="form-input table-file"
+              class="form-input table-fileName"
               placeholder="John Doe - Request.pdf"
               disabled
             />
@@ -161,13 +169,13 @@
               name="status"
               id="status"
               class="form-input table-status"
-              disabled
+              
             >
-              <option value="">Ex. Pending</option>
-              <option value="Pending">Pending</option>
-              <option value="Paid">Paid</option>
-              <option value="Processing">Processing</option>
-              <option value="Finished">Finished</option>
+            <option value="1">Paid</option>
+            <option value="2">Processing</option>
+            <option value="3">Pending</option>
+            <option value="4">Payment Required</option>
+            <option value="5">Finished</option>
             </select>
           </div>
 
@@ -242,7 +250,7 @@
         </div>
       </div>
     </div>
-    <!-- <button onclick="CustomAlert()">button</button> -->
+
   </body>
   <footer>
     <script defer src="./assets/js/auth/index.js" type="module"></script>
@@ -250,7 +258,7 @@
     <script defer src="./assets/js/table-features.js" type="module"></script>
     <script
       defer
-      src="./assets/js/integration/registrar_request.js"
+      src="./assets/js/integration/request.js"
       type="module"
     ></script>
     <script defer src="./assets/js/auth/logout.js" type="module"></script>
