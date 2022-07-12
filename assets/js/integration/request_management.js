@@ -5,271 +5,155 @@ import { multipleModalInit } from "../utilities.js";
 import { tableSearchInit } from "../table-features.js";
 
 var token = getToken();
-var pending = document.getElementById('pendingRequest');
-var paid = document.getElementById('paidRequest');
-var processing = document.getElementById('processingRequest');
-var finished = document.getElementById('finishedRequest');
-var paymentRequired = document.getElementById('paymentRequired');
-var statusId={paid:1,processing:2,pending:3,paymentRequired:4,finished:5}
-const config = {
-    method: "GET",
-    url: `${API_BASE_URL}/api/all-request-aggregated/status`,
-    async: true,
-    headerNames: ["Content-type", "Authorization"],
-    headerValues: ["application/json", token],
-  };
-
-  
-
-  loadFinish();
-  loadPaid();
-  loadPaymentRequired();
-  loadProcessing();
-  loadPending();
-async function loadPending(){
-    config.url = `${API_BASE_URL}/api/all-request-aggregated/status/${statusId.pending}`;
-
-    const initTable = (data) => {
-        const loadingScreen = document.getElementsByClassName("loading-screen")[0];
+var proxy = "https://localhost:44310";
+var tabsRadio = document.getElementsByClassName("tabs_radio");
+var status = document.getElementById('status');
+var officeNote = document.getElementById('office_note');
+var btnUpdate = document.getElementById('btnUpdate');
+var id = document.getElementById('id');
+async function getRequest(id,className) {
+    
+    var xhr = new XMLHttpRequest();
+    var url = `${proxy}/api/all-request-aggregated/status/${id}`
+    xhr.open("GET", url, true);
+    xhr.setRequestHeader('Authorization', token);
+    xhr.onload = function () {
+    if (this.status == 200) {
+        const loadingScreen =
+        document.getElementsByClassName("loading-screen")[0];
         loadingScreen.style.display = "none";
+        var data = JSON.parse(this.responseText);
+        console.log(data);
+
+        const table = document.getElementById(className);
         for (let i = 0; i < data.length; i++) {
-        pending.innerHTML += ` <tr class="multipleOpenBtn">
+            table.innerHTML += ` <tr class="multipleOpenBtn">
+            <td class="table-id" hidden>${data[i].Id}</td>
             <td class="table-createdAt">${data[i].CreatedAt}</td>
             <td class="table-service">${data[i].Service}</td>
             <td class="table-fileName">${data[i].FileName}</td>
-            <td class="table-userNote">${data[i].UserNote}</td>
+			<td class="table-userNote">${data[i].UserNote}</td>
+            <td class="table-officeNote">${data[i].OfficeNote}</td>
             <td class="table-status">${data[i].Status}</td>
             
-         </tr>`;
+            </tr>`;
         }
         multipleModalInit();
         tableSearchInit();
-      };
-      document.body.onload = ajax_query(config, initTable);
+    }
+    };
+
+    xhr.send();
 }
+const array = Array.from(tabsRadio)
+array.forEach(el => {
 
-async function loadPaid(){
-    config.url = `${API_BASE_URL}/api/all-request-aggregated/status/${statusId.paid}`;
+    el.addEventListener("click",()=> {
+    if(el.value == 1){
+        getRequest(el.value,"paidRequest");
+        var myTable = document.getElementById("paidRequest");
+        var rowCount = myTable.rows.length;
+        for (var x = rowCount - 1; x > 0; x--) {
+        myTable.deleteRow(x);
+    }
+    
+    }else  if(el.value == 2){
+        getRequest(el.value,"processingRequest");
+        var myTable = document.getElementById("processingRequest");
+        var rowCount = myTable.rows.length;
+        for (var x = rowCount - 1; x > 0; x--) {
+        myTable.deleteRow(x);
+    }
+    
+    }else  if(el.value == 3){
+        getRequest(el.value,"pendingRequest");
+        var myTable = document.getElementById("pendingRequest");
+        var rowCount = myTable.rows.length;
+        for (var x = rowCount - 1; x > 0; x--) {
+        myTable.deleteRow(x);
+    }
+    
+    }else  if(el.value == 4){
+        getRequest(el.value,"paymentRequired");
+        var myTable = document.getElementById("paymentRequired");
+        var rowCount = myTable.rows.length;
+        for (var x = rowCount - 1; x > 0; x--) {
+        myTable.deleteRow(x);
+    }
+        
+    }else  if(el.value == 5){
+        getRequest(el.value,"finishedRequest");
+        var myTable = document.getElementById("finishedRequest");
+        var rowCount = myTable.rows.length;
+        for (var x = rowCount - 1; x > 0; x--) {
+        myTable.deleteRow(x);
+    }
+    
+    }
+    })
+})
 
-    const initTable = (data) => {
-        const loadingScreen = document.getElementsByClassName("loading-screen")[0];
-        loadingScreen.style.display = "none";
-        for (let i = 0; i < data.length; i++) {
-        paid.innerHTML += ` <tr class="multipleOpenBtn">
-            <td class="table-createdAt">${data[i].CreatedAt}</td>
-            <td class="table-service">${data[i].Service}</td>
-            <td class="table-fileName">${data[i].FileName}</td>
-            <td class="table-userNote">${data[i].UserNote}</td>
-            <td class="table-status">${data[i].Status}</td>
-            
-         </tr>`;
-        }
-        multipleModalInit();
-        tableSearchInit();
-      };
-      document.body.onload = ajax_query(config, initTable);
+//Update
+async function updateRequest(values) {
+	//values should have id
+	var xhr = new XMLHttpRequest();
+	var url = `${proxy}/api/request`
+	var httpMethod = 'PATCH'
+
+	xhr.open(httpMethod, url, true);
+xhr.setRequestHeader("Accept", "application/json");
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader('Authorization', token);
+	xhr.onload = function () {
+		if (this.status == 200) {
+			var data = JSON.parse(this.responseText);
+			console.log(data)
+    alert('Request Updated');
+      //when reset the multipleModal class is not working
+    document.getElementById('multipleModal').style.display = "none";
+		}
+		else if (this.status == 404) {
+			console.log("error")
+		}
+		else if (this.status == 401) {
+			console.log("unauthorized")
+		}
+	}
+
+	xhr.send(JSON.stringify(values));
 }
+if (btnUpdate){btnUpdate.addEventListener("click", (e) => {
+e.preventDefault()
 
-async function loadProcessing(){
-    config.url = `${API_BASE_URL}/api/all-request-aggregated/status/${statusId.processing}`;
-
-    const initTable = (data) => {
-        const loadingScreen = document.getElementsByClassName("loading-screen")[0];
-        loadingScreen.style.display = "none";
-        for (let i = 0; i < data.length; i++) {
-        processing.innerHTML += ` <tr class="multipleOpenBtn">
-            <td class="table-createdAt">${data[i].CreatedAt}</td>
-            <td class="table-service">${data[i].Service}</td>
-            <td class="table-fileName">${data[i].FileName}</td>
-            <td class="table-userNote">${data[i].UserNote}</td>
-            <td class="table-status">${data[i].Status}</td>
-            
-         </tr>`;
-        }
-        multipleModalInit();
-        tableSearchInit();
-      };
-      document.body.onload = ajax_query(config, initTable);
+try {	
+// Send request
+var values = {
+    Id : id.value,
+    OfficeNote: officeNote.value,
+    StatusId:convert(status.value)
+};
+    console.log(values);
+    
+    return updateRequest(values)
+    
+        
+} catch (error) {
+    console.log("error", error)
+    console.log("Error")
+    return;
 }
+})}
 
-async function loadPaymentRequired(){
-    config.url = `${API_BASE_URL}/api/all-request-aggregated/status/${statusId.paymentRequired}`;
-
-    const initTable = (data) => {
-        const loadingScreen = document.getElementsByClassName("loading-screen")[0];
-        loadingScreen.style.display = "none";
-        for (let i = 0; i < data.length; i++) {
-        paymentRequired.innerHTML += ` <tr class="multipleOpenBtn">
-            <td class="table-createdAt">${data[i].CreatedAt}</td>
-            <td class="table-service">${data[i].Service}</td>
-            <td class="table-fileName">${data[i].FileName}</td>
-            <td class="table-userNote">${data[i].UserNote}</td>
-            <td class="table-status">${data[i].Status}</td>
-            
-         </tr>`;
-        }
-        multipleModalInit();
-        tableSearchInit();
-      };
-      document.body.onload = ajax_query(config, initTable);
+function convert(value){
+    if(value=="Paid"){
+    return 1;
+    }else if(value=="Processing"){
+    return 2;
+    }else if(value=="Pending"){
+    return 3;
+    }else if(value=="Payment Required"){
+    return 4;
+    }else if(value=="Finished"){
+    return 5;
+    }
 }
-
-async function loadFinish(){
-    config.url = `${API_BASE_URL}/api/all-request-aggregated/status/${statusId.finished}`;
-
-    const initTable = (data) => {
-        const loadingScreen = document.getElementsByClassName("loading-screen")[0];
-        loadingScreen.style.display = "none";
-        for (let i = 0; i < data.length; i++) {
-        finished.innerHTML += ` <tr class="multipleOpenBtn">
-            <td class="table-createdAt">${data[i].CreatedAt}</td>
-            <td class="table-service">${data[i].Service}</td>
-            <td class="table-fileName">${data[i].FileName}</td>
-            <td class="table-userNote">${data[i].UserNote}</td>
-            <td class="table-status">${data[i].Status}</td>
-            
-         </tr>`;
-        }
-        multipleModalInit();
-        tableSearchInit();
-      };
-      document.body.onload = ajax_query(config, initTable);
-}
-
-
-
-//start all
-// getRequestPending();
-// getRequestPaid();
-// getRequestProcessing();
-// getRequestFinished();
-
-// async function getRequestPending() {
-    
-//     var xhr = new XMLHttpRequest();
-//     var url = `${proxy}/api/all-request-aggregated/status/3`
-//     xhr.open("GET", url, true);
-//     xhr.setRequestHeader('Authorization', token);
-//     xhr.onload = function () {
-//     if (this.status == 200) {
-//         // const loadingScreen =
-//         // document.getElementsByClassName("loading-screen")[0];
-//         // loadingScreen.style.display = "none";
-//         var data = JSON.parse(this.responseText);
-        
-        // console.log(data);
-        // for (let i = 0; i < data.length; i++) {
-        //     pending.innerHTML += ` <tr class="multipleOpenBtn">
-        //     <td class="table-createdAt">${data[i].CreatedAt}</td>
-        //     <td class="table-service">${data[i].Service}</td>
-        //     <td class="table-fileName">${data[i].FileName}</td>
-		// 	<td class="table-userNote">${data[i].UserNote}</td>
-        //     <td class="table-status">${data[i].Status}</td>
-            
-        //     </tr>`;
-            
-        
-//         }
-    
-//     }
-//     };
-
-//     xhr.send();
-// }
-// async function getRequestPaid() {
-    
-//     var xhr = new XMLHttpRequest();
-//     var url = `${proxy}/api/all-request-aggregated/status/1`
-//     xhr.open("GET", url, true);
-//     xhr.setRequestHeader('Authorization', token);
-//     xhr.onload = function () {
-//     if (this.status == 200) {
-//         // const loadingScreen =
-//         // document.getElementsByClassName("loading-screen")[0];
-//         // loadingScreen.style.display = "none";
-//         var data = JSON.parse(this.responseText);
-        
-//         console.log(data);
-//         for (let i = 0; i < data.length; i++) {
-//             paid.innerHTML += ` <tr class="multipleOpenBtn">
-//             <td class="table-createdAt">${data[i].CreatedAt}</td>
-//             <td class="table-service">${data[i].Service}</td>
-//             <td class="table-fileName">${data[i].FileName}</td>
-// 			<td class="table-userNote">${data[i].UserNote}</td>
-//             <td class="table-status">${data[i].Status}</td>
-            
-//             </tr>`;
-            
-        
-//         }
-    
-//     }
-//     };
-
-//     xhr.send();
-// }
-// async function getRequestProcessing() {
-    
-//     var xhr = new XMLHttpRequest();
-//     var url = `${proxy}/api/all-request-aggregated/status/2`
-//     xhr.open("GET", url, true);
-//     xhr.setRequestHeader('Authorization', token);
-//     xhr.onload = function () {
-//     if (this.status == 200) {
-//         // const loadingScreen =
-//         // document.getElementsByClassName("loading-screen")[0];
-//         // loadingScreen.style.display = "none";
-//         var data = JSON.parse(this.responseText);
-        
-//         console.log(data);
-//         for (let i = 0; i < data.length; i++) {
-//             processing.innerHTML += ` <tr class="multipleOpenBtn">
-//             <td class="table-createdAt">${data[i].CreatedAt}</td>
-//             <td class="table-service">${data[i].Service}</td>
-//             <td class="table-fileName">${data[i].FileName}</td>
-// 			<td class="table-userNote">${data[i].UserNote}</td>
-//             <td class="table-status">${data[i].Status}</td>
-            
-//             </tr>`;
-            
-        
-//         }
-    
-//     }
-//     };
-
-//     xhr.send();
-// }
-// async function getRequestFinished() {
-    
-//     var xhr = new XMLHttpRequest();
-//     var url = `${proxy}/api/all-request-aggregated/status/4`
-//     xhr.open("GET", url, true);
-//     xhr.setRequestHeader('Authorization', token);
-//     xhr.onload = function () {
-//     if (this.status == 200) {
-//         // const loadingScreen =
-//         // document.getElementsByClassName("loading-screen")[0];
-//         // loadingScreen.style.display = "none";
-//         var data = JSON.parse(this.responseText);
-        
-//         console.log(data);
-//         for (let i = 0; i < data.length; i++) {
-//             finished.innerHTML += ` <tr class="multipleOpenBtn">
-//             <td class="table-createdAt">${data[i].CreatedAt}</td>
-//             <td class="table-service">${data[i].Service}</td>
-//             <td class="table-fileName">${data[i].FileName}</td>
-// 			<td class="table-userNote">${data[i].UserNote}</td>
-//             <td class="table-status">${data[i].Status}</td>
-            
-//             </tr>`;
-            
-        
-//         }
-    
-//     }
-//     };
-
-//     xhr.send();
-// }
-// console.log(token);

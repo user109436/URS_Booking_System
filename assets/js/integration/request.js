@@ -47,7 +47,7 @@ const initTable = (data) => {
       <td class="table-date-updated">${data[i].UpdatedAt}</td>
     </tr>`;
   }
-  console.log(data[0].Id);
+  
   multipleModalInit();
   tableSearchInit();
 };

@@ -79,6 +79,7 @@ btnDelete.addEventListener("click", (e) => {
     // Send request
     config.method = "DELETE";
     config.url = `${config.url}/${id.value}`;
+    console.log(id.value);
     return ajax_query(config, reloadTable, id.value);
   } catch (error) {
     console.log("error", error);
