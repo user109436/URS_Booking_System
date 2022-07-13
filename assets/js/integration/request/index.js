@@ -256,6 +256,12 @@ async function createRequest(values) {
   xhr.onload = function () {
     if (this.status == 200) {
       var data = JSON.parse(this.responseText);
+      const message = document.getElementById('message');
+      if(message){
+        message.innerHTML=`Tracking ID: ${data}`;
+        userNote.value ="";
+        file.value = "";
+      }
       console.log(data);
     } else if (this.status == 404) {
       console.log("error");

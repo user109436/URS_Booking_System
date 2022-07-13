@@ -9,6 +9,7 @@ var btnDelete = document.getElementById("btnDelete");
 var id = document.getElementById("id");
 var btnSubmit = document.getElementById("btnSubmit");
 var btnUpdate = document.getElementById("btnUpdate");
+var reset = document.getElementById('btnReset');
 var token = getToken();
 
 const config = {
@@ -22,13 +23,13 @@ const config = {
 const initTable = (data) => {
   const loadingScreen = document.getElementsByClassName("loading-screen")[0];
   loadingScreen.style.display = "none";
-  
-    table.innerHTML += ` <tr class="multipleOpenBtn">
-            <td class="table-id" hidden>${data[0].Id}</td>
-            <td class="table-office">${data[0].Name}</td>
-            <td class="table-date-created">${new Date(data[0].CreatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
-            <td class="table-date-updated">${new Date(data[0].UpdatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
-            </tr>`;
+  for(let i = 0; i < data.length; i++){table.innerHTML += ` <tr class="multipleOpenBtn">
+  <td class="table-id" hidden>${data[i].Id}</td>
+  <td class="table-office">${data[i].Name}</td>
+  <td class="table-date-created">${new Date(data[i].CreatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
+  <td class="table-date-updated">${new Date(data[i].UpdatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
+  </tr>`;}
+    
   
   console.log(data)
   multipleModalInit();
@@ -108,3 +109,10 @@ btnUpdate.addEventListener("click", (e) => {
     return;
   }
 });
+
+btnSubmit.disabled =true;
+
+reset.addEventListener('click',function(){
+  btnSubmit.disabled = false;
+
+})

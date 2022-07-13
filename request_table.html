@@ -149,17 +149,31 @@
           <div class="u-mt-lg">
             <label for="status">status</label>
             <select
-              name="status"
-              id="status"
-              class="form-input table-status"
-              
-            >
-            <option value="1">Paid</option>
-            <option value="2">Processing</option>
-            <option value="3">Pending</option>
-            <option value="4">Payment Required</option>
-            <option value="5">Finished</option>
-            </select>
+            name="status"
+            id="status"
+            class="form-input table-status"
+            required
+          >
+          <option value="Paid" 
+          data-status-id="1"
+          >Paid</option>
+
+          <option value="Processing"
+          data-status-id="2"
+          >Processing</option>
+
+          <option value="Pending"
+          data-status-id="3"
+          >Pending</option>
+
+          <option value="Payment Required"
+          data-status-id="4"           
+          >Payment Required</option>
+
+          <option value="Finished"
+          data-status-id="5"
+          >Finished</option>
+          </select>
           </div>
 
           <div class="u-mt-lg">
@@ -191,10 +205,7 @@
             <button type="submit" class="action-btn update" id="btnUpdate">
               Update
             </button>
-            <button type="submit" class="action-btn delete">
-              Delete
-              <!--Alert Message -->
-            </button>
+            
             <button class="action-btn cancel" id="multipleCloseBtn">
               Cancel
             </button>

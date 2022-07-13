@@ -139,7 +139,7 @@
             required
           />
 
-          <label for="password" class="w-full">Password:</label>
+          <label for="password" class="w-full">Password:(8 characters, one capital and one small letter, one number and one special character)</label>
           <input
             name="password"
             type="password"
@@ -170,8 +170,7 @@
           class="form-input table-office"
           required
         >       
-          <!-- <option value="1">Admin</option>
-          <option value="2">Officer</option> -->
+          
           
         </select>
           <label for="createdAt" class="w-full" disabled>Created At</label>
@@ -196,7 +195,7 @@
             <button type="submit"  id="btnSubmit" class="action-btn add">
               Create
             </button>
-            <button type="reset" class="action-btn reset" onclick="reset()">
+            <button type="reset" id="btnReset" class="action-btn reset" onclick="reset()">
               Reset
             </button>
             <button type="submit" id="btnUpdate" class="action-btn update">

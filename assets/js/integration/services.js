@@ -11,7 +11,10 @@ var id = document.getElementById('id');
 var fee = document.getElementById('fee');
 var btnSubmit = document.getElementById('btnSubmit');
 var btnUpdate = document.getElementById('btnUpdate');
+var reset = document.getElementById('btnReset');
 var token = getToken()
+
+
 
 const config = {
   method: "GET",
@@ -113,4 +116,8 @@ btnUpdate.addEventListener("click", (e) => {
   }
 });
 
+btnSubmit.disabled =true;
+reset.addEventListener('click',function(){
+  btnSubmit.disabled = false;
 
+})

@@ -16,9 +16,10 @@ var btnDelete = document.getElementById("btnDelete");
 var id = document.getElementById("inputId");
 var btnUpdate = document.getElementById("btnUpdate");
 var office = document.getElementById("inputOffice");
+var reset = document.getElementById('btnReset');
 var token = getToken();
 var proxy = "https://localhost:44310";
-
+console.log(token);
 const config = {
   method: "GET",
   url: `${API_BASE_URL}/api/user-aggregated`,
@@ -154,3 +155,9 @@ async function getOffice() {
 
   xhr.send();
 }
+
+btnSubmit.disabled =true;
+reset.addEventListener('click',function(){
+  btnSubmit.disabled = false;
+
+})

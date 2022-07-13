@@ -1,6 +1,4 @@
 import { getToken } from "../auth/auth_manager.js";
-import { API_BASE_URL } from "../constants/ApiConstant.js";
-import { ajax_query } from "../ajax_crud.js";
 import { multipleModalInit } from "../utilities.js";
 import { tableSearchInit } from "../table-features.js";
 
@@ -11,6 +9,8 @@ var status = document.getElementById('status');
 var officeNote = document.getElementById('office_note');
 var btnUpdate = document.getElementById('btnUpdate');
 var id = document.getElementById('id');
+document.body.onload=getRequest(3,"pendingRequest");
+
 async function getRequest(id,className) {
     
     var xhr = new XMLHttpRequest();
@@ -26,6 +26,11 @@ async function getRequest(id,className) {
         console.log(data);
 
         const table = document.getElementById(className);
+        var rowCount = table.rows.length;
+        for (var x = rowCount - 1; x > 0; x--) {
+
+        table.deleteRow(x);
+    }
         for (let i = 0; i < data.length; i++) {
             table.innerHTML += ` <tr class="multipleOpenBtn">
             <td class="table-id" hidden>${data[i].Id}</td>
@@ -35,12 +40,13 @@ async function getRequest(id,className) {
 			<td class="table-userNote">${data[i].UserNote}</td>
             <td class="table-officeNote">${data[i].OfficeNote}</td>
             <td class="table-status">${data[i].Status}</td>
-            
             </tr>`;
         }
         multipleModalInit();
         tableSearchInit();
+
     }
+      
     };
 
     xhr.send();
@@ -51,48 +57,28 @@ array.forEach(el => {
     el.addEventListener("click",()=> {
     if(el.value == 1){
         getRequest(el.value,"paidRequest");
-        var myTable = document.getElementById("paidRequest");
-        var rowCount = myTable.rows.length;
-        for (var x = rowCount - 1; x > 0; x--) {
-        myTable.deleteRow(x);
-    }
-    
     }else  if(el.value == 2){
         getRequest(el.value,"processingRequest");
-        var myTable = document.getElementById("processingRequest");
-        var rowCount = myTable.rows.length;
-        for (var x = rowCount - 1; x > 0; x--) {
-        myTable.deleteRow(x);
-    }
+        
+    
     
     }else  if(el.value == 3){
         getRequest(el.value,"pendingRequest");
-        var myTable = document.getElementById("pendingRequest");
-        var rowCount = myTable.rows.length;
-        for (var x = rowCount - 1; x > 0; x--) {
-        myTable.deleteRow(x);
-    }
-    
+        
+        
     }else  if(el.value == 4){
         getRequest(el.value,"paymentRequired");
-        var myTable = document.getElementById("paymentRequired");
-        var rowCount = myTable.rows.length;
-        for (var x = rowCount - 1; x > 0; x--) {
-        myTable.deleteRow(x);
-    }
+    
+    
         
     }else  if(el.value == 5){
         getRequest(el.value,"finishedRequest");
-        var myTable = document.getElementById("finishedRequest");
-        var rowCount = myTable.rows.length;
-        for (var x = rowCount - 1; x > 0; x--) {
-        myTable.deleteRow(x);
-    }
+      
     
+
     }
     })
 })
-
 //Update
 async function updateRequest(values) {
 	//values should have id
@@ -133,9 +119,13 @@ var values = {
     StatusId:convert(status.value)
 };
     console.log(values);
-    
-    return updateRequest(values)
-    
+    updateRequest(values);
+    getRequest(1,"paidRequest")
+    getRequest(2,"processingRequest")
+    getRequest(3,"pendingRequest")
+    getRequest(4,"paymentRequired")
+    getRequest(5,"finishedRequest")
+    return true;
         
 } catch (error) {
     console.log("error", error)
@@ -157,3 +147,4 @@ function convert(value){
     return 5;
     }
 }
+
