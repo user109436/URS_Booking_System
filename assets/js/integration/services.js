@@ -26,11 +26,11 @@ const initTable = (data) => {
   loadingScreen.style.display = "none";
   for (let i = 0; i < data.length; i++) {
     table.innerHTML +=  ` <tr class="multipleOpenBtn">
-    <td class="table-id">${data[i].Id}</td>
+    <td class="table-id" hidden>${data[i].Id}</td>
     <td class="table-services">${data[i].Name}</td>
     <td class="table-fee">${data[i].Fee}</td>
-    <td class="table-date-created">${data[i].CreatedAt}</td>
-    <td class="table-date-updated">${data[i].UpdatedAt}</td>
+    <td class="table-date-created">${new Date(data[i].CreatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
+    <td class="table-date-updated">${new Date(data[i].UpdatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
     </tr>`;
   }
   multipleModalInit();

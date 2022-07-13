@@ -22,14 +22,15 @@ const config = {
 const initTable = (data) => {
   const loadingScreen = document.getElementsByClassName("loading-screen")[0];
   loadingScreen.style.display = "none";
-  for (let i = 0; i < data.length; i++) {
+  
     table.innerHTML += ` <tr class="multipleOpenBtn">
-            <td class="table-id">${data[i].Id}</td>
-            <td class="table-office">${data[i].Name}</td>
-            <td class="table-date-created">${data[i].CreatedAt}</td>
-            <td class="table-date-updated">${data[i].UpdatedAt}</td>
+            <td class="table-id" hidden>${data[0].Id}</td>
+            <td class="table-office">${data[0].Name}</td>
+            <td class="table-date-created">${new Date(data[0].CreatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
+            <td class="table-date-updated">${new Date(data[0].UpdatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
             </tr>`;
-  }
+  
+  console.log(data)
   multipleModalInit();
   tableSearchInit();
 };

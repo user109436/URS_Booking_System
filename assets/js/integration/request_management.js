@@ -29,7 +29,7 @@ async function getRequest(id,className) {
         for (let i = 0; i < data.length; i++) {
             table.innerHTML += ` <tr class="multipleOpenBtn">
             <td class="table-id" hidden>${data[i].Id}</td>
-            <td class="table-createdAt">${data[i].CreatedAt}</td>
+            <td class="table-createdAt">${new Date(data[i].CreatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
             <td class="table-service">${data[i].Service}</td>
             <td class="table-fileName">${data[i].FileName}</td>
 			<td class="table-userNote">${data[i].UserNote}</td>

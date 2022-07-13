@@ -32,17 +32,18 @@ const initTable = (data) => {
   loadingScreen.style.display = "none";
   for (let i = 0; i < data.length; i++) {
     table.innerHTML += ` <tr class="multipleOpenBtn">
-      <td class="table-id">${data[i].Id}</td>
+      <td class="table-id" hidden>${data[i].Id}</td>
       <td class="table-first-name">${data[i].FirstName}</td>
       <td class="table-last-name">${data[i].LastName}</td>
       <td class="table-email">${data[i].Email}</td>
-      <td class="password">${data[i].Password}</td>
+      <td class="password" hidden>${data[i].Password}</td>
       <td class="table-role">${data[i].Role}</td>
       <td class="table-office">${data[i].Office}</td>
-      <td class="table-date-created">${data[i].CreatedAt}</td>
-      <td class="table-date-updated">${data[i].UpdatedAt}</td>
+      <td class="table-date-created">${new Date(data[i].CreatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
+      <td class="table-date-updated">${new Date(data[i].UpdatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
       </tr>`;
   }
+  console.log(data);
   multipleModalInit();
   tableSearchInit();
 };
@@ -130,7 +131,6 @@ btnUpdate.addEventListener("click", (e) => {
     return;
   }
 });
-
 
 getOffice();
 

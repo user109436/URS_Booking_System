@@ -43,8 +43,8 @@ const initTable = (data) => {
       <td class="table-user-note">${data[i].UserNote}</td>
       <td class="table-office-note">${data[i].OfficeNote}</td>
       <td class="table-status">${data[i].Status}</td>
-      <td class="table-date-created">${data[i].CreatedAt}</td>
-      <td class="table-date-updated">${data[i].UpdatedAt}</td>
+      <td class="table-date-created">${new Date(data[i].CreatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
+      <td class="table-date-updated">${new Date(data[i].UpdatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
     </tr>`;
   }
   
