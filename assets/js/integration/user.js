@@ -121,8 +121,10 @@ btnUpdate.addEventListener("click", (e) => {
       Email: email.value,
       Password: password.value,
       RoleID: parseInt(role.value),
-      Id: parseInt(id.value)
+      Id: parseInt(id.value),
+      OfficeId: office.value
     };
+    console.log(values);
     config.method = "PATCH";
     config.url = `${API_BASE_URL}/api/user`;
     return ajax_query(config, reloadTable, values);

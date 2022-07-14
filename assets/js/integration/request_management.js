@@ -120,11 +120,11 @@ var values = {
 };
     console.log(values);
     updateRequest(values);
-    getRequest(1,"paidRequest")
-    getRequest(2,"processingRequest")
-    getRequest(3,"pendingRequest")
-    getRequest(4,"paymentRequired")
-    getRequest(5,"finishedRequest")
+    getRequest(1,"paidRequest");
+    getRequest(2,"processingRequest");
+    getRequest(3,"pendingRequest");
+    getRequest(4,"paymentRequired");
+    getRequest(5,"finishedRequest");
     return true;
         
 } catch (error) {
