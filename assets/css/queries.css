@@ -5,3 +5,14 @@
         display: none;
     }
 }
+@media only screen and (max-width:1023px) {
+
+    /*TODO:REMOVE FEATURES SIDE ON LOGIN WHEN SCREEN GETS SMALLER */
+    nav {
+        text-align: center;
+    }
+
+    nav ul {
+        float: none;
+    }
+}
