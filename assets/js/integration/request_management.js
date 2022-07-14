@@ -43,7 +43,12 @@ async function getRequest(id,className) {
             </tr>`;
         }
         multipleModalInit();
-        tableSearchInit();
+        tableSearchInit("paidRequest");
+        tableSearchInit("processingRequest");
+        tableSearchInit("pendingRequest");
+        tableSearchInit("paymentRequired");
+        tableSearchInit("finishedRequest");
+
 
     }
       
