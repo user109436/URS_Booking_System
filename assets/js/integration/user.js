@@ -37,7 +37,7 @@ const initTable = (data) => {
       <td class="table-first-name">${data[i].FirstName}</td>
       <td class="table-last-name">${data[i].LastName}</td>
       <td class="table-email">${data[i].Email}</td>
-      <td class="password" hidden>${data[i].Password}</td>
+      <td  hidden>${data[i].Password}</td>
       <td class="table-role">${data[i].Role}</td>
       <td class="table-office">${data[i].Office}</td>
       <td class="table-date-created">${new Date(data[i].CreatedAt).toUTCString().split(' ').slice(0, 4).join(' ')}</td>
@@ -120,7 +120,7 @@ btnUpdate.addEventListener("click", (e) => {
       LastName: lastName.value,
       Email: email.value,
       Password: password.value,
-      RoleID: parseInt(role.value),
+      RoleId: parseInt(role.value),
       Id: parseInt(id.value),
       OfficeId: office.value
     };
